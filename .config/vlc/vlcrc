@@ -2250,7 +2250,7 @@ qt-privacy-ask=0
 #alsa-audio-channels=6
 
 # Software gain (float)
-#alsa-gain=1.000000
+alsa-gain=1.685159
 
 [panoramix] # Panoramix: wall with overlap video filter
 

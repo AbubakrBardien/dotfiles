@@ -9,8 +9,6 @@ import = [
 	#"~/.config/alacritty/themes/themes/hyper.toml" (Perfect blue color for Arch logo)
 ]
 
-working_directory = "/home/abubakr/Desktop"
-
 [font]
 normal.family = "0xProto Nerd Font Mono"
 size = 12
