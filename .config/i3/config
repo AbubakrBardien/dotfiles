@@ -60,7 +60,7 @@ bindsym $mod+Shift+q kill
 
 # Rofi Shortcuts
 #bindsym $super+a exec --no-startup-id rofi -show window
-bindsym $super+a exec ~/.config/rofi/appLauncher.sh
+bindsym $super+a exec ~/.config/rofi/scripts/appLauncher.sh
 
 # change focus
 bindsym $mod+j focus left
