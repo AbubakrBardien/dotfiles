@@ -1,6 +1,0 @@
-@theme "colors.rasi"
-@import "font.rasi"
-
-configuration {
-    
-}

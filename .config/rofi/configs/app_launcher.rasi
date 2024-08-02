@@ -39,7 +39,7 @@ case-indicator {
 prompt {
   background-color: @cInputBar;
   text-color: @cText;
-  padding: 5px 5px 5px 10px; // top right bottom left
+  padding: 5px 18px 5px 12px; // top right bottom left
 }
 
 num-rows {
@@ -47,7 +47,6 @@ num-rows {
   text-color: @cText;
   padding: 5px 10px 5px 0;
 }
-
 
 inputbar {
   background-color: @cInputBar;
@@ -69,6 +68,10 @@ entry {
   text-color: @cText;
 }
 
+mainbox {
+  background-color: @cInputBar;
+}
+
 listview {
   scrollbar: false; 
   lines: 8;   //-------------------- Important ----------------
@@ -85,7 +88,6 @@ element, element-text {
 
 element-icon {
   background-color: @cBackground;
-  text-color: @cText;
   size: 1.5em;
   padding: 0 2px 0 5px;
 }

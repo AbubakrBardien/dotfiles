@@ -1,0 +1,39 @@
+
+@theme "colors.rasi"
+@import "font.rasi"
+
+window {
+    width: 25%;
+
+    background-color: @cBackground;
+    text-color: @cText;
+
+    border: 1px;
+    border-color: @cBorder;
+}
+
+prompt {
+    background-color: @cInputBar;
+    text-color: @cText;
+    padding: 0 10px 0 0;
+}
+
+prompt, entry, case-indicator, inputbar {
+    background-color: @cInputBar;
+    text-color: @cText;
+    padding: 2px;
+}
+
+mainbox, message, textbox {
+    background-color: @cBackground;
+    text-color: @cText;
+    padding: 2px;
+}
+
+listview {
+    scrollbar: false;
+    lines: 0;
+
+    background-color: @cBackground;
+    text-color: @cText;
+}
