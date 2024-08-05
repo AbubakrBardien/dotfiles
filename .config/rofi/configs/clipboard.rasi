@@ -26,11 +26,9 @@ listview {
 prompt {
     background-color: @cInputBar;
     text-color: @cText;
-    padding: 5px 5px 5px 10px;
 }
 
 entry {
-    padding: 5px 0 5px 0;
     background-color: @cInputBar;
     text-color: @cText;
 }

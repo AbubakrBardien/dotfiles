@@ -2,10 +2,9 @@
 @import "font.rasi"
 
 window {
-    width: 40%;
-
     background-color: @cBackground;
     text-color: @cText;
+    width: 25%;
 
     border: 1px;
     border-color: @cBorder;
@@ -14,7 +13,13 @@ window {
 prompt {
   background-color: @cInputBar;
   text-color: @cText;
-  padding: 5px;
+  padding: 2px 0 0 5px;
+}
+
+num-rows {
+  background-color: @cInputBar;
+  text-color: @cText;
+  padding: 2px 5px 2px 0;
 }
 
 case-indicator {
@@ -23,28 +28,22 @@ case-indicator {
 }
 
 entry {
-  padding: 5px 0 5px 0;
+  padding: 2px 0 2px 0;
   valign: center;
 
   background-color: @cInputBar;
   text-color: @cText;
 }
 
-num-rows {
-  background-color: @cInputBar;
-  text-color: @cText;
-  padding: 5px;
-}
-
 inputbar {
-  background-color: @cInputBar;
-  text-color: @cText;
-  children: [
-    prompt, 
-    entry, 
-    case-indicator, 
-    num-rows
-  ];
+    background-color: @cInputBar;
+    text-color: @cText;
+    children: [
+        prompt, 
+        entry, 
+        case-indicator, 
+        num-rows
+    ];
 }
 
 mainbox {
@@ -54,8 +53,7 @@ mainbox {
 listview {
     scrollbar: false;
     cycle: false;
-    columns: 2;
-    lines: 10;
+    lines: 4;
 
     background-color: @cBackground;
     text-color: @cText;
@@ -64,7 +62,7 @@ listview {
 element, element-text {
   background-color: @cBackground;
   text-color: @cText;
-  padding: 0 0 0 5px;
+  padding: 0 0 0 4px;
 }
 
 element.selected, element-text.selected, element-icon.selected {
