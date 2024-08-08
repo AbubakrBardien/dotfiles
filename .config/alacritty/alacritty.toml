@@ -15,7 +15,8 @@ import = [
 
 [font]
 normal.family = "0xProto Nerd Font Mono"
-size = 12
+#normal.family = "JetBrainsMono Nerd Font"
+size = 8
 
 [env]
 TERM = "xterm-256color"

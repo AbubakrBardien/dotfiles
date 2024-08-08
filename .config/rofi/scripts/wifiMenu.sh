@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 notify-send "Getting list of available Wi-Fi networks..."
 
