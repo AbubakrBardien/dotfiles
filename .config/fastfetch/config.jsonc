@@ -49,18 +49,22 @@
       "type": "custom", // SoftwareStart
       "format": "├───────────────────── {#1}Software{#} ─────────────────────┤"
     },
-    "break",
-    {
-      "type": "kernel",
-      "key": " Kernel"
-    },
+    "break", 
     {
       "type": "os",
       "key": " OS"
     },
     {
-      "type": "packages",
-      "key": " Packages"
+      "key": " Kernel",
+      "type": "command",
+      "shell": "/usr/bin/bash",
+      "text": "pacman -Q linux | awk '{print $2}'"
+    },
+    {
+      "key": " Packages",
+      "type": "command",
+      "shell": "/usr/bin/bash",
+      "text": "count_packages.sh"
     },
     {
       "type": "shell",
@@ -86,10 +90,6 @@
       "type": "terminal",
       "key": " Terminal"
     },
-    //{
-    //  "type": "terminalfont",
-    //  "key": " Terminal Font"
-    //},
     "break",
     {
       "type": "custom", // InformationEnd

@@ -3,7 +3,7 @@
     "workbench.colorTheme": "Catppuccin Mocha",
     "workbench.iconTheme": "catppuccin-mocha",
     "workbench.sideBar.location": "right",
-    "editor.formatOnSave": true,
+    // "editor.formatOnSave": true,
     "editor.mouseWheelZoom": true,
     "editor.stickyScroll.enabled": true,
     "editor.stickyTabStops": true,

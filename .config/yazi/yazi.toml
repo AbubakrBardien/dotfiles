@@ -38,12 +38,12 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 editor = [{ run = 'nvim "$@"', block = true, desc = "Neovim", for = "linux" }]
 
 videoPlayer = [
-	{ run = 'mpv "$1"', desc = "MPV", orphan = true, for = "linux" },
+	{ run = 'vlc "$1"', desc = "VLC", orphan = true, for = "linux" },
 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', desc = "Show media info", for = "linux" } # For troubleshooting purposes
 ]
 
 audioPlayer = [
-	{ run = 'mpv "$1"', desc = "MPV", orphan = true, for = "linux" },
+	{ run = 'vlc "$1"', desc = "VLC", orphan = true, for = "linux" },
 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', desc = "Show media info", for = "linux" }
 ]
 
