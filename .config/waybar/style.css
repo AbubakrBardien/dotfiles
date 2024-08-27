@@ -1,0 +1,95 @@
+@import "macchiato.css";
+
+* {
+  font-family: "JetBrainsMono Nerd Font Propo";
+  font-size: 16px;
+}
+
+#window { 
+  color: @text;
+}
+
+window#waybar {
+  background-color: @waybar_bg;
+}
+
+/* ---------------------------- Module Sections ---------------------------- */
+.modules-right, .modules-left, .modules-center {
+  background-color: @modules_bg;
+  border-radius: 16px;
+}
+/* ------------------------------------------------------------------------- */
+
+/* --------- Clickable modules --------- */
+#custom-power:hover,
+/* #custom-updates:hover, */
+#wireplumber:hover,
+#network:hover,
+#clock:hover {
+  background-color: @surface1;
+}
+/* ------------------------------------- */
+
+/* ----- Alternating module colors ----- */
+#custom-power, #wireplumber, #clock {
+  color: @teal;
+}
+
+#network, #custom-updates {
+  color: @sapphire;
+  padding: 0 6px;
+}
+/* ------------------------------------- */
+
+
+/* ---------- Power ---------- */
+#custom-power {
+  border-radius: 16px 0 0 16px;
+  padding: 0 6px 0 10px;
+}
+
+/* ----------- Try ----------- */
+#tray {
+  border-radius: 0 16px 16px 0;
+  padding: 0 10px 0 6px;
+}
+
+/* ------------------------------- Workspaces ------------------------------- */
+#workspaces button {
+  border: none;
+  border-radius: 16px;
+  color: @sapphire;
+}
+
+#workspaces button:hover {
+  background: inherit;
+  box-shadow: none;
+  transition: none;
+  background-color: @surface1;
+}
+
+#workspaces button.active {
+  background-color: @sapphire;
+  color: @base;
+}
+
+#workspaces button.urgent {
+  color: @red;
+}
+/* -------------------------------------------------------------------------- */
+
+/* ------- Wireplumber ------- */
+#wireplumber {
+  border-radius: 16px 0 0 16px;
+  padding: 0 6px 0 10px;
+}
+
+#wireplumber.muted {
+  color: @overlay0;
+}
+
+/* ---------- Clock ---------- */
+#clock {
+  border-radius: 0 16px 16px 0; 
+  padding: 0 10px 0 6px;
+}
