@@ -1,0 +1,7 @@
+@import ".config/wofi/configs/main.css";
+@import ".config/wofi/configs/search_bar.css";
+
+image {
+    margin-left: .25em;
+    margin-right: .25em;
+}

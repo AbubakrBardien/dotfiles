@@ -1,0 +1,13 @@
+mode=dmenu
+
+orientation=horizontal
+hide_search=true
+
+location=top
+
+width=210px
+height=70px
+
+y=10px
+
+hide_scroll=true

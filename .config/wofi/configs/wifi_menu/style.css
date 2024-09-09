@@ -1,0 +1,6 @@
+@import ".config/wofi/configs/main.css";
+@import ".config/wofi/configs/search_bar.css";
+
+#entry {
+    padding: .2em;
+}

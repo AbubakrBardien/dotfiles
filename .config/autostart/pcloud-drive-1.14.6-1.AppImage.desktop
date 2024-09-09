@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=pcloud-drive-1.14.6-1.AppImage
+Comment=pcloud-drive-1.14.6-1.AppImagestartup script
+Exec=/opt/pcloud/pcloud-drive-1.14.6-1.AppImage
+StartupNotify=false
+Terminal=false

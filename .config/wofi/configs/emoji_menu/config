@@ -1,0 +1,8 @@
+mode=dmenu
+
+width=40%
+height=275px # To get 8 results at a time
+
+columns=2 # works when there is space
+
+prompt= # Leave empty

@@ -2,5 +2,18 @@ require "nvchad.options"
 
 -- add yours here!
 
--- local o = vim.o
--- o.cursorlineopt ='both' -- to enable cursorline!
+ local opt = vim.opt
+
+ opt.cursorlineopt = 'both' -- to enable cursorline!
+ opt.cursorcolumn = true
+ opt.relativenumber = true
+ opt.guicursor = ""
+
+ vim.api.nvim_command("highlight CursorColumn guibg=#252931")
+
+ opt.tabstop = 4
+ opt.softtabstop = 4
+ opt.shiftwidth = 4
+ opt.expandtab = true
+
+ opt.scrolloff = 8
