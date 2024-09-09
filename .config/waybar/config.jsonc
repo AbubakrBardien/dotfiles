@@ -1,103 +1,114 @@
 {
-  "position": "bottom",
+    "position": "bottom",
   
-  // --------------------- Module Sections ----------------------
-  "modules-left": ["custom/power","custom/updates", "tray"],
-  "modules-center": ["hyprland/workspaces"],
-  "modules-right": ["wireplumber","network","clock"],
-  // ------------------------------------------------------------
+    // --------------------- Module Sections ----------------------
+    "modules-left": ["custom/power", "custom/updates", "custom/screenshot", "tray"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["custom/dunst", "wireplumber","network","clock"],
+    // ------------------------------------------------------------
 
-  // --------------------- Built-in Modules ---------------------
+    // --------------------- Built-in Modules ---------------------
   
-  "tray": {
-    "icon-size": 18,
-    "spacing": 5
-  },
-
-  "hyprland/workspaces": {
-    "format": "{icon}",
-    "on-click": "activate",
-    "format-icons": {
-      "urgent": " "
+    "tray": {
+        "icon-size": 18,
+        "spacing": 5
     },
-    "sort-by-number": true
-  },
 
-  "wireplumber": {
-    "format": "{icon}{volume}%",
-    "max-volume": 100,
-    "format-muted": "",
-    "format-icons": [
-      " ",
-      " ",
-      " "
-    ],
-    "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
-    "on-click-right": "qpwgraph",
-    "tooltip": false
-  },
-
-  "network": {
-    "format-wifi": "{icon}{signalStrength}%",
-    "format-disconnected": "󰤮",
-    "format-icons": [
-      "󰤟 ",
-      "󰤢 ",
-      "󰤥 ",
-      "󰤨 "
-    ],
-    "tooltip-format": "{essid}",
-    "tooltip-format-disconnected": "Disconnected"
-  },
-
-  "clock": {
-    "format": " {:%H:%M}",
-    "format-alt": " {:%d/%b/%Y}",
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
-    "calendar": {
-      "mode": "month",
-      "weeks-pos": "left",
-      "on-scroll": 1,
-      "format": {
-        "months": "<span color='#ffead3'><b>{}</b></span>",
-        "days": "<span color='#ecc6d9'><b>{}</b></span>",
-        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
-      }
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "urgent": " "
+        },
+        "sort-by-number": true
     },
-    "actions": {
-      // "on-click-right": "mode",
-      "on-click-forward": "tz_up",
-      "on-click-backward": "tz_down",
-      "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down"
+
+    "wireplumber": {
+        "format": "{icon}{volume}%",
+        "max-volume": 100,
+        "format-muted": "",
+        "format-icons": [
+            " ",
+            " ",
+            " "
+        ],
+        "on-click": "volume_popup.sh mute waybar",
+        "on-click-right": "qpwgraph",
+        "tooltip": false
+    },
+
+    "network": {
+        "format-wifi": "{icon}{signalStrength}%",
+        "format-disconnected": "󰤮",
+        "format-icons": [
+            "󰤟 ",
+            "󰤢 ",
+            "󰤥 ",
+            "󰤨 "
+        ],
+        "tooltip-format": "{essid}",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click": "$HOME/.config/wofi/scripts/wifiMenu.sh"
+    },
+
+    "clock": {
+        "format": " {:%H:%M}",
+        "format-alt": " {:%d/%b/%Y}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "weeks-pos": "left",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            // "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+    // ------------------------------------------------------------
+
+    // ------------------- Third Party Modules -------------------
+    "custom/updates": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "format-icons": {
+            "has-updates": "󱍸",
+            "updated": " 󰕥"
+        },
+        "exec-if": "which waybar-module-pacman-updates",
+        "exec": "waybar-module-pacman-updates  --interval-seconds 5 --network-interval-seconds 300 --no-zero-output"
+    }, 
+  // -----------------------------------------------------------
+
+
+    // -------------------- My Custom Modules --------------------
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "$HOME/.config/wofi/scripts/powerMenu.sh"
+    },
+
+    //"custom/dunst": { // notifications
+    //  "exec": 
+    //}
+
+    "custom/screenshot": {
+       "format": "󰹑",
+       "tooltip": false,
+       "on-click": "$HOME/.config/wofi/scripts/screenshot.sh"
     }
-  },
-  // ------------------------------------------------------------
 
-  // ------------------- Third Party Modules -------------------
-  "custom/updates": {
-    "format": "{icon} {}",
-    "return-type": "json",
-    "format-icons": {
-        "has-updates": "󱍸",
-        "updated": " 󰕥"
-    },
-    "exec-if": "which waybar-module-pacman-updates",
-    "exec": "waybar-module-pacman-updates  --interval-seconds 5 --network-interval-seconds 300 --no-zero-output"
-  }, 
-  // Credit to Coffebar for this module: https://github.com/coffebar/waybar-module-pacman-updates/tree/main
-
-  // -----------------------------------------------------------
-
-
-  // -------------------- My Custom Modules --------------------
-  "custom/power": {
-    "format": "",
-    "tooltip": false
-  }
-  // -----------------------------------------------------------
+    // -----------------------------------------------------------
 }
 
 // No battery module because my PC doesn't have a battery

@@ -1,9 +1,11 @@
 @import "macchiato.css";
 
+
 * {
   font-family: "JetBrainsMono Nerd Font Propo";
   font-size: 16px;
-}
+} 
+
 
 #window { 
   color: @text;
@@ -21,38 +23,31 @@ window#waybar {
 /* ------------------------------------------------------------------------- */
 
 /* --------- Clickable modules --------- */
-#custom-power:hover,
-/* #custom-updates:hover, */
 #wireplumber:hover,
 #network:hover,
-#clock:hover {
+#clock:hover,
+#custom-power:hover,
+/* #custom-dunst:hover { */
+#custom-screenshot:hover {
   background-color: @surface1;
 }
 /* ------------------------------------- */
 
 /* ----- Alternating module colors ----- */
-#custom-power, #wireplumber, #clock {
+#custom-power, #custom-screenshot, 
+#wireplumber, #clock {
   color: @teal;
+  padding: 2 6px;
 }
 
-#network, #custom-updates {
+#custom-updates, 
+/* #custom-dunst { */
+#network { 
   color: @sapphire;
-  padding: 0 6px;
+  padding: 2 6px;
 }
 /* ------------------------------------- */
 
-
-/* ---------- Power ---------- */
-#custom-power {
-  border-radius: 16px 0 0 16px;
-  padding: 0 6px 0 10px;
-}
-
-/* ----------- Try ----------- */
-#tray {
-  border-radius: 0 16px 16px 0;
-  padding: 0 10px 0 6px;
-}
 
 /* ------------------------------- Workspaces ------------------------------- */
 #workspaces button {
@@ -78,18 +73,22 @@ window#waybar {
 }
 /* -------------------------------------------------------------------------- */
 
-/* ------- Wireplumber ------- */
-#wireplumber {
+
+/* ------- left side of module group ------- */
+#custom-power, #wireplumber {
   border-radius: 16px 0 0 16px;
   padding: 0 6px 0 10px;
 }
+
+/* ---------- right side of module group ---------- */
+#custom-screenshot, #clock, #tray {
+  border-radius: 0 16px 16px 0; 
+  padding: 0 10px 0 6px;
+}
+
 
 #wireplumber.muted {
   color: @overlay0;
 }
 
-/* ---------- Clock ---------- */
-#clock {
-  border-radius: 0 16px 16px 0; 
-  padding: 0 10px 0 6px;
-}
+/* -------------------------------------------------------------------------- */

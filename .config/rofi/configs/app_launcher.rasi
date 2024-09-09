@@ -3,24 +3,23 @@
 
 configuration {
 	modes: "window,drun,combi";
-  yoffset: -150;
+    yoffset: -150;
 
-  fixed-num-lines: false;
+    fixed-num-lines: true;
 	show-icons: true;
-  terminal: "alacritty";
 
-  display-drun: "";
-  display-window: " WS";
-  display-combi: " ";
+    display-drun: "";
+    //display-window: " WS";
+    // display-combi: " ";
 
-  window {
-    hide-active-window: true;
-  }
+    window {
+        hide-active-window: true;
+    }
 }
 
 window {
   location: center;
-  anchor: north;
+  anchor: south;
   width: 40%;
 
   background-color: @cBackground;

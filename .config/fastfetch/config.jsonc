@@ -5,7 +5,7 @@
     {
       "type": "custom", // HardwareStart
       // {#1} is equivalent to `\u001b[1m`. {#} is equivalent to `\u001b[m`
-      "format": "┌───────────────────── {#1}Hardware{#} ─────────────────────┐"
+      "format": "┌──────────────────── {#1}Hardware{#} ────────────────────┐"
     },
     "break",
     {
@@ -47,7 +47,7 @@
     "break",
     {
       "type": "custom", // SoftwareStart
-      "format": "├───────────────────── {#1}Software{#} ─────────────────────┤"
+      "format": "├──────────────────── {#1}Software{#} ────────────────────┤"
     },
     "break", 
     {
@@ -90,10 +90,14 @@
       "type": "terminal",
       "key": " Terminal"
     },
+    {
+      "type": "terminalfont",
+      "key": " Terminal Font"
+    },
     "break",
     {
       "type": "custom", // InformationEnd
-      "format": "└────────────────────────────────────────────────────┘"
+      "format": "└──────────────────────────────────────────────────┘"
     },
     {
       "type": "colors",
