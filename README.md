@@ -31,4 +31,4 @@ At the end of the Arch Installation process, after logging in, run the `auto-ins
 
 ## Configuration
 
-- WM/Compositor: ![Hyprland](https://hyprland.org/)
+- WM/Compositor: [Hyprland](https://hyprland.org/)
