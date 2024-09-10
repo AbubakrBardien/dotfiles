@@ -1,0 +1,15 @@
+brillo
+cava
+cbonsai
+gotop
+hyprpicker
+hyprshot
+mkinitcpio-numlock
+onlyoffice-bin
+pcloud-drive
+pipes.sh
+sddm-theme-mountain-git
+waybar-module-pacman-updates-git
+webcord
+whatsapp-for-linux
+wofi-calc
