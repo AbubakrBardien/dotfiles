@@ -32,3 +32,7 @@ At the end of the Arch Installation process, after logging in, run the `auto-ins
 ## Configuration
 
 - WM/Compositor: [Hyprland](https://hyprland.org/)
+- Shell: [Fish](https://fishshell.com/) with the [Tide](https://github.com/IlanCosman/tide) prompt theme.
+- GTK Theme: [Arc Dark](https://github.com/jnsh/arc-theme)
+- Icon Theme: Papirus
+
