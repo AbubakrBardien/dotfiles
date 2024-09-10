@@ -3,151 +3,151 @@
       xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
       xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
 >
-  <bookmark href="file:///boot/grub/themes/starfield" added="2024-09-08T10:17:02.450687Z" modified="2024-09-08T10:17:02.450698Z" visited="2024-09-08T10:17:02.450689Z">
+  <bookmark href="file:///home/abubakr/.config/grub/themes/arch-linux" added="2024-09-10T09:19:56.889049Z" modified="2024-09-10T09:19:56.889060Z" visited="2024-09-10T09:19:56.889050Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <bookmark:applications>
-          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-08T10:17:02.450693Z" count="1"/>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-10T09:19:56.889055Z" count="1"/>
         </bookmark:applications>
         <bookmark:private/>
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///usr/share/sddm/themes/mountain/Backgrounds" added="2024-09-08T10:17:02.450703Z" modified="2024-09-08T10:17:02.450710Z" visited="2024-09-08T10:17:02.450704Z">
+  <bookmark href="file:///home/abubakr/Pictures/Screenshots" added="2024-09-10T09:19:56.889064Z" modified="2024-09-10T09:19:56.889092Z" visited="2024-09-10T09:19:56.889065Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <bookmark:applications>
-          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-08T10:17:02.450707Z" count="1"/>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-10T09:19:56.889068Z" count="1"/>
         </bookmark:applications>
         <bookmark:private/>
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///home/abubakr/Pictures" added="2024-09-08T10:17:02.450713Z" modified="2024-09-08T10:17:02.450720Z" visited="2024-09-08T10:17:02.450714Z">
+  <bookmark href="file:///boot/grub/themes/starfield" added="2024-09-10T09:19:56.889096Z" modified="2024-09-10T09:19:56.889105Z" visited="2024-09-10T09:19:56.889097Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <bookmark:applications>
-          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-08T10:17:02.450717Z" count="1"/>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-10T09:19:56.889101Z" count="1"/>
         </bookmark:applications>
         <bookmark:private/>
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///home/abubakr/Downloads" added="2024-09-08T10:17:02.450722Z" modified="2024-09-08T10:17:02.450729Z" visited="2024-09-08T10:17:02.450723Z">
+  <bookmark href="file:///usr/share/sddm/themes/mountain/Backgrounds" added="2024-09-10T09:19:56.889109Z" modified="2024-09-10T09:19:56.889116Z" visited="2024-09-10T09:19:56.889110Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <bookmark:applications>
-          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-08T10:17:02.450726Z" count="1"/>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-10T09:19:56.889113Z" count="1"/>
         </bookmark:applications>
         <bookmark:private/>
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///home/abubakr/Pictures/Desktop%20Wallpapers/archlinux" added="2024-09-08T10:17:02.450732Z" modified="2024-09-08T10:17:02.450737Z" visited="2024-09-08T10:17:02.450733Z">
+  <bookmark href="file:///home/abubakr/Pictures" added="2024-09-10T09:19:56.889120Z" modified="2024-09-10T09:19:56.889127Z" visited="2024-09-10T09:19:56.889121Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <bookmark:applications>
-          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-08T10:17:02.450736Z" count="1"/>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-10T09:19:56.889124Z" count="1"/>
         </bookmark:applications>
         <bookmark:private/>
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///home/abubakr/.config/dunst/icons" added="2024-09-08T10:17:02.450742Z" modified="2024-09-08T10:17:02.450748Z" visited="2024-09-08T10:17:02.450742Z">
+  <bookmark href="file:///home/abubakr/Downloads" added="2024-09-10T09:19:56.889130Z" modified="2024-09-10T09:19:56.889137Z" visited="2024-09-10T09:19:56.889131Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <bookmark:applications>
-          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-08T10:17:02.450745Z" count="1"/>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-10T09:19:56.889134Z" count="1"/>
         </bookmark:applications>
         <bookmark:private/>
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///usr/share/icons/Papirus/32x32/emblems" added="2024-09-08T10:17:02.450751Z" modified="2024-09-08T10:17:02.450758Z" visited="2024-09-08T10:17:02.450751Z">
+  <bookmark href="file:///home/abubakr/Pictures/Desktop%20Wallpapers/archlinux" added="2024-09-10T09:19:56.889142Z" modified="2024-09-10T09:19:56.889149Z" visited="2024-09-10T09:19:56.889143Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <bookmark:applications>
-          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-08T10:17:02.450755Z" count="1"/>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-10T09:19:56.889146Z" count="1"/>
         </bookmark:applications>
         <bookmark:private/>
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///usr/share/icons/Papirus/32x32/apps" added="2024-09-08T10:17:02.450765Z" modified="2024-09-08T10:17:02.450771Z" visited="2024-09-08T10:17:02.450766Z">
+  <bookmark href="file:///home/abubakr/.config/dunst/icons" added="2024-09-10T09:19:56.889158Z" modified="2024-09-10T09:19:56.889164Z" visited="2024-09-10T09:19:56.889158Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <bookmark:applications>
-          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-08T10:17:02.450770Z" count="1"/>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-10T09:19:56.889161Z" count="1"/>
         </bookmark:applications>
         <bookmark:private/>
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///usr/share/icons/Papirus/84x84/apps" added="2024-09-08T10:17:02.450774Z" modified="2024-09-08T10:17:02.450779Z" visited="2024-09-08T10:17:02.450774Z">
+  <bookmark href="file:///usr/share/icons/Papirus/32x32/emblems" added="2024-09-10T09:19:56.889168Z" modified="2024-09-10T09:19:56.889175Z" visited="2024-09-10T09:19:56.889168Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <bookmark:applications>
-          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-08T10:17:02.450777Z" count="1"/>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-10T09:19:56.889171Z" count="1"/>
         </bookmark:applications>
         <bookmark:private/>
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///usr/share/icons/Papirus/8x8/emblems" added="2024-09-08T10:17:02.450782Z" modified="2024-09-08T10:17:02.450787Z" visited="2024-09-08T10:17:02.450783Z">
+  <bookmark href="file:///usr/share/icons/Papirus/32x32/apps" added="2024-09-10T09:19:56.889178Z" modified="2024-09-10T09:19:56.889186Z" visited="2024-09-10T09:19:56.889179Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <bookmark:applications>
-          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-08T10:17:02.450785Z" count="1"/>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-10T09:19:56.889183Z" count="1"/>
         </bookmark:applications>
         <bookmark:private/>
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///usr/share/icons/Papirus/128x128/apps" added="2024-09-08T10:17:02.450790Z" modified="2024-09-08T10:17:02.450796Z" visited="2024-09-08T10:17:02.450791Z">
+  <bookmark href="file:///usr/share/icons/Papirus/84x84/apps" added="2024-09-10T09:19:56.889189Z" modified="2024-09-10T09:19:56.889197Z" visited="2024-09-10T09:19:56.889190Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <bookmark:applications>
-          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-08T10:17:02.450793Z" count="1"/>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-10T09:19:56.889193Z" count="1"/>
         </bookmark:applications>
         <bookmark:private/>
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///usr/share/icons/hicolor/128x128/apps" added="2024-09-08T10:17:02.450799Z" modified="2024-09-08T10:17:02.450803Z" visited="2024-09-08T10:17:02.450799Z">
+  <bookmark href="file:///usr/share/icons/Papirus/8x8/emblems" added="2024-09-10T09:19:56.889200Z" modified="2024-09-10T09:19:56.889206Z" visited="2024-09-10T09:19:56.889201Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <bookmark:applications>
-          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-08T10:17:02.450801Z" count="1"/>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-10T09:19:56.889204Z" count="1"/>
         </bookmark:applications>
         <bookmark:private/>
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///home/abubakr/Downloads/VeLoCity%20-%20Dark" added="2024-09-08T10:17:02.450806Z" modified="2024-09-08T10:17:02.450812Z" visited="2024-09-08T10:17:02.450806Z">
+  <bookmark href="file:///usr/share/icons/Papirus/128x128/apps" added="2024-09-10T09:19:56.889212Z" modified="2024-09-10T09:19:56.889218Z" visited="2024-09-10T09:19:56.889212Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <bookmark:applications>
-          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-08T10:17:02.450810Z" count="1"/>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-10T09:19:56.889215Z" count="1"/>
         </bookmark:applications>
         <bookmark:private/>
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///home/abubakr/pCloudDrive/Obsidian/My%20Obsidian%20Vault" added="2024-09-08T10:17:02.450816Z" modified="2024-09-08T10:17:02.450822Z" visited="2024-09-08T10:17:02.450816Z">
+  <bookmark href="file:///usr/share/icons/hicolor/128x128/apps" added="2024-09-10T09:19:56.889221Z" modified="2024-09-10T09:19:56.889227Z" visited="2024-09-10T09:19:56.889222Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <bookmark:applications>
-          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-08T10:17:02.450819Z" count="1"/>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-10T09:19:56.889224Z" count="1"/>
         </bookmark:applications>
         <bookmark:private/>
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///home/abubakr/pCloudDrive/Obsidian" added="2024-09-08T10:17:02.450824Z" modified="2024-09-08T10:17:02.450832Z" visited="2024-09-08T10:17:02.450824Z">
+  <bookmark href="file:///home/abubakr/Downloads/VeLoCity%20-%20Dark" added="2024-09-10T09:19:56.889231Z" modified="2024-09-10T09:19:56.889241Z" visited="2024-09-10T09:19:56.889232Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <bookmark:applications>
-          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-08T10:17:02.450828Z" count="1"/>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2024-09-10T09:19:56.889237Z" count="1"/>
         </bookmark:applications>
         <bookmark:private/>
       </metadata>
