@@ -1,2 +1,5 @@
-# dotfiles
-My Linux configuration files.
+# Abubakr's Personal Dotfiles
+
+## Screenshots
+
+![Screenshot1](screenshot1.png)
