@@ -28,3 +28,7 @@ git clone git@github.com:AbubakrBardien/auto-install-packages.git
 Then run `auto-install-packages/install_packages.sh` to auto-install the packages.
 
 At the end of the Arch Installation process, after logging in, run the `auto-install-packages/bare_repo.sh` script to download the dotfiles.
+
+## Configuration
+
+- WM/Compositor: ![Hyprland](https://hyprland.org/)
