@@ -32,7 +32,31 @@ At the end of the Arch Installation process, after logging in, run the `auto-ins
 ## Configuration
 
 - WM/Compositor: [Hyprland](https://hyprland.org/)
+- Terminal: [Foot](https://codeberg.org/dnkl/foot)
 - Shell: [Fish](https://fishshell.com/) with the [Tide](https://github.com/IlanCosman/tide) prompt theme.
-- GTK Theme: [Arc Dark](https://github.com/jnsh/arc-theme)
-- Icon Theme: Papirus
 
+- GTK Theme: [Arc Dark](https://github.com/jnsh/arc-theme)
+- Icon Theme: [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
+
+- Browser: Firefox
+- Luancher/Menu: [Wofi](https://github.com/SimplyCEO/wofi)
+- Bar: [Waybar](https://github.com/Alexays/Waybar)
+
+- SDDM Theme: [Mountain](https://github.com/c0rydoras/sddm-mountain-theme)
+- Grub Theme: [Arch Linux](https://www.pling.com/p/1482847/)
+
+- File Manager: [Yazi](https://github.com/sxyazi/yazi)
+- Editor: [Neovim](https://neovim.io/) with the [NvChad](https://neovim.io/) config. 
+
+- Video Player: VLC
+- Image Viewer: [gThumb](https://gitlab.gnome.org/GNOME/gthumb)
+
+- Notification Daemon: [Dunst](https://github.com/dunst-project/dunst)
+
+- Brightness Control: [Brillo](https://gitlab.com/cameronnemo/brillo)
+
+- System Info Tool: [Fastfetch](https://github.com/fastfetch-cli/fastfetch)
+- Lock Screen: [Hyprlock](https://github.com/hyprwm/hyprlock) (not configured yet)
+
+- Screenshot Tool: [Hyprshot](https://github.com/Gustash/Hyprshot)
+- Note-Taking App: [Obsidian](https://obsidian.md/)
