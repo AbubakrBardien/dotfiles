@@ -7,12 +7,12 @@ chosen=$(printf "$display_str" | wofi -c $HOME/.config/wofi/configs/screenshot/c
 
 case $chosen in
     ${options[0]})
-        hyprshot -m output -o $HOME/Pictures/Screenshots
+        hyprshot -m output -o $HOME/Pictures/Screenshots -z
     ;;
     ${options[1]})
-        hyprshot -m window -o $HOME/Pictures/Screenshots
+        hyprshot -m window -o $HOME/Pictures/Screenshots -z
     ;;
     ${options[2]})
-        hyprshot -m region -o $HOME/Pictures/Screenshots
+        hyprshot -m region -o $HOME/Pictures/Screenshots -z
     ;;
 esac
