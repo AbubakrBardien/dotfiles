@@ -29,7 +29,7 @@ Then run `auto-install-packages/install_packages.sh` to auto-install the package
 
 At the end of the Arch Installation process, after logging in, run the `auto-install-packages/bare_repo.sh` script to download the dotfiles.
 
-## Configuration
+## Programs I Use
 
 - WM/Compositor: [Hyprland](https://hyprland.org/)
 - Terminal: [Foot](https://codeberg.org/dnkl/foot)
@@ -51,7 +51,7 @@ At the end of the Arch Installation process, after logging in, run the `auto-ins
 - Video Player: VLC
 - Image Viewer: [gThumb](https://gitlab.gnome.org/GNOME/gthumb)
 
-- Notification Daemon: [Dunst](https://github.com/dunst-project/dunst)
+- Notification Tool: [Dunst](https://github.com/dunst-project/dunst)
 
 - Brightness Control: [Brillo](https://gitlab.com/cameronnemo/brillo)
 
@@ -60,3 +60,12 @@ At the end of the Arch Installation process, after logging in, run the `auto-ins
 
 - Screenshot Tool: [Hyprshot](https://github.com/Gustash/Hyprshot)
 - Note-Taking App: [Obsidian](https://obsidian.md/)
+
+- Disk Usage Analyzer: [NCDU](https://dev.yorhel.nl/ncdu)
+
+- Office Suite: [OnlyOffice](https://www.onlyoffice.com/)
+
+- Wallpaper Setter: [Swww](https://github.com/LGFae/swww)
+
+### Graphical Programs
+### Terminal-Based
