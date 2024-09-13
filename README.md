@@ -31,9 +31,9 @@ At the end of the Arch Installation process, after logging in, run the `auto-ins
 
 ## Programs I Use
 
-- WM/Compositor: [Hyprland](https://hyprland.org/)
-- Terminal: [Foot](https://codeberg.org/dnkl/foot)
-- Shell: [Fish](https://fishshell.com/) with the [Tide](https://github.com/IlanCosman/tide) prompt theme.
+WM/Compositor: [Hyprland](https://hyprland.org/)
+Terminal: [Foot](https://codeberg.org/dnkl/foot)
+Shell: [Fish](https://fishshell.com/) with the [Tide](https://github.com/IlanCosman/tide) prompt theme.
 
 - GTK Theme: [Arc Dark](https://github.com/jnsh/arc-theme)
 - Icon Theme: [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
