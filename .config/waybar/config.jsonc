@@ -33,7 +33,7 @@
             " "
         ],
         "on-click": "volume_popup.sh mute waybar",
-        "on-click-right": "qpwgraph",
+        //"on-click-right": "qpwgraph",
         "tooltip": false
     },
 
