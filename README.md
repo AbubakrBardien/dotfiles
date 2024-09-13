@@ -49,7 +49,7 @@ Shell: [Fish](https://fishshell.com/) with the [Tide](https://github.com/IlanCos
 | Video Recording: [OBS](https://obsproject.com/) | | |
 | Cloud Service: [pCloud](https://www.pcloud.com/)| | |
 
-### Terminal Screensavers
+### Fun Terminal Programs
 
 [Cava](https://github.com/karlstav/cava)    [CBonsai](https://gitlab.com/jallbrit/cbonsai) \
 [CMatrix](https://github.com/abishekvashok/cmatrix) [Cowsay](https://github.com/cowsay-org/cowsay) \
