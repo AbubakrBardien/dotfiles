@@ -35,6 +35,11 @@ WM/Compositor: [Hyprland](https://hyprland.org/)\
 Terminal: [Foot](https://codeberg.org/dnkl/foot)\
 Shell: [Fish](https://fishshell.com/) with the [Tide](https://github.com/IlanCosman/tide) prompt theme.
 
+| Graphical Programs | Terminal-Based Programs | Theming Programs |
+| ------------------ | ----------------------- | ---------------- |
+| A: a | B: b | C: c |
+
+
 - GTK Theme: [Arc Dark](https://github.com/jnsh/arc-theme)
 - Icon Theme: [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
 
