@@ -57,4 +57,4 @@ Shell: [Fish](https://fishshell.com/) with the [Tide](https://github.com/IlanCos
 [Cowsay](https://github.com/cowsay-org/cowsay) \
 [Figlet](https://github.com/cmatsuoka/figlet) \
 [Pipes](https://github.com/pipeseroni/pipes.sh) \
-[sl](https://github.com/mtoyoda/sl)
+[SL](https://github.com/mtoyoda/sl)
