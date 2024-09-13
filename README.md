@@ -37,10 +37,9 @@ Shell: [Fish](https://fishshell.com/) with the [Tide](https://github.com/IlanCos
 
 | Graphical | Terminal-Based | Theming |
 | --------- | -------------- | ------- |
-| A: a | B: b | C: c |
+| A: a | B: b | - GTK Theme: [Arc Dark](https://github.com/jnsh/arc-theme) |
+| |||
 
-
-- GTK Theme: [Arc Dark](https://github.com/jnsh/arc-theme)
 - Icon Theme: [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
 
 - Browser: Firefox
