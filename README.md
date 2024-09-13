@@ -37,14 +37,10 @@ Shell: [Fish](https://fishshell.com/) with the [Tide](https://github.com/IlanCos
 
 | Graphical | Terminal-Based | Theming |
 | --------- | -------------- | ------- |
-| A: a | B: b | - GTK Theme: [Arc Dark](https://github.com/jnsh/arc-theme) |
-| |||
-
-- Icon Theme: [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
-
-- Browser: Firefox
-- Luancher/Menu: [Wofi](https://github.com/SimplyCEO/wofi)
-- Bar: [Waybar](https://github.com/Alexays/Waybar)
+| Wallpaper Setter: [Swww](https://github.com/LGFae/swww) |  | GTK Theme: [Arc Dark](https://github.com/jnsh/arc-theme) |
+| Bar: [Waybar](https://github.com/Alexays/Waybar) | | Icon Theme: [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) |
+| Luancher/Menu: [Wofi](https://github.com/SimplyCEO/wofi) | | |
+| Browser: Firefox | | |
 
 - SDDM Theme: [Mountain](https://github.com/c0rydoras/sddm-mountain-theme)
 - Grub Theme: [Arch Linux](https://www.pling.com/p/1482847/)
