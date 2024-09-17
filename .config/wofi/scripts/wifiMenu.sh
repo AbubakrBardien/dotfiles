@@ -38,6 +38,3 @@ else
 		nmcli device wifi connect "$chosen_id" password "$wifi_password" | grep "successfully" && notify-send "Connection Established" "$success_message"
     fi
 fi
-
-# Credit to Eric Murphy for writing the original script. I altered it to work with Wofi and my Wofi theme.
-# https://github.com/ericmurphyxyz/rofi-wifi-menu/tree/master
