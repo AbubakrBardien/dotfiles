@@ -19,6 +19,8 @@ alias disk_usage "dust -r" # Disk Usage Viewer
 alias dir_size "du -sh"
 alias disks "duf --hide special --hide-mp /boot" # Display Disk Space
 
+alias benchmark "hyperfine" # Very useful benchmarking tool
+
 # Set Environment Variables
 set -x EDITOR "/usr/bin/nvim"
 set -x TERMINAL "/usr/bin/foot"
