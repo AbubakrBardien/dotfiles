@@ -41,9 +41,9 @@ Shell: [Fish](https://fishshell.com/) with the [Tide](https://github.com/IlanCos
 | Luancher/Menu: [Wofi](https://github.com/SimplyCEO/wofi) | File Manager: [Yazi](https://github.com/sxyazi/yazi) | GTK Theme: [Arc Dark](https://github.com/jnsh/arc-theme) |
 | Notification Tool: [Dunst](https://github.com/dunst-project/dunst) | System Info Tool: [Fastfetch](https://github.com/fastfetch-cli/fastfetch) | Icon Theme: [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) |
 | Browser: [Firefox](https://www.mozilla.org/en-US/firefox/new/) | Task Manager for Linux: [HTop](https://github.com/htop-dev/htop)  | Login Theme: [Mountain](https://github.com/c0rydoras/sddm-mountain-theme) for [SDDM](https://github.com/sddm/sddm) |
-| Video Player: [VLC](https://www.videolan.org/vlc/) | Disk Usage Analyzer: [Dust](https://github.com/bootandy/dust) | Bootloader Theme: [Unnamed](https://www.pling.com/p/1482847/) for [Grub](https://wiki.archlinux.org/title/GRUB) |
-| Image Viewer: [gThumb](https://gitlab.gnome.org/GNOME/gthumb) | System Monitoring Dashboard: [GoTop](https://github.com/xxxserxxx/gotop) | Lock Screen: [Hyprlock](https://github.com/hyprwm/hyprlock) (not configured yet) |
-| Music Player: [Spotify](https://open.spotify.com/)|||
+| Video Player: [VLC](https://www.videolan.org/vlc/) | System Monitoring Dashboard: [GoTop](https://github.com/xxxserxxx/gotop) | Bootloader Theme: [Unnamed](https://www.pling.com/p/1482847/) for [Grub](https://wiki.archlinux.org/title/GRUB) |
+| Image Viewer: [gThumb](https://gitlab.gnome.org/GNOME/gthumb) | Disk Space Display: [Duf](https://github.com/muesli/duf) | Lock Screen: [Hyprlock](https://github.com/hyprwm/hyprlock) (not configured yet) |
+| Music Player: [Spotify](https://open.spotify.com/)| Disk Usage Analyzer: [Dust](https://github.com/bootandy/dust) ||
 | Note-Taking App: [Obsidian](https://obsidian.md/) | | |
 | Office Suite: [OnlyOffice](https://www.onlyoffice.com/) | | |
 | Video Recording: [OBS](https://obsproject.com/) | | |

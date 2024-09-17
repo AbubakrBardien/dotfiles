@@ -17,6 +17,7 @@ alias rm "rm -v"
 
 alias adu "dust -r" # Analyse Directory Usage
 alias dir_size "du -sh"
+alias disks "duf --hide special --hide-mp /boot" # Display Disk Space
 
 # Set Environment Variables
 set -x EDITOR "/usr/bin/nvim"
