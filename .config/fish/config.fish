@@ -15,7 +15,7 @@ alias cp "cp -v"
 alias mv "mv -v"
 alias rm "rm -v"
 
-alias adu "dust -r" # Analyse Disk Usage in directory
+alias adu "dust -r" # Analyse Directory Usage
 alias dir_size "du -sh"
 
 # Set Environment Variables
