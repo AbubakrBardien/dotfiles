@@ -15,7 +15,7 @@ alias cp "cp -v"
 alias mv "mv -v"
 alias rm "rm -v"
 
-alias adu "dust -r" # Analyse Directory Usage
+alias disk_usage "dust -r" # Disk Usage Viewer
 alias dir_size "du -sh"
 alias disks "duf --hide special --hide-mp /boot" # Display Disk Space
 
