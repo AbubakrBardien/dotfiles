@@ -15,6 +15,9 @@ alias cp "cp -v"
 alias mv "mv -v"
 alias rm "rm -v"
 
+alias adu "dust -r" # Analyse Disk Usage in directory
+alias dir_size "du -sh"
+
 # Set Environment Variables
 set -x EDITOR "/usr/bin/nvim"
 set -x TERMINAL "/usr/bin/foot"
