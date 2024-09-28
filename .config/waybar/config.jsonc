@@ -18,7 +18,8 @@
         "format": "{icon}",
         "on-click": "activate",
         "format-icons": {
-            "urgent": " "
+            //"urgent": ""
+            "urgent": "!"
         },
         "sort-by-number": true
     },
@@ -77,27 +78,22 @@
     },
     // ------------------------------------------------------------
 
-    // ------------------- Third Party Modules -------------------
-    "custom/updates": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "format-icons": {
-            "has-updates": "󱍸",
-            "updated": " 󰕥"
-        },
-        "exec-if": "which waybar-module-pacman-updates",
-        "exec": "waybar-module-pacman-updates  --interval-seconds 5 --network-interval-seconds 300 --no-zero-output"
-    }, 
-  // -----------------------------------------------------------
-
-
     // -------------------- My Custom Modules --------------------
     "custom/power": {
         "format": "",
         "tooltip": false,
         "on-click": "$HOME/.config/wofi/scripts/powerMenu.sh"
     },
-
+    
+    "custom/updates": {
+        "format": "󱍸",
+        "exec": "$HOME/.scripts/waybar-module-packages/monitor_num_updates",
+        "interval": 300,
+        "tooltip": true,
+        "tooltip-format": "{}",
+        "on-click": "$TERMINAL sudo pacman -Syu --noconfirm"
+    },
+    
     //"custom/dunst": { // notifications
     //  "exec": 
     //}

@@ -28,19 +28,22 @@ window#waybar {
 #clock:hover,
 #custom-power:hover,
 /* #custom-dunst:hover { */
-#custom-screenshot:hover {
+#custom-screenshot:hover,
+#custom-updates:hover {
   background-color: @surface1;
 }
 /* ------------------------------------- */
 
 /* ----- Alternating module colors ----- */
-#custom-power, #custom-screenshot, 
-#wireplumber, #clock {
+/* #custom-power, #custom-screenshot, */
+#custom-power, 
+#wireplumber, #clock,
+#custom-screenshot {
   color: @teal;
   padding: 2 6px;
 }
 
-#custom-updates, 
+#custom-updates,
 /* #custom-dunst { */
 #network { 
   color: @sapphire;
@@ -69,7 +72,9 @@ window#waybar {
 }
 
 #workspaces button.urgent {
-  color: @red;
+  background-color: @red;
+  color: @base;
+  font-weight: bold;
 }
 /* -------------------------------------------------------------------------- */
 
@@ -81,11 +86,15 @@ window#waybar {
 }
 
 /* ---------- right side of module group ---------- */
-#custom-screenshot, #clock, #tray {
+#custom-screenshot, #clock {
   border-radius: 0 16px 16px 0; 
   padding: 0 10px 0 6px;
 }
 
+#tray {
+    border-radius: 0 16px 16px 0; 
+    padding: 0 10px 0 0;
+}
 
 #wireplumber.muted {
   color: @overlay0;
