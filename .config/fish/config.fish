@@ -10,6 +10,7 @@ alias ls "lsd"
 alias cat "bat"
 alias tree "lsd --tree"
 alias pipes "pipes.sh"
+alias ping "gping"
 
 alias cp "cp -v"
 alias mv "mv -v"
