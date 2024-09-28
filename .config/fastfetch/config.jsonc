@@ -64,7 +64,7 @@
       "key": " Packages",
       "type": "command",
       "shell": "/usr/bin/bash",
-      "text": "count_packages.sh"
+      "text": "count_packages"
     },
     {
       "type": "shell",
