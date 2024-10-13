@@ -11,6 +11,8 @@ map("n", "<leader>fb", telescope_builtins.buffers, { desc = "Search Buffers" })
 map("n", "<leader>fh", telescope_builtins.help_tags, { desc = "Search Help Tags" })
 map("n", "<leader>fr", telescope_builtins.oldfiles, { desc = "Search Recent Files" })
 map("n", "<leader>fz", telescope_builtins.current_buffer_fuzzy_find, { desc = "Fuzzy-find in File" })
+-- In future, create a custom picker to only show custom keymaps (the mappings in this buffer)
+map("n", "<leader>fk", telescope_builtins.keymaps, { desc = "Search Keymaps" })
 
 telescope.setup({ defaults = { mappings = { i = { ["<esc>"] = telescope_actions.close } } } })
 
@@ -21,7 +23,6 @@ map("n", "<leader>e", ":NvimTreeFocus<CR>", { desc = "Focus Nvim Tree" })
 ------ LSP ------
 map("n", "<C-k>", vim.lsp.buf.hover, { desc = "Display Hover Information" })
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
--- map("n", "gr", vim.lsp.buf.references, { desc = "Find References" })
 map("n", "gr", ":Telescope lsp_references<CR>", { desc = "Find References" })
 map("n", "<leader>ra", vim.lsp.buf.rename, { desc = "Rename Symbol" })
 
