@@ -10,7 +10,6 @@ return {
 				common_deps["mason"],
 				common_deps["nvim_dap"],
 			},
-			event = "VeryLazy",
 			config = function()
 				require("mason-nvim-dap").setup {
 					ensure_installed = { "codelldb", "debugpy" },
@@ -25,7 +24,6 @@ return {
 				"nvim-neotest/nvim-nio",
 				"theHamsta/nvim-dap-virtual-text", -- shows variable values right next to variables
 			},
-			event = "VeryLazy",
 			config = function()
 				local dap, dapui = require("dap"), require("dapui")
 				dapui.setup()
