@@ -73,7 +73,6 @@ return {
 							dotenv = "[ENV]",
 							luasnip = "[luasnip]",
 							buffer = "[buffer]",
-							cmdline = "[cmd]",
 						},
 					},
 				},
@@ -97,10 +96,8 @@ return {
 
 			cmp.setup.cmdline(":", {
 				mapping = cmp.mapping.preset.cmdline(),
-				sources = cmp.config.sources {
-					-- { name = "path" },
-					{ name = "cmdline", keyword_length = 4 },
-				},
+				sources = cmp.config.sources { { name = "cmdline", keyword_length = 6 } },
+				formatting = { fields = { cmp.ItemField.Abbr } },
 			})
 		end,
 	},
@@ -122,7 +119,6 @@ return {
 	},
 
 	{ "hrsh7th/cmp-nvim-lsp" }, -- provides completions for the LSP attached to the buffer
-	{ "hrsh7th/cmp-nvim-lsp-signature-help" }, -- displays function signatures with the current parameter emphasized
 	{ "hrsh7th/cmp-path" }, -- file path
 	{ "hrsh7th/cmp-nvim-lua" }, -- provides completions for Neovim's Lua runtime API
 	{ "mtoohey31/cmp-fish" }, -- shell

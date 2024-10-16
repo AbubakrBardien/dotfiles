@@ -18,7 +18,10 @@ vim.api.nvim_command("highlight NvimTreeSymlinkFolderName guifg=#71B0E8")
 
 -- Dap Virtual Text
 vim.api.nvim_command("highlight NvimDapVirtualText guifg=#4f4e5c")
-vim.api.nvim_command("highlight NvimDapVirtualTextChanged guifg=#616073")
+vim.api.nvim_command("highlight NvimDapVirtualTextChanged guifg=#616073 gui=bold")
+
+-- LSP Signature
+vim.api.nvim_command("highlight LspSignatureActiveParameter gui=bold")
 
 -- Other
 vim.api.nvim_command("highlight CursorLine guibg=#2D313B")

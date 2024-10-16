@@ -30,21 +30,26 @@ map("n", "gdf", vim.lsp.buf.definition, { desc = "Go to Definition" })
 map("n", "gdc", vim.lsp.buf.declaration, { desc = "Go to Declaration" })
 map("n", "gi", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
 
+------ LSP Signatures ------
+map("n", "<C-l>", function()
+	require("lsp_signature").toggle_float_win()
+end, { silent = true, desc = "Toggle Signature" })
+
 ------ Snippets ------
 local luasnip = require("luasnip")
 
 -- execute in "Insert Mode", or "Select Mode"
 map({ "i", "s" }, "<C-k>", function()
-	if luasnip.expand_or_jumpable() then -- Jump to next snippet placeholder
+	if luasnip.expand_or_jumpable() then
 		luasnip.expand_or_jump()
 	end
-end, { silent = true })
+end, { silent = true, desc = "Jump to Next snippet placeholder" })
 
 map({ "i", "s" }, "<C-l>", function()
-	if luasnip.jumpable(-1) then -- Jump to previous snippet placeholder
+	if luasnip.jumpable(-1) then
 		luasnip.jump(-1)
 	end
-end, { silent = true })
+end, { silent = true, desc = "Jump to Previous snippet placeholder" })
 
 ------ Auto-Completions ------
 local cmp = require("cmp")
@@ -118,10 +123,10 @@ map("n", "<Space>/", function()
 end, { desc = "DAPUI: Eval var under cursor" })
 
 ------ Terminal ------
-map({ "n" }, "<leader>tn", ":FloatermNew<CR>", { desc = "Open new terminal window" })
-map({ "n" }, "<leader>tt", ":FloatermToggle<CR>", { desc = "Toggle terminal window" })
-map({ "n" }, "<leader>tk", ":FloatermKill<CR>", { desc = "Kill terminal window" })
-vim.api.nvim_command("tnoremap <Esc> <C-\\><C-n>") -- Switch to "Normal Mode" from the terminal
+map({ "n" }, "<C-.>", ":FloatermNew<CR>", { desc = "Open new terminal window" })
+map({ "n" }, "<C-/>", ":FloatermToggle<CR>", { desc = "Toggle terminal window" })
+map({ "n" }, "<C-'>", ":FloatermKill<CR>", { desc = "Kill terminal window" })
+vim.api.nvim_command("tnoremap <C-;> <C-\\><C-n>") -- Switch to "Normal Mode" from the terminal
 
 ------ Split View Mappings ------
 map({ "n" }, "<A-Up>", "<C-w>k", { desc = "Go to Top window" })

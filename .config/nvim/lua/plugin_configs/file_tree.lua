@@ -5,7 +5,7 @@ return {
 				min = 35,
 				padding = 1,
 			},
-			side = "right",
+			-- side = "right",
 			relativenumber = true,
 		},
 		filters = { dotfiles = false },

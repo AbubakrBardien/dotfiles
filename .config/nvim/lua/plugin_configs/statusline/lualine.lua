@@ -36,7 +36,8 @@ return {
 		},
 		sections = {
 			lualine_a = { "mode" },
-			lualine_b = { "branch", "diff" },
+			-- lualine_b = { "branch", "diff" },
+			lualine_b = { "branch" },
 			lualine_c = { "filetype", "filename" },
 			lualine_x = { file_size },
 			lualine_y = { location, "progress" },

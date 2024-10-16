@@ -27,6 +27,7 @@ return {
 			}
 		end,
 	},
+
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
@@ -70,6 +71,9 @@ return {
 	},
 
 	require("plugin_configs.auto-completions"),
+
+	require("plugin_configs.lsp_signatures"),
+
 	require("plugin_configs.git_integration"),
 
 	{

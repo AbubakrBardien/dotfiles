@@ -30,5 +30,5 @@ opt.scrolloff = 8
 opt.showmode = false
 
 ---- Plugin Options ----
-vim.g.floaterm_width = 0.9
-vim.g.floaterm_height = 0.9
+g.floaterm_width = 0.9
+g.floaterm_height = 0.9
