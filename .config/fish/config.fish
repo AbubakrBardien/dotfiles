@@ -33,3 +33,6 @@ function yy
 	end
 	rm -f -- "$tmp"
 end
+
+# Custom Starship Prompt
+starship init fish | source

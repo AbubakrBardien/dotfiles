@@ -1,0 +1,20 @@
+[character]
+success_symbol = "[](green)"
+error_symbol = "[](red)"
+
+[python]
+symbol = " "
+style = "bold #4b8bbd"
+
+[git_branch]
+symbol = " "
+style = "bold yellow"
+
+[git_status]
+disabled = true
+
+[cmd_duration]
+disabled = true
+
+[directory]
+truncation_length = 0
