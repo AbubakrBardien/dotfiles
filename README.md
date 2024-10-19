@@ -2,11 +2,11 @@
 
 ## Screenshots
 
-![Screenshot1]($HOME/.local/share/screenshots/screenshot1.png)
+![Screenshot1](.local/share/screenshots/screenshot1.png)
 
-![Screenshot2]($HOME/.local/share/screenshots/screenshot2.png)
+![Screenshot2](.local/share/screenshots/screenshot2.png)
 
-![Screenshot3]($HOME/.local/share/screenshots/screenshot3.png)
+![Screenshot3](.local/share/screenshots/screenshot3.png)
 
 ## Installation
 
