@@ -87,7 +87,7 @@
     
     "custom/updates": {
         "format": "󱍸",
-        "exec": "$HOME/.scripts/waybar-module-packages/monitor_num_updates",
+        "exec": "$SCRIPTS/waybar-module-packages/monitor_num_updates",
         "interval": 300,
         "tooltip": true,
         "tooltip-format": "{}",

@@ -2,7 +2,7 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-set fish_greeting	# Supresses Fish's into message
+set fish_greeting	# Supresses Fish's intro message
 
 alias config "/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" 
 alias ls "lsd"
