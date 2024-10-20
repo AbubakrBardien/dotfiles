@@ -18,7 +18,6 @@ telescope.setup({ defaults = { mappings = { i = { ["<esc>"] = telescope_actions.
 
 ------ NvimTree ------
 map("n", "<C-n>", ":NvimTreeToggle<CR>", { desc = "Toggle Nvim Tree" })
-map("n", "<leader>e", ":NvimTreeFocus<CR>", { desc = "Focus Nvim Tree" })
 
 ------ LSP ------
 map("n", "<C-k>", vim.lsp.buf.hover, { desc = "Display Hover Information" })
