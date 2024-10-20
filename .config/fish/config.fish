@@ -1,8 +1,6 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
-
-set fish_greeting	# Supresses Fish's intro message
+#############
+## Aliases ##
+#############
 
 alias config "/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" 
 alias ls "lsd"
@@ -22,7 +20,9 @@ alias delete_orphaned "sudo pacman -Rns \$(pacman -Qdtq)"
 
 alias wget "wget --hsts-file=\"$XDG_DATA_HOME/wget-hsts\""
 
-# Set Environment Variables
+###########################
+## Environment Variables ##
+###########################
 
 ## XDG Variables
 set -xg XDG_CONFIG_HOME "$HOME/.config"
@@ -46,11 +46,9 @@ set -xg NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/npmrc"
 set -xg SCRIPTS "$XDG_DATA_HOME/my_scripts"
 
 
-# Custom Starship Prompt
-starship init fish | source
-
-
-# Functions
+###############
+## Functions ##
+###############
 
 ## Fuction to be able to change directory when exiting. Call it with 'yy'
 function yy
@@ -61,3 +59,17 @@ function yy
 	end
 	rm -f -- "$tmp"
 end
+
+###########
+## Other ##
+###########
+
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end
+
+# Supresses Fish's intro message
+set fish_greeting
+
+# Custom Starship Prompt
+starship init fish | source
