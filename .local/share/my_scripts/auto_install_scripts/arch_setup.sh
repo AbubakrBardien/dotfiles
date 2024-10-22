@@ -3,13 +3,13 @@
 uncomment_line () {
 	line=$1
 	file=$2
-	awk "/#$line/ { print \"$line\" } { print }" $file > /my_tmp && mv /my_tmp $file
+	awk "/#$line/ { print \"$line\" } { print } $file" > /my_tmp && mv /my_tmp "$file"
 }
 
 loadkeys us # Loads US keyboard layout (default)
 
 echo "Enter name of disk to be partitioned: (default: /dev/sda)"
-read diskName
+read -r diskName
 
 cat <<EOF
 
@@ -25,29 +25,29 @@ EOF
 
 # Input
 echo "Enter size of Boot partition:"
-read bootSize
+read -r bootSize
 echo -e "\nEnter size of Swap partition:"
-read swapSize
+read -r swapSize
 echo -e "\nEnter CPU type: (e.g. Intel or AMD) (default: Intel)"
-read CPU_type
+read -r CPU_type
 echo -e "\nEnter time-zone: (default: Africa/Johannesburg)"
-read timeZone
+read -r timeZone
 echo -e "\nEnter root password:"
-read -s rootPass
+read -r -s rootPass
 echo -e "\nEnter new user: (default: abubakr)"
-read userName
-if [ -z $userName ]; then
+read -r userName
+if [ -z "$userName" ]; then
 	userName="abubakr"
 fi
 echo -e "\nEnter password for $userName:"
-read -s userPass
+read -r -s userPass
 
-if [ -z $diskName ]; then
+if [ -z "$diskName" ]; then
 	diskName="/dev/sda"
 fi
 
 # Creating the Partitions
-fdisk $diskName <<EOF
+fdisk "$diskName" <<EOF
 g
 n
 1
@@ -75,16 +75,16 @@ swapPart="${diskName}2" # swap partition
 rootPart="${diskName}3" # root partition
 
 # Formatting the Partitions
-mkfs.fat -F 32 $bootPart
-mkswap $swapPart
-mkfs.ext4 $rootPart
+mkfs.fat -F 32 "$bootPart"
+mkswap "$swapPart"
+mkfs.ext4 "$rootPart"
 
 # Mounting the File Systems
-mount $rootPart /mnt
-mount --mkdir $bootPart /mnt/boot
-swapon $swapPart
+mount "$rootPart" /mnt
+mount --mkdir "$bootPart" /mnt/boot
+swapon "$swapPart"
 
-if [ -z $CPU_type ]; then
+if [ -z "$CPU_type" ]; then
 	microcode_pkg="intel-ucode"
 else
 	microcode_pkg="amd-ucode"
@@ -97,7 +97,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 
 # Set Time-Zone
-if [ -z $timeZone ]; then
+if [ -z "$timeZone" ]; then
 	timeZone="Africa/Johannesburg"
 fi
 ln -sf "/usr/share/zoneinfo/$timeZone" /etc/localtime
@@ -116,8 +116,8 @@ $rootPass
 EOF
 
 # Create a New User
-useradd -m -g users -G wheel,storage,power,video,audio -s /bin/bash $userName
-passwd $userName <<EOF
+useradd -m -g users -G wheel,storage,power,video,audio -s /bin/bash "$userName"
+passwd "$userName" <<EOF
 $userPass
 $userPass
 EOF
@@ -125,7 +125,7 @@ EOF
 uncomment_line "%wheel ALL=(ALL:ALL) ALL" /etc/sudoers
 
 grub-mkconfig -o /boot/grub/grub.cfg
-grub-install --target=x86_64-efi --efi-directory=/sys/firmware/efi --bootloader-id=GRUB --boot-target=efi $bootPart
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB "$bootPart"
 
 systemctl enable NetworkManager
 systemctl enable bluetooth
