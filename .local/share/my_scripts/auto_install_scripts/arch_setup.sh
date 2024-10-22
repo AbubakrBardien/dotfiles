@@ -8,7 +8,7 @@ uncomment_line () {
 
 loadkeys us # Loads US keyboard layout (default)
 
-echo "Enter name of disk to be partitioned: (e.g. /dev/sda)"
+echo "Enter name of disk to be partitioned: (default: /dev/sda)"
 read diskName
 
 cat <<EOF
@@ -36,9 +36,15 @@ echo -e "\nEnter root password:"
 read -s rootPass
 echo -e "\nEnter new user: (default: abubakr)"
 read userName
+if [ -z $userName ]; then
+	userName="abubakr"
+fi
 echo -e "\nEnter password for $userName:"
 read -s userPass
 
+if [ -z $diskName ]; then
+	diskName="/dev/sda"
+fi
 
 # Creating the Partitions
 fdisk $diskName <<EOF
