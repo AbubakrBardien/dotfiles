@@ -9,18 +9,10 @@ git clone https://github.com/Morganamilo/paru.git
 cd paru
 makepkg -si
 
-# Handle this later
-# echo -e "\nEnter NVIDIA GPU Family Name: (for more details: https://nouveau.freedesktop.org/CodeNames.html)"
-# read GPU_Family
-#
-# if [ $GPU_Family == "Tesla" ]; then
-# 	nvidia_driver=nvidia-340xx-dkms
-# fi
+loginManager="sddm"
 
-# SDDM is in "pacman_packages.txt"
-
-pacman -S --noconfirm --needed $(cat pacman_packages.txt)
+pacman -S --noconfirm --needed $loginManager $(cat pacman_packages.txt)
 paru -S --noconfirm --needed $(cat aur_packages.txt)
 
-sudo systemctl enable sddm
-sudo systemctl start sddm
+sudo systemctl enable $loginManager
+sudo systemctl start $loginManager
