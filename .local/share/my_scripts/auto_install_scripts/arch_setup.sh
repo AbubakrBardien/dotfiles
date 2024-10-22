@@ -94,42 +94,46 @@ fi
 pacstrap -K /mnt base{,-devel} linux{,-firmware} grub efibootmgr $microcode_pkg vim git networkmanager bluez{,-utils}
 
 genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt
 
 # Set Time-Zone
 if [ -z "$timeZone" ]; then
 	timeZone="Africa/Johannesburg"
 fi
+
+chosen_locale="en_US.UTF-8"
+locale_gen="/etc/locale.gen"
+sudoers_file="/etc/sudoers"
+wheel_permissions="%wheel ALL=(ALL:ALL) ALL"
+
+arch-chroot /mnt <<EOF1
 ln -sf "/usr/share/zoneinfo/$timeZone" /etc/localtime
 hwclock --systohc
 
-# Set Locale
-uncomment_line "en_US.UTF-8 UTF-8" /etc/locale.gen
+awk "/#$chosen_locale UTF-8/ { print \"$chosen_locale UTF-8\" } { print } $locale_gen" > /my_tmp && mv /my_tmp $locale_gen
 locale-gen
-awk "BEGIN { print \"LANG=en_US.UTF-8\" }" > /etc/locale.conf
+awk "BEGIN { print \"LANG=$chosen_locale\" }" > /etc/locale.conf
 awk "BEGIN { print \"arch-linux\" }" > /etc/hostname
 
-# Set Root Password
-passwd <<EOF
-$rootPass
-$rootPass
-EOF
+passwd <<EOF2
+	\$rootPass
+	\$rootPass
+EOF2
 
-# Create a New User
 useradd -m -g users -G wheel,storage,power,video,audio -s /bin/bash "$userName"
-passwd "$userName" <<EOF
-$userPass
-$userPass
-EOF
 
-uncomment_line "%wheel ALL=(ALL:ALL) ALL" /etc/sudoers
+passwd "$userName" <<EOF2
+	\$userPass
+	\$userPass
+EOF2
+
+awk "/#$wheel_permissions/ { print \"$wheel_permissions\" } { print } $sudoers_file" > /my_tmp && mv /my_tmp $sudoers_file
 
 grub-mkconfig -o /boot/grub/grub.cfg
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB "$bootPart"
 
 systemctl enable NetworkManager
 systemctl enable bluetooth
+EOF1
 
-exit
 umount -a
 reboot
