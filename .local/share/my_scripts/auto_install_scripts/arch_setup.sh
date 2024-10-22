@@ -28,20 +28,20 @@ echo "Enter size of Boot partition:"
 read bootSize
 echo -e "\nEnter size of Swap partition:"
 read swapSize
-echo -e "\nEnter CPU type: (e.g. Intel or AMD)"
+echo -e "\nEnter CPU type: (e.g. Intel or AMD) (default: Intel)"
 read CPU_type
-echo -e "\nEnter time-zone: (e.g. Africa/Johannesburg)"
+echo -e "\nEnter time-zone: (default: Africa/Johannesburg)"
 read timeZone
 echo -e "\nEnter root password:"
-read rootPass
-echo -e "\nEnter new user:"
+read -s rootPass
+echo -e "\nEnter new user: (default: abubakr)"
 read userName
 echo -e "\nEnter password for $userName:"
-read userPass
+read -s userPass
 
 
 # Creating the Partitions
-fdisk diskName <<EOF
+fdisk $diskName <<EOF
 g
 n
 1
@@ -78,7 +78,7 @@ mount $rootPart /mnt
 mount --mkdir $bootPart /mnt/boot
 swapon $swapPart
 
-if [ $CPU_type == "Intel" ]; then
+if [ -z $CPU_type ]; then
 	microcode_pkg="intel-ucode"
 else
 	microcode_pkg="amd-ucode"
@@ -91,6 +91,9 @@ genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 
 # Set Time-Zone
+if [ -z $timeZone ]; then
+	timeZone="Africa/Johannesburg"
+fi
 ln -sf "/usr/share/zoneinfo/$timeZone" /etc/localtime
 hwclock --systohc
 
