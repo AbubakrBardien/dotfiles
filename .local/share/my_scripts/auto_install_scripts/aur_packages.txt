@@ -1,0 +1,17 @@
+brillo
+cava
+cbonsai
+gotop
+hyprshot
+mkinitcpio-numlock
+onlyoffice-bin
+paru
+paru-debug
+pcloud-drive
+pipes.sh
+python-pygobject-stubs
+sddm-theme-mountain-git
+webcord
+whatsapp-for-linux
+wofi-calc
+xdg-ninja
