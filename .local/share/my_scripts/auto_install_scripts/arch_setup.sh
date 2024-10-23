@@ -118,7 +118,7 @@ passwd "$userName" <<EOF2
 	\$userPass
 EOF2
 
-sed -i "/%wheel ALL=(ALL:ALL) ALL/s/^#\s*//g" /etc/sudoers
+sed -i '/%wheel ALL=(ALL:ALL) ALL/s/^#\s*//g' /etc/sudoers
 
 grub-install --target=x86_64-efi --efi-directory=/boot/ --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
