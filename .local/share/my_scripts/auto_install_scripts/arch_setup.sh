@@ -133,6 +133,7 @@ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB "$bo
 
 systemctl enable NetworkManager
 systemctl enable bluetooth
+exit
 EOF1
 
 umount -a
