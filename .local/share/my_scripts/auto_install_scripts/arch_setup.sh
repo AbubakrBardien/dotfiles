@@ -97,7 +97,7 @@ fi
 chosen_locale="en_US.UTF-8"
 locale_gen="/etc/locale.gen"
 
-arch-chroot /mnt <<EOF1
+arch-chroot /mnt <<-EOF1
 ln -sf "/usr/share/zoneinfo/$timeZone" /etc/localtime
 hwclock --systohc
 
@@ -106,16 +106,16 @@ locale-gen
 awk "BEGIN { print \"LANG=$chosen_locale\" }" > /etc/locale.conf
 awk "BEGIN { print \"arch-linux\" }" > /etc/hostname
 
-passwd <<EOF2
-	\$rootPass
-	\$rootPass
+passwd <<-EOF2
+	$rootPass
+	$rootPass
 EOF2
 
 useradd -m -g users -G wheel,storage,power,video,audio -s /bin/bash "$userName"
 
-passwd "$userName" <<EOF2
-	\$userPass
-	\$userPass
+passwd "$userName" <<-EOF2
+	$userPass
+	$userPass
 EOF2
 
 sed -i '/%wheel ALL=(ALL:ALL) ALL/s/^#\s*//g' /etc/sudoers
