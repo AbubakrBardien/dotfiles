@@ -122,6 +122,7 @@ EOF2
 
 awk "/#$wheel_permissions/ { print \"$wheel_permissions\" } { print } $sudoers_file" > /my_tmp && mv /my_tmp $sudoers_file
 
+mkdir /boot/efi
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
