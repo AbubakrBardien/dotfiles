@@ -1,11 +1,5 @@
 #!/bin/bash
 
-uncomment_line () {
-	line=$1
-	file=$2
-	awk "/#$line/ { print \"$line\" } { print } $file" > /my_tmp && mv /my_tmp "$file"
-}
-
 loadkeys us # Loads US keyboard layout (default)
 
 echo "Enter name of disk to be partitioned: (default: /dev/sda)"
@@ -128,8 +122,8 @@ EOF2
 
 awk "/#$wheel_permissions/ { print \"$wheel_permissions\" } { print } $sudoers_file" > /my_tmp && mv /my_tmp $sudoers_file
 
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB "$bootPart"
 
 systemctl enable NetworkManager
 systemctl enable bluetooth
