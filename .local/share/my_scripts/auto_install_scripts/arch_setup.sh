@@ -95,13 +95,12 @@ if [ -z "$timeZone" ]; then
 fi
 
 chosen_locale="en_US.UTF-8"
-locale_gen="/etc/locale.gen"
 
 arch-chroot /mnt <<-EOF1
 ln -sf "/usr/share/zoneinfo/$timeZone" /etc/localtime
 hwclock --systohc
 
-awk "/#$chosen_locale UTF-8/ { print \"$chosen_locale UTF-8\" } { print } $locale_gen" > /my_tmp && mv /my_tmp $locale_gen
+sed -i '/$chosen_locale UTF-8/s/^#\s*//g' /etc/locale.gen
 locale-gen
 awk "BEGIN { print \"LANG=$chosen_locale\" }" > /etc/locale.conf
 awk "BEGIN { print \"arch-linux\" }" > /etc/hostname
