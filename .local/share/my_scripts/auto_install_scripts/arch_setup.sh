@@ -96,8 +96,6 @@ fi
 
 chosen_locale="en_US.UTF-8"
 locale_gen="/etc/locale.gen"
-sudoers_file="/etc/sudoers"
-wheel_permissions="%wheel ALL=(ALL:ALL) ALL"
 
 arch-chroot /mnt <<EOF1
 ln -sf "/usr/share/zoneinfo/$timeZone" /etc/localtime
@@ -120,10 +118,9 @@ passwd "$userName" <<EOF2
 	\$userPass
 EOF2
 
-awk "/#$wheel_permissions/ { print \"$wheel_permissions\" } { print } $sudoers_file" > /my_tmp && mv /my_tmp $sudoers_file
+sed -i "/%wheel ALL=(ALL:ALL) ALL/s/^#\s*//g" /etc/sudoers
 
-mkdir /boot/efi
-grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
+grub-install --target=x86_64-efi --efi-directory=/boot/ --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
 systemctl enable NetworkManager
@@ -132,4 +129,4 @@ exit
 EOF1
 
 umount -a
-reboot
+# reboot
