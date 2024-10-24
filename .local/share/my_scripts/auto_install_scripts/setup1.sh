@@ -128,4 +128,4 @@ exit
 EOF1
 
 umount -a
-# reboot
+reboot
