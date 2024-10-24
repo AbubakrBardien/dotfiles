@@ -21,7 +21,7 @@ return {
 			-- local attachments =
 
 			-- this is where you configure each LSP
-			local lsp_set = { "lua_ls", "clangd", "pyright" }
+			local lsp_set = { "lua_ls", "clangd", "pyright", "bashls" }
 			for _, lsp in pairs(lsp_set) do
 				lspconfig[lsp].setup { capabilities = capabilities }
 			end

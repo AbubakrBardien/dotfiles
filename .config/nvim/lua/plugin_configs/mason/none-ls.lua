@@ -14,6 +14,9 @@ return {
 			require("mason-null-ls").setup {
 				-- Anything supported by mason
 				ensure_installed = {
+					-- Linters
+					"shellcheck",
+
 					-- Formatters
 					"stylua",
 					"clang-format",
@@ -30,8 +33,6 @@ return {
 		config = function()
 			local null_ls = require("null-ls")
 			null_ls.setup {
-				-- builtins.completion.spell
-
 				-- Anything NOT supported by mason
 				sources = {},
 			}
