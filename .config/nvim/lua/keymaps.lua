@@ -39,16 +39,16 @@ local luasnip = require("luasnip")
 
 -- execute in "Insert Mode", or "Select Mode"
 map({ "i", "s" }, "<C-k>", function()
-	if luasnip.expand_or_jumpable() then
-		luasnip.expand_or_jump()
-	end
-end, { silent = true, desc = "Jump to Next snippet placeholder" })
-
-map({ "i", "s" }, "<C-l>", function()
 	if luasnip.jumpable(-1) then
 		luasnip.jump(-1)
 	end
 end, { silent = true, desc = "Jump to Previous snippet placeholder" })
+
+map({ "i", "s" }, "<C-l>", function()
+	if luasnip.expand_or_jumpable() then
+		luasnip.expand_or_jump()
+	end
+end, { silent = true, desc = "Jump to Next snippet placeholder" })
 
 ------ Auto-Completions ------
 local cmp = require("cmp")
