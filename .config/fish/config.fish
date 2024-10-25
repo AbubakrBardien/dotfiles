@@ -43,8 +43,8 @@ set -xg GTK2_RC_FILES "$XDG_CONFIG_HOME/gtk-2.0/gtkrc" # The old path still auto
 set -xg LESSHISTFILE "$XDG_STATE_HOME/less/history"
 set -xg NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/npmrc"
 #set -xg RUSTUP_HOME "$XDG_DATA_HOME/rustup" # This works but involves cargo, so I'll rather play it safe
-set -xg SCRIPTS "$XDG_DATA_HOME/my_scripts"
 
+set -xg SCRIPTS "$XDG_DATA_HOME/my_scripts"
 
 ###############
 ## Functions ##
