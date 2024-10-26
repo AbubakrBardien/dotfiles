@@ -10,24 +10,11 @@
 
 ## Installation
 
-During your Arch Installation process, after running `pacstrap -K /mnt base{,-devel} linux{,-firmware} grub efibootmgr networkmanager neovim git`.
-
-Run `pacstrap -K amd-ucode` if you have an AMD CPU, or `pacstrap -K intel-ucode` if you have an Intel CPU.
-
-Then, clone the 'auto-install-packages' repo, as shown below:
-
 ```Shell
-mkdir /home/abubakr/.scripts/
-cd /home/abubakr/.scripts/
-
-git clone https://github.com/AbubakrBardien/auto-install-packages.git
-# Or
-git clone git@github.com:AbubakrBardien/auto-install-packages.git
+curl https://raw.githubusercontent.com/AbubakrBardien/dotfiles/main/.local/share/my_scripts/auto_install_scripts/setup1.sh -o setup
+chmod +x setup
+./setup
 ```
-
-Then run `auto-install-packages/install_packages.sh` to auto-install the packages.
-
-At the end of the Arch Installation process, after logging in, run the `auto-install-packages/bare_repo.sh` script to download the dotfiles.
 
 ## Programs I Use
 
