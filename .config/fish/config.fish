@@ -46,6 +46,13 @@ set -xg NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/npmrc"
 
 set -xg SCRIPTS "$XDG_DATA_HOME/my_scripts"
 
+################################
+## Path Environment Variables ##
+################################
+
+set -U fish_user_paths $SCRIPTS  $fish_user_paths
+set -U fish_user_paths $SCRIPTS/count_packages  $fish_user_paths
+
 ###############
 ## Functions ##
 ###############
