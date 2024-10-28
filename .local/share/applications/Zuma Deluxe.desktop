@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Zuma Deluxe
-Comment=Play this game on Steam
-Exec=steam steam://rungameid/3330
-Icon=steam_icon_3330
-Terminal=false
-Type=Application
-Categories=Game;
