@@ -121,7 +121,9 @@ rm arch-linux.tar
 cd /etc/sddm.conf.d/sddm.conf
 sudo sed -i 's/^Current=.*/Current=mountain/' /etc/sddm.conf.d/sddm.conf
 
-###### Change sudo permissions and reboot ######
+###### Finishing Up ######
+
+sudo pacman -Rns --noconfirm kitty
 
 # Comments out "%wheel ALL=(ALL:ALL) NOPASSWD: ALL", and Uncomments "%wheel ALL=(ALL:ALL) ALL"
 sudo sed -i '/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/s/^/# /;/%wheel ALL=(ALL:ALL) ALL/s/^#\s*//g' /etc/pacman.conf	

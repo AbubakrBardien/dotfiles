@@ -148,6 +148,7 @@ exit
 EOF1
 
 loginManager="sddm"
+terminalEmulator="foot"
 
 # Install SDDM, Hyprland, nvidia drivers, and terminal emulators. (kitty terminal is for temporary use)
 # Configure SDDM to luanch Hyprland
@@ -155,7 +156,7 @@ loginManager="sddm"
 # - Matches a line starting with "DisplayServer=", and sets it equal to "x11-user"
 # - Matches a line starting with "CompositorCommand=", and sets it equal to "Hyprland"
 arch-chroot /mnt <<-EOF1
-pacman -S --noconfirm $loginManager nvidia{,-utils} lib32-nvidia-utils hyprland kitty foot
+pacman -S --noconfirm $loginManager nvidia{,-utils} lib32-nvidia-utils hyprland kitty $terminalEmulator
 
 mkdir /etc/sddm.conf.d/
 cp /usr/lib/sddm/sddm.conf.d/default.conf /etc/sddm.conf.d/sddm.conf
