@@ -132,9 +132,9 @@ map({ "n" }, "<A-Up>", "<C-w>k", { desc = "Go to Top window" })
 map({ "n" }, "<A-Down>", "<C-w>j", { desc = "Go to Bottom window" })
 map({ "n" }, "<A-Right>", "<C-w>l", { desc = "Go to Right window" })
 map({ "n" }, "<A-Left>", "<C-w>h", { desc = "Go to Left window" })
-map({ "n" }, "<A-a>", ":vs<CR><C-w>l", { desc = "Horizontal Split" })
-map({ "n" }, "<A-s>", ":sp<CR><C-w>j", { desc = "Vertical Split" })
-map({ "n" }, "<A-d>", ":q<CR>", { desc = "Close split window" })
+map({ "n" }, "<A-q>", ":vs<CR><C-w>l", { desc = "Horizontal Split" })
+map({ "n" }, "<A-w>", ":sp<CR><C-w>j", { desc = "Vertical Split" })
+map({ "n" }, "<A-e>", ":q<CR>", { desc = "Close split window" })
 
 ------ Buffer Navigation ------
 map({ "n" }, "<Tab>", ":bnext<CR>", { desc = "Go to Next Buffer" })
