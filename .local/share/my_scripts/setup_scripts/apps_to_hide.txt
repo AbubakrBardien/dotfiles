@@ -1,0 +1,11 @@
+avahi-discover
+bssh
+bvnc
+electron31
+fish
+org.codeberg.dnkl.footclient
+org.codeberg.dnkl.foot-server
+qv4l2
+qvidcap
+rofi
+rofi-theme-selector

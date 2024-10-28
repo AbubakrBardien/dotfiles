@@ -22,7 +22,6 @@ firefox
 fish
 fisher
 foot
-foot-terminfo
 gdb
 git
 gping
@@ -50,7 +49,6 @@ luarocks
 lutris
 mediainfo
 mtools
-nano
 neovim
 networkmanager
 noto-fonts-emoji
@@ -88,9 +86,10 @@ thunderbird
 timeshift
 tldr
 torbrowser-launcher
+ttf-jetbrains-mono-nerd
 ufw
 unzip
-virtualbox
+vim
 vlc
 waybar
 wev
