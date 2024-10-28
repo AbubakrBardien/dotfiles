@@ -10,11 +10,21 @@
 
 ## Installation
 
-```Shell
-curl https://raw.githubusercontent.com/AbubakrBardien/dotfiles/main/.local/share/my_scripts/auto_install_scripts/setup1.sh -o setup
-chmod +x setup
-./setup
+Run 1st script when in the Arch Installation Medium:
+```bash
+curl -o setup1 https://raw.githubusercontent.com/AbubakrBardien/dotfiles/main/.local/share/my_scripts/setup_scripts/setup1.sh
+chmod +x setup1
+./setup1
 ```
+
+Log into Hyprland. In the Hyprland config, change the default terminal to Foot. Run these commands in the Foot terminal:
+```bash
+curl -o setup2 -o pacman_packages.txt -o aur_packages.txt -o apps_to_hide.txt \
+https://raw.githubusercontent.com/AbubakrBardien/dotfiles/main/.local/share/my_scripts/setup_scripts/{setup2.sh,{{pacman,aur}_packages,apps_to_hide}.txt}
+chmod +x setup2
+./setup2 <path_to_ssh_private_key>
+```
+(Warning: `setup2.sh` hasn't been fully tested yet)
 
 ## Programs I Use
 
