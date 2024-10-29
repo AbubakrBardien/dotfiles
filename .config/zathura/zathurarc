@@ -1,0 +1,8 @@
+set selection-clipboard clipboard
+set page-padding 15
+
+map q q
+map p print
+map k zoom in
+map l zoom out
+map D toggle_page_mode
