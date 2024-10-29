@@ -51,7 +51,10 @@ imgViewer = [{ run = 'gthumb "$@"', desc = "gThumb", for = "linux" }]
 
 document = [{ run = 'onlyoffice-desktopeditors "$@"', desc = "OnlyOffice", for = "linux" }]
 spreadsheet = [{ run = 'onlyoffice-desktopeditors "$@"', desc = "OnlyOffice", for = "linux" }]
-pdf = [{ run = 'onlyoffice-desktopeditors "$@"', desc = "OnlyOffice", for = "linux" }]
+pdf =	[
+			{ run = 'zathura "$@"', desc = "Zathura", for = "linux" },
+			{ run = 'onlyoffice-desktopeditors "$@"', desc = "OnlyOffice", for = "linux" }
+		]
 
 browserLinks = [{ run = 'firefox "$@"', desc = "Firefox", for = "linux" }]
 
