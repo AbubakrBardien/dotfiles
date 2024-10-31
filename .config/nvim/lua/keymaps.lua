@@ -1,3 +1,5 @@
+local helperFunctions = require("helper_functions")
+
 local map = vim.keymap.set
 
 ------ Telescope ------
@@ -139,6 +141,12 @@ map({ "n" }, "<A-e>", ":q<CR>", { desc = "Close split window" })
 ------ Buffer Navigation ------
 map({ "n" }, "<Tab>", ":bnext<CR>", { desc = "Go to Next Buffer" })
 map({ "n" }, "<S-Tab>", ":bprevious<CR>", { desc = "Go to Previous Buffer" })
+
+------ File Conversion ------
+-- stylua: ignore start
+map({ "n" }, "<leader>pp", function() helperFunctions.pandoc_convert("pdf") end, { desc = "Convert to PDF" })
+map({ "n" }, "<leader>pw", function() helperFunctions.pandoc_convert("docx") end, { desc = "Convert to Word Document" })
+-- stylua: ignore end
 
 ------ Other ------
 map("n", "<C-s>", ":w<CR>", {})
