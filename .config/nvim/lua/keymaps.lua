@@ -13,7 +13,6 @@ map("n", "<leader>fb", telescope_builtins.buffers, { desc = "Search Buffers" })
 map("n", "<leader>fh", telescope_builtins.help_tags, { desc = "Search Help Tags" })
 map("n", "<leader>fr", telescope_builtins.oldfiles, { desc = "Search Recent Files" })
 map("n", "<leader>fz", telescope_builtins.current_buffer_fuzzy_find, { desc = "Fuzzy-find in File" })
--- In future, create a custom picker to only show custom keymaps (the mappings in this buffer)
 map("n", "<leader>fk", telescope_builtins.keymaps, { desc = "Search Keymaps" })
 
 telescope.setup({ defaults = { mappings = { i = { ["<esc>"] = telescope_actions.close } } } })
@@ -144,14 +143,19 @@ map({ "n" }, "<S-Tab>", ":bprevious<CR>", { desc = "Go to Previous Buffer" })
 
 ------ File Conversion ------
 -- stylua: ignore start
-map({ "n" }, "<leader>pp", function() helperFunctions.pandoc_convert("pdf") end, { desc = "Convert to PDF" })
-map({ "n" }, "<leader>pw", function() helperFunctions.pandoc_convert("docx") end, { desc = "Convert to Word Document" })
+map({ "n" }, "<leader>pdf", function() helperFunctions.pandoc_convert("pdf") end, { desc = "Convert to PDF" })
+map({ "n" }, "<leader>docx", function() helperFunctions.pandoc_convert("docx") end, { desc = "Convert to Word Document" })
 -- stylua: ignore end
 
+------ Preview ------
+map({ "n" }, "<leader>po", ":PeekOpen<CR>", { desc = "Open Preview" })
+map({ "n" }, "<leader>pc", ":PeekClose<CR>", { desc = "Close Preview" })
+
 ------ Other ------
-map("n", "<C-s>", ":w<CR>", {})
+map("n", "<C-s>", ":w<CR>", { desc = "Save File" })
 map("n", ";", ":", { desc = "Enter Command Mode" })
 map("n", "<Esc>", ":noh<CR>", { desc = "Clear Highlights" })
 map("n", "<C-a>", "gg0vG$", { desc = "Highlight File" })
 map("n", "<C-c>", "gg0vG$y", { desc = "Copy File Content" })
 map("n", "<leader>s", ":source %<CR>", { desc = "Restart Neovim" })
+map("n", "<C-d>", ":bd<CR>", { desc = "Delete Buffer" })
