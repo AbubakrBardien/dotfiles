@@ -3,7 +3,8 @@
 options=("󰇄" "" "󰆟") 
 display_str="󰇄\n\n󰆟" # Intended Order
 
-chosen=$(printf '%s' "$display_str" | wofi -c "$HOME/.config/wofi/configs/screenshot/config" -s "$HOME/.config/wofi/configs/screenshot/style.css")
+# shellcheck disable=SC2059
+chosen=$(printf "$display_str" | wofi -c "$HOME/.config/wofi/configs/screenshot/config" -s "$HOME/.config/wofi/configs/screenshot/style.css")
 
 case $chosen in
 	"${options[0]}")
