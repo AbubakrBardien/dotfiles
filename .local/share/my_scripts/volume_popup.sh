@@ -8,21 +8,21 @@ function popup() {
   volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2 * 100}')
   
   # "-i" is to set the icon, and "-t" is to se the timeout (in milliseconds)
-  dunstify -a "volume_popup" -u low -h int:value:$volume -h string:x-dunst-stack-tag:vol_tag -i "$HOME/.config/dunst/icons/$1" "Volume: $volume%" -t $timeout
+  dunstify -a "volume_popup" -u low -h "int:value:$volume" -h string:x-dunst-stack-tag:vol_tag -i "$HOME/.config/dunst/icons/$1" "Volume: $volume%" -t $timeout
 }
 
 case $1 in
   up)
     wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 # unmute if muted
-    if [ $volume -lt 100 ]; then
+    if [ "$volume" -lt 100 ]; then
       wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
     fi
-    popup volume-$1.png
+    popup "volume-$1.png"
     ;;
   down)
     wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 # unmute if muted
     wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-    popup volume-$1.png
+    popup "volume-$1.png"
     ;;
   mute)
     wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle 

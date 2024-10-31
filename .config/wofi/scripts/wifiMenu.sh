@@ -13,7 +13,7 @@ elif [[ "$connected" =~ "disabled" ]]; then
 fi
 
 # Use wofi to select wifi network
-chosen_network=$(echo -e "$toggle\n$wifi_list" | uniq -u | wofi -c $HOME/.config/wofi/configs/wifi_menu/config -s $HOME/.config/wofi/configs/wifi_menu/style.css)
+chosen_network=$(echo -e "$toggle\n$wifi_list" | uniq -u | wofi -c "$HOME/.config/wofi/configs/wifi_menu/config" -s "$HOME/.config/wofi/configs/wifi_menu/style.css")
 
 # Get name of connection
 read -r chosen_id <<< "${chosen_network:3}"
@@ -33,7 +33,7 @@ else
 		nmcli connection up id "$chosen_id" | grep "successfully" && notify-send "Connection Established" "$success_message"
 	else
 		if [[ "$chosen_network" =~ "" ]]; then
-			wifi_password=$(echo " -- Enter Password Above -- " | wofi -c $HOME/.config/wofi/configs/wifi_menu/config -s $HOME/.config/wofi/configs/wifi_menu/style.css -p $chosen_id)
+			wifi_password=$(echo " -- Enter Password Above -- " | wofi -c "$HOME/.config/wofi/configs/wifi_menu/config" -s "$HOME/.config/wofi/configs/wifi_menu/style.css" -p "$chosen_id")
 		fi
 		nmcli device wifi connect "$chosen_id" password "$wifi_password" | grep "successfully" && notify-send "Connection Established" "$success_message"
     fi
