@@ -8,7 +8,7 @@ chosen=$(printf "$display_str" | wofi -c "$HOME/.config/wofi/configs/screenshot/
 
 case $chosen in
 	"${options[0]}")
-		hyprshot -m output -o "$HOME/Pictures/Screenshots" -z
+		hyprshot -m output -o "$HOME/Pictures/Screenshots"
 	;;
 	"${options[1]}")
 		hyprshot -m window -o "$HOME/Pictures/Screenshots" -z
