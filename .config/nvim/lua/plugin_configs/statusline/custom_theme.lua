@@ -10,8 +10,8 @@ local colors = {
 	red2 = "#ff5370",
 	orange = "#D8B576",
 	gray1 = "#314549",
-	gray2 = "#21272e",
-	gray3 = "#4c5154",
+	gray2 = "#24262b",
+	gray3 = "#3a3f42",
 }
 
 return {

@@ -107,11 +107,10 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 2
-    # frame_width = 1
+    frame_width = 4
 
     # Defines color of the frame around the notification window.
-    frame_color = "#8aadf4"
+    frame_color = "#434863"
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
@@ -343,15 +342,16 @@
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
     
-    background = "#24273a"
+    background = "#282c34"
     foreground = "#cad3f5"
     timeout = 3
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = /home/abubakr/Downloads/notification-bell.png
     default_icon = /home/abubakr/.config/dunst/icons/notification.png
+	highlight= "#4393e8"
     
 [urgency_normal]
-    background = "#24273a"
+    background = "#282c34"
     foreground = "#cad3f5"
     timeout = 3
     override_pause_level = 30
@@ -359,10 +359,9 @@
     default_icon = /home/abubakr/.config/dunst/icons/notification.png
 
 [urgency_critical]
-    background = "#24273a"
+    background = "#282c34"
     foreground = "#cad3f5"
-    #frame_color = "#f5a97f"
-    frame_color = "#f38ba8"
+    frame_color = "#e06c75"
 
     timeout = 0
     override_pause_level = 60

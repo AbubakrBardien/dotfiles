@@ -1,11 +1,8 @@
 @import ".config/wofi/configs/main.css";
+@import ".config/wofi/configs/common_border.css";
 
 #input {
     margin: -100px; /* To hide the search bar */
-}
-
-#inner-box {
-    border: 4px solid #363a4f;
 }
 
 #entry {
