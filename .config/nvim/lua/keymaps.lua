@@ -3,6 +3,7 @@ local helperFunctions = require("helper_functions")
 local map = vim.keymap.set
 
 ------ Telescope ------
+---@diagnostic disable-next-line: different-requires
 local telescope = require("telescope")
 local telescope_builtins = require("telescope.builtin")
 local telescope_actions = require("telescope.actions")
