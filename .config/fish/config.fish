@@ -80,3 +80,6 @@ set fish_greeting
 
 # Custom Starship Prompt
 starship init fish | source
+
+# Syntax Highlighting for Man pages
+batman --export-env | source
