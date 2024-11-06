@@ -35,7 +35,6 @@ window#waybar {
 /* ------------------------------------- */
 
 /* ----- Alternating module colors ----- */
-/* #custom-power, #custom-screenshot, */
 #custom-power, 
 #wireplumber, #clock,
 #custom-screenshot {
@@ -86,14 +85,16 @@ window#waybar {
 }
 
 /* ---------- right side of module group ---------- */
-#custom-screenshot, #clock {
+/*#custom-screenshot, #clock {*/
+#clock {
   border-radius: 0 16px 16px 0; 
   padding: 0 10px 0 6px;
 }
 
 #tray {
     border-radius: 0 16px 16px 0; 
-    padding: 0 10px 0 0;
+    /*padding: 0 6px 0 4px;*/
+    padding: 0 8px 0 3px;
 }
 
 #wireplumber.muted {
