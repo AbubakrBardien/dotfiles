@@ -30,11 +30,7 @@ set -xg XDG_CACHE_HOME "$HOME/.cache"
 set -xg XDG_DATA_HOME "$HOME/.local/share"
 set -xg XDG_STATE_HOME "$HOME/.local/state"
 
-## Default Variables
-set -x EDITOR "/usr/bin/nvim"
-set -x TERMINAL "/usr/bin/foot"
-
-## Other
+## Variables according to the XDG specifications
 set -xg HISTFILE "$XDG_STATE_HOME/bash/history"
 #set -xg CARGO_HOME "$XDG_DATA_HOME/cargo"
 set -xg CUDA_CACHE_PATH "$XDG_CACHE_HOME/nv"
@@ -43,8 +39,18 @@ set -xg GTK2_RC_FILES "$XDG_CONFIG_HOME/gtk-2.0/gtkrc" # The old path still auto
 set -xg LESSHISTFILE "$XDG_STATE_HOME/less/history"
 set -xg NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/npmrc"
 #set -xg RUSTUP_HOME "$XDG_DATA_HOME/rustup" # This works but involves cargo, so I'll rather play it safe
+set -xg IPYTHONDIR "$XDG_CONFIG_HOME/ipython"
+set -xg JUPYTER_CONFIG_DIR "$XDG_CONFIG_HOME/jupyter"
+set -xg PARALLEL_HOME "$XDG_CONFIG_HOME/parallel"
+set -xg PASSWORD_STORE_DIR "$XDG_DATA_HOME/pass"
+set -xg W3M_DIR "$XDG_STATE_HOME/w3m"
 
+## My Environment Variables
 set -xg SCRIPTS "$XDG_DATA_HOME/my_scripts"
+
+### Default Variables
+set -x EDITOR "/usr/bin/nvim"
+set -x TERMINAL "/usr/bin/foot"
 
 ################################
 ## Path Environment Variables ##
