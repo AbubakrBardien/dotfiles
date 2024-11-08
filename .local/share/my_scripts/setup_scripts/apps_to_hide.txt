@@ -10,3 +10,4 @@ qvidcap
 rofi
 rofi-theme-selector
 torbrowser-settings
+org.pwmt.zathura
