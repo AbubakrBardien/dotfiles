@@ -76,7 +76,12 @@ return {
 
 	require("plugin_configs.lsp_signatures"),
 
-	require("plugin_configs.git_integration"),
+	{
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+		end,
+	},
 
 	{
 		"norcalli/nvim-colorizer.lua",
