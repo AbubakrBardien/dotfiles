@@ -91,7 +91,7 @@
         "interval": 300,
         "tooltip": true,
         "tooltip-format": "{}",
-        "on-click": "$TERMINAL sudo pacman -Syu --noconfirm"
+        "on-click": "$TERMINAL sudo $AUR_HELPER -Syu --noconfirm"
     },
     
     //"custom/dunst": { // notifications

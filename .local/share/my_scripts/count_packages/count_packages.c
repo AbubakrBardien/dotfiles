@@ -4,9 +4,9 @@
 
 int main() {
 
-	FILE *fp1 = popen("pacman -Qen | wc -l", "r");
-	FILE *fp2 = popen("pacman -Qem | wc -l", "r");
-	FILE *fp3 = popen("pacman -Qdt | wc -l", "r");
+	FILE *fp1 = popen("$AUR_HELPER -Qen | wc -l", "r");
+	FILE *fp2 = popen("$AUR_HELPER -Qem | wc -l", "r");
+	FILE *fp3 = popen("$AUR_HELPER -Qdt | wc -l", "r");
 
 	int numChars = 6; // allows to store up to 5 digits.
 					  // The 6th is the null terminator character ('\0')

@@ -29,6 +29,7 @@ set -xg SCRIPTS "$XDG_DATA_HOME/my_scripts"
 ### Default Variables
 set -x EDITOR "/usr/bin/nvim"
 set -x TERMINAL "/usr/bin/foot"
+set -x AUR_HELPER "/usr/bin/paru"
 
 ################################
 ## Path Environment Variables ##
