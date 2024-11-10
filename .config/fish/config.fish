@@ -1,25 +1,3 @@
-#############
-## Aliases ##
-#############
-
-alias config "/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" 
-alias ls "lsd"
-alias cat "bat"
-alias tree "lsd --tree"
-alias pipes "pipes.sh"
-alias ping "gping"
-alias cp "cp -v"
-alias mv "mv -v"
-alias rm "rm -v"
-alias disk_usage "dust -r" # Disk Usage Viewer
-alias dir_size "du -sh"
-alias disks "duf --hide special --hide-mp /boot" # Display Disk Space
-alias benchmark "hyperfine" # Very useful benchmarking tool
-alias unset "set --erase" # unset environment variable
-alias delete_orphaned "sudo pacman -Rns \$(pacman -Qdtq)"
-
-alias wget "wget --hsts-file=\"$XDG_DATA_HOME/wget-hsts\""
-
 ###########################
 ## Environment Variables ##
 ###########################
@@ -58,6 +36,28 @@ set -x TERMINAL "/usr/bin/foot"
 
 set -U fish_user_paths $SCRIPTS  $fish_user_paths
 set -U fish_user_paths $SCRIPTS/count_packages  $fish_user_paths
+
+#############
+## Aliases ##
+#############
+
+alias config "/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias ls "lsd"
+alias cat "bat"
+alias tree "lsd --tree"
+alias pipes "pipes.sh"
+alias ping "gping"
+alias cp "cp -v"
+alias mv "mv -v"
+alias rm "rm -v"
+alias disk_usage "dust -r" # Disk Usage Viewer
+alias dir_size "du -sh"
+alias disks "duf --hide special --hide-mp /boot" # Display Disk Space
+alias benchmark "hyperfine" # Very useful benchmarking tool
+alias unset "set --erase" # unset environment variable
+alias delete_orphaned "sudo pacman -Rns \$(pacman -Qdtq)"
+
+alias wget "wget --hsts-file=\"$XDG_DATA_HOME/wget-hsts\""
 
 ###############
 ## Functions ##
