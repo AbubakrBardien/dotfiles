@@ -11,5 +11,6 @@ return {
 
 	require("plugin_configs.mason.none-ls"),
 
+	---@diagnostic disable-next-line: different-requires
 	require("plugin_configs.mason.dap"),
 }

@@ -31,11 +31,7 @@ return {
 		-- This magically converts certain terminal tools into LSPs (I don't know)
 		"nvimtools/none-ls.nvim", -- yes, the URL is correct
 		config = function()
-			local null_ls = require("null-ls")
-			null_ls.setup {
-				-- Anything NOT supported by mason
-				sources = {},
-			}
+			require("null-ls").setup()
 		end,
 	},
 }
