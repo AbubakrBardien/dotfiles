@@ -3,11 +3,12 @@ bssh
 bvnc
 electron31
 fish
-org.codeberg.dnkl.footclient
+ipython
 org.codeberg.dnkl.foot-server
+org.codeberg.dnkl.footclient
+org.pwmt.zathura
 qv4l2
 qvidcap
 rofi
 rofi-theme-selector
 torbrowser-settings
-org.pwmt.zathura
