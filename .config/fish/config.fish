@@ -56,7 +56,7 @@ alias dir_size "du -sh"
 alias disks "duf --hide special --hide-mp /boot" # Display Disk Space
 alias benchmark "hyperfine" # Very useful benchmarking tool
 alias unset "set --erase" # unset environment variable
-alias delete_orphaned "sudo pacman -Rns \$(\$AUR_HELPER -Qdtq)"
+alias delete_orphaned "\$AUR_HELPER -Rns \$(\$AUR_HELPER -Qdtq)"
 
 alias wget "wget --hsts-file=\"$XDG_DATA_HOME/wget-hsts\""
 
