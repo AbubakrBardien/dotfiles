@@ -1,7 +1,9 @@
 avahi-discover
 bssh
 bvnc
+cmake-gui
 electron31
+electron32
 fish
 ipython
 org.codeberg.dnkl.foot-server
@@ -12,3 +14,4 @@ qvidcap
 rofi
 rofi-theme-selector
 torbrowser-settings
+xdvi

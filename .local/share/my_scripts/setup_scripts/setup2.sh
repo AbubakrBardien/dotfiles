@@ -70,15 +70,6 @@ config config --local status.showUntrackedFiles no
 # shellcheck disable=SC2164
 cd /usr/share/applications/
 
-while IFS= read -r line; do
-	apps_to_hide+=("$line")
-done < apps_to_hide.txt
-
-for app in "${apps_to_hide[@]}"; do
-	# Appends to the file, with sudo permissions
-	echo -e "\nHidden=true" | sudo tee -a "${app}.desktop"
-done
-
 create_CLI_desktop_entry () {
 	packageName=$1
 	desktopName=$2	
