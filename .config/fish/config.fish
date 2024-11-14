@@ -37,6 +37,7 @@ set -x AUR_HELPER "/usr/bin/paru"
 
 set -U fish_user_paths $SCRIPTS  $fish_user_paths
 set -U fish_user_paths $SCRIPTS/count_packages  $fish_user_paths
+set -U fish_user_paths $SCRIPTS/hide_apps $fish_user_paths
 
 #############
 ## Aliases ##
