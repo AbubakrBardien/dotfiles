@@ -3,7 +3,23 @@ local common_deps = require("dependency_list")
 ------------------- None-ls Setup, communicatiing with Mason, and Auto-installations  -------------------
 return {
 	{
-		-- Tool to bridge the gap between "mason.nvim" with the "none-ls"
+		-- This magically converts certain terminal tools into LSPs
+		"nvimtools/none-ls.nvim", -- yes, the URL is correct
+		config = function()
+			local null_ls = require("null-ls")
+			local formatting = null_ls.builtins.formatting
+
+			null_ls.setup({
+				sources = {
+					formatting.stylua, -- lua
+					formatting.clang_format, -- c, c#, c++, json, java, javascript
+					formatting.black, -- python
+				},
+			})
+		end,
+	},
+	{
+		-- Tool to bridge the gap between "mason.nvim" and "none-ls"
 		"jay-babu/mason-null-ls.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
@@ -11,31 +27,13 @@ return {
 			"nvimtools/none-ls.nvim",
 		},
 		config = function()
-			require("mason-null-ls").setup {
-				-- Anything supported by mason
+			require("mason-null-ls").setup({
+				automatic_installation = true,
 				ensure_installed = {
 					-- Linters
 					"shellcheck",
-
-					-- Formatters
-					"stylua",
-					"clang-format",
 				},
-
-				-- formatter settings will be handled by my config (in auto_commands.lua)
-				methods = { formatting = false },
-			}
-		end,
-	},
-	{
-		-- This magically converts certain terminal tools into LSPs (I don't know)
-		"nvimtools/none-ls.nvim", -- yes, the URL is correct
-		config = function()
-			local null_ls = require("null-ls")
-			null_ls.setup {
-				-- Anything NOT supported by mason
-				sources = {},
-			}
+			})
 		end,
 	},
 }
