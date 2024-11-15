@@ -15,13 +15,13 @@ return {
 		config = function()
 			local lspconfig = require("lspconfig")
 
-			-- allows LSPs to communicate with "cmp_nvim_lsp" to provide language-specific completions
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			-- Allows LSPs to communicate with "cmp_nvim_lsp" to provide language-specific completions
+			local cmp_nvim_lsp = require("cmp_nvim_lsp").default_capabilities()
 
 			-- Doing the same configuration for multiple LSPs
 			local lsp_set = { "lua_ls", "pyright", "bashls", "cssls" }
 			for _, lsp in pairs(lsp_set) do
-				lspconfig[lsp].setup { capabilities = capabilities }
+				lspconfig[lsp].setup { capabilities = cmp_nvim_lsp }
 			end
 
 			-- Seperate LSP config for clangd (It fixes this: https://www.reddit.com/r/neovim/comments/12qbcua/multiple_different_client_offset_encodings/)
