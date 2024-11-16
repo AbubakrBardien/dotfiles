@@ -26,6 +26,7 @@ map("n", "<C-k>", vim.lsp.buf.hover, { desc = "Display Hover Information" })
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 map("n", "gr", ":Telescope lsp_references<CR>", { desc = "Find References" })
 map("n", "<leader>ra", vim.lsp.buf.rename, { desc = "Rename Symbol" })
+map("n", "<leader>fm", vim.lsp.buf.format, { desc = "Format File" })
 
 map("n", "gdf", vim.lsp.buf.definition, { desc = "Go to Definition" })
 map("n", "gdc", vim.lsp.buf.declaration, { desc = "Go to Declaration" })

@@ -15,10 +15,9 @@ vim.opt.rtp:prepend(lazypath)
 --- Load Lazy.nvim and the plugins ---
 require("lazy").setup("plugins")
 
--- Color related configs
+--- Color related configs ---
 require("highlights")
 require("colorizer").setup()
 
--- Automation related configs
+--- Keymaps ---
 require("keymaps")
-require("format_on_save")
