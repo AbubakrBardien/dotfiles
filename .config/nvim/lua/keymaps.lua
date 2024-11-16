@@ -1,4 +1,4 @@
-local helperFunctions = require("helper_functions")
+local custom_picker = require("plugin_configs.fuzzy_finder.custom_picker")
 
 local map = vim.keymap.set
 
@@ -153,8 +153,7 @@ map({ "n" }, "<S-Tab>", ":bprevious<CR>", { desc = "Go to Previous Buffer" })
 
 ------ File Conversion ------
 -- stylua: ignore start
-map({ "n" }, "<leader>pdf", function() helperFunctions.pandoc_convert("pdf") end, { desc = "Convert to PDF" })
-map({ "n" }, "<leader>docx", function() helperFunctions.pandoc_convert("docx") end, { desc = "Convert to Word Document" })
+map("n", "<leader>fc", function() custom_picker:find() end, { desc = "Open File Conversion Menu" })
 -- stylua: ignore end
 
 ------ Preview ------
