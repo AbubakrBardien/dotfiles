@@ -125,31 +125,31 @@ map("n", "<Space>/", function()
 end, { desc = "DAPUI: Eval var under cursor" })
 
 ------ GitSigns ------
-map({ "n" }, "]c", ":Gitsigns next_hunk<CR>", { desc = "Go to Next Hunk" })
-map({ "n" }, "[c", ":Gitsigns prev_hunk<CR>", { desc = "Go to Previous Hunk" })
-map({ "n" }, "<leader>hp", ":Gitsigns preview_hunk_inline<CR>", { desc = "Preview Hunk" })
-map({ "n" }, "<leader>hs", ":Gitsigns stage_hunk<CR>", { desc = "Stage Hunk" })
-map({ "n" }, "<leader>hu", ":Gitsigns undo_stage_hunk<CR>", { desc = "Unstage Hunk" })
-map({ "n" }, "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle Git Blame" })
+map("n", "]c", ":Gitsigns next_hunk<CR>", { desc = "Go to Next Hunk" })
+map("n", "[c", ":Gitsigns prev_hunk<CR>", { desc = "Go to Previous Hunk" })
+map("n", "<leader>hp", ":Gitsigns preview_hunk_inline<CR>", { desc = "Preview Hunk" })
+map("n", "<leader>hs", ":Gitsigns stage_hunk<CR>", { desc = "Stage Hunk" })
+map("n", "<leader>hu", ":Gitsigns undo_stage_hunk<CR>", { desc = "Unstage Hunk" })
+map("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle Git Blame" })
 
 ------ Terminal ------
-map({ "n" }, "<C-.>", ":FloatermNew<CR>", { desc = "Open new terminal window" })
-map({ "n" }, "<C-/>", ":FloatermToggle<CR>", { desc = "Toggle terminal window" })
-map({ "n" }, "<C-'>", ":FloatermKill<CR>", { desc = "Kill terminal window" })
+map("n", "<C-.>", ":FloatermNew<CR>", { desc = "Open new terminal window" })
+map("n", "<C-/>", ":FloatermToggle<CR>", { desc = "Toggle terminal window" })
+map("n", "<C-'>", ":FloatermKill<CR>", { desc = "Kill terminal window" })
 vim.api.nvim_command("tnoremap <C-;> <C-\\><C-n>") -- Switch to "Normal Mode" from the terminal
 
 ------ Split View Mappings ------
-map({ "n" }, "<A-Up>", "<C-w>k", { desc = "Go to Top window" })
-map({ "n" }, "<A-Down>", "<C-w>j", { desc = "Go to Bottom window" })
-map({ "n" }, "<A-Right>", "<C-w>l", { desc = "Go to Right window" })
-map({ "n" }, "<A-Left>", "<C-w>h", { desc = "Go to Left window" })
-map({ "n" }, "<A-q>", ":vs<CR><C-w>l", { desc = "Horizontal Split" })
-map({ "n" }, "<A-w>", ":sp<CR><C-w>j", { desc = "Vertical Split" })
-map({ "n" }, "<A-e>", ":q<CR>", { desc = "Close split window" })
+map("n", "<A-Up>", "<C-w>k", { desc = "Go to Top window" })
+map("n", "<A-Down>", "<C-w>j", { desc = "Go to Bottom window" })
+map("n", "<A-Right>", "<C-w>l", { desc = "Go to Right window" })
+map("n", "<A-Left>", "<C-w>h", { desc = "Go to Left window" })
+map("n", "<A-q>", ":vs<CR><C-w>l", { desc = "Horizontal Split" })
+map("n", "<A-w>", ":sp<CR><C-w>j", { desc = "Vertical Split" })
+map("n", "<A-e>", ":q<CR>", { desc = "Close split window" })
 
 ------ Buffer Navigation ------
-map({ "n" }, "<Tab>", ":bnext<CR>", { desc = "Go to Next Buffer" })
-map({ "n" }, "<S-Tab>", ":bprevious<CR>", { desc = "Go to Previous Buffer" })
+map("n", "<Tab>", ":bnext<CR>", { desc = "Go to Next Buffer" })
+map("n", "<S-Tab>", ":bprevious<CR>", { desc = "Go to Previous Buffer" })
 
 ------ File Conversion ------
 -- stylua: ignore start
@@ -157,8 +157,8 @@ map("n", "<leader>fc", function() custom_picker:find() end, { desc = "Open File 
 -- stylua: ignore end
 
 ------ Preview ------
-map({ "n" }, "<leader>po", ":PeekOpen<CR>", { desc = "Open Preview" })
-map({ "n" }, "<leader>pc", ":PeekClose<CR>", { desc = "Close Preview" })
+map("n", "<leader>po", ":PeekOpen<CR>", { desc = "Open Preview" })
+map("n", "<leader>pc", ":PeekClose<CR>", { desc = "Close Preview" })
 
 ------ Other ------
 map("n", "<C-s>", ":w<CR>", { desc = "Save File" })
