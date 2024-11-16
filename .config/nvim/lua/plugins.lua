@@ -12,7 +12,8 @@ return {
 		end,
 	},
 
-	require("plugin_configs.telescope"),
+	---@diagnostic disable-next-line: different-requires
+	require("plugin_configs.fuzzy_finder.telescope"),
 
 	{
 		"stevearc/dressing.nvim",

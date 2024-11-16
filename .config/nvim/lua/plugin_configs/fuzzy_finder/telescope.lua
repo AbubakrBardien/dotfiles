@@ -15,8 +15,16 @@ return {
 					sorting_strategy = "ascending",
 					layout_config = {
 						prompt_position = "top",
-						height = 0.65,
+						height = 0.68,
 						width = 0.85,
+					},
+				},
+				pickers = {
+					keymaps = {
+						layout_config = {
+							height = 24,
+							width = 95,
+						},
 					},
 				},
 			}
