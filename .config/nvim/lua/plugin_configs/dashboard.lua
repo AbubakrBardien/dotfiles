@@ -1,3 +1,5 @@
+local common_deps = require("dependency_list")
+
 ---@diagnostic disable: unused-local
 local art1 = {
 	"",
@@ -13,7 +15,7 @@ local art1 = {
 	" ██████  █████████████████████ ████ █████ █████ ████ ██████ ",
 	"",
 	"",
-	""
+	"",
 }
 local art2 = {
 	"",
@@ -33,7 +35,7 @@ local art2 = {
 	"╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝",
 	"",
 	"",
-	""
+	"",
 }
 local art3 = {
 	"",
@@ -45,24 +47,29 @@ local art3 = {
 	"⣿⣿⣿⠈⢿⣿⣿⣦⢸⣿⣿⡇⠀⣠⠴⠒⠢⣄⠀⠀⣠⠴⠲⠦⣄⠐⣶⣆⠀⠀⢀⣶⡖⢰⣶⠀⢰⣶⣴⡶⣶⣆⣴⡶⣶⣶⡄",
 	"⣿⣿⣿⠀⠀⠻⣿⣿⣿⣿⣿⡇⢸⣁⣀⣀⣀⣘⡆⣼⠁⠀⠀⠀⠘⡇⠹⣿⡄⠀⣼⡿⠀⢸⣿⠀⢸⣿⠁⠀⢸⣿⡏⠀⠀⣿⣿",
 	"⠹⣿⣿⠀⠀⠀⠙⣿⣿⣿⡿⠃⢸⡀⠀⠀⠀⠀⠀⣿⠀⠀⠀⠀⢀⡏⠀⢻⣿⣸⣿⠁⠀⢸⣿⠀⢸⣿⠀⠀⢸⣿⡇⠀⠀⣿⣿",
-	"⠀⠈⠻⠀⠀⠀⠀⠈⠿⠋⠀⠀⠈⠳⢤⣀⣠⠴⠀⠈⠧⣄⣀⡠⠞⠁⠀⠀⠿⠿⠃⠀⠀⢸⣿⠀⢸⣿⠀⠀⠸⣿⡇⠀⠀⣿⡿"
+	"⠀⠈⠻⠀⠀⠀⠀⠈⠿⠋⠀⠀⠈⠳⢤⣀⣠⠴⠀⠈⠧⣄⣀⡠⠞⠁⠀⠀⠿⠿⠃⠀⠀⢸⣿⠀⢸⣿⠀⠀⠸⣿⡇⠀⠀⣿⡿",
 }
 
 local shortcut_fmt = "     %s"
 
 return {
-	require("dashboard").setup {
-		theme = "doom",
-		config = {
-			header = art2,
-			center = {
-				{ icon = " ", desc = "Lazy Menu", action = "Lazy" },
-				{ icon = " ", desc = "Mason Menu", action = "Mason" },
-				{ icon = " ", desc = "Nvim Configs", action = "Telescope find_files cwd=$HOME/.config/nvim" },
-				{ icon = " ", desc = "Find Files", key = "Space ff", key_format = shortcut_fmt, action = "Telescope find_files" },
-				{ icon = "󰚰 ", desc = "Recent Files", key = "Space fr", key_format = shortcut_fmt, action = "Telescope oldfiles" },
+	"nvimdev/dashboard-nvim",
+	dependencies = { common_deps["nvim_web_devicons"] },
+	event = "VimEnter",
+	config = function()
+		require("dashboard").setup {
+			theme = "doom",
+			config = {
+				header = art2,
+				center = {
+					{ icon = " ", desc = "Lazy Menu", action = "Lazy" },
+					{ icon = " ", desc = "Mason Menu", action = "Mason" },
+					{ icon = " ", desc = "Nvim Configs", action = "Telescope find_files cwd=$HOME/.config/nvim" },
+					{ icon = " ", desc = "Find Files", key = "Space ff", key_format = shortcut_fmt, action = "Telescope find_files" },
+					{ icon = "󰚰 ", desc = "Recent Files", key = "Space fr", key_format = shortcut_fmt, action = "Telescope oldfiles" },
+				},
 			},
-		},
-		shortcut_type = "number"
-	}
+			shortcut_type = "number",
+		}
+	end,
 }

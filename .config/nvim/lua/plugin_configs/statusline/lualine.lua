@@ -1,3 +1,4 @@
+local common_deps = require("dependency_list")
 local custom_theme = require("plugin_configs.statusline.custom_theme")
 
 local function location()
@@ -24,24 +25,28 @@ local function file_size()
 end
 
 return {
-	require("lualine").setup {
-		options = {
-			globalstatus = true,
-			theme = custom_theme,
-			ignore_focus = { "NvimTree", "TelescopePrompt", "lazy", "mason" },
-			always_divide_middle = false,
+	"nvim-lualine/lualine.nvim",
+	dependencies = { common_deps["nvim_web_devicons"] },
+	config = function()
+		require("lualine").setup {
+			options = {
+				globalstatus = true,
+				theme = custom_theme,
+				ignore_focus = { "NvimTree", "TelescopePrompt", "lazy", "mason" },
+				always_divide_middle = false,
 
-			section_separators = { left = "", right = "" },
-			component_separators = { left = "", right = "" },
-		},
-		sections = {
-			lualine_a = { "mode" },
-			-- lualine_b = { "branch", "diff" },
-			lualine_b = { "branch" },
-			lualine_c = { "filetype", "filename" },
-			lualine_x = { file_size },
-			lualine_y = { location, "progress" },
-			lualine_z = {},
-		},
-	},
+				section_separators = { left = "", right = "" },
+				component_separators = { left = "", right = "" },
+			},
+			sections = {
+				lualine_a = { "mode" },
+				-- lualine_b = { "branch", "diff" },
+				lualine_b = { "branch" },
+				lualine_c = { "filetype", "filename" },
+				lualine_x = { file_size },
+				lualine_y = { location, "progress" },
+				lualine_z = {},
+			},
+		}
+	end,
 }
