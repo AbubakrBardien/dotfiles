@@ -3,7 +3,15 @@ return {
 		-- Package Manager for LSPs, DAPs, Linters, and Formatters
 		"williamboman/mason.nvim",
 		config = function()
-			require("mason").setup()
+			require("mason").setup {
+				ui = {
+					icons = {
+						package_pending = " ",
+						package_installed = " ",
+						package_uninstalled = " ",
+					},
+				},
+			}
 		end,
 	},
 
