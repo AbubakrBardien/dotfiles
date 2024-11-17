@@ -1,15 +1,11 @@
 return {
 	"lukas-reineke/indent-blankline.nvim",
-	main = "ibl",
-	---@module "ibl"
-	---@diagnostic disable-next-line: undefined-doc-name
-	---@type ibl.config
-	opts = {
-		exclude = { filetypes = { "dashboard" } },
-		indent = {
-			char = "▏",
-			priority = 1,
-		},
-		whitespace = { highlight = { "Whitespace" } },
-	},
+	config = function()
+		require("ibl").setup {
+			exclude = { filetypes = { "dashboard" } },
+			indent = { char = "▏" },
+			whitespace = { highlight = { "Whitespace" } },
+			scope = { enabled = false },
+		}
+	end,
 }
