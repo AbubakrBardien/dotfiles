@@ -127,7 +127,7 @@ end, { desc = "DAPUI: Eval var under cursor" })
 ------ GitSigns ------
 map("n", "]c", ":Gitsigns next_hunk<CR>", { desc = "Go to Next Hunk" })
 map("n", "[c", ":Gitsigns prev_hunk<CR>", { desc = "Go to Previous Hunk" })
-map("n", "<leader>hp", ":Gitsigns preview_hunk_inline<CR>", { desc = "Preview Hunk" })
+map("n", "<leader>hp", ":Gitsigns preview_hunk<CR>", { desc = "Preview Hunk" })
 map("n", "<leader>hs", ":Gitsigns stage_hunk<CR>", { desc = "Stage Hunk" })
 map("n", "<leader>hu", ":Gitsigns undo_stage_hunk<CR>", { desc = "Unstage Hunk" })
 map("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle Git Blame" })
