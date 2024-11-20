@@ -109,19 +109,25 @@ cmp.setup {
 
 ------ Debugger ------
 local dap = require("dap")
+local dapui = require("dapui")
 map("n", "<F1>", dap.continue, { desc = "DAP: Continue" })
 map("n", "<F2>", dap.step_over, { desc = "DAP: Step Over" })
 map("n", "<F3>", dap.step_into, { desc = "DAP: Step Into" })
 map("n", "<F4>", dap.step_out, { desc = "DAP: Step Out" })
-map("n", "<F11>", dap.terminate, { desc = "DAP: Terminate" })
-map("n", "<leader>db", function()
+
+map("n", "<F11>", function()
+	dap.terminate()
+	dapui.close()
+end, { desc = "DAP: Terminate" })
+
+map("n", "<leader>b", function()
 	if vim.api.nvim_get_current_line() ~= "" then -- Check if the line is not empty
 		dap.toggle_breakpoint()
 	end
 end, { desc = "DAP: Toggle Breakpoint" })
 
 map("n", "<Space>/", function()
-	require("dapui").eval(nil, { enter = true })
+	dapui.eval(nil, { enter = true })
 end, { desc = "DAPUI: Eval var under cursor" })
 
 ------ GitSigns ------
