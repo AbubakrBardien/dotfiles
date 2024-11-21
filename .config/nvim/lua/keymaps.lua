@@ -110,12 +110,13 @@ cmp.setup {
 ------ Debugger ------
 local dap = require("dap")
 local dapui = require("dapui")
-map("n", "<F1>", dap.continue, { desc = "DAP: Continue" })
-map("n", "<F2>", dap.step_over, { desc = "DAP: Step Over" })
-map("n", "<F3>", dap.step_into, { desc = "DAP: Step Into" })
-map("n", "<F4>", dap.step_out, { desc = "DAP: Step Out" })
+map("n", "<leader>dc", dap.continue, { desc = "DAP: Continue" })
+map("n", "<leader>n", dap.step_over, { desc = "DAP: Step Over" }) -- "n" for Next line
+map("n", "<leader>db", dap.step_back, { desc = "DAP: Step Back" })
+map("n", "<leader>di", dap.step_into, { desc = "DAP: Step Into" })
+map("n", "<leader>do", dap.step_out, { desc = "DAP: Step Out" })
 
-map("n", "<F11>", function()
+map("n", "<leader>dt", function()
 	dap.terminate()
 	dapui.close()
 end, { desc = "DAP: Terminate" })
@@ -125,6 +126,13 @@ map("n", "<leader>b", function()
 		dap.toggle_breakpoint()
 	end
 end, { desc = "DAP: Toggle Breakpoint" })
+
+map("n", "<leader>B", function()
+	if vim.api.nvim_get_current_line() ~= "" then
+		-- stylua: ignore
+		vim.ui.input("Enter Condition:", function(condition) dap.toggle_breakpoint(condition) end)
+	end
+end, { desc = "DAP: Toggle Conditional Breakpoint" })
 
 map("n", "<Space>/", function()
 	dapui.eval(nil, { enter = true })
