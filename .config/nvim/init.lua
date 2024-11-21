@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 
+local colorscheme = "onedark"
+
 require("options")
 
 --- Install Lazy.nvim if not already installed ---
@@ -12,12 +14,25 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
---- Load Lazy.nvim and the plugins ---
-require("lazy").setup("plugins")
+require("lazy").setup {
+	--- Loading plugins ---
+	spec = { import = "plugins" },
+
+	--- Lazy.nvim config ---
+	install = { colorscheme = { colorscheme } },
+	change_detection = { notify = false },
+	checker = {
+		enabled = true,
+		notify = false,
+		frequency = 86400, -- Check daily (every 86400 seconds)
+	},
+}
+
+vim.api.nvim_command("colorscheme " .. colorscheme)
 
 --- Color related configs ---
 require("highlights")
-require("colorizer").setup()
+require("colorizer").setup { "*", "!lazy" } -- Don't apply 'colorizer' to the Lazy menu
 
 --- Keymaps ---
 require("keymaps")

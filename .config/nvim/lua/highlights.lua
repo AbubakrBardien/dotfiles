@@ -1,6 +1,3 @@
---- Theme ---
-vim.api.nvim_command("colorscheme onedark") -- "onedark" and "onedark_vivid" are the same
-
 -- Dashboard
 vim.api.nvim_command("highlight DashboardHeader guifg=#97C17C")
 vim.api.nvim_command("highlight DashboardIcon guifg=#61A8E6")
