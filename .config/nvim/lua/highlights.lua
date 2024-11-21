@@ -23,6 +23,6 @@ vim.api.nvim_command("highlight NvimDapVirtualTextChanged guifg=#616073 gui=bold
 -- LSP Signature
 vim.api.nvim_command("highlight LspSignatureActiveParameter gui=bold")
 
--- Other
+-- Cursor Highlights
 vim.api.nvim_command("highlight CursorLine guibg=#2D313B")
 vim.api.nvim_command("highlight CursorColumn guibg=#2D313B")
