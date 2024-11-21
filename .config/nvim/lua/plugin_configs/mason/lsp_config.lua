@@ -24,7 +24,9 @@ return {
 				lspconfig[lsp].setup { capabilities = cmp_nvim_lsp }
 			end
 
-			-- Seperate LSP config for clangd (It fixes this: https://www.reddit.com/r/neovim/comments/12qbcua/multiple_different_client_offset_encodings/)
+			-- Seperate LSP config for clangd ('--offset-encoding=utf-16' fixes this:
+			-- https://www.reddit.com/r/neovim/comments/12qbcua/multiple_different_client_offset_encodings/)
+			-- 'clang-tidy' is a built-in Linter
 			lspconfig.clangd.setup {
 				capabilities = cmp_nvim_lsp,
 				cmd = { "clangd", "--offset-encoding=utf-16", "--clang-tidy" },
