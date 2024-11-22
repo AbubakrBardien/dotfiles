@@ -22,7 +22,7 @@ return {
 		dependencies = {
 			common_deps["nvim_dap"],
 			"nvim-neotest/nvim-nio",
-			"theHamsta/nvim-dap-virtual-text", -- shows variable values right next to variables
+			"theHamsta/nvim-dap-virtual-text", -- shows variable values right next to the variables
 		},
 		config = function()
 			local dap, dapui = require("dap"), require("dapui")
