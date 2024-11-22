@@ -19,18 +19,16 @@ return {
 			local cmp_nvim_lsp = require("cmp_nvim_lsp").default_capabilities()
 
 			-- Doing the same configuration for multiple LSPs
-			local lsp_set = { "lua_ls", "pyright", "bashls", "cssls" }
+			local lsp_set = { "lua_ls", "ruff", "bashls" }
 			for _, lsp in pairs(lsp_set) do
 				lspconfig[lsp].setup { capabilities = cmp_nvim_lsp }
 			end
 
-			-- Seperate LSP config for clangd ('--offset-encoding=utf-16' fixes this:
-			-- https://www.reddit.com/r/neovim/comments/12qbcua/multiple_different_client_offset_encodings/)
-			-- 'clang-tidy' is a built-in Linter
-			lspconfig.clangd.setup {
+			lspconfig["clangd"].setup { -- "clang-tidy" is the built-in linter
 				capabilities = cmp_nvim_lsp,
 				cmd = { "clangd", "--offset-encoding=utf-16", "--clang-tidy" },
 			}
 		end,
 	},
+	-- Check the docs in both repos to verify if a language server can be auto-installed and configured
 }
