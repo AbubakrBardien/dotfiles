@@ -18,7 +18,6 @@
         "format": "{icon}",
         "on-click": "activate",
         "format-icons": {
-            //"urgent": ""
             "urgent": "!"
         },
         "sort-by-number": true
@@ -34,7 +33,7 @@
             " "
         ],
         "on-click": "volume_popup.sh mute waybar",
-        //"on-click-right": "qpwgraph",
+        "on-click-right": "pavucontrol",
         "tooltip": false
     },
 
