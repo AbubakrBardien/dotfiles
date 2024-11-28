@@ -28,21 +28,19 @@ window#waybar {
 #clock:hover,
 #custom-power:hover,
 /* #custom-dunst:hover { */
-#custom-screenshot:hover,
-#custom-updates:hover {
+#custom-screenshot:hover {
   background-color: @surface1;
 }
 /* ------------------------------------- */
 
 /* ----- Alternating module colors ----- */
 #custom-power, 
-#wireplumber, #clock,
-#custom-screenshot {
+#wireplumber, #clock {
   color: @teal;
   padding: 2 6px;
 }
 
-#custom-updates,
+#custom-screenshot,
 /* #custom-dunst { */
 #network { 
   color: @sapphire;

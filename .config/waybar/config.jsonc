@@ -2,7 +2,7 @@
     "position": "bottom",
   
     // --------------------- Module Sections ----------------------
-    "modules-left": ["custom/power", "custom/updates", "custom/screenshot", "tray"],
+    "modules-left": ["custom/power", "custom/screenshot", "tray"],
     "modules-center": ["hyprland/workspaces"],
     "modules-right": ["custom/dunst", "wireplumber","network","clock"],
     // ------------------------------------------------------------
@@ -82,15 +82,6 @@
         "format": "",
         "tooltip": false,
         "on-click": "$HOME/.config/wofi/scripts/powerMenu.sh"
-    },
-    
-    "custom/updates": {
-        "format": "󱍸",
-        "exec": "$SCRIPTS/waybar_module_packages/monitor_num_updates",
-        "interval": 300,
-        "tooltip": true,
-        "tooltip-format": "{}",
-        "on-click": "$TERMINAL sudo $AUR_HELPER -Syu --noconfirm"
     },
     
     //"custom/dunst": { // notifications
