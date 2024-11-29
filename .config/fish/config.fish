@@ -31,6 +31,9 @@ set -x EDITOR "/usr/bin/nvim"
 set -x TERMINAL "/usr/bin/foot"
 set -x AUR_HELPER "/usr/bin/paru"
 
+## Other
+set -xg TRASHDIR "$XDG_DATA_HOME/Trash"
+
 ################################
 ## Path Environment Variables ##
 ################################
