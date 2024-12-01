@@ -2,6 +2,7 @@ avahi-discover
 bssh
 bvnc
 cmake-gui
+electron30
 electron31
 electron32
 fish
@@ -15,3 +16,4 @@ rofi
 rofi-theme-selector
 torbrowser-settings
 xdvi
+links
