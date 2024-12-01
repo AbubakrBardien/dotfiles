@@ -131,10 +131,12 @@ keymap = [
 
 	# Goto
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Go to a directory interactively" },
-	{ on = [ "g", "h" ],       run = "cd $HOME",             desc = "Go to the Home directory" },
-	{ on = [ "g", "c" ],       run = "cd $XDG_CONFIG_HOME",     desc = "Go to the Config directory" },
-	{ on = [ "g", "d" ],       run = "cd $HOME/Downloads",   desc = "Go to the Downloads directory" },
 	{ on = [ "g", "b" ],       run = "cd $TRASHDIR/files",   desc = "Go to Recycle Bin directory" },
+	{ on = [ "g", "c" ],       run = "cd $XDG_CONFIG_HOME",     desc = "Go to the Config directory" },
+	{ on = [ "g", "C" ],       run = "cd $HOME/pCloudDrive",     desc = "Go to the pCloud directory" },
+	{ on = [ "g", "d" ],       run = "cd $HOME/Desktop",   desc = "Go to the Desktop directory" },
+	{ on = [ "g", "D" ],       run = "cd $HOME/Downloads",   desc = "Go to the Downloads directory" },
+	{ on = [ "g", "p" ],       run = "cd $HOME/Pictures",   desc = "Go to the Pictures directory" },
 
 	# Tabs
 	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
