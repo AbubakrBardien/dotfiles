@@ -59,7 +59,6 @@ alias disk_usage "dust -r" # Disk Usage Viewer
 alias dir_size "du -sh"
 alias disks "duf --hide special --hide-mp /boot" # Display Disk Space
 alias benchmark "hyperfine" # Very useful benchmarking tool
-alias unset "set --erase" # unset environment variable
 
 alias wget "wget --hsts-file=\"$XDG_DATA_HOME/wget-hsts\""
 

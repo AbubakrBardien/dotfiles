@@ -7,8 +7,8 @@ electron31
 electron32
 fish
 ipython
-org.codeberg.dnkl.foot-server
-org.codeberg.dnkl.footclient
+foot-server
+footclient
 org.pwmt.zathura
 qv4l2
 qvidcap
