@@ -13,18 +13,35 @@ int main() {
 
 	char pacman_pkgs[numChars];
 	char aur_pkgs[numChars];
-	char orphened_pkgs[numChars];
+	char orphaned_pkgs[numChars];
 
 	if (fgets(pacman_pkgs, sizeof(pacman_pkgs), fp1) != NULL &&
 		fgets(aur_pkgs, sizeof(aur_pkgs), fp2) != NULL &&
-		fgets(orphened_pkgs, sizeof(orphened_pkgs), fp3) != NULL) {
+		fgets(orphaned_pkgs, sizeof(orphaned_pkgs), fp3) != NULL) {
 
 		// Remove trailing newline character
 		pacman_pkgs[strcspn(pacman_pkgs, "\n")] = 0;
 		aur_pkgs[strcspn(aur_pkgs, "\n")] = 0;
-		orphened_pkgs[strcspn(orphened_pkgs, "\n")] = 0;
+		orphaned_pkgs[strcspn(orphaned_pkgs, "\n")] = 0;
 
-		printf("%s (Pacman), %s (AUR), %s (orphaned)", pacman_pkgs, aur_pkgs, orphened_pkgs);
+		char output_str[45] = "";
+
+		strcat(output_str, pacman_pkgs);
+		strcat(output_str, " (Pacman)");
+
+		if (strcmp(aur_pkgs, "0") != 0) { // If more than 0 AUR packages
+			strcat(output_str,", ");
+			strcat(output_str, aur_pkgs);
+			strcat(output_str," (AUR)");
+		}
+
+		if (strcmp(orphaned_pkgs, "0") != 0) { // If more than 0 orphaned packages
+			strcat(output_str,", ");
+			strcat(output_str, orphaned_pkgs);
+			strcat(output_str," (orphaned)");
+		}
+
+		printf("%s", output_str);
 	}
 
 	pclose(fp1);
