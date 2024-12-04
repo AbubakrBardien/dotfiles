@@ -2,9 +2,14 @@
 success_symbol = "[](green)"
 error_symbol = "[](red)"
 
+#### File Types ####
 [python]
 symbol = " "
 style = "bold #71B0E8"
+
+[lua]
+symbol = " "
+####################
 
 [git_branch]
 symbol = " "

@@ -4,10 +4,14 @@ return {
 	config = function()
 		require("mini.icons").setup {
 			extension = {
-				h = { glyph = "󰙲", hl = "MiniIconsAzure" },
+				h = { glyph = "" },
 				py = { hl = "PythonIconColor" }, -- custom highlight group
 			},
 		}
 		MiniIcons.mock_nvim_web_devicons()
 	end,
 }
+-- 
+-- 󰙲
+-- 
+-- 󰙱
