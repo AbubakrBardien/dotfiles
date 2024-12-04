@@ -19,7 +19,8 @@ return {
 			local cmp_nvim_lsp = require("cmp_nvim_lsp").default_capabilities()
 
 			-- Doing the same configuration for multiple LSPs
-			local lsp_set = { "lua_ls", "ruff", "bashls" }
+			-- local lsp_set = { "lua_ls", "ruff", "bashls" }
+			local lsp_set = { "lua_ls", "pyright", "bashls" }
 			for _, lsp in pairs(lsp_set) do
 				lspconfig[lsp].setup { capabilities = cmp_nvim_lsp }
 			end
