@@ -9,7 +9,7 @@ return {
 	tag = "0.1.8",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		common_deps["nvim_web_devicons"],
+		common_deps["mini_icons"],
 	},
 
 	config = function()

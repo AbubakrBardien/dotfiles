@@ -23,3 +23,5 @@ vim.api.nvim_command("highlight LspSignatureActiveParameter gui=bold")
 -- Cursor Highlights
 vim.api.nvim_command("highlight CursorLine guibg=#2D313B")
 vim.api.nvim_command("highlight CursorColumn guibg=#2D313B")
+-- Mini Icons
+vim.api.nvim_command("highlight PythonIconColor guifg=#71B0E8") -- new highlight group

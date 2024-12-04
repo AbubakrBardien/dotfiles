@@ -4,7 +4,7 @@ error_symbol = "[](red)"
 
 [python]
 symbol = " "
-style = "bold #4b8bbd"
+style = "bold #71B0E8"
 
 [git_branch]
 symbol = " "

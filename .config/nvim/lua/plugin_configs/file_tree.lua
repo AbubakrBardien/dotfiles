@@ -3,7 +3,7 @@ local common_deps = require("dependency_list")
 return {
 	"nvim-tree/nvim-tree.lua",
 	lazy = false,
-	dependencies = { common_deps["nvim_web_devicons"] },
+	dependencies = { common_deps["mini_icons"] },
 	config = function()
 		require("nvim-tree").setup {
 			view = {

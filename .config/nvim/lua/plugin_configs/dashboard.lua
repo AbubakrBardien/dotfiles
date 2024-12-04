@@ -1,5 +1,3 @@
-local common_deps = require("dependency_list")
-
 ---@diagnostic disable: unused-local
 local art1 = {
 	"",
@@ -54,7 +52,6 @@ local shortcut_fmt = "     %s"
 
 return {
 	"nvimdev/dashboard-nvim",
-	dependencies = { common_deps["nvim_web_devicons"] },
 	event = "VimEnter",
 	config = function()
 		require("dashboard").setup {

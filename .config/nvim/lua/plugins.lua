@@ -16,4 +16,6 @@ return {
 	require("plugin_configs.terminal"),
 	require("plugin_configs.markdown_previewer"),
 	require("plugin_configs.indent_blankline"),
+
+	require("plugin_configs.mini_nvim.icons"),
 }

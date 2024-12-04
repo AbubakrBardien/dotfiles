@@ -1,5 +1,5 @@
 local common_deps = {
-	nvim_web_devicons = "nvim-tree/nvim-web-devicons",
+	mini_icons = "echasnovski/mini.icons",
 	nvim_dap = "mfussenegger/nvim-dap", -- Debug Adapter Protocol client
 	mason = "williamboman/mason.nvim",
 }

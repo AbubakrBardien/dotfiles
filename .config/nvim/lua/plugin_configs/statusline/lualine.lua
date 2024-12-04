@@ -26,7 +26,7 @@ end
 
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = { common_deps["nvim_web_devicons"] },
+	dependencies = { common_deps["mini_icons"] },
 	config = function()
 		require("lualine").setup {
 			options = {
