@@ -17,6 +17,7 @@ return {
 	require("plugin_configs.indent_blankline"),
 	require("plugin_configs.auto_pairs"),
 
+	require("plugin_configs.mini_nvim.ai"),
 	require("plugin_configs.mini_nvim.icons"),
 	require("plugin_configs.mini_nvim.trailspace"),
 }
