@@ -25,3 +25,6 @@ vim.api.nvim_command("highlight CursorLine guibg=#2D313B")
 vim.api.nvim_command("highlight CursorColumn guibg=#2D313B")
 -- Mini Icons
 vim.api.nvim_command("highlight PythonIconColor guifg=#71B0E8") -- new highlight group
+
+-- Mini Trailspace
+vim.api.nvim_command("highlight MiniTrailspace guibg=#414858") -- same as the highlighting in Visual Mode
