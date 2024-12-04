@@ -1,3 +1,7 @@
+-- Cursor Highlights
+vim.api.nvim_command("highlight CursorLine guibg=#2D313B")
+vim.api.nvim_command("highlight CursorColumn guibg=#2D313B")
+
 -- Dashboard
 vim.api.nvim_command("highlight DashboardHeader guifg=#97C17C")
 vim.api.nvim_command("highlight DashboardIcon guifg=#61A8E6")
@@ -20,9 +24,6 @@ vim.api.nvim_command("highlight NvimDapVirtualTextChanged guifg=#616073 gui=bold
 -- LSP Signature
 vim.api.nvim_command("highlight LspSignatureActiveParameter gui=bold")
 
--- Cursor Highlights
-vim.api.nvim_command("highlight CursorLine guibg=#2D313B")
-vim.api.nvim_command("highlight CursorColumn guibg=#2D313B")
 -- Mini Icons
 vim.api.nvim_command("highlight PythonIconColor guifg=#71B0E8") -- new highlight group
 
