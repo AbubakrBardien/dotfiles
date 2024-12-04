@@ -18,4 +18,5 @@ return {
 	require("plugin_configs.indent_blankline"),
 
 	require("plugin_configs.mini_nvim.icons"),
+	-- require("plugin_configs.mini_nvim.trailspace"), -- messes up my dashboard
 }
