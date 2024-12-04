@@ -8,15 +8,15 @@ return {
 	require("plugin_configs.vim_game"),
 	require("plugin_configs.mason.mason"),
 	require("plugin_configs.dashboard"),
-	require("plugin_configs.auto-completions"),
+	require("plugin_configs.auto_completions"),
 	require("plugin_configs.lsp_signatures"),
 	require("plugin_configs.git_signs"),
 	require("plugin_configs.colorizer"),
-	require("plugin_configs.autopairs"),
 	require("plugin_configs.terminal"),
 	require("plugin_configs.markdown_previewer"),
 	require("plugin_configs.indent_blankline"),
+	require("plugin_configs.auto_pairs"),
 
 	require("plugin_configs.mini_nvim.icons"),
-	-- require("plugin_configs.mini_nvim.trailspace"), -- messes up my dashboard
+	require("plugin_configs.mini_nvim.trailspace"),
 }
