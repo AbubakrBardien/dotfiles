@@ -6,6 +6,7 @@ return {
 			extension = {
 				h = { glyph = "" },
 				py = { hl = "PythonIconColor" }, -- custom highlight group
+				json = { glyph = "" },
 			},
 		}
 		MiniIcons.mock_nvim_web_devicons()
