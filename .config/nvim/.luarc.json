@@ -2,9 +2,4 @@
     "diagnostics.disable": [
         "trailing-space"
     ],
-    "diagnostics.globals": [
-        "vim",
-        "default_sources",
-        "MiniIcons"
-    ]
 }

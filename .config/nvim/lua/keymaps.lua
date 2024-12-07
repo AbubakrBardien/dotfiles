@@ -3,7 +3,6 @@ local custom_picker = require("plugin_configs.fuzzy_finder.custom_picker")
 local map = vim.keymap.set
 
 ------ Telescope ------
----@diagnostic disable-next-line: different-requires
 local telescope = require("telescope")
 local telescope_builtins = require("telescope.builtin")
 local telescope_actions = require("telescope.actions")
@@ -23,19 +22,16 @@ map("n", "<C-n>", ":NvimTreeToggle<CR>", { desc = "Toggle Nvim Tree" })
 
 ------ LSP ------
 map("n", "<C-k>", vim.lsp.buf.hover, { desc = "Display Hover Information" })
-map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
-map("n", "gr", ":Telescope lsp_references<CR>", { desc = "Find References" })
-map("n", "<leader>ra", vim.lsp.buf.rename, { desc = "Rename Symbol" })
+map("n", "<C-l>", vim.lsp.buf.signature_help, { desc = "Display Signature Help" })
+
+map("n", "gca", vim.lsp.buf.code_action, { desc = "Code Action" })
+map("n", "grn", vim.lsp.buf.rename, { desc = "Rename Symbol" })
 map("n", "<leader>fm", vim.lsp.buf.format, { desc = "Format File" })
 
 map("n", "gdf", vim.lsp.buf.definition, { desc = "Go to Definition" })
+map("n", "grr", telescope_builtins.lsp_references, { desc = "Find References" })
 map("n", "gdc", vim.lsp.buf.declaration, { desc = "Go to Declaration" })
 map("n", "gi", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
-
------- LSP Signatures ------
-map("n", "<C-l>", function()
-	require("lsp_signature").toggle_float_win()
-end, { silent = true, desc = "Toggle Signature" })
 
 ------ Snippets ------
 local luasnip = require("luasnip")

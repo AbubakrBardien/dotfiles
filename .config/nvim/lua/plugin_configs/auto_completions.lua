@@ -1,4 +1,4 @@
-default_sources = {
+local default_sources = {
 	-- Order Matters! It sets the priority in the Completion Menu
 	{
 		name = "nvim_lsp",
@@ -13,7 +13,6 @@ default_sources = {
 		end,
 	},
 	{ name = "hrsh7th/cmp-nvim-lsp" },
-	{ name = "nvim_lua" },
 	{ name = "fish" },
 	{ name = "path" },
 	{ name = "luasnip" },
@@ -67,7 +66,6 @@ return {
 						ellipsis_char = "...",
 						menu = {
 							nvim_lsp = "[LSP]",
-							nvim_lua = "[API]",
 							fish = "[fish]",
 							path = "[path]",
 							dotenv = "[ENV]",
@@ -120,7 +118,6 @@ return {
 
 	{ "hrsh7th/cmp-nvim-lsp" }, -- provides completions for the LSP attached to the buffer
 	{ "hrsh7th/cmp-path" }, -- file path
-	{ "hrsh7th/cmp-nvim-lua" }, -- provides completions for Neovim's Lua runtime API
 	{ "mtoohey31/cmp-fish" }, -- shell
 	{ "SergioRibera/cmp-dotenv" }, -- environment variables
 	{ "hrsh7th/cmp-buffer" }, -- suggests words in current buffer
