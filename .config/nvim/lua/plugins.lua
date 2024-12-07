@@ -5,7 +5,7 @@ return {
 	require("plugin_configs.colorizer"),
 	require("plugin_configs.dashboard"),
 	require("plugin_configs.file_tree"),
-	require("plugin_configs.git_signs"),
+	require("plugin_configs.gitsigns"),
 	require("plugin_configs.indent_blankline"),
 	require("plugin_configs.markdown_previewer"),
 	require("plugin_configs.onedarkpro"),
