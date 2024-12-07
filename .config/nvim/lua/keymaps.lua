@@ -22,7 +22,7 @@ map("n", "<C-n>", ":NvimTreeToggle<CR>", { desc = "Toggle Nvim Tree" })
 
 ------ LSP ------
 map("n", "<C-k>", vim.lsp.buf.hover, { desc = "Display Hover Information" })
-map("n", "<C-l>", vim.lsp.buf.signature_help, { desc = "Display Signature Help" })
+map({ "n", "i" }, "<C-l>", vim.lsp.buf.signature_help, { desc = "Display Signature Help" })
 
 map("n", "gca", vim.lsp.buf.code_action, { desc = "Code Action" })
 map("n", "grn", vim.lsp.buf.rename, { desc = "Rename Symbol" })
@@ -37,13 +37,13 @@ map("n", "gi", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
 local luasnip = require("luasnip")
 
 -- execute in "Insert Mode", or "Select Mode"
-map({ "i", "s" }, "<C-k>", function()
+map({ "i", "s" }, "<C-j>", function()
 	if luasnip.jumpable(-1) then
 		luasnip.jump(-1)
 	end
 end, { silent = true, desc = "Jump to Previous snippet placeholder" })
 
-map({ "i", "s" }, "<C-l>", function()
+map({ "i", "s" }, "<C-k>", function()
 	if luasnip.expand_or_jumpable() then
 		luasnip.expand_or_jump()
 	end
