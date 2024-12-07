@@ -7,7 +7,6 @@ return {
 	require("plugin_configs.file_tree"),
 	require("plugin_configs.git_signs"),
 	require("plugin_configs.indent_blankline"),
-	require("plugin_configs.lsp_signatures"),
 	require("plugin_configs.markdown_previewer"),
 	require("plugin_configs.onedarkpro"),
 	require("plugin_configs.terminal"),
