@@ -171,10 +171,10 @@ map("n", "<leader>po", ":PeekOpen<CR>", { desc = "Open Preview" })
 map("n", "<leader>pc", ":PeekClose<CR>", { desc = "Close Preview" })
 
 ------ Colorizer ------
-map("n", "<leader>cr", ":ColorizerReloadAllBuffers<CR>", { desc = "Reload Colorizer plugin"})
+map("n", "<leader>cr", ":ColorizerReloadAllBuffers<CR>", { desc = "Reload Colorizer plugin" })
 
 ------ Trailspace ------
-map("n", "<leader>tr", ":=MiniTrailspace.trim()<CR>", { desc = "Remove Trailing Whitespace"})
+map("n", "<leader>tr", ":=MiniTrailspace.trim()<CR>", { desc = "Remove Trailing Whitespace" })
 
 ------ Other ------
 map("n", "<C-s>", ":w<CR>", { desc = "Save File" })
