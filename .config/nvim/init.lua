@@ -36,3 +36,6 @@ require("colorizer").setup { "*", "!lazy" } -- Don't apply 'colorizer' to the La
 
 --- Keymaps ---
 require("keymaps")
+
+--- Auto-commands ---
+require("auto_commands")
