@@ -14,12 +14,9 @@ return {
 	require("plugin_configs.vim_game"),
 
 	require("plugin_configs.fuzzy_finder.telescope"),
-
 	require("plugin_configs.mason.mason"),
+	require("plugin_configs.statusline.lualine"),
 
 	require("plugin_configs.mini_nvim.ai"),
 	require("plugin_configs.mini_nvim.icons"),
-	require("plugin_configs.mini_nvim.trailspace"),
-
-	require("plugin_configs.statusline.lualine"),
 }
