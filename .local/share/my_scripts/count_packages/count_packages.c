@@ -30,15 +30,15 @@ int main() {
 		strcat(output_str, " (Pacman)");
 
 		if (strcmp(aur_pkgs, "0") != 0) { // If more than 0 AUR packages
-			strcat(output_str,", ");
+			strcat(output_str, ", ");
 			strcat(output_str, aur_pkgs);
-			strcat(output_str," (AUR)");
+			strcat(output_str, " (AUR)");
 		}
 
 		if (strcmp(orphaned_pkgs, "0") != 0) { // If more than 0 orphaned packages
-			strcat(output_str,", ");
+			strcat(output_str, ", ");
 			strcat(output_str, orphaned_pkgs);
-			strcat(output_str," (orphaned)");
+			strcat(output_str, " (orphaned)");
 		}
 
 		printf("%s", output_str);
