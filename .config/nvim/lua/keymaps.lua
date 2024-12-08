@@ -1,5 +1,3 @@
--- Note: this file is actually MORE readable if you don't auto-format it
-
 local custom_picker = require("plugin_configs.fuzzy_finder.custom_picker")
 
 local map = vim.keymap.set
@@ -27,7 +25,6 @@ map("n", "<C-k>",          vim.lsp.buf.hover,                 { desc = "Display 
 map({ "n", "i" }, "<C-l>", vim.lsp.buf.signature_help,        { desc = "Display Signature Help" })
 map("n", "gca",            vim.lsp.buf.code_action,           { desc = "Code Action" })
 map("n", "grn",            vim.lsp.buf.rename,                { desc = "Rename Symbol" })
-map("n", "<leader>fm",     vim.lsp.buf.format,                { desc = "Format File" })
 map("n", "gdf",	           vim.lsp.buf.definition,            { desc = "Go to Definition" })
 map("n", "grr",	           telescope_builtins.lsp_references, { desc = "Find References" })
 map("n", "gdc",	           vim.lsp.buf.declaration,	          { desc = "Go to Declaration" })
@@ -125,7 +122,6 @@ end, { desc = "DAP: Toggle Breakpoint" })
 
 map("n", "<leader>B", function()
 	if vim.api.nvim_get_current_line() ~= "" then
-		-- stylua: ignore
 		vim.ui.input({ prompt = "Enter Condition:" }, function(condition) dap.toggle_breakpoint(condition) end)
 	end
 end, { desc = "DAP: Toggle Conditional Breakpoint" })
@@ -137,14 +133,12 @@ end, { desc = "DAPUI: Eval var under cursor" })
 
 ------ GitSigns ------
 local gitsigns = require("gitsigns")
--- stylua: ignore start
 map("n", "]c",         function() gitsigns.nav_hunk("next") end,            { desc = "Go to Next Hunk" })
 map("n", "[c",         function() gitsigns.nav_hunk("prev") end,            { desc = "Go to Previous Hunk" })
 map("n", "<leader>hp", function() gitsigns.preview_hunk_inline() end,       { desc = "Preview Hunk" })
 map("n", "<leader>hs", function() gitsigns.stage_hunk() end,                { desc = "Stage Hunk" })
 map("n", "<leader>hu", function() gitsigns.undo_stage_hunk() end,           { desc = "Unstage Hunk" })
 map("n", "<leader>tb", function() gitsigns.toggle_current_line_blame() end, { desc = "Toggle Git Blame" })
--- stylua: ignore end
 
 ------ Terminal ------
 map("n", "<C-.>", ":FloatermNew<CR>",    { desc = "Open new terminal window" })
@@ -166,7 +160,6 @@ map("n", "<Tab>",   ":bnext<CR>",     { desc = "Go to Next Buffer" })
 map("n", "<S-Tab>", ":bprevious<CR>", { desc = "Go to Previous Buffer" })
 
 ------ File Conversion ------
--- stylua: ignore
 map("n", "<leader>fc", function() custom_picker:find() end, { desc = "Open File Conversion Menu" })
 
 ------ Preview ------

@@ -12,7 +12,7 @@ return {
 
 			null_ls.setup({
 				sources = {
-					formatting.stylua, -- lua
+					formatting.stylua,
 				},
 			})
 		end,
