@@ -15,6 +15,14 @@ map("n", "<leader>fr", telescope_builtins.oldfiles,                  { desc = "S
 map("n", "<leader>fz", telescope_builtins.current_buffer_fuzzy_find, { desc = "Fuzzy-find in File" })
 map("n", "<leader>fk", telescope_builtins.keymaps,                   { desc = "Search Keymaps" })
 
+-- Custom Telescope Picker to search in the Source Code directories of installed plugins
+map("n", "<leader>fsc", function()
+	telescope_builtins.find_files {
+		---@diagnostic disable-next-line: param-type-mismatch
+		cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy")
+	}
+end)
+
 telescope.setup({ defaults = { mappings = { i = { ["<esc>"] = telescope_actions.close } } } })
 
 ------ NvimTree ------
