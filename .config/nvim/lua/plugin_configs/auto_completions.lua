@@ -54,6 +54,7 @@ return {
 
 				sources = default_sources,
 
+				---@diagnostic disable-next-line: missing-fields
 				formatting = {
 					fields = {
 						cmp.ItemField.Kind,
@@ -95,6 +96,7 @@ return {
 			cmp.setup.cmdline(":", {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = cmp.config.sources { { name = "cmdline", keyword_length = 6 } },
+				---@diagnostic disable-next-line: missing-fields
 				formatting = { fields = { cmp.ItemField.Abbr } },
 			})
 		end,
@@ -103,7 +105,7 @@ return {
 	------ Sources Plugins ------
 
 	{
-		"L3MON4D3/LuaSnip", -- Snippet Engine for Neovim
+		"L3MON4D3/LuaSnip",        -- Snippet Engine for Neovim
 		dependencies = {
 			"saadparwaiz1/cmp_luasnip", -- LuaSnip completion source for nvim-cmp
 			"rafamadriz/friendly-snippets", -- All-in-one repo for snippets (community driven)
@@ -117,10 +119,10 @@ return {
 	},
 
 	{ "hrsh7th/cmp-nvim-lsp" }, -- provides completions for the LSP attached to the buffer
-	{ "hrsh7th/cmp-path" }, -- file path
-	{ "mtoohey31/cmp-fish" }, -- shell
+	{ "hrsh7th/cmp-path" },     -- file path
+	{ "mtoohey31/cmp-fish" },   -- shell
 	{ "SergioRibera/cmp-dotenv" }, -- environment variables
-	{ "hrsh7th/cmp-buffer" }, -- suggests words in current buffer
+	{ "hrsh7th/cmp-buffer" },   -- suggests words in current buffer
 	{ "hrsh7th/cmp-cmdline" },
 
 	------ Other related plugin(s) ------

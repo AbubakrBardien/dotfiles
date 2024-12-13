@@ -12,8 +12,6 @@ opt.numberwidth = 2
 opt.cursorline = true
 opt.cursorcolumn = true
 
-opt.guicursor = "" -- To make the cursor stay the same when in insert mode
-
 ---- Indenting ----
 opt.tabstop = 4
 opt.softtabstop = 4
