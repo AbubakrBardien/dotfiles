@@ -12,6 +12,7 @@ return {
 	require("plugin_configs.terminal"),
 	require("plugin_configs.tree_sitter"),
 	require("plugin_configs.vim_game"),
+	require("plugin_configs.code_folding"),
 
 	require("plugin_configs.fuzzy_finder.telescope"),
 	require("plugin_configs.mason.mason"),

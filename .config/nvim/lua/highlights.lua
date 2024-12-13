@@ -23,3 +23,6 @@ vim.api.nvim_command("highlight NvimDapVirtualTextChanged guifg=#616073 gui=bold
 
 -- Mini Icons
 vim.api.nvim_command("highlight PythonIconColor guifg=#71B0E8") -- new highlight group
+
+-- Code Folding
+vim.api.nvim_command("highlight MoreMsg guifg=#74c4c4")

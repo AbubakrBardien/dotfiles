@@ -21,6 +21,12 @@ opt.shiftwidth = 4
 opt.spell = false -- toggle when needed
 opt.spelllang = { "en_gb" }
 
+---- Code Folding ----
+vim.o.foldcolumn = "0"
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+
 ---- Other Options ----
 opt.guicursor = "" -- To make the cursor stay the same when in insert mode
 opt.clipboard = "unnamedplus" -- Makes vim use the system clipboard
