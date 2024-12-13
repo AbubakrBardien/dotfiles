@@ -21,11 +21,5 @@ vim.api.nvim_command("highlight NvimTreeSymlinkFolderName guifg=#71B0E8")
 vim.api.nvim_command("highlight NvimDapVirtualText guifg=#4f4e5c")
 vim.api.nvim_command("highlight NvimDapVirtualTextChanged guifg=#616073 gui=bold")
 
--- LSP Signature
-vim.api.nvim_command("highlight LspSignatureActiveParameter gui=bold")
-
 -- Mini Icons
 vim.api.nvim_command("highlight PythonIconColor guifg=#71B0E8") -- new highlight group
-
--- Mini Trailspace
-vim.api.nvim_command("highlight MiniTrailspace guibg=#414858") -- same as the highlighting in Visual Mode
