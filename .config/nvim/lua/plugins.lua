@@ -1,7 +1,7 @@
 return {
 	require("plugin_configs.auto_completions"),
 	require("plugin_configs.auto_pairs"),
-	require("plugin_configs.better_ui"),
+	require("plugin_configs.improved_ui"),
 	require("plugin_configs.colorizer"),
 	require("plugin_configs.dashboard"),
 	require("plugin_configs.file_tree"),
