@@ -39,7 +39,7 @@ int main() {
 			orphaned_pkgs[strcspn(orphaned_pkgs, "\n")] = 0;
 			flatpak_orphaned_pkgs[strcspn(flatpak_orphaned_pkgs, "\n")] = 0;
 
-			sprintf(orphaned_pkgs, "%d", atoi(orphaned_pkgs) + atoi(flatpak_orphaned_pkgs));
+			sprintf(orphaned_pkgs, "%d", atoi(orphaned_pkgs) + (atoi(flatpak_orphaned_pkgs) - 4));
 
 			pclose(fp6);
 		} else {
