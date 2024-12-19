@@ -1,5 +1,5 @@
 # Abubakr's Personal Dotfiles
-        
+
 ## Screenshots
 
 ![Screenshot1](.local/share/screenshots/screenshot1.png)
