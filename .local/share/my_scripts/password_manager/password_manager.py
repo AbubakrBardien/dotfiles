@@ -170,7 +170,7 @@ def importPassword():
 ################################################################################
 
 with open("Master_Password.txt") as myFile:
-    line = simpleEncryption(myFile.readline())
+    line = simpleEncryption(myFile.readline()).rstrip("\n")
     masterPass = line
 
 userInput = getpass.getpass("Enter the master password: ")
