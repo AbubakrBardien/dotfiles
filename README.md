@@ -10,21 +10,16 @@
 
 ## Installation
 
-Run 1st script when in the Arch Installation Medium:
+Run the script when in the Arch Installation Medium:
 ```bash
-curl -o setup1 https://raw.githubusercontent.com/AbubakrBardien/dotfiles/main/.local/share/my_scripts/setup_scripts/setup1.sh
-chmod +x setup1
-./setup1
+curl -o setup_script -o pacman_packages.txt -o aur_packages.txt \
+https://raw.githubusercontent.com/AbubakrBardien/dotfiles/main/.local/share/my_scripts/setup_scripts/{setup_script.sh,{pacman,aur}_packages.txt}
+chmod +x setup_script
+./setup_script
 ```
+(Warning: `setup_script.sh` hasn't been fully tested yet)
 
-Log into Hyprland. In the Hyprland config, change the default terminal to Foot. Run these commands in the Foot terminal:
-```bash
-curl -o setup2 -o pacman_packages.txt -o aur_packages.txt -o apps_to_hide.txt \
-https://raw.githubusercontent.com/AbubakrBardien/dotfiles/main/.local/share/my_scripts/setup_scripts/{setup2.sh,{{pacman,aur}_packages,apps_to_hide}.txt}
-chmod +x setup2
-./setup2 <path_to_ssh_private_key>
-```
-(Warning: `setup2.sh` hasn't been fully tested yet)
+For the Password Manager, in the `~/.local/share/my_scripts/password_manager` directory, to work, you need to add `Master_Password.txt` and `My_Passwords.txt` to that same directory.
 
 ## Programs I Use
 
