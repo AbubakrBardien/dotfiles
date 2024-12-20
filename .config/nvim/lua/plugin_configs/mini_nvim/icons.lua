@@ -3,13 +3,14 @@ return {
 	version = false,
 	config = function()
 		require("mini.icons").setup {
-			extension = {
-				h = { glyph = "" },
-				py = { hl = "PythonIconColor" }, -- custom highlight group
-				json = { glyph = "" },
-			},
 			filetype = {
 				sh = { hl = "ShellIconColor" },
+				fish = { hl = "ShellIconColor" },
+				python = { hl = "PythonIconColor" },
+				json = { glyph = "" },
+			},
+			extension = {
+				h = { glyph = "" },
 			},
 		}
 		MiniIcons.mock_nvim_web_devicons()
