@@ -19,7 +19,7 @@ chmod +x setup_script
 ```
 (Warning: `setup_script.sh` hasn't been fully tested yet)
 
-For the Password Manager, in the `~/.local/share/my_scripts/password_manager` directory, to work, you need to add `Master_Password.txt` and `My_Passwords.txt` to that same directory.
+For the Password Manager in the `~/.local/share/my_scripts/password_manager` directory to work, you need to add `Master_Password.txt` and `My_Passwords.txt` to that same directory.
 
 ## Programs I Use
 
