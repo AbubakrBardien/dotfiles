@@ -28,10 +28,11 @@ vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
 ---- Other Options ----
-opt.guicursor = "" -- To make the cursor stay the same when in insert mode
+opt.guicursor = ""            -- To make the cursor stay the same when in insert mode
 opt.clipboard = "unnamedplus" -- Makes vim use the system clipboard
 opt.scrolloff = 8
 opt.showmode = false
+opt.signcolumn = "yes:1"
 
 ---- Plugin Options ----
 g.floaterm_width = 0.9
