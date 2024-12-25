@@ -104,6 +104,7 @@ chosen_locale="en_US.UTF-8"
 arch-chroot /mnt <<-EOF1
 	ln -sf "/usr/share/zoneinfo/$timeZone" /etc/localtime
 	hwclock --systohc
+	timedatectl set-ntp true
 
 	sed -i '/$chosen_locale UTF-8/s/^#\s*//g' /etc/locale.gen
 	locale-gen
