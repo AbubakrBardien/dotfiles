@@ -65,6 +65,7 @@ alias cStatus "config status"
 alias cDiff "config diff"
 alias cAdd "config add"
 alias commit "config commit"
+alias push "config push"
 
 alias wget "wget --hsts-file=\"$XDG_DATA_HOME/wget-hsts\""
 
