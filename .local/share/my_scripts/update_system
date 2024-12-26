@@ -1,0 +1,8 @@
+#!/bin/bash
+
+paru -Syu
+flatpak update
+fisher update
+ya pack -u
+
+# This script is not responsible for updating Neovim
