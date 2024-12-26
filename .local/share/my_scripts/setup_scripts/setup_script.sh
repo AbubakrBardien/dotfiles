@@ -238,8 +238,13 @@ arch-chroot /mnt <<-EOF1
 	makepkg -si
 	paru -S --noconfirm $(cat aur_packages.txt)
 
+	fisher install $(cat fish_shell_plugins.txt)
+	flatpak install --assumeyes $(cat flatpak_packages.txt)
+	ya pack -a $(cat yazi_plugins.txt)
+
 	git config credential.helper store
 	brillo -c -S 5
+
 	exit
 EOF1
 
