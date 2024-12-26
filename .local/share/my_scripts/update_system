@@ -1,6 +1,6 @@
 #!/bin/bash
 
-paru -Syu
+$AUR_HELPER -Syu
 flatpak update
 fisher update
 ya pack -u
