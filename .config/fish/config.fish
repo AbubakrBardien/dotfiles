@@ -63,7 +63,7 @@ alias benchmark "hyperfine" # Very useful benchmarking tool
 
 alias cStatus "config status"
 alias cDiff "config diff"
-alias cAdd "config add"
+alias add "config add"
 alias commit "config commit"
 alias push "config push"
 
