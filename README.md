@@ -12,8 +12,13 @@
 
 Run the script when in the Arch Installation Medium:
 ```bash
-curl -o setup_script -o pacman_packages.txt -o aur_packages.txt \
-https://raw.githubusercontent.com/AbubakrBardien/dotfiles/main/.local/share/my_scripts/setup_scripts/{setup_script.sh,{pacman,aur}_packages.txt}
+curl -o setup_script \
+-o pacman_packages.txt \
+-o aur_packages.txt \
+-o flatpak_packages.txt \
+-o fish_shell_plugins.txt \
+-o yazi_plugins.txt \
+https://raw.githubusercontent.com/AbubakrBardien/dotfiles/main/.local/share/my_scripts/setup_scripts/{setup_script.sh,{{pacman,aur,flatpak}_packages,{fish_shell,yazi}_plugins}.txt}
 chmod +x setup_script
 ./setup_script
 ```
