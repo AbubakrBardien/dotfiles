@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/fish
 
 $AUR_HELPER -Syu
 flatpak update
