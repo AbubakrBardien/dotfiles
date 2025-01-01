@@ -307,6 +307,11 @@ arch-chroot /mnt <<-EOF1
 	exit
 EOF1
 
+# Import Password Manager
+arch-chroot /mnt <<-EOF1
+	git clone https://github.com/AbubakrBardien/password-manager.git "/home/$userName/.local/share/my_scripts/password_manager"
+EOF1
+
 umount /mnt/boot
 umount /mnt
 reboot
