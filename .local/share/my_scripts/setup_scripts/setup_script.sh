@@ -224,9 +224,6 @@ EOF1
 
 # Install ALL other packages
 # Setup AUR Helper
-# Store Git PAT (Personal Access Token)
-#	You'll need to provide your PAT as a password the next to you push to GitHub. This is only required the 1st time.
-#	Your existing PAT is found in your GitHub settings, under 'Developer Settings'.
 # Use brillo to set minimum screen brightness to 5%
 arch-chroot /mnt <<-EOF1
 	pacman -S --noconfirm --needed $(cat pacman_packages.txt)
@@ -242,7 +239,6 @@ arch-chroot /mnt <<-EOF1
 	flatpak install --assumeyes $(cat flatpak_packages.txt)
 	ya pack -a $(cat yazi_plugins.txt)
 
-	git config credential.helper store
 	brillo -c -S 5
 
 	exit
@@ -273,6 +269,18 @@ arch-chroot /mnt <<-EOF1
 	config checkout
 	config config --local status.showUntrackedFiles no
 
+	exit
+EOF1
+
+# Store Git PAT (Personal Access Token)
+#	You'll need to provide your PAT as a password the next to you push to GitHub. This is only required the 1st time.
+#	Your existing PAT is found in your GitHub settings, under 'Developer Settings'.
+arch-chroot /mnt <<-EOF1
+	su $userName <<-EOF2
+		$userPass
+		git config --global credential.helper store
+		exit
+	EOF2
 	exit
 EOF1
 
