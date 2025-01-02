@@ -1,131 +1,135 @@
-local default_sources = {
-	-- Order Matters! It sets the priority in the Completion Menu
-	{
-		name = "nvim_lsp",
-
-		-- Filters out "Text" completions based on text in current buffer
-		-- Also filters "Snippet" completions, becuase "luasnip" handles that better
-
-		---@diagnostic disable-next-line: unused-local
-		entry_filter = function(entry, ctx)
-			local current_entry = require("cmp.types").lsp.CompletionItemKind[entry:get_kind()]
-			return current_entry ~= "Text" and current_entry ~= "Snippet"
-		end,
-	},
-	{ name = "hrsh7th/cmp-nvim-lsp" },
-	{ name = "fish" },
-	{ name = "path" },
-	{ name = "luasnip" },
-}
-
-local function custom_sources(tbl)
-	local output_tbl = {}
-	for _, source in ipairs(default_sources) do
-		output_tbl[#output_tbl + 1] = source
-	end
-	for _, source in ipairs(tbl) do
-		output_tbl[#output_tbl + 1] = source
-	end
-	return output_tbl
-end
-
-------------------------------
+local common_deps = require("dependency_list")
 
 return {
 	{
-		-- Only displays the window to list the completions, that's all.
-		-- The options in the widow could be snippets from a Snippet Engine, or language-specific features from an LSP.
-		"hrsh7th/nvim-cmp",
-		config = function()
-			local cmp = require("cmp")
-			local lspKind = require("lspkind")
+		"saghen/blink.compat",
+		version = "*",
+		opts = {},
+	},
+	{
+		"saghen/blink.cmp",
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+			"mtoohey31/cmp-fish",
+			"bydlw98/cmp-env",
+			"hrsh7th/cmp-cmdline",
+			common_deps["mini_icons"],
+		},
+		version = "*",
+		-- Disable for some filetypes
 
-			require("luasnip.loaders.from_vscode").lazy_load {
-				exclude = { "lua", "python", "all" },
-			}
+		-- enabled = function()
+		-- 	return vim.bo.filetype ~= "DressingInput"
+		-- end,
 
-			cmp.setup {
-				snippet = {
-					-- REQUIRED - you must specify a snippet engine
-					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
-					end,
-				},
+		-- enabled = function()
+		-- 	return not vim.tbl_contains({ "lua", "markdown" }, vim.bo.filetype) and vim.bo.buftype ~= "prompt" and
+		-- 	vim.b.completion ~= false
+		-- end,
 
-				sources = default_sources,
+		enabled = function()
+			local disabled_filetypes = { "lua", "DressingInput" }
+			return not vim.tbl_contains(disabled_filetypes, vim.bo.filetype)
+		end,
 
-				---@diagnostic disable-next-line: missing-fields
-				formatting = {
-					fields = {
-						cmp.ItemField.Kind,
-						cmp.ItemField.Abbr,
-						cmp.ItemField.Menu,
+		opts = {
+			keymap = {
+				preset = "enter",
+				["<C-space>"] = { "show", "hide", "fallback" },
+				["<Left>"] = { "scroll_documentation_up", "fallback" },
+				["<Right>"] = { "scroll_documentation_down", "fallback" },
+
+				["<C-e>"] = {},
+				["<C-p>"] = {},
+				["<C-n>"] = {},
+
+				-- cmdline = {
+				-- 	preset = "enter",
+				-- 	["<Tab>"] = { "select_next", "fallback" },
+				-- 	["<S-Tab>"] = { "select_prev", "fallback" },
+				-- 	["<C-space>"] = { "show", "hide", "fallback" },
+				-- },
+			},
+
+			appearance = {
+				use_nvim_cmp_as_default = true, -- will be removed in future update
+				nerd_font_variant = "mono",
+			},
+
+			sources = {
+				default = function()
+					if vim.bo.filetype == "text" then
+						return { "buffer", "path" }
+					elseif vim.bo.filetype == "markdown" then
+						return { "buffer", "path", "snippets", "env" }
+					else
+						return { "path", "snippets", "env", "lsp", "fish" }
+					end
+				end,
+				-- cmdline = { "cmdline" },
+				cmdline = {},
+
+				providers = {
+					buffer = {
+						min_keyword_length = 5,
 					},
-					format = lspKind.cmp_format {
-						mode = "symbol",
-						maxwidth = 20,
-						ellipsis_char = "...",
-						menu = {
-							nvim_lsp = "[LSP]",
-							fish = "[fish]",
-							path = "[path]",
-							dotenv = "[ENV]",
-							luasnip = "[luasnip]",
-							buffer = "[buffer]",
+					fish = {
+						name = "fish",
+						module = "blink.compat.source",
+					},
+					env = {
+						name = "env",
+						module = "blink.compat.source",
+						min_keyword_length = 5,
+					},
+					-- cmdline = {
+					-- 	name = "cmdline",
+					-- 	module = "blink.compat.source",
+					-- 	min_keyword_length = 5,
+					-- },
+				},
+			},
+
+			signature = { enabled = true },
+
+			completion = {
+				menu = {
+					scrollbar = false,
+					draw = {
+						columns = { { "kind_icon", "label", "source_name", gap = 1 } },
+						-- columns = { { "label", gap = 1 } },
+						-- columns = function()
+						-- 	if vim.api.nvim_get_mode().mode == "c" then
+						-- 		return { { "label", gap = 1 } }
+						-- 	else
+						-- 		return { { "kind_icon", "label", "source_name", gap = 1 } }
+						-- 	end
+						-- end,
+						components = {
+							-- Makes "Blink.cmp" use icons from "Mini.icons"
+							kind_icon = {
+								ellipsis = false,
+								text = function(ctx)
+									local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+									return kind_icon
+								end,
+								highlight = function(ctx)
+									local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+									return hl
+								end,
+							},
+
+							label = { width = { fill = true, max = 50 } },
 						},
 					},
 				},
-			}
-
-			--- Filetype Specific Sources ---
-			cmp.setup.filetype({ "markdown", "text" }, {
-				sources = custom_sources({
-					{ name = "buffer", keyword_length = 5 },
-				}),
-			})
-			cmp.setup.filetype({ "sh", "fish" }, {
-				sources = custom_sources({
-					{ name = "dotenv", keyword_length = 5 },
-				}),
-			})
-
-			-- Automatically puts brackets in front of the selected function/method
-			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-
-			cmp.setup.cmdline(":", {
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = cmp.config.sources { { name = "cmdline", keyword_length = 6 } },
-				---@diagnostic disable-next-line: missing-fields
-				formatting = { fields = { cmp.ItemField.Abbr } },
-			})
-		end,
-	},
-
-	------ Sources Plugins ------
-
-	{
-		"L3MON4D3/LuaSnip",        -- Snippet Engine for Neovim
-		dependencies = {
-			"saadparwaiz1/cmp_luasnip", -- LuaSnip completion source for nvim-cmp
-			"rafamadriz/friendly-snippets", -- All-in-one repo for snippets (community driven)
+				documentation = {
+					auto_show = true,
+					auto_show_delay_ms = 500,
+				},
+			},
 		},
-		config = function()
-			local luasnip = require("luasnip")
-			luasnip.config.set_config {
-				updateevents = "TextChanged,TextChangedI", -- When using dynamic snippets, this makes it update as you type.
-			}
-		end,
 	},
-
-	{ "hrsh7th/cmp-nvim-lsp" }, -- provides completions for the LSP attached to the buffer
-	{ "hrsh7th/cmp-path" },     -- file path
-	{ "mtoohey31/cmp-fish" },   -- shell
-	{ "SergioRibera/cmp-dotenv" }, -- environment variables
-	{ "hrsh7th/cmp-buffer" },   -- suggests words in current buffer
-	{ "hrsh7th/cmp-cmdline" },
-
-	------ Other related plugin(s) ------
-
-	{ "onsails/lspkind.nvim" }, -- For adding icons to Compleion Menu
 }
+
+-- Check their website to learn more about the default settings

@@ -4,13 +4,21 @@ return {
 	config = function()
 		require("mini.icons").setup {
 			filetype = {
-				sh = { hl = "ShellIconColor" },
 				fish = { hl = "ShellIconColor" },
-				python = { hl = "PythonIconColor" },
 				json = { glyph = "" },
+				lua = { hl = "MiniIconsBlue" },
+				python = { hl = "PythonIconColor" },
+				sh = { hl = "ShellIconColor" },
 			},
 			extension = {
 				h = { glyph = "" },
+			},
+			lsp = {
+				["function"] = { glyph = "" },
+				field = { glyph = "" },
+				property = { glyph = "" },
+				text = { glyph = "󰉿" },
+				variable = { hl = "MiniIconsGreen" },
 			},
 		}
 		MiniIcons.mock_nvim_web_devicons()

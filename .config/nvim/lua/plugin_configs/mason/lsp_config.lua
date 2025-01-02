@@ -23,22 +23,21 @@ return {
 	{
 		-- Allows Neovim to communicate with Language Servers
 		"neovim/nvim-lspconfig",
-		dependencies = { "folke/lazydev.nvim" },
+		dependencies = {
+			"folke/lazydev.nvim",
+			"saghen/blink.cmp",
+		},
 		config = function()
 			local lspconfig = require("lspconfig")
-
-			-- Allows LSPs to communicate with "cmp_nvim_lsp" to provide language-specific completions
-			local cmp_nvim_lsp = require("cmp_nvim_lsp").default_capabilities()
 
 			-- Doing the same configuration for multiple LSPs
 			-- local lsp_set = { "lua_ls", "ruff", "bashls" }
 			local lsp_set = { "lua_ls", "pyright", "bashls" }
 			for _, lsp in pairs(lsp_set) do
-				lspconfig[lsp].setup { capabilities = cmp_nvim_lsp }
+				lspconfig[lsp].setup {}
 			end
 
 			lspconfig["clangd"].setup { -- "clang-tidy" is the built-in linter
-				capabilities = cmp_nvim_lsp,
 				cmd = { "clangd", "--offset-encoding=utf-16", "--clang-tidy" },
 			}
 		end,
