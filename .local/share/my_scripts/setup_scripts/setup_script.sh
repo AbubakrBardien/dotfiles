@@ -224,6 +224,8 @@ EOF1
 
 # Install ALL other packages
 # Setup AUR Helper
+# Install ALL flatpaks
+# Install ALL plugins for Fish, and Yazi
 # Use brillo to set minimum screen brightness to 5%
 arch-chroot /mnt <<-EOF1
 	pacman -S --noconfirm --needed $(cat pacman_packages.txt)
