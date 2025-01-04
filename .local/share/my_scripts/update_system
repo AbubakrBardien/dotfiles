@@ -1,6 +1,7 @@
 #!/bin/fish
 
 $AUR_HELPER -Syu
+hide_from_menu
 flatpak update
 fisher update
 ya pack -u
