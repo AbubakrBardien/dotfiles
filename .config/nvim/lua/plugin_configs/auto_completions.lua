@@ -12,7 +12,6 @@ return {
 			"rafamadriz/friendly-snippets",
 			"mtoohey31/cmp-fish",
 			"bydlw98/cmp-env",
-			"hrsh7th/cmp-cmdline",
 			common_deps["mini_icons"],
 		},
 		version = "*",
@@ -42,13 +41,6 @@ return {
 				["<C-e>"] = {},
 				["<C-p>"] = {},
 				["<C-n>"] = {},
-
-				-- cmdline = {
-				-- 	preset = "enter",
-				-- 	["<Tab>"] = { "select_next", "fallback" },
-				-- 	["<S-Tab>"] = { "select_prev", "fallback" },
-				-- 	["<C-space>"] = { "show", "hide", "fallback" },
-				-- },
 			},
 
 			appearance = {
@@ -66,7 +58,7 @@ return {
 						return { "path", "snippets", "env", "lsp", "fish" }
 					end
 				end,
-				-- cmdline = { "cmdline" },
+
 				cmdline = {},
 
 				providers = {
@@ -82,11 +74,6 @@ return {
 						module = "blink.compat.source",
 						min_keyword_length = 5,
 					},
-					-- cmdline = {
-					-- 	name = "cmdline",
-					-- 	module = "blink.compat.source",
-					-- 	min_keyword_length = 5,
-					-- },
 				},
 			},
 
