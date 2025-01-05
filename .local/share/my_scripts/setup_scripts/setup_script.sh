@@ -286,6 +286,21 @@ arch-chroot /mnt <<-EOF1
 	exit
 EOF1
 
+# Setup pipx so the user can manage seperate python packages that are NOT system wide
+arch-chroot /mnt <<-EOF1
+	su $userName <<-EOF2
+		$userPass
+		fish
+		pipx ensurepath
+		pipx install argcomplete
+		register-python-argcomplete --shell fish pipx >~/.config/fish/completions/pipx.fish
+		pipx install virtualenv
+		exit
+		exit
+	EOF2
+	exit
+EOF1
+
 # Create Desktop Entries for Terminal Programs
 arch-chroot /mnt <<-EOF1
 	pacman -S --noconfirm $terminalEmulator
