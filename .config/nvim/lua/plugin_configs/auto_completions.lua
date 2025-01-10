@@ -35,8 +35,8 @@ return {
 			keymap = {
 				preset = "enter",
 				["<C-space>"] = { "show", "hide", "fallback" },
-				["<Left>"] = { "scroll_documentation_up", "fallback" },
-				["<Right>"] = { "scroll_documentation_down", "fallback" },
+				["<S-Left>"] = { "scroll_documentation_up", "fallback" },
+				["<S-Right>"] = { "scroll_documentation_down", "fallback" },
 
 				["<C-e>"] = {},
 				["<C-p>"] = {},
@@ -86,7 +86,7 @@ return {
 						columns = { { "kind_icon", "label", "source_name", gap = 1 } },
 						-- columns = { { "label", gap = 1 } },
 						-- columns = function()
-						-- 	if vim.api.nvim_get_mode().mode == "c" then
+						-- 	if vim.bo.filetype == "text" then
 						-- 		return { { "label", gap = 1 } }
 						-- 	else
 						-- 		return { { "kind_icon", "label", "source_name", gap = 1 } }
