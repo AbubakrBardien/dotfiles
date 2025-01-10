@@ -456,10 +456,10 @@
 #    summary = "*script*"
 #    script = dunst_test.sh
 
-#[ignore]
+[ignore]
     # This notification will not be displayed
-#    appname = volume_popup
-#    skip_display = true
+    appname = flatpak
+    skip_display = true
 
 [history-ignore]
     # This notification will not be saved in history
