@@ -2,7 +2,7 @@ atomicwallet
 brillo
 cava
 cbonsai
-gotop
+gotop-bin
 hyprshot
 mkinitcpio-firmware
 mkinitcpio-numlock
@@ -13,11 +13,12 @@ paru-debug
 pcloud-drive
 pipes.sh
 pyinstaller
+python-customtkinter
 python-pygobject-stubs
 rocketchat-client-bin
 sddm-theme-mountain-git
 tradingview
 vlc-pause-click-plugin
-webcord
+webcord-bin
 whatsapp-for-linux
 xdg-ninja
