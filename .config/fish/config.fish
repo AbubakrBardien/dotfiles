@@ -99,3 +99,6 @@ starship init fish | source
 
 # Syntax Highlighting for Man pages
 batman --export-env | source
+
+# Created by `pipx`
+set PATH $PATH /home/abubakr/.local/bin

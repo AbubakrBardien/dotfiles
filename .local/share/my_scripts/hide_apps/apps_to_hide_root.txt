@@ -2,13 +2,20 @@ avahi-discover
 bssh
 bvnc
 cmake-gui
+echomixer
 electron30
 electron31
 electron32
+envy24control
 fish
-ipython
 foot-server
 footclient
+hdajackretask
+hdspconf
+hdspmixer
+hwmixvolume
+ipython
+links
 org.pwmt.zathura
 qv4l2
 qvidcap
@@ -16,4 +23,3 @@ rofi
 rofi-theme-selector
 torbrowser-settings
 xdvi
-links
