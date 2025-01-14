@@ -140,7 +140,7 @@ arch-chroot /mnt <<-EOF1
 	curl -L -o arch-linux.tar https://raw.githubusercontent.com/AdisonCavani/distro-grub-themes/master/themes/arch-linux.tar
 	mkdir arch-linux
 	tar -xf arch-linux.tar -C arch-linux
-	sudo sed -i 's/^#GRUB_THEME=.*/GRUB_THEME="\/boot\/grub\/themes\/arch-linux\/theme.txt"/' /etc/default/grub
+	sed -i 's/^#GRUB_THEME=.*/GRUB_THEME="\/boot\/grub\/themes\/arch-linux\/theme.txt"/' /etc/default/grub
 	rm arch-linux.tar
 
 	grub-mkconfig -o /boot/grub/grub.cfg
@@ -255,12 +255,12 @@ arch-chroot /mnt <<-EOF1
 EOF1
 
 # Make Fish the default Shell
-# Enable Numlock
-#	Add 'numlock' after 'consolefont' in the HOOKS array
+# Enable Hibernate
+#	Add 'resume' after 'udev' in the HOOKS array
 arch-chroot /mnt <<-EOF1
 	chsh -s /usr/bin/fish $userName
 
-	sudo sed -i 's/\(^HOOKS=\(.*\)consolefont\)/\1 numlock/' /etc/mkinitcpio.conf 
+	sed -i 's/\(^HOOKS=\(.*\)udev\)/\1 resume/' /etc/mkinitcpio.conf
 	mkinitcpio -P
 
 	exit
