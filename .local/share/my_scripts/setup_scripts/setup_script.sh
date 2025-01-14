@@ -222,12 +222,20 @@ arch-chroot /mnt <<-EOF1
 	exit
 EOF1
 
+# Import package lists
 # Install ALL other packages
 # Setup AUR Helper
 # Install ALL flatpaks
 # Install ALL plugins for Fish, and Yazi
 # Use brillo to set minimum screen brightness to 5%
 arch-chroot /mnt <<-EOF1
+	curl -o pacman_packages.txt \
+	-o aur_packages.txt \
+	-o flatpak_packages.txt \
+	-o fish_shell_plugins.txt \
+	-o yazi_plugins.txt \
+	https://raw.githubusercontent.com/AbubakrBardien/dotfiles/main/.local/share/my_scripts/setup_scripts/{{pacman,aur,flatpak}_packages,{fish_shell,yazi}_plugins}.txt
+
 	pacman -S --noconfirm --needed $(cat pacman_packages.txt)
 
 	mkdir /home/$userName/Documents/External_Repos

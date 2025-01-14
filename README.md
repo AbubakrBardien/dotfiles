@@ -12,19 +12,13 @@
 
 Run the script when in the Arch Installation Medium:
 ```bash
-curl -o setup_script \
--o pacman_packages.txt \
--o aur_packages.txt \
--o flatpak_packages.txt \
--o fish_shell_plugins.txt \
--o yazi_plugins.txt \
-https://raw.githubusercontent.com/AbubakrBardien/dotfiles/main/.local/share/my_scripts/setup_scripts/{setup_script.sh,{{pacman,aur,flatpak}_packages,{fish_shell,yazi}_plugins}.txt}
+curl -o setup_script https://raw.githubusercontent.com/AbubakrBardien/dotfiles/main/.local/share/my_scripts/setup_scripts/setup_script.sh
 chmod +x setup_script
 ./setup_script
 ```
 (Warning: `setup_script.sh` hasn't been fully tested yet)
 
-For the Password Manager in the `~/.local/share/my_scripts/password_manager` directory to work, you need to add `Master_Password.txt` and `My_Passwords.txt` to that same directory.
+This script also downloads your Password Manager (at `https://github.com/AbubakrBardien/password-manager`), so remember to import your passwords after running the script.
 
 ## Programs I Use
 
