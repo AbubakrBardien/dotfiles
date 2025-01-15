@@ -2,9 +2,11 @@
     "position": "bottom",
   
     // --------------------- Module Sections ----------------------
-    "modules-left": ["custom/power", "custom/screenshot", "tray"],
-    "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["custom/dunst", "wireplumber","network","clock"],
+    //"modules-left": ["custom/power", "network", "custom/screenshot", "tray"],
+    //"modules-center": ["hyprland/workspaces"],
+    //"modules-right": ["custom/dunst", "wireplumber", "clock"],
+    "modules-left": ["hyprland/workspaces"],
+    "modules-right": ["tray", "wireplumber", "network", "battery", "clock"],
     // ------------------------------------------------------------
 
     // --------------------- Built-in Modules ---------------------
@@ -75,6 +77,17 @@
             "on-scroll-down": "shift_down"
         }
     },
+
+	"battery": {
+		"states": {
+		    "warning": 25,
+		    "critical": 10,
+		},
+		"format": "{icon} {capacity}%",
+		"format-charging": "{icon}󱐋 {capacity}%",
+		"format-time": "{H}h {M}min",
+		"format-icons": ["󰁻", "󰁽", "󰁿", "󰂁", "󰁹"],
+	},
     // ------------------------------------------------------------
 
     // -------------------- My Custom Modules --------------------

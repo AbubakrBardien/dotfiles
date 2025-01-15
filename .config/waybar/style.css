@@ -23,26 +23,28 @@ window#waybar {
 /* ------------------------------------------------------------------------- */
 
 /* --------- Clickable modules --------- */
+/*#custom-power:hover,*/
+/* #custom-dunst:hover { */
+/*#custom-screenshot:hover {*/
 #wireplumber:hover,
 #network:hover,
-#clock:hover,
-#custom-power:hover,
-/* #custom-dunst:hover { */
-#custom-screenshot:hover {
+#clock:hover {
   background-color: @surface1;
 }
 /* ------------------------------------- */
 
 /* ----- Alternating module colors ----- */
-#custom-power, 
-#wireplumber, #clock {
+/*#custom-power, */
+/*#custom-screenshot {*/
+
+#clock,
+#network {
   color: @teal;
   padding: 2 6px;
 }
 
-#custom-screenshot,
-/* #custom-dunst { */
-#network { 
+#wireplumber,
+#battery {
   color: @sapphire;
   padding: 2 6px;
 }
@@ -77,13 +79,13 @@ window#waybar {
 
 
 /* ------- left side of module group ------- */
-#custom-power, #wireplumber {
-  border-radius: 16px 0 0 16px;
-  padding: 0 6px 0 10px;
-}
+/*#custom-power, #wireplumber {*/
+/*  border-radius: 16px 0 0 16px;*/
+/*  padding: 0 6px 0 10px;*/
+/*}*/
 
 /* ---------- right side of module group ---------- */
-/*#custom-screenshot, #clock {*/
+/*#custom-screenshot,*/
 #clock {
   border-radius: 0 16px 16px 0; 
   padding: 0 10px 0 6px;
@@ -91,12 +93,22 @@ window#waybar {
 
 #tray {
     border-radius: 0 16px 16px 0; 
-    /*padding: 0 6px 0 4px;*/
-    padding: 0 8px 0 3px;
+    /*padding: 0 8px 0 3px;*/
+    /*padding: 0 3px 0 8px;*/
+    /*padding: 0 0px 0 10px;*/
+    padding: 0 5px 0 10px;
 }
 
 #wireplumber.muted {
   color: @overlay0;
+}
+
+#battery.warning {
+  color: @peach;
+}
+
+#battery.critical {
+  color: @red;
 }
 
 /* -------------------------------------------------------------------------- */
