@@ -1,15 +1,13 @@
 #!/bin/bash
 
-# Send a notification if the laptop battery is either low, plugged in, or is fully charged.
+# Send a notification if the laptop battery is either low or is fully charged.
 
 export DISPLAY=:0
 export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
 
-# Battery percentage at which to notify
 warning_level=25
 battery_charging=$(acpi -b | grep "Battery 0" | grep -c "Charging")
 battery_level=$(acpi -b | grep "Battery 0" | grep -P -o '[0-9]+(?=%)')
-
 notification_timeout=2000 # 2 seconds
 
 # Use two files to store whether we've shown a notification or not (to prevent multiple notifications)
@@ -31,6 +29,6 @@ if [ "$battery_level" -eq 100 ] && [ "$battery_charging" -eq 1 ] && [ ! -f $FULL
 
 # If the battery is low and is not charging (and has not shown notification yet)
 elif [ "$battery_level" -le $warning_level ] && [ "$battery_charging" -eq 0 ] && [ ! -f $EMPTY_FILE ]; then
-	dunstify -a "battery_popup" -u critical "Battery  Low" -i "$HOME/.config/dunst/icons/battery_low.png"
+	dunstify -a "battery_popup" -u critical "Battery  Low  ($warning_level%)" -i "$HOME/.config/dunst/icons/battery_low.png"
 	touch $EMPTY_FILE
 fi
