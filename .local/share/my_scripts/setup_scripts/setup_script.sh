@@ -64,8 +64,13 @@ EFI System
 w
 EOF
 
-bootPart="${diskName}1" # boot partition
-rootPart="${diskName}2" # root partition
+if [ "$diskName" = "/dev/sda" ]; then
+	bootPart="${diskName}1" # boot partition
+	rootPart="${diskName}2" # root partition
+elif [ "$diskName" = "/dev/nvme0n1" ]; then
+	bootPart="${diskName}p1" # boot partition
+	rootPart="${diskName}p2" # root partition
+fi
 
 #### Formatting the Partitions ####
 mkfs.fat -F 32 "$bootPart"
