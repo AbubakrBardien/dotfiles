@@ -5,7 +5,7 @@
 export DISPLAY=:0
 export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
 
-warning_level=25
+warning_level=20
 battery_charging=$(acpi -b | grep "Battery 0" | grep -c "Charging")
 battery_level=$(acpi -b | grep "Battery 0" | grep -P -o '[0-9]+(?=%)')
 notification_timeout=2000 # 2 seconds
