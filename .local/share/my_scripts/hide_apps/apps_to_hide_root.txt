@@ -6,6 +6,7 @@ echomixer
 electron30
 electron31
 electron32
+electron33
 envy24control
 fish
 foot-server
