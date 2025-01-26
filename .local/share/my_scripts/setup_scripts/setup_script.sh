@@ -333,7 +333,7 @@ arch-chroot /mnt <<-EOF1
 			echo "Exec=$command"
 			echo "Terminal=true"
 		} | \
-		sudo tee -a "${packageName}.desktop"
+		sudo tee "${packageName}.desktop" >/dev/null
 	}
 
 	create_CLI_desktop_entry "cava" "Cava" "cava"

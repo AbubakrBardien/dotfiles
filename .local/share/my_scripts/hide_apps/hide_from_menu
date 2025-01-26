@@ -17,7 +17,7 @@ hide_function() {
 		if [ -e "$file" ]; then
 			if [[ $(tail -1 "$file") != "Hidden=true" ]]; then
 				# Appends to the file, with sudo permissions
-				echo -e "\nHidden=true" | sudo tee -a "$file"
+				echo -e "\nHidden=true" | sudo tee -a "$file" >/dev/null
 			fi
 		fi
 	done
