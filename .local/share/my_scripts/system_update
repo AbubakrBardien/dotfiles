@@ -2,6 +2,7 @@
 
 $AUR_HELPER -Syu
 hide_from_menu
+apply_mysql_workbench_theme.sh
 flatpak update
 fisher update
 ya pack -u
