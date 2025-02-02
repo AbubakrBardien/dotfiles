@@ -1,3 +1,4 @@
+#!/bin/bash
 #!/bin/fish
 
 $AUR_HELPER -Syu
@@ -6,6 +7,12 @@ apply_mysql_workbench_theme.sh
 flatpak update
 fisher update
 ya pack -u
-$AUR_HELPER -Rns $($AUR_HELPER -Qdtq)
+
+orphans=$($AUR_HELPER -Qdtq)
+
+if [[ -n "$orphans" ]]; then
+	# shellcheck disable=SC2086
+	$AUR_HELPER -Rns $orphans
+fi
 
 # This script is not responsible for updating Neovim
