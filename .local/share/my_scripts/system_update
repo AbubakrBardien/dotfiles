@@ -6,5 +6,6 @@ apply_mysql_workbench_theme.sh
 flatpak update
 fisher update
 ya pack -u
+$AUR_HELPER -Rns $($AUR_HELPER -Qdtq)
 
 # This script is not responsible for updating Neovim
