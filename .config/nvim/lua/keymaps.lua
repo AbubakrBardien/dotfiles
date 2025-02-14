@@ -76,8 +76,7 @@ local gitsigns = require("gitsigns")
 map("n", "]c",         function() gitsigns.nav_hunk("next") end,            { desc = "Go to Next Hunk" })
 map("n", "[c",         function() gitsigns.nav_hunk("prev") end,            { desc = "Go to Previous Hunk" })
 map("n", "<leader>hp", function() gitsigns.preview_hunk_inline() end,       { desc = "Preview Hunk" })
-map("n", "<leader>hs", function() gitsigns.stage_hunk() end,                { desc = "Stage Hunk" })
-map("n", "<leader>hu", function() gitsigns.undo_stage_hunk() end,           { desc = "Unstage Hunk" })
+map("n", "<leader>ht", function() gitsigns.stage_hunk() end,                { desc = "Stage/Unstage Hunk" })
 map("n", "<leader>tb", function() gitsigns.toggle_current_line_blame() end, { desc = "Toggle Git Blame" })
 
 ------ Terminal ------
