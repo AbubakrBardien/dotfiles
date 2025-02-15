@@ -353,6 +353,17 @@ arch-chroot /mnt <<-EOF1
 	exit
 EOF1
 
+# Setup Custom Firefox Theme
+#	Run Firefox to create the ".mozilla" directory
+arch-chroot /mnt <<-EOF1
+	firefox --no-remote &
+	sleep 5
+	cd /home/abubakr/.mozilla/firefox/
+	browserProfileDir=\$(ls -d *.default-release | head -n 1)
+	ln -s /home/$userName/.config/custom_firefox/user.js /home/$userName/.mozilla/firefox/$browserProfileDir/user.js
+	ln -s /home/$userName/.config/custom_firefox/userChrome.css /home/$userName/.mozilla/firefox/$browserProfileDir/Chrome/userChrome.css
+EOF1
+
 umount /mnt/boot
 umount /mnt
 reboot
