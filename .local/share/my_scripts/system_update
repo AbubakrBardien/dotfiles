@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/fish
 
 $AUR_HELPER -Syu
 hide_from_menu
