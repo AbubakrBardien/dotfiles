@@ -27,7 +27,6 @@ return {
 		},
 		config = function()
 			require("mason-null-ls").setup({
-				automatic_installation = true,
 				ensure_installed = { "shellcheck", "shfmt" },
 			})
 		end,
