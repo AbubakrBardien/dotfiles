@@ -39,6 +39,9 @@ set -xg TRASHDIR "$XDG_DATA_HOME/Trash"
 ## Path Environment Variables ##
 ################################
 
+set -U fish_user_paths $CARGO_HOME/bin $fish_user_paths
+set -U fish_user_paths $XDG_DATA_HOME/npm/bin $fish_user_paths
+
 set -U fish_user_paths $SCRIPTS $fish_user_paths
 set -U fish_user_paths $SCRIPTS/count_packages $fish_user_paths
 set -U fish_user_paths $SCRIPTS/hide_apps $fish_user_paths

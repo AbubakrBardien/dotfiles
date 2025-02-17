@@ -6,6 +6,7 @@ apply_mysql_workbench_theme.sh
 flatpak update
 fisher update
 ya pack -u
+npm update -g
 
 orphans=$($AUR_HELPER -Qdtq)
 
