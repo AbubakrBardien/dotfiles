@@ -1,12 +1,12 @@
 :root {
 	--tab-active-bg-color: #4a4854;
 	--tab-hover-bg-color: #34333b;
+	--tab-inactive-bg-color: #1F1E25;
 
 	--toolbar-bgcolor: #2b2a33 !important;
 	--tab-min-height: 16px !important;
 	--toolbar-field-focus-border-color: transparent !important;
 }
-
 
 #TabsToolbar,
 .tabbrowser-tab {
@@ -21,30 +21,26 @@
 
 /* Remove border between tabs */
 .tabbrowser-tab {
-	padding-inline: 0px !important;
+	padding-inline: 0 !important;
 }
 
-/* Tab: selected colors */
+/* Selected Tab color */
 #tabbrowser-tabs .tabbrowser-tab[selected] .tab-content {
 	background: var(--tab-active-bg-color) !important;
 }
 
-
-/* Tab: hovered colors */
+/* Hovered Tab color */
 #tabbrowser-tabs .tabbrowser-tab:hover:not([selected]) .tab-content {
 	background: var(--tab-hover-bg-color) !important;
 }
 
-/* remove titlebar spacers */
-.titlebar-spacer {
-	display: none !important;
+/* Color when only 1 tab */
+#tabbrowser-tabs .tabbrowser-tab:only-of-type[selected] .tab-content {
+	background: var(--tab-inactive-bg-color) !important;
 }
 
-/* hide window controls (including the "Close Window" button) */
+/* Removes Titlebar Spacers, and Window Controls */
+.titlebar-spacer,
 .titlebar-buttonbox-container {
-	display: none;
-}
-
-#tabs-newtab-button {
-	padding: 0 10px !important;
+	display: none !important;
 }
