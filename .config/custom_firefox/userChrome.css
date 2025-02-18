@@ -44,3 +44,8 @@
 .titlebar-buttonbox-container {
 	display: none !important;
 }
+
+/* Add Left Padding to teh new tab button */
+#tabs-newtab-button {
+	padding: 0 10px !important;
+}
