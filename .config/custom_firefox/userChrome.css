@@ -45,7 +45,7 @@
 	display: none !important;
 }
 
-/* Add Left Padding to teh new tab button */
+/* Add Left Padding to the new tab button */
 #tabs-newtab-button {
-	padding: 0 10px !important;
+	padding: 0 5px 0 10px !important;
 }
