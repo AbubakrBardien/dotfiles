@@ -415,6 +415,18 @@ arch-chroot /mnt <<-EOF1
 EOF1
 
 ls -l "/mnt/home/$userName/.local/share/my_scripts/password_manager"
+checkpoint
+
+arch-chroot /mnt <<-EOF1
+	su $userName <<-EOF2
+		$userPass
+		cd
+		git clone https://github.com/AbubakrBardien/browser-startpage.git Documents/External_Repos
+	EOF2
+EOF1
+
+ls -l "/mnt/home/$userName/Documents/External_Repos"
+checkpoint
 
 umount /mnt/boot
 umount /mnt
