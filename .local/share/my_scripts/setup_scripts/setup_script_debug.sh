@@ -42,7 +42,7 @@ EOF
 #### Input ####
 echo "Enter size of Boot partition:"
 read -r bootSize
-echo -e "\nEnter the size of RAM, in kibibytes:\n(Hint: If your RAM is 8GB, convert 8 gibibytes to kibybytes. Kilobytes is NOT the same as Kibybytes)"
+echo -e "\nEnter the size of RAM, in mebibytes:\nHint: If your RAM is 8GB, convert 8 Gibibytes (GiB) to Mebibytes (MiB).\nMegabytes (MB) is NOT the same as Mebibytes (MiB)."
 read -r RAM_size
 echo -e "\nEnter CPU type: (e.g. Intel or AMD) (default: Intel)"
 read -r CPU_type
@@ -116,7 +116,7 @@ arch-chroot /mnt <<-EOF1
 	swapon /swapfile
 EOF1
 
-ls -l /mnt/swapfile
+ls -lh /mnt/swapfile
 checkpoint
 
 genfstab -U /mnt >>/mnt/etc/fstab
