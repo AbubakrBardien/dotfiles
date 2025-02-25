@@ -153,6 +153,7 @@ EOF
 echo "LANG=$chosen_locale" >/mnt/etc/locale.conf
 echo "arch-linux" >/mnt/etc/hostname
 
+less /mnt/etc/locale.gen
 cat /mnt/etc/locale.conf
 cat /mnt/etc/hostname
 checkpoint
@@ -173,6 +174,7 @@ arch-chroot /mnt <<-EOF1
 	sed -i '/%wheel ALL=(ALL:ALL) ALL/s/^#\s*//g' /etc/sudoers
 EOF1
 
+less /mnt/etc/sudoers
 arch-chroot /mnt <<-EOF
 	echo "$userName belongs to these groups:"
 	groups $userName 
@@ -205,7 +207,8 @@ arch-chroot /mnt <<-EOF1
 	grub-mkconfig -o /boot/grub/grub.cfg
 EOF1
 
-ls -l /mnt/boot/grub/themes -Al
+less /mnt/etc/default/grub
+ls -l /mnt/boot/grub/themes
 checkpoint
 
 # The sed commands uncomment the "[multilib]" line, and the line directly after that. (For 32 Bit Support)
@@ -217,6 +220,9 @@ sed -i '/Color/s/^#\s*//g' /mnt/etc/pacman.conf
 sed -i '/Color/a ILoveCandy' /mnt/etc/pacman.conf
 sed -i '/VerbosePkgLists/s/^#\s*//g' /mnt/etc/pacman.conf
 sed -i '/ParallelDownloads/s/^#\s*//g' /mnt/etc/pacman.conf
+
+less /mnt/etc/pacman.conf
+checkpoint
 
 loginManager="sddm"
 loginManagerTheme="sddm-theme-mountain-git"
@@ -238,7 +244,9 @@ arch-chroot /mnt <<-EOF1
 	sed -i 's/^FormPosition=.*/FormPosition="center"/' /usr/share/sddm/themes/mountain/theme.conf
 EOF1
 
-# shellcheck disable=SC2154
+less /mnt/etc/sddm.conf.d/sddm.conf
+less /mnt/usr/share/sddm/themes/mountain/theme.conf
+checkpoint
 
 #### Creating XDG User Directories ####
 arch-chroot /mnt <<-EOF1
@@ -261,6 +269,9 @@ arch-chroot /mnt <<-EOF1
 EOF1
 
 ls -l "/mnt/home/$userName/{,.config,.unused_user_dirs}"
+checkpoint
+
+cat "/mnt/home/$userName/.config/user-dirs.dirs"
 checkpoint
 
 #### Enable Backaground Services ####
@@ -324,6 +335,9 @@ arch-chroot /mnt <<-EOF1
 	mkinitcpio -P
 EOF1
 
+less /mnt/etc/mkinitcpio.conf
+checkpoint
+
 #### Import Dotfiles ####
 arch-chroot /mnt <<-EOF1
 	cd /home/$userName
@@ -363,8 +377,6 @@ arch-chroot /mnt <<-EOF1
 	EOF2
 EOF1
 
-# shellcheck disable=SC2154
-
 # Create Desktop Entries for Terminal Programs
 arch-chroot /mnt <<-EOF1
 	pacman -S --noconfirm $terminalEmulator
@@ -394,7 +406,7 @@ arch-chroot /mnt <<-EOF1
 	create_CLI_desktop_entry "pipes" "Pipes" "pipes.sh"
 EOF1
 
-ls -l /usr/share/applications/{cava,cbonsai,cmatrix,gotop,pipes}.desktop
+ls -l /mnt/usr/share/applications/{cava,cbonsai,cmatrix,gotop,pipes}.desktop
 checkpoint
 
 # Import Password Manager
@@ -407,7 +419,7 @@ arch-chroot /mnt <<-EOF1
 	EOF2
 EOF1
 
-ls -l "/mnt/home/$userName/.local/share/my_scripts/password_manager"
+ls -Al "/mnt/home/$userName/.local/share/my_scripts/password_manager"
 checkpoint
 
 arch-chroot /mnt <<-EOF1
