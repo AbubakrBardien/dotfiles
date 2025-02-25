@@ -9,6 +9,19 @@
 
 # shellcheck disable=SC2154
 
+checkpoint() {
+	echo -e "\nType anything to continue, or 'q' to quit..."
+	read -r input
+
+	if [[ "$input" == "q" ]]; then
+		echo "Exiting..."
+		exit 0
+	else
+		echo "Continuing..."
+		return 0
+	fi
+}
+
 loadkeys us # Loads US keyboard layout (default)
 
 echo "Enter name of disk to be partitioned: (default: /dev/sda)"
@@ -25,19 +38,6 @@ T for Terabytes
 P for Petabytes
 
 EOF
-
-checkpoint() {
-	echo -e "\nType anything to continue, or 'q' to quit..."
-	read -r input
-
-	if [[ "$input" == "q" ]]; then
-		echo "Exiting..."
-		exit 0
-	else
-		echo "Continuing..."
-		return 0
-	fi
-}
 
 #### Input ####
 echo "Enter size of Boot partition:"
@@ -62,9 +62,6 @@ if [ -z "$diskName" ]; then
 	diskName="/dev/sda"
 fi
 
-echo "Boot Partition Size: $bootSize"
-checkpoint
-
 #### Creating the Partitions ####
 fdisk "$diskName" <<EOF
 g
@@ -82,9 +79,6 @@ EFI System
 w
 EOF
 
-lsblk
-checkpoint
-
 if [ "$diskName" = "/dev/sda" ]; then
 	bootPart="${diskName}1" # boot partition
 	rootPart="${diskName}2" # root partition
@@ -92,10 +86,6 @@ elif [ "$diskName" = "/dev/nvme0n1" ]; then
 	bootPart="${diskName}p1" # boot partition
 	rootPart="${diskName}p2" # root partition
 fi
-
-echo "Boot Partition: $bootPart"
-echo "Root Partition: $rootPart"
-checkpoint
 
 #### Formatting the Partitions ####
 mkfs.fat -F 32 "$bootPart"
@@ -114,20 +104,17 @@ else
 	microcode_pkg="amd-ucode"
 fi
 
-echo "CPU Type: $CPU_type"
-echo "RAM in kibibytes: $RAM_size"
-echo "microcode_pkg = $microcode_pkg"
-checkpoint
-
 #### Install Essential Packages ####
 pacstrap -K /mnt base{,-devel} linux{,-firmware} grub efibootmgr $microcode_pkg vim git \
 	networkmanager bluez{,-utils}
 
 #### Create Swapfile ####
-dd if=/mnt/dev/zero of=/mnt/swapfile bs=1M count="$RAM_size"
-chmod 600 /mnt/swapfile
-mkswap /mnt/swapfile
-swapon /mnt/swapfile
+arch-chroot /mnt <<-EOF1
+	dd if=/dev/zero of=/swapfile bs=1M count="$RAM_size"
+	chmod 600 /swapfile
+	mkswap /swapfile
+	swapon /swapfile
+EOF1
 
 ls -l /mnt/swapfile
 checkpoint
@@ -144,14 +131,20 @@ fi
 echo "Time-Zone: $timeZone"
 checkpoint
 
-# Set Time-Zone and Locale
+# Set Time-Zone
 ln -sf "/mnt/usr/share/zoneinfo/$timeZone" /mnt/etc/localtime
 hwclock --systohc
 arch-chroot /mnt <<-EOF
 	timedatectl set-ntp true
 EOF
 
-# The sed command uncomments the chosen Locale.
+arch-chroot /mnt <<-EOF
+	timedatectl
+EOF
+checkpoint
+
+# The sed command uncomments the chosen Locale
+# Set the hostname
 chosen_locale="en_US.UTF-8"
 sed -i "/$chosen_locale UTF-8/s/^#\s*//g" /mnt/etc/locale.gen
 arch-chroot /mnt <<-EOF
@@ -162,8 +155,6 @@ echo "arch-linux" >/mnt/etc/hostname
 
 cat /mnt/etc/locale.conf
 cat /mnt/etc/hostname
-echo "Root Password: $rootPass"
-echo "Username: $userName"
 checkpoint
 
 # Set passwords, add user, and give user Sudo Permissions
@@ -186,6 +177,8 @@ arch-chroot /mnt <<-EOF
 	echo "$userName belongs to these groups:"
 	groups $userName 
 EOF
+echo "Root Password: $rootPass"
+echo "User Password: $userPass"
 checkpoint
 
 #### Configure Grub, and download a Grub theme ####
