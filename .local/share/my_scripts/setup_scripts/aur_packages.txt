@@ -17,8 +17,8 @@ python-customtkinter
 python-pygobject-stubs
 rocketchat-client-bin
 sddm-theme-mountain-git
-tradingview
-vlc-pause-click-plugin
-webcord-bin
+showmethekey
+steam-devices-git
+vesktop-bin
 whatsapp-for-linux
 xdg-ninja
