@@ -20,6 +20,11 @@ chmod +x setup_script
 
 This script also downloads your Password Manager (at `https://github.com/AbubakrBardien/password-manager`), so remember to import your passwords after running the script.
 
+After logging in, run this script next, to setup the Firefox "userChrome.css". 
+```bash
+./.local/share/my_scripts/setup_scripts/setup_firefox_theme.sh 
+```
+
 ## Programs I Use
 
 WM/Compositor: [Hyprland](https://hyprland.org/)\

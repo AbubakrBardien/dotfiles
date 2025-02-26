@@ -7,6 +7,8 @@
 # |___|_| |_|___/\__\__,_|_|_|\__,_|\__|_|\___/|_| |_| |____/ \___|\__|\__,_| .__/   \__,_|_| |_|\__,_| |____/ \___/ \__|_| |_|_|\___||___/
 #                                                                           |_|
 
+# shellcheck disable=SC2154
+
 loadkeys us # Loads US keyboard layout (default)
 
 echo "Enter name of disk to be partitioned: (default: /dev/sda)"
@@ -27,7 +29,7 @@ EOF
 #### Input ####
 echo "Enter size of Boot partition:"
 read -r bootSize
-echo -e "\nEnter the size of RAM, in kibibytes:\n(Hint: If your RAM is 8GB, convert 8 gibibytes to kibybytes. Kilobytes is NOT the same as Kibybytes)"
+echo -e "\nEnter the size of RAM, in mebibytes:\nHint: If your RAM is 8GB, convert 8 Gibibytes (GiB) to Mebibytes (MiB).\nMegabytes (MB) is NOT the same as Mebibytes (MiB)."
 read -r RAM_size
 echo -e "\nEnter CPU type: (e.g. Intel or AMD) (default: Intel)"
 read -r CPU_type
@@ -91,10 +93,12 @@ pacstrap -K /mnt base{,-devel} linux{,-firmware} grub efibootmgr $microcode_pkg 
 	networkmanager bluez{,-utils}
 
 #### Create Swapfile ####
-dd if=/dev/zero of=/swapfile bs=1M count="$RAM_size"
-chmod 600 /swapfile
-mkswap /swapfile
-swapon /swapfile
+arch-chroot /mnt <<-EOF1
+	dd if=/dev/zero of=/swapfile bs=1M count="$RAM_size"
+	chmod 600 /swapfile
+	mkswap /swapfile
+	swapon /swapfile
+EOF1
 
 genfstab -U /mnt >>/mnt/etc/fstab
 
@@ -102,22 +106,22 @@ if [ -z "$timeZone" ]; then
 	timeZone="Africa/Johannesburg"
 fi
 
-chosen_locale="en_US.UTF-8"
-
-# Set Time-Zone and Locale
-# The sed command uncomments the chosen Locale.
-arch-chroot /mnt <<-EOF1
-	ln -sf "/usr/share/zoneinfo/$timeZone" /etc/localtime
-	hwclock --systohc
+# Set Time-Zone
+ln -sf "/mnt/usr/share/zoneinfo/$timeZone" /mnt/etc/localtime
+hwclock --systohc
+arch-chroot /mnt <<-EOF
 	timedatectl set-ntp true
+EOF
 
-	sed -i '/$chosen_locale UTF-8/s/^#\s*//g' /etc/locale.gen
+# The sed command uncomments the chosen Locale
+# Set the hostname
+chosen_locale="en_US.UTF-8"
+sed -i "/$chosen_locale UTF-8/s/^#\s*//g" /mnt/etc/locale.gen
+arch-chroot /mnt <<-EOF
 	locale-gen
-	echo "LANG=$chosen_locale" > /etc/locale.conf
-	echo "arch-linux" > /etc/hostname
-
-	exit
-EOF1
+EOF
+echo "LANG=$chosen_locale" >/mnt/etc/locale.conf
+echo "arch-linux" >/mnt/etc/hostname
 
 # Set passwords, add user, and give user Sudo Permissions
 # The sed command uncomments the "%wheel ALL=(ALL:ALL) ALL" line.
@@ -133,38 +137,41 @@ arch-chroot /mnt <<-EOF1
 		$userPass
 	EOF2
 	sed -i '/%wheel ALL=(ALL:ALL) ALL/s/^#\s*//g' /etc/sudoers
-
-	exit
 EOF1
 
-#### Configure Grub ####
+#### Configure Grub, and download a Grub theme ####
 arch-chroot /mnt <<-EOF1
 	grub-install --target=x86_64-efi --efi-directory=/boot/ --bootloader-id="Arch Linux"
 
-	cd /boot/grub/themes/
-	curl -L -o arch-linux.tar https://raw.githubusercontent.com/AdisonCavani/distro-grub-themes/master/themes/arch-linux.tar
+	cd /boot/grub/themes
+
+	latest_tag=$(curl -s "https://api.github.com/repos/AdisonCavani/distro-grub-themes/tags" | jq -r ".[0].name")
+	download_url="https://github.com/AdisonCavani/distro-grub-themes/archive/$latest_tag.tar.gz"
+	curl -L -o distro-grub-themes.tar.gz $download_url
+
+	mkdir distro-grub-themes
+	tar -xzf distro-grub-themes.tar.gz -C distro-grub-themes --strip-components=1
+
+	grub_theme_path="distro-grub-themes/themes/arch-linux.tar"
 	mkdir arch-linux
-	tar -xf arch-linux.tar -C arch-linux
+	tar -xf $grub_theme_path -C arch-linux
+
 	sed -i 's/^#GRUB_THEME=.*/GRUB_THEME="\/boot\/grub\/themes\/arch-linux\/theme.txt"/' /etc/default/grub
-	rm arch-linux.tar
+	rm {arch-linux.tar,distro-grub-themes.tar.gz}
+	rm -r distro-grub-themes
 
 	grub-mkconfig -o /boot/grub/grub.cfg
-	exit
 EOF1
 
 # The sed commands uncomment the "[multilib]" line, and the line directly after that. (For 32 Bit Support)
-# And other Pacman Configurations
-arch-chroot /mnt <<-EOF1
-	sed -i '/\[multilib\]/s/^#\s*//g' /etc/pacman.conf
-	sed -i '/\[multilib\]/{n;s/^#\s*//;}' /etc/pacman.conf
+sed -i '/\[multilib\]/s/^#\s*//g' /mnt/etc/pacman.conf
+sed -i '/\[multilib\]/{n;s/^#\s*//;}' /mnt/etc/pacman.conf
 
-	sed -i '/Color/s/^#\s*//g' /etc/pacman.conf
-	sed -i '/Color/a ILoveCandy' /etc/pacman.conf
-	sed -i '/VerbosePkgLists/s/^#\s*//g' /etc/pacman.conf
-	sed -i '/ParallelDownloads/s/^#\s*//g' /etc/pacman.conf
-
-	exit
-EOF1
+# Other Pacman Configurations
+sed -i '/Color/s/^#\s*//g' /mnt/etc/pacman.conf
+sed -i '/Color/a ILoveCandy' /mnt/etc/pacman.conf
+sed -i '/VerbosePkgLists/s/^#\s*//g' /mnt/etc/pacman.conf
+sed -i '/ParallelDownloads/s/^#\s*//g' /mnt/etc/pacman.conf
 
 loginManager="sddm"
 loginManagerTheme="sddm-theme-mountain-git"
@@ -182,36 +189,28 @@ arch-chroot /mnt <<-EOF1
 	sed -i 's/^DisplayServer=.*/DisplayServer=x11-user/' /etc/sddm.conf.d/sddm.conf
 	sed -i 's/^CompositorCommand=.*/CompositorCommand=Hyprland/' /etc/sddm.conf.d/sddm.conf
 
-	cd /etc/sddm.conf.d/sddm.conf
 	sed -i 's/^Current=.*/Current=mountain/' /etc/sddm.conf.d/sddm.conf
 	sed -i 's/^FormPosition=.*/FormPosition="center"/' /usr/share/sddm/themes/mountain/theme.conf
-
-	exit
 EOF1
 
 #### Creating XDG User Directories ####
 arch-chroot /mnt <<-EOF1
-	if [ ! -d "/home/$userName/.config" ]; then
-		mkdir /home/$userName/.config
-	fi
+	su $userName <<-EOF2
+		$userPass
+		cd
 
-	cd /home/$userName/.config
-	touch user-dirs.dirs
-	mkdir /home/$userName/.unused_user_dirs
+		mkdir .config .unused_user_dirs
+		touch .config/user-dirs.dirs
 
-	for dir in Desktop Downloads Documents Music Pictures Videos; do
-		echo "XDG_${dir}_DIR=\"\$HOME/${dir}\"" >> user-dirs.dirs
-	done
+		for dir in Desktop Downloads Documents Music Pictures Videos; do
+			echo "XDG_${dir}_DIR=\"\$HOME/${dir}\"" >> user-dirs.dirs
+		done
 
-	echo "XDG_TEMPLATES_DIR=\"\$HOME/.unused_user_dirs/Templates\"" >> user-dirs.dirs
-	echo "XDG_PUBLICSHARE_DIR=\"\$HOME/.unused_user_dirs/Public\"" >> user-dirs.dirs
+		echo "XDG_TEMPLATES_DIR=\"\$HOME/.unused_user_dirs/Templates\"" >> user-dirs.dirs
+		echo "XDG_PUBLICSHARE_DIR=\"\$HOME/.unused_user_dirs/Public\"" >> user-dirs.dirs
 
-	cd /home/$userName
-	mkdir Desktop Downloads Documents Music Pictures Videos
-	cd .unused_user_dirs
-	mkdir Templates Public
-
-	exit
+		mkdir Desktop Downloads Documents Music Pictures Videos .unused_user_dirs/{Templates,Public}
+	EOF2
 EOF1
 
 #### Enable Backaground Services ####
@@ -223,8 +222,6 @@ arch-chroot /mnt <<-EOF1
 	systemctl enable paccache.timer 
 	systemctl enable $loginManager
 	systemctl enable $firewall
-
-	exit
 EOF1
 
 # Import package lists
@@ -234,29 +231,34 @@ EOF1
 # Install ALL plugins for Fish, and Yazi
 # Use brillo to set minimum screen brightness to 5%
 arch-chroot /mnt <<-EOF1
-	curl -o pacman_packages.txt \
-	-o aur_packages.txt \
-	-o flatpak_packages.txt \
-	-o fish_shell_plugins.txt \
-	-o yazi_plugins.txt \
-	https://raw.githubusercontent.com/AbubakrBardien/dotfiles/main/.local/share/my_scripts/setup_scripts/{{pacman,aur,flatpak}_packages,{fish_shell,yazi}_plugins}.txt
+	su $userName <<-EOF2
+		$userPass
+		cd
 
-	pacman -S --noconfirm --needed $(cat pacman_packages.txt)
+		curl -o pacman_packages.txt \
+		-o aur_packages.txt \
+		-o flatpak_packages.txt \
+		-o fish_shell_plugins.txt \
+		-o yazi_plugins.txt \
+		https://raw.githubusercontent.com/AbubakrBardien/dotfiles/main/.local/share/my_scripts/setup_scripts/{{pacman,aur,flatpak}_packages,{fish_shell,yazi}_plugins}.txt
 
-	mkdir /home/$userName/Documents/External_Repos
-	cd /home/$userName/Documents/External_Repos
-	git clone https://github.com/Morganamilo/paru.git
-	cd paru
-	makepkg -si
-	paru -S --noconfirm $(cat aur_packages.txt)
+		pacman -S --noconfirm --needed $(cat pacman_packages.txt)
 
-	fisher install $(cat fish_shell_plugins.txt)
-	flatpak install --assumeyes $(cat flatpak_packages.txt)
-	ya pack -a $(cat yazi_plugins.txt)
+		mkdir Documents/External_Repos
+		git clone https://github.com/Morganamilo/paru.git Documents/External_Repos
+		cd Documents/External_Repos/paru
+		makepkg -si
+		cd
+		paru -S --noconfirm $(cat aur_packages.txt)
 
-	brillo -c -S 5
+		fisher install $(cat fish_shell_plugins.txt)
+		flatpak install --assumeyes $(cat flatpak_packages.txt)
+		ya pack -a $(cat yazi_plugins.txt)
 
-	exit
+		brillo -c -S 5
+
+		rm {{pacman,aur,flatpak}_packages,{fish_shell,yazi}_plugins}.txt
+	EOF2
 EOF1
 
 # Make Fish the default Shell
@@ -267,8 +269,6 @@ arch-chroot /mnt <<-EOF1
 
 	sed -i 's/\(^HOOKS=\(.*\)udev\)/\1 resume/' /etc/mkinitcpio.conf
 	mkinitcpio -P
-
-	exit
 EOF1
 
 #### Import Dotfiles ####
@@ -283,8 +283,6 @@ arch-chroot /mnt <<-EOF1
 
 	config checkout
 	config config --local status.showUntrackedFiles no
-
-	exit
 EOF1
 
 # Store Git PAT (Personal Access Token)
@@ -294,9 +292,7 @@ arch-chroot /mnt <<-EOF1
 	su $userName <<-EOF2
 		$userPass
 		git config --global credential.helper store
-		exit
 	EOF2
-	exit
 EOF1
 
 # Setup pipx so the user can manage seperate python packages that are NOT system wide
@@ -308,17 +304,14 @@ arch-chroot /mnt <<-EOF1
 		pipx install argcomplete
 		register-python-argcomplete --shell fish pipx >~/.config/fish/completions/pipx.fish
 		pipx install virtualenv
-		exit
-		exit
 	EOF2
-	exit
 EOF1
 
 # Create Desktop Entries for Terminal Programs
 arch-chroot /mnt <<-EOF1
 	pacman -S --noconfirm $terminalEmulator
 
-	cd /usr/share/applications/
+	cd /usr/share/applications
 
 	create_CLI_desktop_entry () {
 		packageName=$1
@@ -341,27 +334,24 @@ arch-chroot /mnt <<-EOF1
 	create_CLI_desktop_entry "cmatrix" "CMatrix" "cmatrix -b"
 	create_CLI_desktop_entry "gotop" "GoTop" "gotop"
 	create_CLI_desktop_entry "pipes" "Pipes" "pipes.sh"
-
-	exit
 EOF1
 
 # Import Password Manager
 arch-chroot /mnt <<-EOF1
-	git clone https://github.com/AbubakrBardien/password-manager.git "/home/$userName/.local/share/my_scripts/password_manager"
-	cd "/home/$userName/.local/share/my_scripts/password_manager"
-	rm -rf .git README.md
-	exit
+	su $userName <<-EOF2
+		$userPass
+		cd
+		git clone https://github.com/AbubakrBardien/password-manager.git .local/share/my_scripts/password_manager
+		rm -rf .local/share/my_scripts/password_manager/{.git,README.md}
+	EOF2
 EOF1
 
-# Setup Custom Firefox Theme
-#	Run Firefox to create the ".mozilla" directory
 arch-chroot /mnt <<-EOF1
-	firefox --no-remote &
-	sleep 5
-	cd /home/abubakr/.mozilla/firefox/
-	browserProfileDir=\$(ls -d *.default-release | head -n 1)
-	ln -s /home/$userName/.config/custom_firefox/user.js /home/$userName/.mozilla/firefox/$browserProfileDir/user.js
-	ln -s /home/$userName/.config/custom_firefox/userChrome.css /home/$userName/.mozilla/firefox/$browserProfileDir/Chrome/userChrome.css
+	su $userName <<-EOF2
+		$userPass
+		cd
+		git clone https://github.com/AbubakrBardien/browser-startpage.git Documents/External_Repos
+	EOF2
 EOF1
 
 umount /mnt/boot
