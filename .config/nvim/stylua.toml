@@ -1,4 +1,0 @@
-column_width = 999 # I'll handle the column_width manually
-quote_style = "AutoPreferDouble"
-call_parentheses = "Input"
-collapse_simple_statement = "Never"
