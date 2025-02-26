@@ -96,7 +96,7 @@ mount "$rootPart" /mnt
 mount --mkdir "$bootPart" /mnt/boot
 
 lsblk
-checkpoint
+checkpoint </dev/tty
 
 if [ -z "$CPU_type" ]; then
 	microcode_pkg="intel-ucode"
@@ -117,19 +117,19 @@ arch-chroot /mnt <<-EOF1
 EOF1
 
 ls -lh /mnt/swapfile
-checkpoint
+checkpoint </dev/tty
 
 genfstab -U /mnt >>/mnt/etc/fstab
 
 cat /mnt/etc/fstab
-checkpoint
+checkpoint </dev/tty
 
 if [ -z "$timeZone" ]; then
 	timeZone="Africa/Johannesburg"
 fi
 
 echo "Time-Zone: $timeZone"
-checkpoint
+checkpoint </dev/tty
 
 # Set Time-Zone
 ln -sf "/mnt/usr/share/zoneinfo/$timeZone" /mnt/etc/localtime
@@ -141,7 +141,7 @@ EOF
 arch-chroot /mnt <<-EOF
 	timedatectl
 EOF
-checkpoint
+checkpoint </dev/tty
 
 # The sed command uncomments the chosen Locale
 # Set the hostname
@@ -156,7 +156,7 @@ echo "arch-linux" >/mnt/etc/hostname
 less /mnt/etc/locale.gen
 cat /mnt/etc/locale.conf
 cat /mnt/etc/hostname
-checkpoint
+checkpoint </dev/tty
 
 # Set passwords, add user, and give user Sudo Permissions
 # The sed command uncomments the "%wheel ALL=(ALL:ALL) ALL" line.
@@ -181,7 +181,7 @@ arch-chroot /mnt <<-EOF
 EOF
 echo "Root Password: $rootPass"
 echo "User Password: $userPass"
-checkpoint
+checkpoint </dev/tty
 
 #### Configure Grub, and download a Grub theme ####
 arch-chroot /mnt <<-EOF1
@@ -209,7 +209,7 @@ EOF1
 
 less /mnt/etc/default/grub
 ls -l /mnt/boot/grub/themes
-checkpoint
+checkpoint </dev/tty
 
 # The sed commands uncomment the "[multilib]" line, and the line directly after that. (For 32 Bit Support)
 sed -i '/\[multilib\]/s/^#\s*//g' /mnt/etc/pacman.conf
@@ -222,7 +222,7 @@ sed -i '/VerbosePkgLists/s/^#\s*//g' /mnt/etc/pacman.conf
 sed -i '/ParallelDownloads/s/^#\s*//g' /mnt/etc/pacman.conf
 
 less /mnt/etc/pacman.conf
-checkpoint
+checkpoint </dev/tty
 
 loginManager="sddm"
 loginManagerTheme="sddm-theme-mountain-git"
@@ -246,7 +246,7 @@ EOF1
 
 less /mnt/etc/sddm.conf.d/sddm.conf
 less /mnt/usr/share/sddm/themes/mountain/theme.conf
-checkpoint
+checkpoint </dev/tty
 
 #### Creating XDG User Directories ####
 arch-chroot /mnt <<-EOF1
@@ -269,10 +269,10 @@ arch-chroot /mnt <<-EOF1
 EOF1
 
 ls -l "/mnt/home/$userName/{,.config,.unused_user_dirs}"
-checkpoint
+checkpoint </dev/tty
 
 cat "/mnt/home/$userName/.config/user-dirs.dirs"
-checkpoint
+checkpoint </dev/tty
 
 #### Enable Backaground Services ####
 arch-chroot /mnt <<-EOF1
@@ -323,7 +323,7 @@ arch-chroot /mnt <<-EOF1
 EOF1
 
 ls -l "/mnt/home/$userName/{,Documents/External_Repos}"
-checkpoint
+checkpoint </dev/tty
 
 # Make Fish the default Shell
 # Enable Hibernate
@@ -336,7 +336,7 @@ arch-chroot /mnt <<-EOF1
 EOF1
 
 less /mnt/etc/mkinitcpio.conf
-checkpoint
+checkpoint </dev/tty
 
 #### Import Dotfiles ####
 arch-chroot /mnt <<-EOF1
@@ -353,7 +353,7 @@ arch-chroot /mnt <<-EOF1
 EOF1
 
 ls -l "/mnt/home/$userName"
-checkpoint
+checkpoint </dev/tty
 
 # Store Git PAT (Personal Access Token)
 #	You'll need to provide your PAT as a password the next to you push to GitHub. This is only required the 1st time.
@@ -407,7 +407,7 @@ arch-chroot /mnt <<-EOF1
 EOF1
 
 ls -l /mnt/usr/share/applications/{cava,cbonsai,cmatrix,gotop,pipes}.desktop
-checkpoint
+checkpoint </dev/tty
 
 # Import Password Manager
 arch-chroot /mnt <<-EOF1
@@ -420,7 +420,7 @@ arch-chroot /mnt <<-EOF1
 EOF1
 
 ls -Al "/mnt/home/$userName/.local/share/my_scripts/password_manager"
-checkpoint
+checkpoint </dev/tty
 
 arch-chroot /mnt <<-EOF1
 	su $userName <<-EOF2
@@ -431,7 +431,7 @@ arch-chroot /mnt <<-EOF1
 EOF1
 
 ls -l "/mnt/home/$userName/Documents/External_Repos"
-checkpoint
+checkpoint </dev/tty
 
 umount /mnt/boot
 umount /mnt
