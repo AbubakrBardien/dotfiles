@@ -208,7 +208,7 @@ arch-chroot /mnt <<-EOF1
 EOF1
 
 less /mnt/etc/default/grub
-ls -l /mnt/boot/grub/themes
+ls -Al /mnt/boot/grub/themes
 checkpoint </dev/tty
 
 # The sed commands uncomment the "[multilib]" line, and the line directly after that. (For 32 Bit Support)
@@ -268,7 +268,7 @@ arch-chroot /mnt <<-EOF1
 	EOF2
 EOF1
 
-ls -l "/mnt/home/$userName/{,.config,.unused_user_dirs}"
+ls -Al "/mnt/home/$userName/{,.config,.unused_user_dirs}"
 checkpoint </dev/tty
 
 cat "/mnt/home/$userName/.config/user-dirs.dirs"
@@ -322,7 +322,7 @@ arch-chroot /mnt <<-EOF1
 	EOF2
 EOF1
 
-ls -l "/mnt/home/$userName/{,Documents/External_Repos}"
+ls -Al "/mnt/home/$userName/{,Documents/External_Repos}"
 checkpoint </dev/tty
 
 # Make Fish the default Shell
@@ -352,7 +352,7 @@ arch-chroot /mnt <<-EOF1
 	config config --local status.showUntrackedFiles no
 EOF1
 
-ls -l "/mnt/home/$userName"
+ls -Al "/mnt/home/$userName"
 checkpoint </dev/tty
 
 # Store Git PAT (Personal Access Token)
@@ -406,7 +406,7 @@ arch-chroot /mnt <<-EOF1
 	create_CLI_desktop_entry "pipes" "Pipes" "pipes.sh"
 EOF1
 
-ls -l /mnt/usr/share/applications/{cava,cbonsai,cmatrix,gotop,pipes}.desktop
+ls -Al /mnt/usr/share/applications/{cava,cbonsai,cmatrix,gotop,pipes}.desktop
 checkpoint </dev/tty
 
 # Import Password Manager
@@ -427,9 +427,11 @@ arch-chroot /mnt <<-EOF1
 		$userPass
 		cd
 		git clone https://github.com/AbubakrBardien/nvim.git .config/nvim
-		rm -rf .config/nvim/README.md
 	EOF2
 EOF1
+
+ls -Al "/mnt/home/$userName/.config/nvim"
+checkpoint </dev/tty
 
 arch-chroot /mnt <<-EOF1
 	su $userName <<-EOF2
@@ -439,7 +441,7 @@ arch-chroot /mnt <<-EOF1
 	EOF2
 EOF1
 
-ls -l "/mnt/home/$userName/Documents/External_Repos"
+ls -Al "/mnt/home/$userName/Documents/External_Repos"
 checkpoint </dev/tty
 
 umount /mnt/boot
