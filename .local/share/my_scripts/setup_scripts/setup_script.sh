@@ -351,7 +351,7 @@ arch-chroot /mnt <<-EOF1
 		$userPass
 		cd
 		git clone https://github.com/AbubakrBardien/nvim.git .config/nvim
-		rm -rf .config/nvim/{.git,README.md}
+		rm -rf .config/nvim/README.md
 	EOF2
 EOF1
 
