@@ -426,6 +426,15 @@ arch-chroot /mnt <<-EOF1
 	su $userName <<-EOF2
 		$userPass
 		cd
+		git clone https://github.com/AbubakrBardien/nvim.git .config/nvim
+		rm -rf .config/nvim/{.git,README.md}
+	EOF2
+EOF1
+
+arch-chroot /mnt <<-EOF1
+	su $userName <<-EOF2
+		$userPass
+		cd
 		git clone https://github.com/AbubakrBardien/browser-startpage.git Documents/External_Repos
 	EOF2
 EOF1
