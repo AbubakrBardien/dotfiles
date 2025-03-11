@@ -1,0 +1,43 @@
+### History ###
+HISTSIZE=100000
+SAVEHIST=$HISTSIZE
+setopt hist_ignore_all_dups # Erase any duplicates in history (during a session)
+setopt hist_save_no_dups # Erase any duplicates in history (at the end of session)
+setopt share_history # Share history between sessions (e.g. between multiple windows) (Note: this is not instantaneous, and it's not meant to be)
+
+setopt auto_cd # (e.g. allows you to enter "Desktop" instead of "cd Desktop")
+setopt menucomplete # Auto-select an option when pressing tab
+unsetopt beep # No error noise
+
+bindkey -e # Emacs keybindings (more beginner friendly than Vim keybindings)
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
+
+source "$ZDOTDIR/aliases.zsh"
+
+eval "$(starship init zsh)"
+eval "$(batman --export-env)"
+
+## Fuction to be able to change directory when exiting Yazi. Call it with 'yy'
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+export ZPLUG_HOME="$XDG_DATA_HOME/zplug"
+source /usr/share/zsh/scripts/zplug/init.zsh # Initialize Zplug (Plugin Manager for Zsh)
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+zplug load
+
+# Load zsh-completions, and start the completion system
+fpath=($XDG_DATA_HOME/zplug/repos/zsh-users/zsh-completions $fpath)
+autoload -Uz compinit
+compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
+zstyle ':completion:*' menu select # Enables menu completion
+zstyle ':completion::complete:*' gain-privileges 1 # Completions for sudo commands
