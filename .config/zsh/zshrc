@@ -44,3 +44,5 @@ autoload -Uz compinit
 compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 zstyle ":completion:*" menu select                 # Enables menu completion
 zstyle ":completion::complete:*" gain-privileges 1 # Completions for sudo commands
+
+source "$ZDOTDIR/onedark-pro.zsh" # Applying a Colorscheme
