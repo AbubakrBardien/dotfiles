@@ -14,12 +14,19 @@ def setup_history():
 	from pathlib import Path
 
 	# https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html#variables
-	if state_home := os.environ.get('XDG_STATE_HOME'):
-		state_home = Path(state_home)
+	if data_home := os.environ.get('XDG_DATA_HOME'):
+		data_home = Path(data_home)
 	else:
-		state_home = Path.home() / '.local' / 'state'
+		data_home = Path.home() / '.local' / 'share'
 
-	history: Path = state_home / 'python_history'
+	history: Path = data_home / 'python' / 'history'
+
+	# Ensure the directory exists
+	history.parent.mkdir(parents=True, exist_ok=True)
+
+	# Ensure the history file exists
+	if not history.exists():
+		history.touch() # Create an empty file
 
 	readline.read_history_file(str(history))
 	atexit.register(readline.write_history_file, str(history))

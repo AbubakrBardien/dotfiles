@@ -21,6 +21,7 @@ set -xg NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/npmrc"
 set -xg PARALLEL_HOME "$XDG_CONFIG_HOME/parallel"
 set -xg PASSWORD_STORE_DIR "$XDG_DATA_HOME/pass"
 set -xg PYTHONSTARTUP "$XDG_CONFIG_HOME/python/pythonrc"
+set -xg PYTHON_HISTORY "$XDG_DATA_HOME/python/history"
 set -xg RUSTUP_HOME "$XDG_DATA_HOME/rustup"
 set -xg W3M_DIR "$XDG_STATE_HOME/w3m"
 
