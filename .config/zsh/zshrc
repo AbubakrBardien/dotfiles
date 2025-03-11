@@ -35,6 +35,7 @@ source /usr/share/zsh/scripts/zplug/init.zsh # Initialize Zplug (Plugin Manager 
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-history-substring-search"
 zplug load
 
 # Load zsh-completions, and start the completion system
@@ -46,3 +47,6 @@ zstyle ":completion:*" menu select                 # Enables menu completion
 zstyle ":completion::complete:*" gain-privileges 1 # Completions for sudo commands
 
 source "$ZDOTDIR/onedark-pro.zsh" # Applying a Colorscheme
+
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
