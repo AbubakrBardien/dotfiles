@@ -3,7 +3,6 @@ source "$ZDOTDIR/functions.zsh"
 
 ### History ###
 HISTSIZE=100000
-# shellcheck disable=SC2034
 SAVEHIST=$HISTSIZE
 setopt hist_ignore_all_dups # Erase any duplicates in history (during a session)
 setopt hist_save_no_dups    # Erase any duplicates in history (at the end of session)
@@ -30,7 +29,6 @@ zplug "zsh-users/zsh-completions"
 zplug load
 
 # Load zsh-completions, and start the completion system
-# shellcheck disable=SC2206
 fpath=($ZPLUG_HOME/repos/zsh-users/zsh-completions $fpath)
 autoload -Uz compinit
 compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
