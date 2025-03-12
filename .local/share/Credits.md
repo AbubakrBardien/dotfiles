@@ -8,7 +8,7 @@ Relatively small scripts I either copied, copied and modified, or just took insp
 | ------ | ------------ | ---------- | ---------- |
 | Dook97 | [Firefox userChrome.css](https://github.com/Dook97/firefox-qutebrowser-userchrome) | [Styling Firefox UI with userChrome.css](https://www.youtube.com/watch?v=d2hRQu6rkDg) | [.config/custom_firefox/userChrome.css](../../.config/custom_firefox/userChrome.css) |
 | ericmurphyxyz |[Power Menu Script](https://github.com/ericmurphyxyz/dotfiles/blob/xorg/.local/bin/powermenu) | [How to Setup and Configure Rofi](https://www.youtube.com/watch?v=TutfIwxSE_s) | [.config/wofi/scripts/powerMenu.sh](../../.config/wofi/scripts/powerMenu.sh) |
-| ericmurphyxyz |[WiFi Menu Script](https://github.com/ericmurphyxyz/dotfiles/blob/xorg/.local/bin/wifimenu) | [How to Setup and Configure Rofi](https://www.youtube.com/watch?v=TutfIwxSE_s) | [.config/wofi/scripts/wifimenu.sh](../../.config/wofi/scripts/wifimenu.sh) |
+| ericmurphyxyz |[WiFi Menu Script](https://github.com/ericmurphyxyz/dotfiles/blob/xorg/.local/bin/wifimenu) | [How to Setup and Configure Rofi](https://www.youtube.com/watch?v=TutfIwxSE_s) | [.config/wofi/scripts/wifiMenu.sh](../../.config/wofi/scripts/wifiMenu.sh) |
 | ericmurphyxyz | [Volume Popups](https://github.com/ericmurphyxyz/dotfiles/blob/xorg/.local/bin/changevolume) | [Notifications in Arch Linux](https://www.youtube.com/watch?v=XWlbaERuDP4) | [.local/share/my_scripts/volume_popup.sh](my_scripts/volume_popup.sh) |
 | ericmurphyxyz | [Battery Popup](https://github.com/ericmurphyxyz/dotfiles/blob/xorg/.local/bin/batterynotify) | [Battery Notifications in Arch Linux](https://www.youtube.com/watch?v=3wTt6fStYCI) | [.local/share/my_scripts/battery_popup.sh](my_scripts/battery_popup.sh) |
 
