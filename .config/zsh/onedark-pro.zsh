@@ -1,19 +1,29 @@
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main pattern)
 typeset -A ZSH_HIGHLIGHT_STYLES
 
-ONEDARK="#ABB2BF"
-ONEDARK_CMD="#61AFEF"
-ONEDARK_DIR="#A9DAA8"
-ONEDARK_STR="#89CA78"
-ONEDARK_CHA="#89CA98"
-ONEDARK_NUM="#D19A66"
-ONEDARK_VAR="#EF596F"
-ONEDARK_MOD="#E5C07B"
-ONEDARK_ASS="#2BBAC5"
-ONEDARK_COM="#7F848E"
-ONEDARK_KEY="#D55FDE"
-ONEDARK_BRA="#C678DD"
-ONEDARK_ERR="#FF394F"
+## Original Colors
+# ONEDARK="#ABB2BF"     # Default / Fallback
+ONEDARK_CMD="#61AFEF" # Commands
+# ONEDARK_DIR="#A9DAA8" # Files and Folders
+ONEDARK_STR="#89CA78" # Strings (Double Qoutes)
+# ONEDARK_CHA="#89CA98" # Strings (Single Qoutes)
+# ONEDARK_NUM="#D19A66" # Numbers
+# ONEDARK_VAR="#EF596F" # Variables
+# ONEDARK_MOD="#E5C07B" # Options / Flags
+ONEDARK_ASS="#2BBAC5" # Assignmants (e.g. '==')
+ONEDARK_COM="#7F848E" # Comments
+ONEDARK_KEY="#D55FDE" # Key words (e.g. 'if')
+ONEDARK_BRA="#C678DD" # Brackets
+# ONEDARK_ERR="#FF394F" # Errors
+
+# Modified Colors
+ONEDARK="#56B6C2"     # Default / Fallback
+ONEDARK_DIR="#E5C07B" # Files and Folders
+ONEDARK_CHA="#89CA78" # Strings (Single Qoutes)
+ONEDARK_NUM="#56B6C2" # Numbers
+ONEDARK_VAR="#D19A66" # Variables
+ONEDARK_MOD="#56B6C2" # Options / Flags
+ONEDARK_ERR="#cc564b" # Errors
 
 ZSH_HIGHLIGHT_STYLES[root]='bg=red'
 
@@ -27,7 +37,8 @@ ZSH_HIGHLIGHT_STYLES[command]="fg=$ONEDARK_CMD,bold"
 ZSH_HIGHLIGHT_STYLES[precommand]="fg=$ONEDARK_CMD,italic"
 ZSH_HIGHLIGHT_STYLES[autodirectory]="fg=$ONEDARK_DIR,italic"
 
-ZSH_HIGHLIGHT_STYLES[builtin]="fg=$ONEDARK_CMD,underline"
+# ZSH_HIGHLIGHT_STYLES[builtin]="fg=$ONEDARK_CMD,underline" # Abubakr commented this
+ZSH_HIGHLIGHT_STYLES[builtin]="fg=$ONEDARK_CMD"
 ZSH_HIGHLIGHT_STYLES[reserved-word]="fg=$ONEDARK_KEY"
 ZSH_HIGHLIGHT_STYLES[hashed-command]="fg=$ONEDARK_CMD"
 
