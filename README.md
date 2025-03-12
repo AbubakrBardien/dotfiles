@@ -54,3 +54,6 @@ Shell: [Fish](https://fishshell.com/) with the [Starship](https://starship.rs/) 
 [Figlet](https://github.com/cmatsuoka/figlet) \
 [Pipes](https://github.com/pipeseroni/pipes.sh) \
 [SL](https://github.com/mtoyoda/sl)
+
+## Credits
+Thank you to the people that wrote scripts and related files, who all unknowingly made my life a little easier when I began setting up my own dotfiles and storing it in this repo. More info [here](.local/share/Credits.md).
