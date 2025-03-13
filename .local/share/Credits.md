@@ -11,6 +11,7 @@ Relatively small scripts I either copied, copied and modified, or just took insp
 | ericmurphyxyz |[WiFi Menu Script](https://github.com/ericmurphyxyz/dotfiles/blob/xorg/.local/bin/wifimenu) | [How to Setup and Configure Rofi](https://www.youtube.com/watch?v=TutfIwxSE_s) | [.config/wofi/scripts/wifiMenu.sh](../../.config/wofi/scripts/wifiMenu.sh) |
 | ericmurphyxyz | [Volume Popups](https://github.com/ericmurphyxyz/dotfiles/blob/xorg/.local/bin/changevolume) | [Notifications in Arch Linux](https://www.youtube.com/watch?v=XWlbaERuDP4) | [.local/share/my_scripts/volume_popup.sh](my_scripts/volume_popup.sh) |
 | ericmurphyxyz | [Battery Popup](https://github.com/ericmurphyxyz/dotfiles/blob/xorg/.local/bin/batterynotify) | [Battery Notifications in Arch Linux](https://www.youtube.com/watch?v=3wTt6fStYCI) | [.local/share/my_scripts/battery_popup.sh](my_scripts/battery_popup.sh) |
+| REALERvolker1 | [Zsh OneDarkPro Theme](https://github.com/REALERvolker1/onedark-pro-zsh-syntax-highlighter) | N/A | [.config/zsh/onedark-pro.zsh](../../.config/zsh/onedark-pro.zsh) |
 
 Note: In the 'Person' column, the GitHub username is prioritised over the YouTube channel name. 
 
