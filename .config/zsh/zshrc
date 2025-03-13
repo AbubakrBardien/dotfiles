@@ -23,7 +23,6 @@ export ZPLUG_HOME="$XDG_DATA_HOME/zplug"
 source /usr/share/zsh/scripts/zplug/init.zsh # Initialize Zplug (Plugin Manager for Zsh)
 # Order Matters
 zplug "zsh-users/zsh-syntax-highlighting"
-# zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-completions"
 zplug load
