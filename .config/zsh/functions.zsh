@@ -1,6 +1,4 @@
-## To be able to change directory when exiting Yazi. Call it with 'yy'
-function yy() {
-	# shellcheck disable=SC2155
+yy() { # Let's you be able to change directory when exiting Yazi.
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
 	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then

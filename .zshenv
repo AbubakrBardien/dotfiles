@@ -9,7 +9,6 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 ## Place all other Zsh related config files in this directory. And source the files that have been renamed
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-source "$ZDOTDIR/zshrc"
 
 #############################################
 ## Moving Files/Folders based on XDG Specs ##
@@ -43,19 +42,17 @@ export SCRIPTS="$XDG_DATA_HOME/my_scripts"
 
 ## Default Programs
 export EDITOR="/usr/bin/nvim"
-export TERMINAL="/usr/bin/foot"
 export AUR_HELPER="/usr/bin/paru"
+export BROWSER="/usr/bin/firefox"
 
 ################################
 ## Path Environment Variables ##
 ################################
 
-#export PATH=$PATH:$CARGO_HOME/bin
-#export PATH=$PATH:$XDG_DATA_HOME/npm/bin
-#export PATH=$PATH:$SCRIPTS
-#export PATH=$PATH:$SCRIPTS/hide_apps
-#export PATH=$PATH:$SCRIPTS/count_packages
-#export PATH=$PATH:$HOME/.local/bin
+typeset -U addPath
+addPath=($PATH $CARGO_HOME/bin $XDG_DATA_HOME/npm/bin $SCRIPTS $SCRIPTS/hide_apps $SCRIPTS/count_packages $HOME/.local/bin)
+# export PATH=${addPath[*]:join(:)}
+export PATH=$(echo $addPath | tr ' ' ':')
 
 ###########
 ## Other ##

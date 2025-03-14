@@ -5,7 +5,7 @@ typeset -A ZSH_HIGHLIGHT_STYLES
 # ONEDARK="#ABB2BF"     # Default / Fallback
 ONEDARK_CMD="#61AFEF" # Commands
 # ONEDARK_DIR="#A9DAA8" # Files and Folders
-ONEDARK_STR="#89CA78" # Strings (Double Qoutes)
+# ONEDARK_STR="#89CA78" # Strings (Double Qoutes)
 # ONEDARK_CHA="#89CA98" # Strings (Single Qoutes)
 # ONEDARK_NUM="#D19A66" # Numbers
 # ONEDARK_VAR="#EF596F" # Variables
@@ -18,12 +18,13 @@ ONEDARK_BRA="#C678DD" # Brackets
 
 # Modified Colors
 ONEDARK="#56B6C2"     # Default / Fallback
-ONEDARK_DIR="#E5C07B" # Files and Folders
-ONEDARK_CHA="#89CA78" # Strings (Single Qoutes)
+ONEDARK_DIR="#A9DAA8" # Files and Folders
+ONEDARK_STR="#e6c993" # Strings (Double Qoutes)
+ONEDARK_CHA="#e6c993" # Strings (Single Qoutes)
 ONEDARK_NUM="#56B6C2" # Numbers
 ONEDARK_VAR="#D19A66" # Variables
 ONEDARK_MOD="#56B6C2" # Options / Flags
-ONEDARK_ERR="#cc564b" # Errors
+ONEDARK_ERR="#db5d51" # Errors
 
 ZSH_HIGHLIGHT_STYLES[root]='bg=red'
 

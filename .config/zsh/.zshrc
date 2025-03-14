@@ -19,13 +19,12 @@ bindkey "^[[1;5D" backward-word
 eval "$(starship init zsh)"
 eval "$(batman --export-env)"
 
-export ZPLUG_HOME="$XDG_DATA_HOME/zplug"
-source /usr/share/zsh/scripts/zplug/init.zsh # Initialize Zplug (Plugin Manager for Zsh)
-# Order Matters
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-history-substring-search"
-zplug "zsh-users/zsh-completions"
-zplug load
+source /usr/share/zinit/zinit.zsh
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-history-substring-search
+zinit light zsh-users/zsh-completions
+zinit light marlonrichert/zsh-autocomplete
+zinit light olets/zsh-window-title
 
 # Load zsh-completions, and start the completion system
 fpath=($ZPLUG_HOME/repos/zsh-users/zsh-completions $fpath)
@@ -34,7 +33,17 @@ compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 zstyle ":completion:*" menu select                 # Enables menu completion
 zstyle ":completion::complete:*" gain-privileges 1 # Completions for sudo commands
 
+# Configuring "zsh-users/zsh-syntax-highlighting" plugin
 source "$ZDOTDIR/onedark-pro.zsh" # Applying a Colorscheme
 
+# Configuring "zsh-users/zsh-history-substring-search"
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
+
+# Configuring "marlonrichert/zsh-autocomplete"
+bindkey "^I" menu-select
+bindkey "$terminfo[kcbt]" menu-select
+zstyle ':autocomplete:*' add-space commands
+
+# Configuring "olets/zsh-window-title"
+ZSH_WINDOW_TITLE_DIRECTORY_DEPTH=10
