@@ -28,4 +28,4 @@ alias benchmark="hyperfine" # Very useful benchmarking tool
 alias cat="bat"
 alias pipes="pipes.sh"
 alias ping="gping"
-alias fetch="fastfetch"
+alias web_search="surfraw"
