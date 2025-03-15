@@ -199,17 +199,14 @@ arch-chroot /mnt <<-EOF1
 		$userPass
 		cd
 
-		mkdir .config .unused_user_dirs
+		mkdir .config
 		touch .config/user-dirs.dirs
 
 		for dir in Desktop Downloads Documents Music Pictures Videos; do
 			echo "XDG_${dir}_DIR=\"\$HOME/${dir}\"" >> user-dirs.dirs
 		done
 
-		echo "XDG_TEMPLATES_DIR=\"\$HOME/.unused_user_dirs/Templates\"" >> user-dirs.dirs
-		echo "XDG_PUBLICSHARE_DIR=\"\$HOME/.unused_user_dirs/Public\"" >> user-dirs.dirs
-
-		mkdir Desktop Downloads Documents Music Pictures Videos .unused_user_dirs/{Templates,Public}
+		mkdir Desktop Downloads Documents Music Pictures Videos
 	EOF2
 EOF1
 
