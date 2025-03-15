@@ -4,9 +4,14 @@ $AUR_HELPER -Syu
 hide_from_menu
 apply_mysql_workbench_theme.sh
 flatpak update
-fisher update
 ya pack -u
 npm update -g
+
+if [[ -n $FISH_VERSION ]]; then
+	fisher update
+elif [[ -n $ZSH_VERSION ]]; then
+	zinit update
+fi
 
 orphans=$($AUR_HELPER -Qdtq)
 
