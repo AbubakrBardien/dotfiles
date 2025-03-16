@@ -51,7 +51,6 @@ export BROWSER="/usr/bin/firefox"
 
 typeset -U addPath
 addPath=($PATH $CARGO_HOME/bin $XDG_DATA_HOME/npm/bin $SCRIPTS $SCRIPTS/hide_apps $SCRIPTS/count_packages $HOME/.local/bin)
-# export PATH=${addPath[*]:join(:)}
 export PATH=$(echo $addPath | tr ' ' ':')
 
 ###########
