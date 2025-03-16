@@ -29,7 +29,7 @@ After logging in, run this script next, to setup the Firefox "userChrome.css".
 
 WM/Compositor: [Hyprland](https://hyprland.org/)\
 Terminal: [Foot](https://codeberg.org/dnkl/foot)\
-Shell: [Fish](https://fishshell.com/) with the [Starship](https://starship.rs/) prompt.
+Shell: [Zsh](https://wiki.archlinux.org/title/Zsh)
 
 | Graphical | Terminal-Based | Theming |
 | --------- | -------------- | ------- |
