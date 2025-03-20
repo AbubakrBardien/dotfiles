@@ -16,8 +16,9 @@ bindkey -e # Emacs keybindings (more beginner friendly than Vim keybindings)
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-eval "$(starship init zsh)"
-eval "$(batman --export-env)"
+eval "$(starship init zsh)"   # Prompt customization       ("~/.config/starship.toml")
+eval "$(batman --export-env)" # colorize man pages         ("~/.config/bat/")
+eval "$(batpipe)"             # Colorize the "less" output ("~/.config/bat/") (only works with files)
 
 source /usr/share/zinit/zinit.zsh
 zinit light zsh-users/zsh-syntax-highlighting
