@@ -29,7 +29,7 @@ zinit light marlonrichert/zsh-autocomplete
 zinit light olets/zsh-window-title
 
 # Load zsh-completions, and start the completion system
-fpath=($ZPLUG_HOME/repos/zsh-users/zsh-completions $fpath)
+fpath=($XDG_DATA_HOME/zinit/plugins/zsh-users---zsh-completions $fpath)
 autoload -Uz compinit
 compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 zstyle ":completion:*" menu select                 # Enables menu completion
