@@ -27,7 +27,6 @@ export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export HISTFILE="$XDG_DATA_HOME/zsh/history"
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 export GOPATH="$XDG_DATA_HOME/go"
-export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc" # gtk 3 & 4 are XDG compliant
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME/jupyter"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export PARALLEL_HOME="$XDG_CONFIG_HOME/parallel"
