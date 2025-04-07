@@ -1,0 +1,7 @@
+[Unit]
+Description=Notification When Charging
+After=suspend.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/dunstify "Charger %i"

@@ -1,0 +1,5 @@
+[Unit]
+Description=Notify when battery is full or low
+
+[Service]
+ExecStart=/home/abubakr/.local/share/my_scripts/battery_popup.sh

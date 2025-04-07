@@ -1,0 +1,11 @@
+[Unit]
+Description=Monitor Battery Level
+
+[Timer]
+OnBootSec=0min
+; Run every 3min
+OnCalendar=*-*-* *:00/3:00
+Unit=battery_monitor_script.service
+
+[Install]
+WantedBy=timers.target

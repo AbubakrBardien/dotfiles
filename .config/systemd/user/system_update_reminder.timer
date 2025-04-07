@@ -1,0 +1,11 @@
+[Unit]
+Description=Weekly reminder to update packages/plugins/etc.
+
+[Timer]
+; Run every Saturday at 10am
+OnCalendar=Sat 10:00:00
+Persistant=true
+Unit=system_update_reminder.service
+
+[Install]
+WantedBy=timers.target
