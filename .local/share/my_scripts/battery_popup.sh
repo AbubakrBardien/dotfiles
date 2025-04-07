@@ -23,7 +23,6 @@ fi
 
 # If the battery is charging and is full (and has not shown notification yet)
 if [ "$battery_level" -eq 100 ] && [ "$battery_charging" -eq 1 ] && [ ! -f $FULL_FILE ]; then
-	# notify-send "Battery Charged" "Battery is fully charged." -i "battery" -r 9991
 	dunstify -a "battery_popup" -i "$HOME/.config/dunst/icons/battery_full.png" "Battery Full" -t $notification_timeout
 	touch $FULL_FILE
 
