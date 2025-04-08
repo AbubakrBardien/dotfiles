@@ -235,9 +235,8 @@ arch-chroot /mnt <<-EOF1
 		curl -o pacman_packages.txt \
 		-o aur_packages.txt \
 		-o flatpak_packages.txt \
-		-o fish_shell_plugins.txt \
 		-o yazi_plugins.txt \
-		https://raw.githubusercontent.com/AbubakrBardien/dotfiles/main/.local/share/my_scripts/setup_scripts/{{pacman,aur,flatpak}_packages,{fish_shell,yazi}_plugins}.txt
+		https://raw.githubusercontent.com/AbubakrBardien/dotfiles/main/.local/share/my_scripts/setup_scripts/{{pacman,aur,flatpak}_packages,yazi_plugins}.txt
 
 		pacman -S --noconfirm --needed $(cat pacman_packages.txt)
 
@@ -248,13 +247,12 @@ arch-chroot /mnt <<-EOF1
 		cd
 		paru -S --noconfirm $(cat aur_packages.txt)
 
-		fisher install $(cat fish_shell_plugins.txt)
 		flatpak install --assumeyes $(cat flatpak_packages.txt)
 		ya pack -a $(cat yazi_plugins.txt)
 
 		brillo -c -S 5
 
-		rm {{pacman,aur,flatpak}_packages,{fish_shell,yazi}_plugins}.txt
+		rm {{pacman,aur,flatpak}_packages,yazi_plugins}.txt
 	EOF2
 EOF1
 
@@ -262,7 +260,7 @@ EOF1
 # Enable Hibernate
 #	Add 'resume' after 'udev' in the HOOKS array
 arch-chroot /mnt <<-EOF1
-	chsh -s /usr/bin/fish $userName
+	chsh -s /usr/bin/zsh $userName
 
 	sed -i 's/\(^HOOKS=\(.*\)udev\)/\1 resume/' /etc/mkinitcpio.conf
 	mkinitcpio -P
@@ -296,11 +294,9 @@ EOF1
 arch-chroot /mnt <<-EOF1
 	su $userName <<-EOF2
 		$userPass
-		fish
+		zsh
 		pipx ensurepath
-		pipx install argcomplete
-		register-python-argcomplete --shell fish pipx >~/.config/fish/completions/pipx.fish
-		pipx install virtualenv
+		pipx install argcomplete virtualenv
 	EOF2
 EOF1
 
