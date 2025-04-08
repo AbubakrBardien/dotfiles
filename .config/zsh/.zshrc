@@ -16,10 +16,6 @@ bindkey -e # Emacs keybindings (more beginner friendly than Vim keybindings)
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-eval "$(starship init zsh)"   # Prompt customization       ("~/.config/starship.toml")
-eval "$(batman --export-env)" # colorize man pages         ("~/.config/bat/")
-eval "$(batpipe)"             # Colorize the "less" output ("~/.config/bat/") (only works with files)
-
 source /usr/share/zinit/zinit.zsh
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-history-substring-search
@@ -50,3 +46,8 @@ zstyle ':autocomplete:*' min-input 6 # Wait for a minimum amount of input (still
 
 # Configuring "olets/zsh-window-title"
 ZSH_WINDOW_TITLE_DIRECTORY_DEPTH=10
+
+eval "$(starship init zsh)"                            # Prompt customization       ("~/.config/starship.toml")
+eval "$(batman --export-env)"                          # Colorize man pages         ("~/.config/bat/")
+eval "$(batpipe)"                                      # Colorize the "less" output ("~/.config/bat/") (only works with files)
+eval "$(register-python-argcomplete --shell zsh pipx)" # Configure Tab Completion for pipx

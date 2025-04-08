@@ -5,6 +5,7 @@ hide_from_menu
 apply_mysql_workbench_theme.sh
 ya pack -u
 npm update -g
+pipx upgrade-all
 
 source /usr/share/zinit/zinit.zsh
 zinit update
