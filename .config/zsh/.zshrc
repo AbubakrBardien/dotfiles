@@ -41,8 +41,8 @@ bindkey "^[[B" history-substring-search-down
 # Configuring "marlonrichert/zsh-autocomplete"
 bindkey "^I" menu-select
 bindkey "$terminfo[kcbt]" menu-select
-zstyle ':autocomplete:*' add-space commands
-zstyle ':autocomplete:*' min-input 6 # Wait for a minimum amount of input (still runs when detecting a space)
+zstyle ":autocomplete:*" add-space commands
+zstyle ":autocomplete:*" min-input 6 # Wait for a minimum amount of input (still runs when detecting a space)
 
 # Configuring "olets/zsh-window-title"
 ZSH_WINDOW_TITLE_DIRECTORY_DEPTH=10
