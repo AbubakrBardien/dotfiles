@@ -25,6 +25,8 @@ After logging in, run this script next, to setup the Firefox "userChrome.css".
 ./.local/share/my_scripts/setup_scripts/setup_firefox_theme.sh 
 ```
 
+[Installation Instructions](.local/share/my_scripts/setup_scripts/setup_instructions.md)
+
 ## Programs I Use
 
 WM/Compositor: [Hyprland](https://hyprland.org/)\
