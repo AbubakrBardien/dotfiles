@@ -10,22 +10,27 @@
 
 ## Installation
 
-Run the script when in the Arch Installation Medium:
+Follow these initial setup instructions: \
+[Initial Setup Instructions](.local/share/my_scripts/setup_scripts/initial_setup.md)
+
+Then run this script, after logging into your Graphical Environment:
 ```bash
-curl -o setup_script https://raw.githubusercontent.com/AbubakrBardien/dotfiles/main/.local/share/my_scripts/setup_scripts/setup_script.sh
-chmod +x setup_script
-./setup_script
+curl -o remaining_setup https://raw.githubusercontent.com/AbubakrBardien/dotfiles/main/.local/share/my_scripts/setup_scripts/remaining_setup_automation.sh
+chmod +x remaining_setup
+./remaining_setup
 ```
-(Warning: `setup_script.sh` hasn't been fully tested yet)
+(Warning: the script hasn't been fully tested yet, but it should work) \
+After rebooting, remove the script: `rm remaining_setup`
 
-This script also downloads your Password Manager (at `https://github.com/AbubakrBardien/password-manager`), so remember to import your passwords after running the script.
+### Passwords
 
-After logging in, run this script next, to setup the Firefox "userChrome.css". 
-```bash
-./.local/share/my_scripts/setup_scripts/setup_firefox_theme.sh 
-```
+This script also downloads your Password Manager, located in this repo: \
+[AbubakrBardien/password-manager](https://github.com/AbubakrBardien/password-manager)
 
-[Setup Instructions](.local/share/my_scripts/setup_scripts/setup_instructions.md)
+So remember copy your password files (`My_Passwords.txt` and `Master_Password.txt`) to the correct locations for the Password Manager.
+
+### Miscellaneous
+You'll need to download the Helvetica font manually (at https://font.download/font/helvetica-255) and move the files into the `~/.local/share/fonts` directory.
 
 ## Programs I Use
 

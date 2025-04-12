@@ -1,7 +1,6 @@
 #!/bin/bash
 
-paru -Qenq >pacman_packages.txt
-paru -Qemq >aur_packages.txt
+$AUR_HELPER -Qenq >pacman_packages.txt
+$AUR_HELPER -Qemq >aur_packages.txt
 flatpak list --app --columns=application >flatpak_packages.txt
-
-# This file only updates the package lists that are likely to change
+ya pack -l | grep -E '^\s+\w+' | awk '{$1=$1; print $1}' >yazi_plugins.txt

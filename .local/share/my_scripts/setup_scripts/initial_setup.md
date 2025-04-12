@@ -45,8 +45,8 @@
     - Configure Grub
         - `grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id="Arch Linux"`
         - `grub-mkconfig -o /boot/grub/grub.cfg`
-    - Configure SDDM
-        - `pacman -S sddm`
+    - Configure SDDM and make it launch Hyprland as it's compositor
+        - `pacman -S sddm hyprland kitty` (Installing Kitty **only** because it's the default terminal that Hyprland looks for)
         - `mkdir /etc/sddm.conf.d`
 	    - `cp /usr/lib/sddm/sddm.conf.d/default.conf /etc/sddm.conf.d/sddm.conf`
         - In `/etc/sddm.conf.d/sddm.conf` change:
@@ -56,4 +56,5 @@
         - `pacman -S ufw`
         - `systemctl enable NetworkManager bluetooth paccache.timer sddm ufw`
     - `exit` \
-curl -o setup_scripthttps://raw.githubusercontent.com/AbubakrBardien/dotfiles/main/.local/share/my_scripts/setup_scripts/setup_script.sh
+- `umount /mnt/boot /mnt`
+- `reboot`
