@@ -1,4 +1,4 @@
-alias ls="lsd --group-dirs=first"
+alias ls="lsd"
 alias la="ls -A"
 alias ll="ls -l"
 alias lla="ls -Al"

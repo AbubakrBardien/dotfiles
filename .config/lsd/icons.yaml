@@ -1,0 +1,41 @@
+# name:
+#   .trash: 
+#   .cargo: 
+#   .emacs.d: 
+#   a.out: 
+# extension:
+#   go: 
+#   hs: 
+#   rs: 🦀
+# filetype:
+#   file: 📄
+#   pipe: 📩
+#   socket: 󰆨
+#   executable: 
+#   symlink-dir: 
+#   symlink-file: 
+#   device-char: 
+#   device-block: 󰜫
+#   special: 
+
+
+name:
+  README.md:   # doesn't work
+  Documents: 
+  # Music: 
+extension:
+  md:       # default
+  sh:       # default
+  zshenv: 󱆃  # doesn't work
+  zshrc: 󱆃   # default
+  zsh: 󱆃
+  txt:      # default
+  mp4: 
+  mkv: 
+  avi: 
+filetype:
+  file:  # default
+  dir: 
+  symlink-file:   # default
+  symlink-dir:    # default
+  executable:     # default

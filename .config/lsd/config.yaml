@@ -1,0 +1,6 @@
+date: "+%H:%M:%S %a %d %b %Y"
+
+size: short
+
+sorting:
+  dir-grouping: first
