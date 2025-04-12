@@ -55,6 +55,6 @@
     - Enable Backagound Services
         - `pacman -S ufw`
         - `systemctl enable NetworkManager bluetooth paccache.timer sddm ufw`
-    - `exit` \
+    - `exit`
 - `umount /mnt/boot /mnt`
 - `reboot`
