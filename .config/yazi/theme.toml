@@ -79,7 +79,7 @@ exts = [
 
 	# Header files for C and C++
 	{ name = "h", text = "" },
-	
+
 	# Executables of a different OS
 	{ name = "exe", text = "" },
 	{ name = "app", text = "" },
