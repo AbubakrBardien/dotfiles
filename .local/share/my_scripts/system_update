@@ -1,23 +1,26 @@
 #!/usr/bin/zsh
 
 $AUR_HELPER -Syu
-hide_from_menu
-apply_mysql_workbench_theme.sh
-ya pack -u
-npm update -g
-pipx upgrade-all
-
-source /usr/share/zinit/zinit.zsh
-zinit update
+paru --clean
 
 flatpak update
 flatpak uninstall --unused
 
-orphans=$($AUR_HELPER -Qdtq)
+ya pack -u
+npm update -g
+pipx upgrade-all
 
-if [[ -n "$orphans" ]]; then
-	# shellcheck disable=SC2086
-	$AUR_HELPER -Rns $orphans
-fi
+hide_from_menu
+apply_mysql_workbench_theme.sh
+
+source /usr/share/zinit/zinit.zsh
+zinit update
+
+# orphans=$($AUR_HELPER -Qdtq)
+#
+# if [[ -n "$orphans" ]]; then
+# 	# shellcheck disable=SC2086
+# 	$AUR_HELPER -Rns $orphans
+# fi
 
 # This script is not responsible for updating Neovim
