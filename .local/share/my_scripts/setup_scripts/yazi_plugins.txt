@@ -1,5 +1,2 @@
 Rolv-Apneseth/starship
 dedukun/relative-motions
-BennyOe/onedark
-BennyOe/tokyo-night
-yazi-rs/flavors:catppuccin-mocha
