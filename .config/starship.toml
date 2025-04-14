@@ -9,6 +9,7 @@ style = "bold #71B0E8"
 
 [lua]
 symbol = " "
+style = "bold #89b4fa"
 ####################
 
 [git_branch]
