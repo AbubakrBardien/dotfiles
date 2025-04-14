@@ -1,134 +1,241 @@
-[flavor]
-dark = "onedark"
-# dark = "tokyo-night"
-# dark = "catppuccin-mocha"
+# My own theme based on "onedark.yazi" (https://github.com/BennyOe/onedark.yazi)
 
 [manager]
-preview_hovered = { bg = "#282C34" } # To match the "hovered" setting in the "onedark.yazi" flavor
+cwd = { fg = "#61AFEF" }
+
+# Hovered
+hovered = { bg = "#282C34", italic = true }
+preview_hovered = { bg = "#282C34" }
+
+# Border
+border_symbol = "│"
+border_style = { fg = "#282C34" }
+
+# Marker
+marker_copied = { fg = "#98C379", bg = "#98C379" }  
+marker_cut = { fg = "#E06C75", bg = "#E06C75" }
+marker_marked = { fg = "#C678DD" }  
+marker_selected = { fg = "#E5C07B" }
+
+# Count
+count_copied = { fg = "#98C379", bg = "#282C34" }
+count_cut = { fg = "#E06C75", bg = "#282C34" }
+count_selected = { fg = "#E5C07B", bg = "#282C34" }
+
+[mode]
+
+# Normal Mode
+normal_main = { fg = "#3a3f42", bg = "#64a4d9", bold = true }
+normal_alt = { fg = "#64a4d9", bg = "#3a3f42", bold = true }
+
+# Select Mode
+select_main = { fg = "#3a3f42", bg = "#C678DD", bold = true }
+select_alt = { fg = "#C678DD", bg = "#3a3f42", bold = true }
+
+# Unset Mode
+unset_main = { fg = "#3a3f42", bg = "#61AFEF", bold = true }
+unset_alt = { fg = "#61AFEF", bg = "#3a3f42", bold = true }
+
+[status]
+sep_left  = { open = "", close = "" }
+sep_right  = { open = "", close = "" } 
+
+# Permissions
+perm_type = { fg = "#61AFEF", bold = true }
+perm_read = { fg = "#98C379" }
+perm_write = { fg = "#E5C07B" }
+perm_exec = { fg = "#E06C75" }
+perm_sep = { fg = "#707a80" }
+
+# Progress
+progress_label = { fg = "#3a3f42", bold = true }
+progress_normal = { fg = "#98C379", bg = "#282C34" }
+progress_error = { fg = "#E06C75", bg = "#282C34" } 
+
+# Hints (generated when pressing "g" for example)
+[which]
+mask = { bg = "#282C34" }
+cand = { fg = "#98C379" }
+rest = { fg = "#ABB2BF" }
+desc = { fg = "#E5C07B" }
+separator = "  "
+separator_style = { fg = "#ABB2BF" }
+
+[help]
+on = { fg = "#98C379" }
+run = { fg = "#E5C07B" }
+hovered = { reversed = true, bold = true }
+footer = { fg = "#ABB2BF", bg = "#000000" }
+
+[notify]
+title_info = { fg = "#98C379" }
+title_warn = { fg = "#E06C75" }
+title_error = { fg = "#E5C07B" }
+
+[filetype]
+
+rules = [
+	# Images
+	{ name = "*.jpeg", fg = "#d6d67e" },
+	{ name = "*.jpg", fg = "#d6d67e" },
+	{ name = "*.png", fg = "#d6d67e" },
+	{ name = "*.webp", fg = "#d6d67e" },
+
+	# Videos
+	{ name = "*.avi", fg = "#edaa64" },
+	{ name = "*.mkv", fg = "#edaa64" },
+	{ name = "*.mp4", fg = "#edaa64" },
+	{ name = "*.webm", fg = "#edaa64" },
+
+	# Gifs
+	{ name = "*.gif", fg = "#d6bb72" },
+
+	# Documents
+	{ name = "*.docx", fg = "#D2B48C"},
+	{ name = "*.pdf", fg = "#D2B48C" },
+	{ name = "*.xlsx", fg = "#D2B48C"},
+
+	# Executables
+	{ name = "*", is = "exec", fg = "#98C379" },
+
+	# Symbolic Links
+	{ name = "*", is = "link", fg = "#6ac1c4" },
+
+    # Fallback
+    { name = "*", fg = "#bcc5d4" },
+    { name = "*/", fg = "#61AFEF" },
+]
 
 [icon]
 
 # Order Matters. The 1st match gets applied
 globs = [
-	{ name = "/home/**/.git*", text = "󰊢" },
+	{ name = "/home/**/.git*", text = "󰊢", fg = "#fab387" },
 
-	{ name = "/home/*/.config/vim/*", text = "" },
-	{ name = "/home/*/.config/vlc/*", text = "󰕼" },
-	{ name = "/home/*/.config/zsh/*", text = "󱆃" },
+	{ name = "/home/*/.config/vim/*", text = "", fg = "#a6e3a1" },
+	{ name = "/home/*/.config/vlc/*", text = "󰕼", fg = "#fab387" },
+	{ name = "/home/*/.config/zsh/*", text = "󱆃", fg = "#98C379" },
 
-	{ name = "/home/*/.config/hypr/**", text = "" },
+	{ name = "/home/*/.config/hypr/**", text = "", fg = "#58E1FF" },
 
-	{ name = "/home/*/.config/**/*rc", text = "" },
+	{ name = "/home/*/.config/**/*rc", text = "", fg = "#7f849c" },
 ]
 
 files = [
-	{ name = ".editorconfig", text = "" },
-	{ name = ".styluaignore", text = "" },
+	{ name = ".editorconfig", text = "", fg = "#e3d0cc" },
+	{ name = ".styluaignore", text = "", fg = "#89b4fa" },
 	{ name = ".zshenv", text = "󱆃" },
 
-	{ name = "LICENSE", text = "" },
+	{ name = "LICENSE", text = "" , fg = "#bcc5d4" },
 	{ name = "README.md", text = "" },
-	{ name = "config", text = "" },
+	{ name = "config", text = "", fg = "#7f849c" },
 ]
 
 exts = [
 	# General Info
-	{ name = "txt", text = "" },
-	{ name = "md", text = "" },
+	{ name = "txt", text = "", fg = "#bcc5d4" },
+	{ name = "md", text = "", fg = "#87bfed" },
 
-	# Image
+	# Images
 	{ name = "gif", text = "" },
 	{ name = "jpeg", text = "" },
 	{ name = "jpg", text = "" },
 	{ name = "png", text = "" },
 	{ name = "webp", text = "" },
 
-	# Video
-	{ name = "avi", text = ""},
-	{ name = "mkv", text = ""},
-	{ name = "mp4", text = ""},
-	{ name = "webm", text = ""},
+	# Videos
+	{ name = "avi", text = "" },
+	{ name = "mkv", text = "" },
+	{ name = "mp4", text = "" },
+	{ name = "webm", text = "" },
 
 	# Shell
-	{ name = "sh", text = "" },
+	{ name = "sh", text = "", fg = "#98C379" },
 
 	# Binary
-	{ name = "bin", text = "" },
-	{ name = "o", text = "" },
-	{ name = "out", text = "" },
+	{ name = "bin", text = "", fg = "#696d8c" },
+	{ name = "o", text = "", fg = "#696d8c" },
+	{ name = "out", text = "", fg = "#696d8c" },
 
 	# C Language
-	{ name = "c", text = "󰙱" },
+	{ name = "c", text = "󰙱", fg = "#89b4fa" },
 
 	# C++ Language
-	{ name = "cpp", text = "󰙲" },
-	{ name = "c++", text = "󰙲" },
-	{ name = "cc", text = "󰙲" },
-	{ name = "cxx", text = "󰙲" },
-
-	# Web Development
-	{ name = "html", text = ""},
-	{ name = "css", text = ""},
-	{ name = "js", text = ""},
-
-	# Other Languages
-	{ name = "java", text = "" },
-	{ name = "lua", text = ""},
-	{ name = "py", text = "" },
-	{ name = "rs", text = "" },
+	{ name = "cpp", text = "󰙲", fg = "#74c7ec" },
+	{ name = "c++", text = "󰙲", fg = "#74c7ec" },
+	{ name = "cc", text = "󰙲", fg = "#74c7ec" },
+	{ name = "cxx", text = "󰙲", fg = "#74c7ec" },
 
 	# Header files for C and C++
-	{ name = "h", text = "" },
+	{ name = "h", text = "", fg = "#D19A66" },
+
+	# Web Development
+	{ name = "html", text = "", fg = "#D19A66" },
+	{ name = "css", text = "", fg = "#8DC3EF" },
+	{ name = "js", text = "", fg = "#E5C07A" },
+
+	# Other Languages
+	{ name = "java", text = "", fg = "#f38ba8" },
+	{ name = "lua", text = "", fg = "#89b4fa" },
+	{ name = "py", text = "", fg = "#71B0E8" },
+	{ name = "rs", text = "", fg = "#fab387" },
+
+	# Jupyter Notebooks
+	{ name = "ipynb", text = "", fg = "#F37626" },
 
 	# Executables of a different OS
-	{ name = "exe", text = "" },
-	{ name = "app", text = "" },
+	{ name = "exe", text = "", fg = "#7abefa" },
+	{ name = "app", text = "", fg = "#bcc5d4" },
 
-	# Office Related
-	{ name = "docx", text = "󱎒"},
-	{ name = "pdf", text = ""},
-	{ name = "xlsx", text = "󱎏"},
+	# Documents
+	{ name = "docx", text = "󱎒", fg = "#5185f5"},
+	{ name = "pdf", text = "", fg = "#bd3e55" },
+	{ name = "xlsx", text = "󱎏", fg = "#7ab84d" },
 
 	# Data Serialization Formats
-	{ name = "csv", text = ""},
-	{ name = "ini", text = ""},
-	{ name = "json", text = ""},
-	{ name = "jsonc", text = ""},
-	{ name = "toml", text = ""},
-	{ name = "xml", text = "󰗀"},
-	{ name = "yaml", text = ""},
-	{ name = "yml", text = ""},
+	{ name = "csv", text = "", fg = "#7ab84d" },
+	{ name = "ini", text = "", fg = "#7f849c" },
+	{ name = "json", text = "", fg = "#f5d07f" },
+	{ name = "jsonc", text = "", fg = "#f5d07f" },
+	{ name = "toml", text = "", fg = "#D1945E" },
+	{ name = "xml", text = "󰗀", fg = "#98C379" },
+	{ name = "yaml", text = "", fg = "#C678DD" },
+	{ name = "yml", text = "", fg = "#C678DD" },
 
 	# Databases
-	{ name = "db", text = ""},
-	{ name = "sql", text = ""},
-	{ name = "sqlite", text = ""},
-	{ name = "sqlite3", text = ""},
+	{ name = "db", text = "" },
+	{ name = "sql", text = "" },
+	{ name = "sqlite", text = "" },
+	{ name = "sqlite3", text = "" },
 
 	# Config Extentions
-	{ name = "cfg", text = ""},
-	{ name = "conf", text = ""},
-	{ name = "rasi", text = ""}, # for Rofi
+	{ name = "cfg", text = "", fg = "#7f849c" },
+	{ name = "conf", text = "", fg = "#7f849c" },
+	{ name = "rasi", text = "", fg = "#7f849c" }, # for Rofi
 
 	# Logs
-	{ name = "log", text = ""},
+	{ name = "log", text = "" },
 
 	# Systemd Unit Files
-	{ name = "timer", text = ""},
-	{ name = "service", text = ""},
+	{ name = "timer", text = "", fg = "#E5C07B" },
+	{ name = "service", text = "", fg = "#E5C07B" },
 
 	# Compressed Files
-	{ name = "zip", text = ""},
-	{ name = "7z", text = ""},
-	{ name = "rar", text = ""},
+	{ name = "zip", text = "", fg = "#fab387" },
+	{ name = "7z", text = "", fg = "#fab387" },
+	{ name = "rar", text = "", fg = "#fab387" },
+
+	# Fonts
+	{ name = "otf", text = "", fg = "#bcc5d4" },
+	{ name = "ttf", text = "", fg = "#bcc5d4" },
 ]
 
 # Order Matters. It's basically an if/else statement
 conds = [
 	{ if = "hidden & dir", text = "󱞞" }, # hidden directories
 	{ if = "hidden & !dir", text="󰘓" },	 # hidden files
-	{ if = "link & dir", text="", fg="#57b9bd"},     # symlink directories
-	{ if = "link & !dir", text="", fg="#57b9bd"},    # symlink files
+	{ if = "link & dir", text="" },     # symlink directories
+	{ if = "link & !dir", text="" },    # symlink files
 	{ if = "dir", text="" },            # directories
 	{ if = "!dir & exec", text = "" },  # executable files
 	{ if = "!dir", text = "" },         # files
