@@ -3,38 +3,49 @@ name:
   Music:   # doesn't work
   Videos:   # doesn't work
   README.md:   # doesn't work
+  viminfo: 
+  pCloudDrive:   # doesn't work
+
   .editorconfig: 
   .gitignore: 󰊢
   .mozilla: 
+  .pki: 
   .styluaignore: 
   .zshenv: 󱆃
+
 extension:
   avi: 
   mkv: 
   mp4: 
   webm: 
+
   c: 󰙱
   c++: 󰙲
   cc: 󰙲
   cpp: 󰙲
   cxx: 󰙲
   h: 
-  css: 
-  ipynb: 
+
   docx: 󱎒
   csv: 
   xlsx: 󱎏
-  toml: 
-  yaml: 
-  yml: 
+
   db: 
   sql: 
   sqlite: 
   sqlite3: 
-  log: 
-  rasi: 
+
   service: 
   timer: 
+
+  css: 
+  ipynb: 
+  toml: 
+  yaml: 
+  yml: 
+  log: 
+  rasi: 
   zsh: 󱆃
+
 filetype:
   dir: 

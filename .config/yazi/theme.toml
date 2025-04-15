@@ -1,7 +1,7 @@
 # My own theme based on "onedark.yazi" (https://github.com/BennyOe/onedark.yazi)
 
 [manager]
-cwd = { fg = "#61AFEF" }
+cwd = { fg = "#71B0E8" }
 
 # Hovered
 hovered = { bg = "#282C34", italic = true }
@@ -25,23 +25,23 @@ count_selected = { fg = "#E5C07B", bg = "#282C34" }
 [mode]
 
 # Normal Mode
-normal_main = { fg = "#3a3f42", bg = "#64a4d9", bold = true }
-normal_alt = { fg = "#64a4d9", bg = "#3a3f42", bold = true }
+normal_main = { fg = "#3a3f42", bg = "#71B0E8", bold = true }
+normal_alt = { fg = "#71B0E8", bg = "#3a3f42", bold = true }
 
 # Select Mode
 select_main = { fg = "#3a3f42", bg = "#C678DD", bold = true }
 select_alt = { fg = "#C678DD", bg = "#3a3f42", bold = true }
 
 # Unset Mode
-unset_main = { fg = "#3a3f42", bg = "#61AFEF", bold = true }
-unset_alt = { fg = "#61AFEF", bg = "#3a3f42", bold = true }
+unset_main = { fg = "#3a3f42", bg = "#71B0E8", bold = true }
+unset_alt = { fg = "#71B0E8", bg = "#3a3f42", bold = true }
 
 [status]
 sep_left  = { open = "", close = "" }
 sep_right  = { open = "", close = "" } 
 
 # Permissions
-perm_type = { fg = "#61AFEF", bold = true }
+perm_type = { fg = "#71B0E8", bold = true }
 perm_read = { fg = "#98C379" }
 perm_write = { fg = "#E5C07B" }
 perm_exec = { fg = "#E06C75" }
@@ -103,7 +103,7 @@ rules = [
 
     # Fallback
     { name = "*", fg = "#bcc5d4" },
-    { name = "*/", fg = "#61AFEF" },
+    { name = "*/", fg = "#71B0E8" },
 ]
 
 [icon]
@@ -113,7 +113,6 @@ globs = [
 	{ name = "/home/**/.git*", text = "󰊢", fg = "#fab387" },
 
 	{ name = "/home/*/.config/vim/*", text = "", fg = "#a6e3a1" },
-	{ name = "/home/*/.config/vlc/*", text = "󰕼", fg = "#fab387" },
 	{ name = "/home/*/.config/zsh/*", text = "󱆃", fg = "#98C379" },
 
 	{ name = "/home/*/.config/hypr/**", text = "", fg = "#58E1FF" },
@@ -126,7 +125,7 @@ files = [
 	{ name = ".styluaignore", text = "", fg = "#89b4fa" },
 	{ name = ".zshenv", text = "󱆃" },
 
-	{ name = "LICENSE", text = "" , fg = "#bcc5d4" },
+	{ name = "LICENSE", text = "" , fg = "#5abfc7" },
 	{ name = "README.md", text = "" },
 	{ name = "config", text = "", fg = "#7f849c" },
 ]
@@ -149,13 +148,9 @@ exts = [
 	{ name = "mp4", text = "" },
 	{ name = "webm", text = "" },
 
-	# Shell
-	{ name = "sh", text = "", fg = "#98C379" },
-
-	# Binary
-	{ name = "bin", text = "", fg = "#696d8c" },
+	# Object Files
 	{ name = "o", text = "", fg = "#696d8c" },
-	{ name = "out", text = "", fg = "#696d8c" },
+	{ name = "so", text = "", fg = "#696d8c" },
 
 	# C Language
 	{ name = "c", text = "󰙱", fg = "#89b4fa" },
@@ -167,7 +162,7 @@ exts = [
 	{ name = "cxx", text = "󰙲", fg = "#74c7ec" },
 
 	# Header files for C and C++
-	{ name = "h", text = "", fg = "#D19A66" },
+	{ name = "h", text = "", fg = "#d19a66" },
 
 	# Web Development
 	{ name = "html", text = "", fg = "#D19A66" },
@@ -175,7 +170,7 @@ exts = [
 	{ name = "js", text = "", fg = "#E5C07A" },
 
 	# Other Languages
-	{ name = "java", text = "", fg = "#f38ba8" },
+	{ name = "java", text = "", fg = "#ba8b5d" },
 	{ name = "lua", text = "", fg = "#89b4fa" },
 	{ name = "py", text = "", fg = "#71B0E8" },
 	{ name = "rs", text = "", fg = "#fab387" },
@@ -183,22 +178,21 @@ exts = [
 	# Jupyter Notebooks
 	{ name = "ipynb", text = "", fg = "#F37626" },
 
-	# Executables of a different OS
+	# Executables for Winodws
 	{ name = "exe", text = "", fg = "#7abefa" },
-	{ name = "app", text = "", fg = "#bcc5d4" },
 
 	# Documents
-	{ name = "docx", text = "󱎒", fg = "#5185f5"},
-	{ name = "pdf", text = "", fg = "#bd3e55" },
+	{ name = "docx", text = "󱎒", fg = "#5d8df5"},
+	{ name = "pdf", text = "", fg = "#d44861" },
 	{ name = "xlsx", text = "󱎏", fg = "#7ab84d" },
 
 	# Data Serialization Formats
-	{ name = "csv", text = "", fg = "#7ab84d" },
+	{ name = "csv", text = "", fg = "#98C378" },
 	{ name = "ini", text = "", fg = "#7f849c" },
 	{ name = "json", text = "", fg = "#f5d07f" },
 	{ name = "jsonc", text = "", fg = "#f5d07f" },
 	{ name = "toml", text = "", fg = "#D1945E" },
-	{ name = "xml", text = "󰗀", fg = "#98C379" },
+	{ name = "xml", text = "󰗀", fg = "#B16533" },
 	{ name = "yaml", text = "", fg = "#C678DD" },
 	{ name = "yml", text = "", fg = "#C678DD" },
 
@@ -208,7 +202,7 @@ exts = [
 	{ name = "sqlite", text = "" },
 	{ name = "sqlite3", text = "" },
 
-	# Config Extentions
+	# Config Extensions
 	{ name = "cfg", text = "", fg = "#7f849c" },
 	{ name = "conf", text = "", fg = "#7f849c" },
 	{ name = "rasi", text = "", fg = "#7f849c" }, # for Rofi
@@ -221,9 +215,9 @@ exts = [
 	{ name = "service", text = "", fg = "#E5C07B" },
 
 	# Compressed Files
-	{ name = "zip", text = "", fg = "#fab387" },
-	{ name = "7z", text = "", fg = "#fab387" },
-	{ name = "rar", text = "", fg = "#fab387" },
+	{ name = "7z", text = "", fg = "#af6ec2" },
+	{ name = "rar", text = "", fg = "#af6ec2" },
+	{ name = "zip", text = "", fg = "#af6ec2" },
 
 	# Fonts
 	{ name = "otf", text = "", fg = "#bcc5d4" },
@@ -237,6 +231,6 @@ conds = [
 	{ if = "link & dir", text="" },     # symlink directories
 	{ if = "link & !dir", text="" },    # symlink files
 	{ if = "dir", text="" },            # directories
-	{ if = "!dir & exec", text = "" },  # executable files
+	{ if = "!dir & exec", text = "", fg = "#85c456" },  # executable files
 	{ if = "!dir", text = "" },         # files
 ]
