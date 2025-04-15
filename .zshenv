@@ -23,6 +23,10 @@ export PYTHON_HISTORY="$XDG_DATA_HOME/python/history"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 
+## .NET Core Files
+export DOTNET_CLI_HOME="$XDG_DATA_HOME/dotnet"
+export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
+
 ## Other Files
 export HISTFILE="$XDG_DATA_HOME/zsh/history"
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
