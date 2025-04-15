@@ -1,41 +1,40 @@
-# name:
-#   .trash: 
-#   .cargo: 
-#   .emacs.d: 
-#   a.out: 
-# extension:
-#   go: 
-#   hs: 
-#   rs: 🦀
-# filetype:
-#   file: 📄
-#   pipe: 📩
-#   socket: 󰆨
-#   executable: 
-#   symlink-dir: 
-#   symlink-file: 
-#   device-char: 
-#   device-block: 󰜫
-#   special: 
-
-
 name:
+  Downloads:   # doesn't work
+  Music:   # doesn't work
+  Videos:   # doesn't work
   README.md:   # doesn't work
-  Documents: 
-  # Music: 
+  .editorconfig: 
+  .gitignore: 󰊢
+  .mozilla: 
+  .styluaignore: 
+  .zshenv: 󱆃
 extension:
-  md:       # default
-  sh:       # default
-  zshenv: 󱆃  # doesn't work
-  zshrc: 󱆃   # default
-  zsh: 󱆃
-  txt:      # default
-  mp4: 
-  mkv: 
   avi: 
+  mkv: 
+  mp4: 
+  webm: 
+  c: 󰙱
+  c++: 󰙲
+  cc: 󰙲
+  cpp: 󰙲
+  cxx: 󰙲
+  h: 
+  css: 
+  ipynb: 
+  docx: 󱎒
+  csv: 
+  xlsx: 󱎏
+  toml: 
+  yaml: 
+  yml: 
+  db: 
+  sql: 
+  sqlite: 
+  sqlite3: 
+  log: 
+  rasi: 
+  service: 
+  timer: 
+  zsh: 󱆃
 filetype:
-  file:  # default
   dir: 
-  symlink-file:   # default
-  symlink-dir:    # default
-  executable:     # default
