@@ -120,6 +120,18 @@ globs = [
 	{ name = "/home/*/.config/**/*rc", text = "", fg = "#7f849c" },
 ]
 
+dirs = [
+	{ name = "Desktop", text = "" },
+	{ name = "Documents", text = "" },
+	{ name = "Downloads", text = "" },
+	{ name = "Music", text = "" },
+	{ name = "Pictures", text = "" },
+	{ name = "Videos", text = "" },
+	{ name = "pCloudDrive", text = "" },
+	{ name = ".config", text = "" },
+	{ name = ".cache", text = "󰃨" },
+]
+
 files = [
 	{ name = ".editorconfig", text = "", fg = "#e3d0cc" },
 	{ name = ".styluaignore", text = "", fg = "#89b4fa" },
