@@ -1,10 +1,11 @@
 name:
-  Downloads:   # doesn't work
-  Music:   # doesn't work
-  Videos:   # doesn't work
+  downloads: 
+  music: 
+  videos: 
+  pictures: 
   README.md:   # doesn't work
-  viminfo: 
   pCloudDrive:   # doesn't work
+  viminfo: 
 
   .editorconfig: 
   .gitignore: 󰊢
