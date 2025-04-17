@@ -46,7 +46,7 @@ export SCRIPTS="$XDG_DATA_HOME/my_scripts"
 ## Default Programs
 export EDITOR="/usr/bin/nvim"
 export AUR_HELPER="/usr/bin/paru"
-export BROWSER="/usr/bin/firefox"
+export BROWSER="/usr/bin/brave"
 
 ################################
 ## Path Environment Variables ##
