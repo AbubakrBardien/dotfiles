@@ -16,12 +16,26 @@ bindkey -e # Emacs keybindings (more beginner friendly than Vim keybindings)
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-source /usr/share/zinit/zinit.zsh
+# Set the directory to store Zinit and Plugins
+if [[ -v $XDG_DATA_HOME ]]; then # "-v" to test if the environment variable is set (Zsh 5.3)
+	ZINIT_HOME=$XDG_DATA_HOME/zinit/zinit.git
+else
+	ZINIT_HOME=$HOME/.local/share/zinit/zinit.git
+fi
+
+# Download Zinit, if it's not downloaded there already
+if [ ! -d "$ZINIT_HOME" ]; then
+	mkdir -p "$(dirname $ZINIT_HOME)"
+	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+
+source "$ZINIT_HOME/zinit.zsh"
+
+# Install and load plugins with Zinit
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-history-substring-search
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
-zinit light marlonrichert/zsh-autocomplete
 zinit light olets/zsh-window-title
 
 # Load zsh-completions, and start the completion system
@@ -38,12 +52,6 @@ source "$ZDOTDIR/onedark-pro.zsh" # Applying a Colorscheme
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
 
-# Configuring "marlonrichert/zsh-autocomplete"
-bindkey "^I" menu-select
-bindkey "$terminfo[kcbt]" menu-select
-zstyle ":autocomplete:*" add-space commands
-zstyle ":autocomplete:*" min-input 6 # Wait for a minimum amount of input (still runs when detecting a space)
-
 # Configuring "olets/zsh-window-title"
 ZSH_WINDOW_TITLE_DIRECTORY_DEPTH=10
 
@@ -51,3 +59,5 @@ eval "$(starship init zsh)"                            # Prompt customization   
 eval "$(batman --export-env)"                          # Colorize man pages         ("~/.config/bat/")
 eval "$(batpipe)"                                      # Colorize the "less" output ("~/.config/bat/") (only works with files)
 eval "$(register-python-argcomplete --shell zsh pipx)" # Configure Tab Completion for pipx
+
+# "setopt", "unsetopt", "bindkey", "autoload", "zstyle" are all Zsh-Specific and therefore NOT POSIX-Compatible

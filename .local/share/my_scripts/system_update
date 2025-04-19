@@ -13,14 +13,8 @@ pipx upgrade-all
 hide_from_menu
 apply_mysql_workbench_theme.sh
 
-source /usr/share/zinit/zinit.zsh
+source "$ZINIT_HOME/zinit.zsh"
+zinit self-update
 zinit update
-
-# orphans=$($AUR_HELPER -Qdtq)
-#
-# if [[ -n "$orphans" ]]; then
-# 	# shellcheck disable=SC2086
-# 	$AUR_HELPER -Rns $orphans
-# fi
 
 # This script is not responsible for updating Neovim
