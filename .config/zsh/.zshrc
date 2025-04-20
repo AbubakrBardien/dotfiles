@@ -38,10 +38,11 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light olets/zsh-window-title
 
-# Load zsh-completions, and start the completion system
-fpath=($XDG_DATA_HOME/zinit/plugins/zsh-users---zsh-completions $fpath)
+# Initialize the completion system after Zinit has loaded the "zsh-completions" plugin
 autoload -Uz compinit
 compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
+
+# Completion Options
 zstyle ":completion:*" menu select                 # Enables menu completion
 zstyle ":completion::complete:*" gain-privileges 1 # Completions for sudo commands
 
