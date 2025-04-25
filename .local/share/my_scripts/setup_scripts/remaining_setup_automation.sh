@@ -100,6 +100,14 @@ ya pack -a $(cat yazi_plugins.txt)
 
 rm {{pacman,aur,flatpak}_packages,yazi_plugins}.txt
 
+# shellcheck disable=SC2162
+read -p "Enter userName: " input
+
+# shellcheck disable=SC2086
+su $userName <<-EOF
+	npm install -g serve
+EOF
+
 echo "export ZDOTDIR=\"\$HOME\"/.config/zsh" >/etc/zsh/zshenv
 
 # shellcheck disable=SC2162

@@ -33,6 +33,7 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export PARALLEL_HOME="$XDG_CONFIG_HOME/parallel"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export W3M_DIR="$XDG_STATE_HOME/w3m"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 
 ##############################
 ## My Environment Variables ##
