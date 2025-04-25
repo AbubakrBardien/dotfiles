@@ -100,6 +100,8 @@ ya pack -a $(cat yazi_plugins.txt)
 
 rm {{pacman,aur,flatpak}_packages,yazi_plugins}.txt
 
+echo "export ZDOTDIR=\"\$HOME\"/.config/zsh" >/etc/zsh/zshenv
+
 # shellcheck disable=SC2162
 read -p "Installed other packages according to your Package Lists... " input
 [[ $input == "q" ]] && exit 0

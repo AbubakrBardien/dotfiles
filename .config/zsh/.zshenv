@@ -7,9 +7,6 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-## Place all other Zsh related config files in this directory. And source the files that have been renamed
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-
 #############################################
 ## Moving Files/Folders based on XDG Specs ##
 #############################################
