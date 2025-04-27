@@ -16,13 +16,6 @@ bindkey -e # Emacs keybindings (more beginner friendly than Vim keybindings)
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-# Set the directory to store Zinit and Plugins
-if [[ -v $XDG_DATA_HOME ]]; then # "-v" to test if the environment variable is set (Zsh 5.3)
-	ZINIT_HOME=$XDG_DATA_HOME/zinit/zinit.git
-else
-	ZINIT_HOME=$HOME/.local/share/zinit/zinit.git
-fi
-
 # Download Zinit, if it's not downloaded there already
 if [ ! -d "$ZINIT_HOME" ]; then
 	mkdir -p "$(dirname $ZINIT_HOME)"

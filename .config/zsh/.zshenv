@@ -35,9 +35,15 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export W3M_DIR="$XDG_STATE_HOME/w3m"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 
-##############################
-## My Environment Variables ##
-##############################
+###########
+## Zinit ##
+###########
+
+ZINIT_HOME=$XDG_DATA_HOME/zinit/zinit.git # Set the directory to store Zinit and Plugins
+
+####################################
+## My Other Environment Variables ##
+####################################
 
 export SCRIPTS="$XDG_DATA_HOME/my_scripts"
 
