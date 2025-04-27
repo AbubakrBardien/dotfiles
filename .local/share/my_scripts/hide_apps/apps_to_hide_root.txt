@@ -3,13 +3,9 @@ bssh
 bvnc
 cmake-gui
 echomixer
-electron30
-electron31
-electron32
-electron33
 electron34
+electron35
 envy24control
-fish
 foot-server
 footclient
 hdajackretask
@@ -17,11 +13,9 @@ hdspconf
 hdspmixer
 hwmixvolume
 ipython
-links
 org.pwmt.zathura
 qv4l2
 qvidcap
 rofi
 rofi-theme-selector
-torbrowser-settings
 xdvi
