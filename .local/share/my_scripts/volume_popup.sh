@@ -17,12 +17,12 @@ up)
 	if [ "$volume" -lt 100 ]; then
 		wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 	fi
-	popup "volume-$1.png"
+	popup "volume_$1.png"
 	;;
 down)
 	wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 # unmute if muted
 	wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-	popup "volume-$1.png"
+	popup "volume_$1.png"
 	;;
 mute)
 	wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle

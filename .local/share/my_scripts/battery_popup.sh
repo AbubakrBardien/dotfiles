@@ -28,6 +28,6 @@ if [ "$battery_level" -eq 100 ] && [ "$battery_charging" -eq 1 ] && [ ! -f $FULL
 
 # If the battery is low and is not charging (and has not shown notification yet)
 elif [ "$battery_level" -le $warning_level ] && [ "$battery_charging" -eq 0 ] && [ ! -f $EMPTY_FILE ]; then
-	dunstify -a "battery_popup" -u critical "Battery  Low  ($warning_level%)" -i "$HOME/.config/dunst/icons/battery_low.png"
+	dunstify -a "battery_popup" -u critical "Battery  Low  ($battery_level%)" -i "$HOME/.config/dunst/icons/battery_low.png"
 	touch $EMPTY_FILE
 fi
