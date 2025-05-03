@@ -15,13 +15,13 @@ case $1 in
 up)
 	wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 # unmute if muted
 	if [ "$volume" -lt 100 ]; then
-		wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+		wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+
 	fi
 	popup "volume_$1.png"
 	;;
 down)
 	wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 # unmute if muted
-	wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+	wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-
 	popup "volume_$1.png"
 	;;
 mute)
