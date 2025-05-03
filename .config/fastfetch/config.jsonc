@@ -3,106 +3,100 @@
   "modules": [
     "title",
     {
-      "type": "custom", // HardwareStart
-      // {#1} is equivalent to `\u001b[1m`. {#} is equivalent to `\u001b[m`
-      "format": "┌──────────────────── {#1}Hardware{#} ────────────────────┐"
+      "type": "colors",
+      "symbol": "square"
     },
     "break",
     {
-      "type": "host",
-      "key": " Machine"
+      "type": "custom", // Hardware
+      // "format": "┌──────────────────── {#1}Hardware{#} ────────────────────┐"
+      "format": "──────────────────── {#1}Hardware{#} ────────────────────"
     },
     {
-      "type": "display",
-      "key": " Display"
+      "key": "Machine",
+      "type": "host"
     },
     {
-      "type": "cpu",
-      "key": " CPU"
+      "key": "Display",
+      "type": "display"
     },
     {
-      "type": "gpu",
-      "key": " GPU"
+      "key": "CPU",
+      "type": "cpu"
     },
     {
-      "type": "memory",
-      "key": " RAM"
+      "key": "GPU",
+      "type": "gpu"
     },
     {
-      "type": "swap",
-      "key": " Swap Memory"
+      "key": "RAM",
+      "type": "memory"
     },
     {
-      "type": "disk",
-      "key": " Storage"
+      "key": "Swap Memory",
+      "type": "swap"
     },
     {
-      "type": "battery",
-      "key": " Battery"
+      "key": "Storage",
+      "type": "disk"
     },
     {
-      "type": "poweradapter",
-      "key": " power Adapter"
+      "key": "Battery",
+      "type": "battery"
+    },
+    {
+      "key": "power Adapter",
+      "type": "poweradapter"
     },
     "break",
     {
-      "type": "custom", // SoftwareStart
-      "format": "├──────────────────── {#1}Software{#} ────────────────────┤"
-    },
-    "break", 
-    {
-      "type": "os",
-      "key": " OS"
+      "type": "custom", // Software
+      // "format": "├──────────────────── {#1}Software{#} ────────────────────┤"
+      "format": "──────────────────── {#1}Software{#} ────────────────────"
     },
     {
-      "key": " Kernel",
+      "key": "OS",
+      "type": "os"
+    },
+    {
+      "key": "Kernel",
       "type": "command",
       "shell": "/usr/bin/bash",
       "text": "pacman -Q linux | awk '{print $2}'"
     },
     {
-      "key": " Packages",
+      "key": "Packages",
       "type": "command",
       "shell": "/usr/bin/bash",
       "text": "count_packages"
     },
     {
-      "type": "shell",
-      "key": " Shell"
+      "key": "Shell",
+      "type": "shell"
     },
     {
-      "type": "wm",
-      "key": " Window Manager"
+      "key": "Window Manager",
+      "type": "wm"
     },
     {
-      "type": "theme",
-      "key": " Theme"
+      "key": "Theme",
+      "type": "theme"
     },
     {
-      "type": "icons",
-      "key": " Icon Theme"
+      "key": "Icon Theme",
+      "type": "icons"
     },
     {
-      "type": "font",
-      "key": " Font"
+      "key": "Font",
+      "type": "font"
     },
     {
-      "type": "terminal",
-      "key": " Terminal"
+      "key": "Terminal",
+      "type": "terminal"
     },
     {
-      "type": "terminalfont",
-      "key": " Terminal Font"
-    },
-    "break",
-    {
-      "type": "custom", // InformationEnd
-      "format": "└──────────────────────────────────────────────────┘"
-    },
-    {
-      "type": "colors",
-      "paddingLeft": 1,
-      "symbol": "square"
+      "key": "Terminal Font",
+      "type": "terminalfont"
     }
   ]
 }
