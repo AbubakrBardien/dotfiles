@@ -10,11 +10,7 @@
     {
       "type": "custom", // Hardware
       // "format": "┌──────────────────── {#1}Hardware{#} ────────────────────┐"
-      "format": "──────────────────── {#1}Hardware{#} ────────────────────"
-    },
-    {
-      "key": "Machine",
-      "type": "host"
+      "format": "─────────────────── {#1}Hardware{#} ───────────────────"
     },
     {
       "key": "Display",
@@ -22,11 +18,17 @@
     },
     {
       "key": "CPU",
-      "type": "cpu"
+      "type": "cpu",
+      "format": "{name}",
+    },
+    {
+      "key": "Cores",
+      "type": "cpu",
+      "format": "{cores-physical} Physical, {cores-logical} Logical @ {freq-max}",
     },
     {
       "key": "GPU",
-      "type": "gpu"
+      "type": "gpu",
     },
     {
       "key": "RAM",
@@ -52,18 +54,18 @@
     {
       "type": "custom", // Software
       // "format": "├──────────────────── {#1}Software{#} ────────────────────┤"
-      "format": "──────────────────── {#1}Software{#} ────────────────────"
+      "format": "─────────────────── {#1}Software{#} ───────────────────"
     },
     {
       "key": "OS",
-      "type": "os"
+      "type": "os",
+	  "format": "{name}"
     },
-    {
-      "key": "Kernel",
-      "type": "command",
-      "shell": "/usr/bin/bash",
-      "text": "pacman -Q linux | awk '{print $2}'"
-    },
+	{
+	  "key": "Bootloader",
+	  "type": "bootmgr",
+	  "format": "{name}"
+	},
     {
       "key": "Packages",
       "type": "command",
@@ -72,14 +74,21 @@
     },
     {
       "key": "Shell",
-      "type": "shell"
+      "type": "shell",
+	  "format": "{process-name}"
+    },
+	{
+      "key": "Login Manager",
+      "type": "lm",
+	  "format": "{service} ({type})"
+	},
+    {
+      "key": "WM & Compositor",
+      "type": "wm",
+	  "format": "{process-name} ({protocol-name})",
     },
     {
-      "key": "Window Manager",
-      "type": "wm"
-    },
-    {
-      "key": "Theme",
+      "key": "GUI Theme",
       "type": "theme"
     },
     {
@@ -87,16 +96,18 @@
       "type": "icons"
     },
     {
-      "key": "Font",
-      "type": "font"
+      "key": "GUI Font",
+      "type": "font",
     },
     {
       "key": "Terminal",
-      "type": "terminal"
+      "type": "terminal",
+	  "format": "{process-name}"
     },
     {
       "key": "Terminal Font",
-      "type": "terminalfont"
+      "type": "terminalfont",
+	  "format": "{name}",
     }
   ]
 }
