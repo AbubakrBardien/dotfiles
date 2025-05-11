@@ -33,3 +33,6 @@ alias web_search="surfraw"
 alias gs="git status"
 alias bm="bat -l man --style=plain" # Example usage: "paru --help | bm"
 alias xdg-ninja="xdg-ninja --skip-unsupported"
+
+# For XDG Base Directory Compliance
+alias mysql-workbench="mysql-workbench --configdir=\"$XDG_DATA_HOME/mysql/workbench\""
