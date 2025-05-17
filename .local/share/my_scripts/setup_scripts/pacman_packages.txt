@@ -16,6 +16,7 @@ clang
 cmatrix
 cowsay
 deno
+dosfstools
 duf
 dunst
 dust
@@ -25,7 +26,6 @@ fastfetch
 fd
 ffmpegthumbnailer
 figlet
-firefox
 flatpak
 foot
 gdb
@@ -46,7 +46,10 @@ hyprland
 hyprlock
 hyprpicker
 intel-ucode
+jp2a
+jq
 jupyter-notebook
+kvantum
 ldns
 lib32-nvidia-utils
 lib32-pipewire
@@ -91,7 +94,6 @@ python-wheel
 qalculate-gtk
 qbittorrent
 qt5-wayland
-qt6-wayland
 ripgrep
 rofi-wayland
 rsync
