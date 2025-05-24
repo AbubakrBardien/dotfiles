@@ -6,6 +6,14 @@ alias tree="ls --tree"
 
 alias grep="grep --color=auto"
 
+alias gs="git status"
+alias gss="git status --short"
+
+alias gl="git log"
+alias glg="git log --graph"
+alias glo="git log --oneline"
+alias glgo="git log --graph --oneline"
+
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias cdiff="config diff"
 alias status="config status"
@@ -28,7 +36,6 @@ alias ping="gping"
 alias web-search="surfraw"
 alias delta="delta --side-by-side --syntax-theme=none"
 
-alias gs="git status"
 alias bm="bat -l help --style=plain" # Example usage: "paru --help | bm"
 alias xdg-ninja="xdg-ninja --skip-unsupported"
 
