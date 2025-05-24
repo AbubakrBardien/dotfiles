@@ -65,3 +65,4 @@ export PATH=$(echo $addPath | tr ' ' ':')
 ###########
 
 export TRASHDIR="$XDG_DATA_HOME/Trash"
+export QT_STYLE_OVERRIDE="kvantum"
