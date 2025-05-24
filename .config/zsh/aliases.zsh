@@ -5,7 +5,6 @@ alias lla="ls -Al"
 alias tree="ls --tree"
 
 alias grep="grep --color=auto"
-alias diff="diff --color=auto"
 
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias cdiff="config diff"
@@ -27,6 +26,7 @@ alias cat="bat"
 alias pipes="pipes.sh"
 alias ping="gping"
 alias web-search="surfraw"
+alias delta="delta --side-by-side --syntax-theme=none"
 
 alias gs="git status"
 alias bm="bat -l help --style=plain" # Example usage: "paru --help | bm"
