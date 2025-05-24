@@ -1,5 +1,5 @@
-source "$ZDOTDIR/aliases.zsh"
 source "$ZDOTDIR/functions.zsh"
+source "$ZDOTDIR/aliases.zsh"
 
 ### History ###
 HISTSIZE=100000
