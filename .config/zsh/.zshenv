@@ -46,6 +46,7 @@ ZINIT_HOME=$XDG_DATA_HOME/zinit/zinit.git # Set the directory to store Zinit and
 ####################################
 
 export SCRIPTS="$XDG_DATA_HOME/my_scripts"
+export MASON_PKGS="$XDG_DATA_HOME/nvim/mason/bin"
 
 ## Default Programs
 export EDITOR="/usr/bin/nvim"
