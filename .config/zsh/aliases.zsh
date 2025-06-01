@@ -9,6 +9,7 @@ alias grep="grep --color=auto"
 alias gs="git status"
 alias gss="git status --short"
 alias gd="git diff"
+alias ga="git add"
 alias gc="git commit -m"
 
 alias gl="git log"
