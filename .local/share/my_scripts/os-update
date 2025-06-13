@@ -6,7 +6,7 @@ paru --clean
 flatpak update
 flatpak uninstall --unused
 
-ya pack -u
+ya pkg upgrade
 npm update -g
 pipx upgrade-all
 

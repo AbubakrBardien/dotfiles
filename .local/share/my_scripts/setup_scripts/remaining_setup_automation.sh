@@ -96,7 +96,7 @@ paru -S --noconfirm --needed $(cat aur_packages.txt)
 flatpak install --assumeyes $(cat flatpak_packages.txt)
 
 # shellcheck disable=SC2046
-ya pack -a $(cat yazi_plugins.txt)
+ya pkg add $(cat yazi_plugins.txt)
 
 rm {{pacman,aur,flatpak}_packages,yazi_plugins}.txt
 

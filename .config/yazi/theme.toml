@@ -1,6 +1,6 @@
 # My own theme based on "onedark.yazi" (https://github.com/BennyOe/onedark.yazi)
 
-[manager]
+[mgr]
 cwd = { fg = "#71B0E8" }
 
 # Hovered
