@@ -12,6 +12,7 @@ breeze-gtk
 cava
 chafa
 choose
+chromium
 clang
 cmatrix
 cowsay
@@ -30,6 +31,7 @@ flatpak
 foot
 gdb
 git
+git-delta
 git-filter-repo
 glow
 gnome-keyring
@@ -45,6 +47,7 @@ hypridle
 hyprland
 hyprlock
 hyprpicker
+hyprshot
 intel-ucode
 jp2a
 jq
@@ -70,6 +73,7 @@ mysql-workbench
 nemo
 neovim
 networkmanager
+nm-connection-editor
 noto-fonts-emoji
 npm
 ntfs-3g
@@ -97,6 +101,7 @@ qt5-wayland
 ripgrep
 rofi-wayland
 rsync
+sbctl
 scons
 sddm
 sl
@@ -112,6 +117,7 @@ texlive-latex
 texlive-latexrecommended
 thunderbird
 timeshift
+tokei
 trash-cli
 ttf-jetbrains-mono-nerd
 udiskie

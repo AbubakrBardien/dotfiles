@@ -4,7 +4,6 @@ brave-bin
 brillo
 cbonsai
 gotop-bin
-hyprshot
 mkinitcpio-firmware
 mkinitcpio-numlock
 onlyoffice-bin
