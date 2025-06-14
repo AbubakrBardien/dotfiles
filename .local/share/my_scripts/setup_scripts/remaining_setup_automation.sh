@@ -30,6 +30,19 @@ grub-mkconfig -o /boot/grub/grub.cfg
 read -p "Downloaded and Configured Grub Theme... " input
 [[ $input == "q" ]] && exit 0
 
+###########################
+## Configure Secure Boot ##
+###########################
+
+sbctl create-keys
+sbctl enroll-keys -m
+sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=Grub --modules="tpm" --disable-shim-lock
+sudo sbctl sign --save /boot/EFI/Grub/grubx64.efi
+sudo sbctl sign --save /boot/vmlinuz-linux
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+# Remember to then enable Secure Boot in your Firmware Settings
+
 ######################
 ## Configure Pacman ##
 ######################

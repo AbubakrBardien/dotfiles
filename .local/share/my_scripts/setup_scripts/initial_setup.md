@@ -43,7 +43,7 @@
         - `<username_password>` (enter twice for confirmation)
     - Edit the `/etc/sudoers` file, by uncommenting `%wheel ALL=(ALL:ALL) ALL`
     - Configure Grub
-        - `grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id="Arch Linux"`
+        - `grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=Grub`
         - `grub-mkconfig -o /boot/grub/grub.cfg`
     - Configure SDDM and make it launch Hyprland as it's compositor
         - `pacman -S sddm hyprland kitty` (Installing Kitty **only** because it's the default terminal that Hyprland looks for)
