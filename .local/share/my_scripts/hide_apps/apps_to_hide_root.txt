@@ -5,6 +5,7 @@ cmake-gui
 echomixer
 electron34
 electron35
+electron36
 envy24control
 foot-server
 footclient
