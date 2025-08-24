@@ -1,0 +1,26 @@
+[character]
+success_symbol = "[](green)"
+error_symbol = "[](red)"
+
+#### File Types ####
+[python]
+symbol = " "
+style = "bold #71B0E8"
+
+[lua]
+symbol = " "
+style = "bold #89b4fa"
+####################
+
+[git_branch]
+symbol = " "
+style = "bold yellow"
+
+[git_status]
+disabled = true
+
+[cmd_duration]
+disabled = true
+
+[directory]
+truncation_length = 0

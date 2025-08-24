@@ -1,0 +1,5 @@
+[Unit]
+Description=Notify the user to update the system and Neovim
+
+[Service]
+ExecStart=/home/abubakr/.local/share/my_scripts/update_reminder.sh

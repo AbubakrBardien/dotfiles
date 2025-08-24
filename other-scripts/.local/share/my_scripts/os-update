@@ -1,0 +1,20 @@
+#!/usr/bin/zsh
+
+$AUR_HELPER -Syu
+paru --clean
+
+flatpak update
+flatpak uninstall --unused
+
+ya pkg upgrade
+npm update -g
+pipx upgrade-all
+
+hide_from_menu
+apply_mysql_workbench_theme.sh
+
+source "$ZINIT_HOME/zinit.zsh"
+zinit self-update
+zinit update
+
+# This script is not responsible for updating Neovim

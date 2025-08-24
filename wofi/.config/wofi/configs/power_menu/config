@@ -1,0 +1,9 @@
+mode = dmenu
+
+hide_search = true
+hide_scroll = true
+
+width = 20%
+height = 118px
+
+columns = 2

@@ -1,0 +1,52 @@
+name:
+  downloads: 
+  music: 
+  videos: 
+  pictures: 
+  README.md:   # doesn't work
+  pCloudDrive:   # doesn't work
+  viminfo: 
+
+  .editorconfig: 
+  .gitignore: 󰊢
+  .pki: 
+  .mozilla: 
+  .styluaignore: 
+  .zshenv: 󱆃
+
+extension:
+  avi: 
+  mkv: 
+  mp4: 
+  webm: 
+
+  c: 󰙱
+  c++: 󰙲
+  cc: 󰙲
+  cpp: 󰙲
+  cxx: 󰙲
+  h: 
+
+  docx: 󱎒
+  csv: 
+  xlsx: 󱎏
+
+  db: 
+  sql: 
+  sqlite: 
+  sqlite3: 
+
+  service: 
+  timer: 
+
+  css: 
+  ipynb: 
+  toml: 
+  yaml: 
+  yml: 
+  log: 
+  rasi: 
+  zsh: 󱆃
+
+filetype:
+  dir: 

@@ -1,0 +1,18 @@
+@import ".config/wofi/configs/main.css";
+@import ".config/wofi/configs/common_border.css";
+
+#input {
+    margin: -100px; /* To hide the search bar */
+}
+
+#entry {
+    padding: .45em;
+}
+
+#entry:selected {
+    background: linear-gradient(90deg, #53fcb9, #56d3fc);
+}
+
+#text:selected {
+    color: #1e2030; /* Catppuccin - Machiato - Mantle */
+}

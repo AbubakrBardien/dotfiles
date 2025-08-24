@@ -1,0 +1,98 @@
+@theme "colors.rasi"
+@import "font.rasi"
+
+configuration {
+	modes: "window,drun,combi";
+    yoffset: -150;
+
+    fixed-num-lines: true;
+	show-icons: true;
+
+    display-drun: "";
+    //display-window: " WS";
+    // display-combi: " ";
+
+    window {
+        hide-active-window: true;
+    }
+}
+
+window {
+  location: center;
+  anchor: south;
+  width: 40%;
+
+  background-color: @cBackground;
+  text-color: @cText;
+
+  border: 1px;
+  border-color: @cBorder;
+}
+
+
+case-indicator {
+  background-color: @cInputBar;
+  text-color: @cText;
+}
+
+prompt {
+  background-color: @cInputBar;
+  text-color: @cText;
+  padding: 5px 18px 5px 12px; // top right bottom left
+}
+
+num-rows {
+  background-color: @cInputBar;
+  text-color: @cText;
+  padding: 5px 10px 5px 0;
+}
+
+inputbar {
+  background-color: @cInputBar;
+  text-color: @cText;
+  children: [
+    prompt, 
+    entry, 
+    case-indicator, 
+    num-rows
+  ];
+}
+
+entry {
+  placeholder: "";
+  padding: 5px 0 5px 0;
+  valign: center;
+
+  background-color: @cInputBar;
+  text-color: @cText;
+}
+
+mainbox {
+  background-color: @cInputBar;
+}
+
+listview {
+  scrollbar: false; 
+  lines: 8;   //-------------------- Important ----------------
+  cycle: false;
+
+  background-color: @cBackground;
+  text-color: @cText;
+}
+
+element, element-text {
+  background-color: @cBackground;
+  text-color: @cText;
+}
+
+element-icon {
+  background-color: @cBackground;
+  size: 1.5em;
+  padding: 0 2px 0 5px;
+}
+
+
+element.selected, element-text.selected, element-icon.selected {
+  background-color: @cSelectedBackground;
+  text-color: @cSelectedText;
+}

@@ -1,0 +1,113 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "modules": [
+    "title",
+    {
+      "type": "colors",
+      "symbol": "square"
+    },
+    "break",
+    {
+      "type": "custom", // Hardware
+      // "format": "┌──────────────────── {#1}Hardware{#} ────────────────────┐"
+      "format": "─────────────────── {#1}Hardware{#} ───────────────────"
+    },
+    {
+      "key": "Display",
+      "type": "display"
+    },
+    {
+      "key": "CPU",
+      "type": "cpu",
+      "format": "{name}",
+    },
+    {
+      "key": "Cores",
+      "type": "cpu",
+      "format": "{cores-physical} Physical, {cores-logical} Logical @ {freq-max}",
+    },
+    {
+      "key": "GPU",
+      "type": "gpu",
+    },
+    {
+      "key": "RAM",
+      "type": "memory"
+    },
+    {
+      "key": "Swap Memory",
+      "type": "swap"
+    },
+    {
+      "key": "Storage",
+      "type": "disk"
+    },
+    {
+      "key": "Battery",
+      "type": "battery"
+    },
+    {
+      "key": "power Adapter",
+      "type": "poweradapter"
+    },
+    "break",
+    {
+      "type": "custom", // Software
+      // "format": "├──────────────────── {#1}Software{#} ────────────────────┤"
+      "format": "─────────────────── {#1}Software{#} ───────────────────"
+    },
+    {
+      "key": "OS",
+      "type": "os",
+	  "format": "{name}"
+    },
+	{
+	  "key": "Bootloader",
+	  "type": "bootmgr",
+	  "format": "{name}"
+	},
+    {
+      "key": "Packages",
+      "type": "command",
+      "shell": "/usr/bin/bash",
+      "text": "count_packages"
+    },
+    {
+      "key": "Shell",
+      "type": "shell",
+	  "format": "{process-name}"
+    },
+	{
+      "key": "Login Manager",
+      "type": "lm",
+	  "format": "{service} ({type})"
+	},
+    {
+      "key": "WM & Compositor",
+      "type": "wm",
+	  "format": "{process-name} ({protocol-name})",
+    },
+    {
+      "key": "GUI Theme",
+      "type": "theme"
+    },
+    {
+      "key": "Icon Theme",
+      "type": "icons"
+    },
+    {
+      "key": "GUI Font",
+      "type": "font",
+    },
+    {
+      "key": "Terminal",
+      "type": "terminal",
+	  "format": "{process-name}"
+    },
+    {
+      "key": "Terminal Font",
+      "type": "terminalfont",
+	  "format": "{name}",
+    }
+  ]
+}

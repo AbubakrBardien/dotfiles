@@ -1,0 +1,60 @@
+- Connect to the internet
+- Update the system clock
+    - `timedatectl` to ensure the system clock is synchronized (for the Arch Live Environment)
+    - `timedatectl set-ntp true` to enable NTP
+- Partition the disk
+    - `lsblk` to identify your block devices and how they are labeled (e.g. 'sda' or 'nvme')
+    - Use `cfdisk` to partition your disk
+        - 1G Boot partition (set the Type to 'EFI System')
+        - Partition the rest of the disk for your 'Linux Filesystem'
+- Format the partitions
+    - `mkfs.fat -F 32 <boot_partition>`
+    - `mkfs.ext4 <root_partition>`
+- Mount the file systems
+    - `mount <root_partition> /mnt`
+    - `mount --mkdir <boot_partition> /mnt/boot`
+- Install Base Packages
+    - `pacstrap -K /mnt base{,-devel} linux{,-firmware} grub efibootmgr vim git networkmanager bluez{,-utils}` and install `intel-ucode` if you're using an Intel CPU, or `amd-ucode` if you're using an AMD CPU
+- Configure the system
+    - `genfstab -U /mnt >>/mnt/etc/fstab`
+    - `arch-chroot /mnt`
+    - Create Swapfile
+        - Figure out the size of your RAM in Mebibytes (MiB). Hint: If you have 8GB of RAM, convert 8 Gibibytes (GiB) to Mebibytes (MiB)
+        - `dd if=/dev/zero of=/swapfile bs=1M count=<RAM_size_MiB>`
+        - `chmod 600 /swapfile`
+        - `mkswap /swapfile`
+        - `swapon /swapfile`
+    - Set Date and Time
+        - `ln -sf "/usr/share/zoneinfo/Africa/Johannesburg" /etc/localtime` (assuming you're using South Africa Time-Zone)
+        - `hwclock --systohc`
+        - `timedatectl` to check if the time is correct
+        - `timedatectl set-ntp true` to enable NTP
+    - Localization
+        - Edit `/etc/locale.gen` and uncomment `en_US.UTF-8 UTF-8`
+        - `locale-gen` to generate the locales
+        - `echo "LANG=$chosen_locale" >/etc/locale.conf`
+    - Set the Hostname
+        - `echo "arch-linux" >/etc/hostname`
+    - Set Root Passowrd and User Password
+        - `passwd`
+        - `<root_password>` (enter twice for confirmation)
+        - `useradd -m -g users -G wheel,storage,power,video,audio -s /bin/bash <username>`
+        - `passwd <username>`
+        - `<username_password>` (enter twice for confirmation)
+    - Edit the `/etc/sudoers` file, by uncommenting `%wheel ALL=(ALL:ALL) ALL`
+    - Configure Grub
+        - `grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=Grub`
+        - `grub-mkconfig -o /boot/grub/grub.cfg`
+    - Configure SDDM and make it launch Hyprland as it's compositor
+        - `pacman -S sddm hyprland kitty` (Installing Kitty **only** because it's the default terminal that Hyprland looks for)
+        - `mkdir /etc/sddm.conf.d`
+	    - `cp /usr/lib/sddm/sddm.conf.d/default.conf /etc/sddm.conf.d/sddm.conf`
+        - In `/etc/sddm.conf.d/sddm.conf` change:
+            - `DisplayServer=x11` to `DisplayServer=x11-user`
+            - `CompositorCommand=weston --shell=kiosk` to `CompositorCommand=Hyprland`
+    - Enable Backagound Services
+        - `pacman -S ufw`
+        - `systemctl enable NetworkManager bluetooth paccache.timer sddm ufw`
+    - `exit`
+- `umount /mnt/boot /mnt`
+- `reboot`

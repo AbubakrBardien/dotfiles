@@ -1,0 +1,9 @@
+mode=dmenu
+
+insensitive=true
+prompt=Wi-Fi
+
+location=bottom_right
+
+width=300px
+height=25%

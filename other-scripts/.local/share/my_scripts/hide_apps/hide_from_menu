@@ -1,0 +1,44 @@
+#!/bin/bash
+
+apps_to_hide=()
+
+populate_arr() {
+	apps_to_hide=()
+	file_name=$1
+	while IFS= read -r line; do
+		apps_to_hide+=("$line")
+	done <"$file_name"
+}
+
+hide_function() {
+	for app in "$@"; do
+		file="${app}.desktop"
+		# If file exists
+		if [ -e "$file" ]; then
+			if [[ $(tail -1 "$file") != "Hidden=true" ]]; then
+				# Appends to the file, with sudo permissions
+				echo -e "\nHidden=true" | sudo tee -a "$file" >/dev/null
+			fi
+		fi
+	done
+}
+
+# shellcheck disable=SC2164
+cd "$SCRIPTS/hide_apps/"
+
+populate_arr apps_to_hide_root.txt
+
+# shellcheck disable=SC2164
+cd /usr/share/applications/
+
+hide_function "${apps_to_hide[@]}"
+
+# shellcheck disable=SC2164
+cd "$SCRIPTS/hide_apps/"
+
+populate_arr apps_to_hide_local.txt
+
+# shellcheck disable=SC2164
+cd "$XDG_DATA_HOME/applications/"
+
+hide_function "${apps_to_hide[@]}"

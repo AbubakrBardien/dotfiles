@@ -1,0 +1,10 @@
+mode=drun
+allow_images=true
+
+width=40%
+height=355px # To get 8 results at a time
+
+sort_order=alphabetical
+hide_scroll=true
+
+prompt=Applications

@@ -1,0 +1,113 @@
+{
+    "position": "bottom",
+  
+    // --------------------- Module Sections ----------------------
+    //"modules-left": ["custom/power", "network", "custom/screenshot", "tray"],
+    //"modules-center": ["hyprland/workspaces"],
+    //"modules-right": ["custom/dunst", "wireplumber", "clock"],
+    "modules-left": ["hyprland/workspaces"],
+    "modules-right": ["tray", "wireplumber", "network", "battery", "clock"],
+    // ------------------------------------------------------------
+
+    // --------------------- Built-in Modules ---------------------
+  
+    "tray": {
+        "icon-size": 18,
+        "spacing": 5
+    },
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "urgent": "!"
+        },
+        "sort-by-number": true
+    },
+
+    "wireplumber": {
+        "format": "{icon}{volume}%",
+        "max-volume": 100,
+        "format-muted": "",
+        "format-icons": [
+            " ",
+            " ",
+            " "
+        ],
+        "on-click": "volume_popup.sh mute waybar",
+        "on-click-right": "pavucontrol",
+        "tooltip": false
+    },
+
+    "network": {
+        "format-wifi": "{icon}{signalStrength}%",
+        "format-disconnected": "󰤮",
+        "format-icons": [
+            "󰤟 ",
+            "󰤢 ",
+            "󰤥 ",
+            "󰤨 "
+        ],
+        "tooltip-format": "{essid}",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click": "$HOME/.config/wofi/scripts/wifiMenu.sh"
+    },
+
+    "clock": {
+        "format": " {:%H:%M}",
+        "format-alt": " {:%d/%b/%Y}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "weeks-pos": "left",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            // "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+	"battery": {
+		"states": {
+		    "warning": 20,
+		    "critical": 10,
+		},
+		"format": "{icon} {capacity}%",
+		"format-charging": "{icon}󱐋 {capacity}%",
+		"format-time": "{H}h {M}min",
+		"format-icons": ["󰁻", "󰁽", "󰁿", "󰂁", "󰁹"],
+	},
+    // ------------------------------------------------------------
+
+    // -------------------- My Custom Modules --------------------
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "$HOME/.config/wofi/scripts/powerMenu.sh"
+    },
+    
+    //"custom/dunst": { // notifications
+    //  "exec": 
+    //}
+
+    "custom/screenshot": {
+       "format": "󰹑",
+       "tooltip": false,
+       "on-click": "$HOME/.config/wofi/scripts/screenshot.sh"
+    }
+
+    // -----------------------------------------------------------
+}
+
+// No battery module because my PC doesn't have a battery

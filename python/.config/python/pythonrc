@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+
+def is_vanilla() -> bool:
+	""" :return: whether running "vanilla" Python """
+	import sys
+	return not hasattr(__builtins__, '__IPYTHON__') and 'bpython' not in sys.argv[0]
+
+
+def setup_history():
+	""" read and write history from state file """
+	import os
+	import atexit
+	import readline
+	from pathlib import Path
+
+	# https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html#variables
+	if data_home := os.environ.get('XDG_DATA_HOME'):
+		data_home = Path(data_home)
+	else:
+		data_home = Path.home() / '.local' / 'share'
+
+	history: Path = data_home / 'python' / 'history'
+
+	# Ensure the directory exists
+	history.parent.mkdir(parents=True, exist_ok=True)
+
+	# Ensure the history file exists
+	if not history.exists():
+		history.touch() # Create an empty file
+
+	readline.read_history_file(str(history))
+	atexit.register(readline.write_history_file, str(history))
+
+
+if is_vanilla():
+	setup_history()

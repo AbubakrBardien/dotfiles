@@ -1,0 +1,14 @@
+@import ".config/wofi/configs/main.css";
+@import ".config/wofi/configs/common_border.css";
+
+window {
+    font-size: 40px;
+}
+
+#input {
+    margin: -100px; /* To hide the search bar */
+}
+
+#entry {
+    padding: 0 0 0 .5em; /* left padding */
+}

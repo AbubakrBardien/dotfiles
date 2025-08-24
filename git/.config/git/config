@@ -1,0 +1,24 @@
+[init]
+	defaultBranch = main
+
+[user]
+	name = AbubakrBardien
+	email = abubakrbardien@gmail.com
+
+[credential]
+	helper = store
+
+[core]
+	pager = delta
+	whitespace = error
+
+[delta]
+	navigate = true
+	side-by-side = true
+	syntax-theme = none
+
+[interactive]
+	singlekey = true
+
+[merge]
+    conflictstyle = zdiff3
