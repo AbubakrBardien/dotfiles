@@ -1,6 +1,7 @@
 #!/usr/bin/zsh
 
 $AUR_HELPER -Syu
+pacman -Qtdq | pacman -Rns -
 paru --clean
 
 flatpak update
