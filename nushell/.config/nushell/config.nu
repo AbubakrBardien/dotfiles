@@ -1,0 +1,25 @@
+$env.config.buffer_editor = "nvim" # To use Neovim as the default editor
+
+### History ###
+$env.config.history.file_format = "sqlite"
+$env.config.history.max_size = 5_000_000
+$env.config.history.isolation = true      # New history session is created for each new shell session
+
+### Miscellaneous Settings ###
+$env.config.show_banner = false           # No 'Welcome' banner at startup
+$env.config.rm.always_trash = true        # Move to Recycle Bin by default
+
+### Terminal Integration ###
+$env.config.use_kitty_protocol = true     # Additional keybindings are available when using this protocol in a supported terminal
+$env.config.shell_integration.osc2 = true # When true, the current directory and running command are shown in the terminal tab/window title.
+
+## Table Display ###
+$env.config.table.mode = "single"
+$env.config.table.show_empty = false      # Don't show an empty table
+
+# Start Starship Prompt
+mkdir ($nu.data-dir | path join "vendor/autoload")
+starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+
+# ToDo: Configure Tab Completion for pipx
+#$env.MANPAGER = 'sh -c "col -bx | bat -l man -p"' # Colorize man pages
