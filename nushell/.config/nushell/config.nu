@@ -17,6 +17,17 @@ $env.config.shell_integration.osc2 = true # When true, the current directory and
 $env.config.table.mode = "single"
 $env.config.table.show_empty = false      # Don't show an empty table
 
+## Yazi Wrapper ##
+def --env yy [...args] {
+	let tmp = (mktemp -t "yazi-cwd.XXXXXX")
+	yazi ...$args --cwd-file $tmp
+	let cwd = (open $tmp)
+	if $cwd != "" and $cwd != $env.PWD {
+		cd $cwd
+	}
+	rm -fp $tmp
+}
+
 # Start Starship Prompt
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
