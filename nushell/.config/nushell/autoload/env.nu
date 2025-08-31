@@ -39,20 +39,15 @@ $env.GNUPGHOME =             $"($env.XDG_DATA_HOME)/gnupg"
 ## My Other Environment Variables ##
 ####################################
 
-$env.SCRIPTS =    $"($env.XDG_DATA_HOME)/my_scripts"
 $env.MASON_PKGS = $"($env.XDG_DATA_HOME)/nvim/mason/bin"
-
-## Default Programs
-$env.EDITOR = "nvim"
-$env.AUR_HELPER = "paru"
-$env.BROWSER = "brave"
-
-###########
-## Other ##
-###########
-
 $env.TRASHDIR = $"($env.XDG_DATA_HOME)/Trash"
-$env.QT_STYLE_OVERRIDE = "kvantum"
+
+##########################
+## CLI Default Programs ##
+##########################
+
+$env.EDITOR =     "nvim"
+$env.AUR_HELPER = "paru"
 
 ################################
 ## Path Environment Variables ##
@@ -61,8 +56,6 @@ $env.QT_STYLE_OVERRIDE = "kvantum"
 $env.Path = ($env.Path | append [
 	$"($env.CARGO_HOME)/bin"
 	$"($env.XDG_DATA_HOME)/npm/bin"
-	$env.SCRIPTS
 	$"($env.SCRIPTS)/hide_apps"
 	$"($env.SCRIPTS)/count_packages"
-	$"($env.HOME)/.local/bin"
 ])

@@ -22,4 +22,3 @@ mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
 # ToDo: Configure Tab Completion for pipx
-#$env.MANPAGER = 'sh -c "col -bx | bat -l man -p"' # Colorize man pages
