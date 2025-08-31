@@ -6,23 +6,10 @@ alias tree="ls --tree"
 
 alias grep="grep --color=auto"
 
-alias gs="git status"
-alias gss="git status --short"
-alias gd="git diff"
-alias ga="git add"
-alias gc="git commit -m"
-
 alias gl="git log"
 alias glg="git log --graph"
 alias glo="git log --oneline"
 alias glgo="git log --graph --oneline"
-
-#alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-#alias cdiff="config diff"
-#alias status="config status"
-#alias add="config add"
-#alias commit="config commit"
-#alias push="config push"
 
 alias cp="cp -v"
 alias mv="mv -v"
