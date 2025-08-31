@@ -53,9 +53,9 @@ $env.AUR_HELPER = "paru"
 ## Path Environment Variables ##
 ################################
 
-$env.Path = ($env.Path | append [
+$env.PATH ++= [
 	$"($env.CARGO_HOME)/bin"
 	$"($env.XDG_DATA_HOME)/npm/bin"
 	$"($env.SCRIPTS)/hide_apps"
 	$"($env.SCRIPTS)/count_packages"
-])
+]
