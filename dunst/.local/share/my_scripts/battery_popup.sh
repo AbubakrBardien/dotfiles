@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Send a notification if the laptop battery is either low or is fully charged.
 

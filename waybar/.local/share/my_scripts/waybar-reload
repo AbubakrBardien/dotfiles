@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 killall waybar
 sed -i 's/exec-once = waybar/exec = waybar/' "$XDG_CONFIG_HOME/hypr/hyprland/autostart.conf"

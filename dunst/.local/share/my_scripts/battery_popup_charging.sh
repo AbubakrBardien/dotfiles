@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Send a notification displaying that the battery is charging or discharging
 # Pass 1 as an argument for charging, 0 for discharging
