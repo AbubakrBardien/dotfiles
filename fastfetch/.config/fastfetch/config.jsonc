@@ -89,15 +89,21 @@
     },
     {
       "key": "GUI Theme",
-      "type": "theme"
+      "type": "command",
+      "shell": "/usr/bin/bash",
+      "text": "theme_names.sh 0"
     },
     {
       "key": "Icon Theme",
-      "type": "icons"
+      "type": "command",
+      "shell": "/usr/bin/bash",
+      "text": "theme_names.sh 1"
     },
     {
       "key": "GUI Font",
-      "type": "font",
+      "type": "command",
+      "shell": "/usr/bin/bash",
+      "text": "theme_names.sh 2"
     },
     {
       "key": "Terminal",
