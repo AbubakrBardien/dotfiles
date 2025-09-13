@@ -1,6 +1,10 @@
 set selection-clipboard clipboard
 set page-padding 15
-set default-bg \#2c2c2c
+set font "JetBrainsMono Nerd Font 12"
+
+set default-bg "#2c2c2c"
+set statusbar-bg "#1c1c1c"
+set inputbar-bg "#1c1c1c"
 
 map q q
 map p print
