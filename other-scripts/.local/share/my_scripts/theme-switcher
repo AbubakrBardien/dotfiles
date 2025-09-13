@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+# shellcheck disable=SC2207
+
+declare -a bat_themes_array
+
+get_theme_file_names() {
+	local path=$1
+	local extension=$2
+
+	# shellcheck disable=SC2164
+	cd "$path"
+
+	# Loop through each file name returned by the glob
+	for file in *."$extension"; do
+		array+=("${file%."$extension"}") # Strip the extension from the filename and append it to the new array
+	done
+
+	echo "${array[@]}"
+	# printf '%s\0' "${array[@]}"
+}
+
+# readarray -t -d '' bat_themes_array < <(get_theme_file_names "${XDG_CONFIG_HOME:-$HOME/.config}/bat/themes" "tmTheme")
+# readarray -t -d '' foot_themes_array < <(get_theme_file_names "${XDG_CONFIG_HOME:-$HOME/.config}/foot/themes" "ini")
+
+foot_themes_array=($(get_theme_file_names "${XDG_CONFIG_HOME:-$HOME/.config}/foot/themes" "ini"))
+nushell_themes_array=($(get_theme_file_names "${XDG_CONFIG_HOME:-$HOME/.config}/nushell/themes" "nu"))
+starship_themes_array=($(get_theme_file_names "${XDG_CONFIG_HOME:-$HOME/.config}/starship/themes" "toml"))
+bat_themes_array=($(get_theme_file_names "${XDG_CONFIG_HOME:-$HOME/.config}/bat/themes" "tmTheme"))
+rofi_themes_array=($(get_theme_file_names "${XDG_CONFIG_HOME:-$HOME/.config}/rofi/configs/themes" "rasi"))
+
+echo "Foot arg1: ${foot_themes_array[0]}"
+echo "Foot arg2: ${foot_themes_array[1]}"
+echo "Foot arg3: ${foot_themes_array[2]}"
+
+echo "Nushell arg1: ${nushell_themes_array[0]}"
+echo "Nushell arg2: ${nushell_themes_array[1]}"
+echo "Nushell arg3: ${nushell_themes_array[2]}"
+
+echo "Starship arg1: ${starship_themes_array[0]}"
+echo "Starship arg2: ${starship_themes_array[1]}"
+echo "Starship arg3: ${starship_themes_array[2]}"
+
+echo "Bat arg1: ${bat_themes_array[0]}"
+echo "Bat arg2: ${bat_themes_array[1]}"
+echo "Bat arg3: ${bat_themes_array[2]}"
+
+echo "Rofi arg1: ${rofi_themes_array[0]}"
+echo "Rofi arg2: ${rofi_themes_array[1]}"
+echo "Rofi arg3: ${rofi_themes_array[2]}"
