@@ -34,6 +34,7 @@ $env.PARALLEL_HOME =         $"($env.XDG_CONFIG_HOME)/parallel"
 $env.PASSWORD_STORE_DIR =    $"($env.XDG_DATA_HOME)/pass"
 $env.W3M_DIR =               $"($env.XDG_STATE_HOME)/w3m"
 $env.GNUPGHOME =             $"($env.XDG_DATA_HOME)/gnupg"
+$env.STARSHIP_CONFIG =       $"($env.XDG_CONFIG_HOME)/starship/starship.toml"
 
 ####################################
 ## My Other Environment Variables ##
