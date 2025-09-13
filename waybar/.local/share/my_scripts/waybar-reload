@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 killall waybar
-sed -i 's/exec-once = waybar/exec = waybar/' "$XDG_CONFIG_HOME/hypr/hyprland/autostart.conf"
-sed -i 's/exec = waybar/exec-once = waybar/' "$XDG_CONFIG_HOME/hypr/hyprland/autostart.conf"
+sed -i 's/exec-once = waybar/exec = waybar/' "${XDG_CONFIG_HOME:-$HOME/.config}/hypr/hyprland/autostart.conf"
+sed -i 's/exec = waybar/exec-once = waybar/' "${XDG_CONFIG_HOME:-$HOME/.config}/hypr/hyprland/autostart.conf"

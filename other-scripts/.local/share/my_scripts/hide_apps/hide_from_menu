@@ -39,6 +39,6 @@ cd "$SCRIPTS/hide_apps/"
 populate_arr apps_to_hide_local.txt
 
 # shellcheck disable=SC2164
-cd "$XDG_DATA_HOME/applications/"
+cd "${XDG_DATA_HOME:-$HOME/.local/share}/applications/"
 
 hide_function "${apps_to_hide[@]}"
