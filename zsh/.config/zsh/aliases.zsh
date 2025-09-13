@@ -27,7 +27,6 @@ alias web-search="surfraw"
 alias delta="delta --side-by-side --syntax-theme=none"
 
 alias bm="bat -l help --style=plain" # Example usage: "paru --help | bm"
+alias lsblk="lsblk | bat -l conf -p"
+alias rg="batgrep"
 alias xdg-ninja="xdg-ninja --skip-unsupported"
-
-# For XDG Base Directory Compliance
-alias mysql-workbench="mysql-workbench --configdir=\"$XDG_DATA_HOME/mysql/workbench\""

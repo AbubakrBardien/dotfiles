@@ -6,3 +6,5 @@ alias pipes = pipes.sh
 alias tree = lsd --tree
 alias web-search = surfraw
 alias xdg-ninja = xdg-ninja --skip-unsupported
+alias lsblk = lsblk | bat -l conf -p
+alias rg = batgrep
