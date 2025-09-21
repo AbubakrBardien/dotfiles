@@ -8,6 +8,9 @@
 [credential]
 	helper = store
 
+[push]
+	autoSetupRemote = true
+
 [core]
 	pager = delta
 	whitespace = error
