@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
 
-# shellcheck disable=SC2164
-cd "${XDG_CONFIG_HOME:-$HOME/.config}"
+# Store the full paths of the gtk folders
+gtkVersionsFolderPaths=("${XDG_CONFIG_HOME:-$HOME/.config}"/gtk*)
 
-# Store the names of the gtk folders in an array
-gtkVersionsFolderNames=(gtk*)
+# Create a new array to store just the folder names
+gtkVersionsFolderNames=()
+
+# Loop through the full paths and strip the parent directory
+for path in "${gtkVersionsFolderPaths[@]}"; do
+	gtkVersionsFolderNames+=("${path##*/}")
+done
 
 # Decide on what info to display
 case "$1" in
