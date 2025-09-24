@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+path="$SCRIPTS/hide_apps"
+
+# Function to remove non-existent apps from the list
+remove_nonexistent_apps() {
+	local app_path=$1      # path to the '.desktop' files
+	local location_type=$2 # 'root' or 'local'
+
+	local hidden_apps_file="${path}/apps_to_hide_${location_type}.txt" # Variable only exists for readibility
+
+	# Compare the '.desktop' apps, and create a list that only has the app names we want to hide, not outdated app names
+	comm -12 <(fd --base-directory "$app_path" "." | sed 's/\.desktop$//' | sort) \
+		<(sort "$hidden_apps_file") \
+		>"${path}/result_file.txt"
+
+	# Overwrite the original list with the new list of hidden apps which still exist on our system
+	cat "${path}/result_file.txt" >"$hidden_apps_file"
+
+	rm "${path}/result_file.txt"
+}
+
+maintenance_info() {
+	local app_path=$1      # path to the '.desktop' files
+	local location_type=$2 # 'root' or 'local'
+
+	comm -23 <(fd --base-directory "$app_path" "." | sed 's/\.desktop$//' | sort) \
+		<(sort "${path}/apps_to_hide_${location_type}.txt")
+}
+
+remove_nonexistent_apps "/usr/share/applications" "root"
+remove_nonexistent_apps "${XDG_DATA_HOME:-$HOME/.local/share}/applications" "local"
+
+printf 'Desktop Files that are NOT marked as hidden:\n\n'
+
+printf 'Files located in (/usr/share/applications):\n'
+maintenance_info "/usr/share/applications" "root"
+
+printf '\nFiles located in (%s):\n' "${XDG_DATA_HOME:-$HOME/.local/share/applications}"
+maintenance_info "${XDG_DATA_HOME:-$HOME/.local/share}/applications" "local"
