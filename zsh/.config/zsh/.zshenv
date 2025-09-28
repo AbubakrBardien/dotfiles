@@ -58,9 +58,18 @@ export BROWSER="/usr/bin/brave"
 ## Path Environment Variables ##
 ################################
 
-typeset -U addPath
-addPath=($PATH $CARGO_HOME/bin $XDG_DATA_HOME/npm/bin $SCRIPTS $SCRIPTS/hide_apps $SCRIPTS/count_packages $HOME/.local/bin)
-export PATH=$(echo $addPath | tr ' ' ':')
+# Make the 'path' array unique first. This handles any existing duplicates in the system's PATH.
+typeset -U path
+
+path=(
+    "$CARGO_HOME/bin"
+    "$HOME/.local/bin"
+    "$SCRIPTS"
+    "$SCRIPTS/count_packages"
+    "$SCRIPTS/hide_apps"
+    "$XDG_DATA_HOME/npm/bin"
+    $path # the system paths need to be at the end, for the system to prioritize user-specified paths
+)
 
 ###########
 ## Other ##
