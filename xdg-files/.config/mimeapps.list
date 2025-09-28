@@ -1,0 +1,38 @@
+[Added Associations]
+image/jpeg=gimp.desktop;
+image/jpg=gimp.desktop;
+image/png=gimp.desktop;
+image/webp=gimp.desktop;
+
+[Removed Associations]
+image/jpeg=brave-browser.desktop;chromium.desktop;
+image/jpg=brave-browser.desktop;chromium.desktop;
+image/png=brave-browser.desktop;chromium.desktop;
+image/webp=brave-browser.desktop;chromium.desktop;
+
+[Default Applications]
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
+
+image/jpeg=org.gnome.gThumb.desktop;
+image/jpg=org.gnome.gThumb.desktop;
+image/png=org.gnome.gThumb.desktop;
+image/webp=org.gnome.gThumb.desktop;
+
+video/avi=vlc.desktop;
+video/mkv=vlc.desktop;
+video/mp4=vlc.desktop;
+video/webm=vlc.desktop;
+
+audio/mp3=vlc.desktop;
+audio/wav=vlc.desktop;
+audio/ogg=vlc.desktop;
+
+x-scheme-handler/discord=vesktop.desktop;
+
+application/x-extension-ics=userapp-Thunderbird-ZL7642.desktop;
+message/rfc822=userapp-Thunderbird-1U9M52.desktop;
+text/calendar=userapp-Thunderbird-ZL7642.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird-1U9M52.desktop;
+x-scheme-handler/mid=userapp-Thunderbird-1U9M52.desktop;
+x-scheme-handler/webcal=userapp-Thunderbird-ZL7642.desktop;
+x-scheme-handler/webcals=userapp-Thunderbird-ZL7642.desktop;
