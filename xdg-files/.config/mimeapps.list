@@ -10,6 +10,8 @@ image/jpg=brave-browser.desktop;chromium.desktop;
 image/png=brave-browser.desktop;chromium.desktop;
 image/webp=brave-browser.desktop;chromium.desktop;
 
+application/pdf=brave-browser.desktop;chromium.desktop;gimp.desktop;
+
 [Default Applications]
 application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
 
