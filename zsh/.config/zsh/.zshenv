@@ -50,9 +50,9 @@ export SCRIPTS="$XDG_DATA_HOME/my_scripts"
 export MASON_PKGS="$XDG_DATA_HOME/nvim/mason/bin"
 
 ## Default Programs
-export EDITOR="/usr/bin/nvim"
-export AUR_HELPER="/usr/bin/paru"
-export BROWSER="/usr/bin/brave"
+export EDITOR="nvim"
+export AUR_HELPER="paru"
+export BROWSER="brave"
 
 ################################
 ## Path Environment Variables ##
