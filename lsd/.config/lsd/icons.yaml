@@ -3,8 +3,8 @@ name:
   music: 
   videos: 
   pictures: 
-  README.md:   # doesn't work
-  pCloudDrive:   # doesn't work
+  readme.md: 
+  pclouddrive: 󰅣
   viminfo: 
 
   .editorconfig: 
