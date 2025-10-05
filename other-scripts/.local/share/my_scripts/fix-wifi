@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Check if argument is passed
+[ $# != 1 ] && printf "A connection name must be passed as an argument (covered in quotes)" && exit
+
+# Reset WiFi
+nmcli radio wifi off &&
+	nmcli radio wifi on &&
+	nmcli connection up "$1"
