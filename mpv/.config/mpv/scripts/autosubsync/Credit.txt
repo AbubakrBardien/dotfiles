@@ -1,0 +1,1 @@
+Credit to joaquintorres for the repo: https://github.com/joaquintorres/autosubsync-mpv
