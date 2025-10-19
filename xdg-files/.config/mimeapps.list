@@ -20,14 +20,14 @@ image/jpg=org.gnome.gThumb.desktop;
 image/png=org.gnome.gThumb.desktop;
 image/webp=org.gnome.gThumb.desktop;
 
-video/avi=vlc.desktop;
-video/mkv=vlc.desktop;
-video/mp4=vlc.desktop;
-video/webm=vlc.desktop;
+video/avi=mpv.desktop;
+video/mkv=mpv.desktop;
+video/mp4=mpv.desktop;
+video/webm=mpv.desktop;
 
-audio/mp3=vlc.desktop;
-audio/wav=vlc.desktop;
-audio/ogg=vlc.desktop;
+audio/mp3=mpv.desktop;
+audio/wav=mpv.desktop;
+audio/ogg=mpv.desktop;
 
 x-scheme-handler/http=brave-browser.desktop
 x-scheme-handler/https=brave-browser.desktop
