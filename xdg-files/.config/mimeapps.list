@@ -32,7 +32,7 @@ audio/ogg=mpv.desktop;
 x-scheme-handler/http=brave-browser.desktop
 x-scheme-handler/https=brave-browser.desktop
 
-x-scheme-handler/discord=vesktop.desktop;
+x-scheme-handler/discord=vesktop.desktop
 
 application/x-extension-ics=userapp-Thunderbird-ZL7642.desktop;
 message/rfc822=userapp-Thunderbird-1U9M52.desktop;

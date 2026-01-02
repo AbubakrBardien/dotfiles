@@ -33,6 +33,7 @@ zinit light olets/zsh-window-title
 
 # Initialize the completion system after Zinit has loaded the "zsh-completions" plugin
 autoload -Uz compinit
+[[ -d "$XDG_CACHE_HOME/zsh" ]] || mkdir -p "$XDG_CACHE_HOME/zsh"
 compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 
 # Completion Options
