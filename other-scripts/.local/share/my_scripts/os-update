@@ -10,6 +10,8 @@ flatpak uninstall --unused
 npm update -g
 pipx upgrade-all
 
+rustup update
+
 hide_from_menu
 
 source "$ZINIT_HOME/zinit.zsh"

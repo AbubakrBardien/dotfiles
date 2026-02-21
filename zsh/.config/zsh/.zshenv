@@ -19,6 +19,7 @@ export PYTHON_HISTORY="$XDG_DATA_HOME/python/history"
 ## Rust Files
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export RUST_TOOLCHAINS="$RUSTUP_HOME/toolchains/stable-x86_64-unknown-linux-gnu/bin"
 
 ## .NET Core Files
 export DOTNET_CLI_HOME="$XDG_DATA_HOME/dotnet"
@@ -63,6 +64,7 @@ typeset -U path
 
 path=(
     "$CARGO_HOME/bin"
+    "$RUST_TOOLCHAINS"
     "$HOME/.local/bin"
     "$SCRIPTS"
     "$SCRIPTS/count_packages"
