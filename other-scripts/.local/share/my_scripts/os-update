@@ -1,11 +1,11 @@
 #!/usr/bin/zsh
 
-$AUR_HELPER -Syu
-pacman -Qtdq | pacman -Rns -
-paru --clean
+$AUR_HELPER -Syu --noconfirm
+pacman -Qtdq | pacman -Rns --noconfirm -
+paru --clean --noconfirm
 
-flatpak update
-flatpak uninstall --unused
+flatpak update --assumeyes
+flatpak uninstall --unused --assumeyes
 
 npm update -g
 pipx upgrade-all
