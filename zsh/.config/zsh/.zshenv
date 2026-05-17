@@ -79,3 +79,4 @@ path=(
 
 export TRASHDIR="$XDG_DATA_HOME/Trash"
 export QT_STYLE_OVERRIDE="kvantum"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/keyring/ssh"

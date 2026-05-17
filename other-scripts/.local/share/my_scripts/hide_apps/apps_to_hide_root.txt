@@ -4,7 +4,6 @@ bssh
 bvnc
 cmake-gui
 designer
-echomixer
 envy24control
 footclient
 foot-server
