@@ -2,49 +2,157 @@
 
 # shellcheck disable=SC2207
 
-declare -a bat_themes_array
+############## Get theme files for applications ##############
 
 get_theme_file_names() {
 	local path=$1
 	local extension=$2
 
-	# shellcheck disable=SC2164
-	cd "$path"
+	local array=()
+	local file=""
 
 	# Loop through each file name returned by the glob
-	for file in *."$extension"; do
+	for filepath in "$path"/*."$extension"; do
+		file="${filepath##*/}"           # Remove longest matching prefix
 		array+=("${file%."$extension"}") # Strip the extension from the filename and append it to the new array
 	done
 
 	echo "${array[@]}"
-	# printf '%s\0' "${array[@]}"
 }
-
-# readarray -t -d '' bat_themes_array < <(get_theme_file_names "${XDG_CONFIG_HOME:-$HOME/.config}/bat/themes" "tmTheme")
-# readarray -t -d '' foot_themes_array < <(get_theme_file_names "${XDG_CONFIG_HOME:-$HOME/.config}/foot/themes" "ini")
 
 foot_themes_array=($(get_theme_file_names "${XDG_CONFIG_HOME:-$HOME/.config}/foot/themes" "ini"))
 nushell_themes_array=($(get_theme_file_names "${XDG_CONFIG_HOME:-$HOME/.config}/nushell/themes" "nu"))
 starship_themes_array=($(get_theme_file_names "${XDG_CONFIG_HOME:-$HOME/.config}/starship/themes" "toml"))
 bat_themes_array=($(get_theme_file_names "${XDG_CONFIG_HOME:-$HOME/.config}/bat/themes" "tmTheme"))
-rofi_themes_array=($(get_theme_file_names "${XDG_CONFIG_HOME:-$HOME/.config}/rofi/configs/themes" "rasi"))
 
-echo "Foot arg1: ${foot_themes_array[0]}"
-echo "Foot arg2: ${foot_themes_array[1]}"
-echo "Foot arg3: ${foot_themes_array[2]}"
+##############################################################
 
-echo "Nushell arg1: ${nushell_themes_array[0]}"
-echo "Nushell arg2: ${nushell_themes_array[1]}"
-echo "Nushell arg3: ${nushell_themes_array[2]}"
+################### Find the largest Array ###################
 
-echo "Starship arg1: ${starship_themes_array[0]}"
-echo "Starship arg2: ${starship_themes_array[1]}"
-echo "Starship arg3: ${starship_themes_array[2]}"
+# Declare the associative array
+declare -A arrSizesMap
 
-echo "Bat arg1: ${bat_themes_array[0]}"
-echo "Bat arg2: ${bat_themes_array[1]}"
-echo "Bat arg3: ${bat_themes_array[2]}"
+# Populate the associative array with array names and their lengths
+arrSizesMap[foot_themes_array]=${#foot_themes_array[@]}
+arrSizesMap[nushell_themes_array]=${#nushell_themes_array[@]}
+arrSizesMap[starship_themes_array]=${#starship_themes_array[@]}
+arrSizesMap[bat_themes_array]=${#bat_themes_array[@]}
 
-echo "Rofi arg1: ${rofi_themes_array[0]}"
-echo "Rofi arg2: ${rofi_themes_array[1]}"
-echo "Rofi arg3: ${rofi_themes_array[2]}"
+maxSize=0
+largestArrayName=""
+
+# Loop through the keys of the associative array
+for name in "${!arrSizesMap[@]}"; do
+	currentSize=${arrSizesMap[$name]}
+	if ((currentSize > maxSize)); then
+		maxSize=$currentSize
+		largestArrayName=$name
+	fi
+done
+
+# Create a nameref to the largest array
+declare -n largestThemesArray="$largestArrayName"
+
+##############################################################
+
+###### Validate all the neccessary themes are available ######
+
+func1() {
+	local theme=$1
+	local errorCount=0
+
+	func2() {
+		local -n arr=$1
+		local found=0
+
+		# echo "Array in func2: " "${arr[@]}"
+		for element in "${arr[@]}"; do
+			# echo "Theme: $theme"
+			# echo "Element: $element"
+			if [[ $theme == "$element" ]]; then
+				# echo "Found"
+				found=1
+				break
+			fi
+			# echo "Loop"
+		done
+
+		if ((found == 0)); then
+			return 1 # theme not found
+		else
+			return 0 # theme found
+		fi
+	}
+
+	# echo "$largestArrayName"
+
+	if [[ $largestArrayName != "foot_themes_array" ]]; then
+		# if ! func2 "${foot_themes_array[@]}"; then
+		if ! func2 "foot_themes_array"; then
+			echo "Error: '${theme}.ini' theme file missing in Foot." >&2
+			((errorCount++))
+		fi
+	fi
+
+	if [[ $largestArrayName != "nushell_themes_array" ]]; then
+		# if ! func2 "${nushell_themes_array[@]}"; then
+		if ! func2 "nushell_themes_array"; then
+			echo "Error: '${theme}.nu' theme file missing in Nushell." >&2
+			((errorCount++))
+		fi
+	fi
+
+	if [[ $largestArrayName != "starship_themes_array" ]]; then
+		# if ! func2 "${starship_themes_array[@]}"; then
+		if ! func2 "starship_themes_array"; then
+			echo "Error: '${theme}.toml' theme file missing in Starship." >&2
+			((errorCount++))
+		fi
+	fi
+
+	if [[ $largestArrayName != 'bat_themes_array' ]]; then
+		# if ! func2 "${bat_themes_array[@]}"; then
+		if ! func2 "bat_themes_array"; then
+			echo "Error: '${theme}.tmTheme' theme file missing in Bat." >&2
+			((errorCount++))
+		fi
+	fi
+
+	if ((errorCount > 0)); then
+		return 1
+	else
+		return 0
+	fi
+}
+
+missingThemesCount=0
+
+# Check all themes for existence in other applications
+for element in "${largestThemesArray[@]}"; do
+	if ! func1 "$element"; then
+		((missingThemesCount++))
+	fi
+done
+
+if (("$missingThemesCount" > 0)); then
+	exit 1
+fi
+
+##############################################################
+
+shell=$(basename "$SHELL")
+
+printf 'Application themes that will be changed:\n\n'
+printf 'Terminal: %s\n' "${TERM^}"
+printf 'Shell:    %s\n' "${shell^}"
+printf 'Prompt:   Starship\n'
+printf 'Pager:    Bat\n\n'
+
+printf 'Available themes in all apps:\n\n'
+
+n=1
+# Iterate over the elements of the largest array using the nameref
+for theme in "${largestThemesArray[@]}"; do
+	echo "$n. $theme"
+	((n++))
+done
