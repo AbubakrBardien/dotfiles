@@ -39,12 +39,14 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export W3M_DIR="$XDG_STATE_HOME/w3m"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+export CAROOT="$XDG_DATA_HOME/certs"
+export LINKS_CFG_ANON="$XDG_CONFIG_HOME/links"
 
 ###########
 ## Zinit ##
 ###########
 
-ZINIT_HOME=$XDG_DATA_HOME/zinit/zinit.git # Set the directory to store Zinit and Plugins
+ZINIT_HOME="$XDG_DATA_HOME/zinit/zinit.git" # Set the directory to store Zinit and Plugins
 
 ####################################
 ## My Other Environment Variables ##
@@ -53,10 +55,9 @@ ZINIT_HOME=$XDG_DATA_HOME/zinit/zinit.git # Set the directory to store Zinit and
 export SCRIPTS="$XDG_DATA_HOME/my_scripts"
 export MASON_PKGS="$XDG_DATA_HOME/nvim/mason/bin"
 
-## Default Programs
+## Default CLI Programs
 export EDITOR="nvim"
 export AUR_HELPER="paru"
-export BROWSER="brave"
 
 ################################
 ## Path Environment Variables ##
