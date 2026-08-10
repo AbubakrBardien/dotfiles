@@ -35,7 +35,7 @@ You'll need to download the Helvetica font manually (at https://font.download/fo
 ## Programs I Use
 
 WM/Compositor: [Hyprland](https://hyprland.org/)\
-Terminal: [Foot](https://codeberg.org/dnkl/foot)\
+Terminal: [Ghostty](https://ghostty.org/)\
 Shell: [Zsh](https://wiki.archlinux.org/title/Zsh)
 
 | Graphical | Terminal-Based | Theming |

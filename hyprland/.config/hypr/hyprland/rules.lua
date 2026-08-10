@@ -6,7 +6,7 @@ local globals = require("hyprland.global_variables")
 
 hl.window_rule {
 	name = "Transparent Terminal",
-	match = { class = "^(" .. globals.terminal .. ")$" },
+	match = { class = "^(com.mitchellh.ghostty)$" },
 	opacity = 0.8,
 	-- opacity = 1
 }
@@ -14,7 +14,7 @@ hl.window_rule {
 hl.window_rule {
 	name = "Opaque Neovim", -- (Overrides general Terminal rule)
 	match = {
-		class = "^(" .. globals.terminal .. ")$",
+		class = "^(com.mitchellh.ghostty)$",
 		title = ".*( nvim)$",
 	},
 	opacity = 1,

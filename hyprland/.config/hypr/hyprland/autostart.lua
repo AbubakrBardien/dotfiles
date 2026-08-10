@@ -9,7 +9,6 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("awww-daemon") -- Wallpaper daemon
 	hl.exec_cmd("/usr/lib/polkit-kde-authentication-agent-1") -- Authentication Agent
 	hl.exec_cmd("hypridle")
-	hl.exec_cmd("foot") -- server
 	hl.exec_cmd("udiskie") -- Disk Automounter
 	hl.exec_cmd("start_serve.sh") -- Run "serve" (the web server) to load the custom startpage
 	hl.exec_cmd("gnome-keyring-daemon") --start --components=secrets

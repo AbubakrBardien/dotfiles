@@ -2,7 +2,8 @@ local M = {}
 
 -- stylua: ignore start
 
-M.terminal = "foot"
+-- M.terminal = "foot"
+M.terminal = "ghostty"
 M.browser = "brave"
 M.fileManager = "nemo"
 M.calculator = "qalculate-gtk"
