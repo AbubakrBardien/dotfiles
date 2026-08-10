@@ -18,6 +18,7 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 hl.bind(mainMod .. " + Return",    hl.dsp.exec_cmd(globals.terminal))
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + F",         hl.dsp.window.fullscreen { action = "toggle" })
+hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.float { action = "toggle" })
 
 -- Dwindle layout specific 
 hl.bind(mainMod .. " + K", hl.dsp.layout("swapsplit"))
