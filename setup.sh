@@ -22,8 +22,7 @@ brillo -c 5 || echo "Warning: brillo failed. Ensure hardware.brillo.enable is se
 ## Setup Dotfiles ##
 ####################
 
-# shellcheck disable=SC2164
-cd "$HOME/dotfiles"
+cd "$HOME/dotfiles" || exit 1
 
 # Ask for dry-run
 read -r -p "Dry-run symlinks? (y/[n]) " input
@@ -40,9 +39,16 @@ run_stow() {
 		fi
 
 		# Run stow and capture errors
-		if ! stow "$dry_run_flag" -v -t "$HOME" "$pkg"; then
-			echo -e "\n[!] ERROR: Failed to stow package '$pkg'."
-			failed_packages+=("$pkg")
+		if [[ "$dry_run_flag" == "-n" ]]; then
+			if ! stow "$dry_run_flag" -v -t "$HOME" "$pkg"; then
+				echo -e "\n[!] ERROR: Failed to stow package '$pkg'."
+				failed_packages+=("$pkg")
+			fi
+		else
+			if ! stow -t "$HOME" "$pkg"; then
+				echo -e "\n[!] ERROR: Failed to stow package '$pkg'."
+				failed_packages+=("$pkg")
+			fi
 		fi
 	done
 
