@@ -1,3 +1,6 @@
+# Make the 'PATH' array unique. This handles any existing duplicates in the system's PATH.
+typeset -U path
+
 source "$ZDOTDIR/functions.zsh"
 source "$ZDOTDIR/aliases.zsh"
 

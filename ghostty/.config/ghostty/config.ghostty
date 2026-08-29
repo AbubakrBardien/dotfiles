@@ -2,8 +2,8 @@
 # Font Config
 #=====================================
 
-# font-family = "JetBrainsMono Nerd Font"
-font-family = "JetBrainsMono NF SemiBold"
+font-family = "JetBrainsMono Nerd Font"
+# font-family = "JetBrainsMono NF SemiBold"
 font-size = 12
 
 # Enable programming ligatures
