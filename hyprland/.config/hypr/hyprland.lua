@@ -1,4 +1,3 @@
-require("hyprland.env")
 require("hyprland.tiling")
 require("hyprland.animations")
 require("hyprland.decoractions")
