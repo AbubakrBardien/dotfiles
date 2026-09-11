@@ -15,7 +15,7 @@ done
 case "$1" in
 0)
 	gtk_theme=$(grep -Po '^gtk-theme-name="?\K(.+?)(?= \d+$|$)' "${XDG_CONFIG_HOME:-$HOME/.config}/${gtkVersionsFolderNames[0]}/settings.ini" 2>/dev/null)
-	qt_theme=$(grep -Po '^theme=\K.+(?=#$)' "${XDG_CONFIG_HOME:-$HOME/.config}/Kvantum/kvantum.kvconfig")
+	qt_theme=$(grep -Po '^theme=\K.+' "${XDG_CONFIG_HOME:-$HOME/.config}/Kvantum/kvantum.kvconfig" 2>/dev/null)
 	if [ -n "$qt_theme" ]; then
 		ouputStr="${gtk_theme} [GTK], ${qt_theme} [Qt]"
 	else

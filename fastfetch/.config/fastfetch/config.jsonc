@@ -69,8 +69,8 @@
     {
       "key": "Packages",
       "type": "command",
-      "shell": "/usr/bin/bash",
-      "text": "count_packages"
+      "shell": "/run/current-system/sw/bin/bash",
+      "text": "cat /var/cache/nix-pkg-count"
     },
     {
       "key": "Shell",
@@ -90,19 +90,19 @@
     {
       "key": "GUI Theme",
       "type": "command",
-      "shell": "/usr/bin/bash",
+      "shell": "/run/current-system/sw/bin/bash",
       "text": "theme_names.sh 0"
     },
     {
       "key": "Icon Theme",
       "type": "command",
-      "shell": "/usr/bin/bash",
+      "shell": "/run/current-system/sw/bin/bash",
       "text": "theme_names.sh 1"
     },
     {
       "key": "GUI Font",
       "type": "command",
-      "shell": "/usr/bin/bash",
+      "shell": "/run/current-system/sw/bin/bash",
       "text": "theme_names.sh 2"
     },
     {
