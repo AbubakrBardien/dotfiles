@@ -23,11 +23,11 @@ fi
 
 # If the battery is charging and is full (and has not shown notification yet)
 if [ "$battery_level" -eq 100 ] && [ "$battery_charging" -eq 1 ] && [ ! -f $FULL_FILE ]; then
-	dunstify -a "battery_popup" -i "$HOME/.config/dunst/icons/battery_full.png" "Battery Full" -t $notification_timeout
+	dunstify -a "battery_popup" -i "${XDG_CONFIG_HOME:-$HOME/.config}/dunst/icons/battery_full.png" "Battery Full" -t $notification_timeout
 	touch $FULL_FILE
 
 # If the battery is low and is not charging (and has not shown notification yet)
 elif [ "$battery_level" -le $warning_level ] && [ "$battery_charging" -eq 0 ] && [ ! -f $EMPTY_FILE ]; then
-	dunstify -a "battery_popup" -u critical "Battery  Low  ($battery_level%)" -i "$HOME/.config/dunst/icons/battery_low.png"
+	dunstify -a "battery_popup" -u critical "Battery  Low  ($battery_level%)" -i "${XDG_CONFIG_HOME:-$HOME/.config}/dunst/icons/battery_low.png"
 	touch $EMPTY_FILE
 fi

@@ -14,7 +14,7 @@ notification_timeout=2000 # 2 seconds
 
 # Send notifications
 if [ "$battery_charging" -eq 1 ]; then
-	dunstify -a "battery_popup" -i "$HOME/.config/dunst/icons/battery_charging.png" "Charging" -t $notification_timeout
+	dunstify -a "battery_popup" -i "${XDG_CONFIG_HOME:-$HOME/.config}/dunst/icons/battery_charging.png" "Charging" -t $notification_timeout
 elif [ "$battery_charging" -eq 0 ]; then
-	dunstify -a "battery_popup" -i "$HOME/.config/dunst/icons/battery_discharging.png" "Switched to battery power" -t $notification_timeout
+	dunstify -a "battery_popup" -i "${XDG_CONFIG_HOME:-$HOME/.config}/dunst/icons/battery_discharging.png" "Switched to battery power" -t $notification_timeout
 fi

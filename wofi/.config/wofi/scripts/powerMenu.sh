@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # options=("󰐥 Shut Down" "󰒲  Sleep" "󰜉 Reboot" "󰌾 Lock Screen" "󰍃 Log Out" "  Hibernate")
 options=("󰐥 Shut Down" "󰒲  Sleep" "󰜉 Reboot" "󰌾 Lock Screen" "  Hibernate")
 
 # chosen=$(printf "󰐥 Shut Down\n󰒲  Sleep\n󰜉 Reboot\n󰌾 Lock Screen\n󰍃 Log Out\n  Hibernate" | wofi -c "$HOME/.config/wofi/configs/power_menu/config" -s "$HOME/.config/wofi/configs/power_menu/style.css")
-chosen=$(printf "󰐥 Shut Down\n󰒲  Sleep\n󰜉 Reboot\n󰌾 Lock Screen\n  Hibernate" | wofi -c "$HOME/.config/wofi/configs/power_menu/config" -s "$HOME/.config/wofi/configs/power_menu/style.css")
+chosen=$(printf "󰐥 Shut Down\n󰒲  Sleep\n󰜉 Reboot\n󰌾 Lock Screen\n  Hibernate" | wofi -c "${XDG_CONFIG_HOME:-$HOME/.config}/wofi/configs/power_menu/config" -s "${XDG_CONFIG_HOME:-$HOME/.config}/wofi/configs/power_menu/style.css")
 
 case $chosen in
 "${options[0]}")

@@ -1,40 +1,52 @@
 #!/usr/bin/env bash
 
 path="$SCRIPTS/hide_apps"
+hidden_apps_file="${path}/apps_to_hide.txt"
 
-# Function to remove non-existent apps from the list
+# Resolve all XDG application directories dynamically
+IFS=':' read -ra DATA_DIRS <<<"${XDG_DATA_HOME:-$HOME/.local/share}:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
+
+APP_DIRS=()
+for dir in "${DATA_DIRS[@]}"; do
+	if [[ -d "$dir/applications" ]]; then
+		APP_DIRS+=("$dir/applications")
+	fi
+done
+
+# Prunes app names from the hide list if their .desktop file no longer exists in ANY XDG directory
 remove_nonexistent_apps() {
-	local app_path=$1      # path to the '.desktop' files
-	local location_type=$2 # 'root' or 'local'
+	[[ ! -f "$hidden_apps_file" ]] && return
 
-	local hidden_apps_file="${path}/apps_to_hide_${location_type}.txt" # Variable only exists for readibility
+	local temp_installed
+	temp_installed=$(mktemp)
 
-	# Compare the '.desktop' apps, and create a list that only has the app names we want to hide, not outdated app names
-	comm -12 <(fd --base-directory "$app_path" "." | sed 's/\.desktop$//' | sort) \
-		<(sort "$hidden_apps_file") \
-		>"${path}/result_file.txt"
+	# Gather all installed desktop entry basenames across all XDG directories
+	for app_dir in "${APP_DIRS[@]}"; do
+		fd --maxdepth 1 -e desktop . "$app_dir" | xargs -r -n1 basename -s .desktop
+	done | sort -u >"$temp_installed"
 
-	# Overwrite the original list with the new list of hidden apps which still exist on our system
+	# Keep only apps that are both in the hide list AND currently installed
+	comm -12 "$temp_installed" <(sort "$hidden_apps_file") >"${path}/result_file.txt"
 	cat "${path}/result_file.txt" >"$hidden_apps_file"
-
-	rm "${path}/result_file.txt"
+	rm "${path}/result_file.txt" "$temp_installed"
 }
 
+# Shows applications installed on the system that are NOT in your hide list
 maintenance_info() {
-	local app_path=$1      # path to the '.desktop' files
-	local location_type=$2 # 'root' or 'local'
+	local temp_installed
+	temp_installed=$(mktemp)
 
-	comm -23 <(fd --base-directory "$app_path" "." | sed 's/\.desktop$//' | sort) \
-		<(sort "${path}/apps_to_hide_${location_type}.txt")
+	for app_dir in "${APP_DIRS[@]}"; do
+		fd --maxdepth 1 -e desktop . "$app_dir" | xargs -r -n1 basename -s .desktop
+	done | sort -u >"$temp_installed"
+
+	comm -23 "$temp_installed" <(sort "$hidden_apps_file")
+	rm "$temp_installed"
 }
 
-remove_nonexistent_apps "/usr/share/applications" "root"
-remove_nonexistent_apps "${XDG_DATA_HOME:-$HOME/.local/share}/applications" "local"
+# 1. Clean up stale entries from your merged list
+remove_nonexistent_apps
 
+# 2. Display unhidden applications
 printf 'Desktop Files that are NOT marked as hidden:\n\n'
-
-printf 'Files located in (/usr/share/applications):\n'
-maintenance_info "/usr/share/applications" "root"
-
-printf '\nFiles located in (%s):\n' "${XDG_DATA_HOME:-$HOME/.local/share/applications}"
-maintenance_info "${XDG_DATA_HOME:-$HOME/.local/share}/applications" "local"
+maintenance_info

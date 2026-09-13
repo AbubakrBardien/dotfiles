@@ -1,20 +1,70 @@
 #!/usr/bin/env bash
 
-hide_function() {
-	local path=$1
-	local apps_to_hide_file=$2
+# Collect all system and user application directories dynamically from XDG_DATA_DIRS
+IFS=':' read -ra DATA_DIRS <<<"${XDG_DATA_HOME:-$HOME/.local/share}:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
 
-	# for app in "${apps_to_hide_array[@]}"; do
-	while IFS= read -r app; do
-		local file="${path}/${app}.desktop"
+# Collect all valid application directories
+APP_DIRS=()
+for dir in "${DATA_DIRS[@]}"; do
+	if [[ -d "$dir/applications" ]]; then
+		APP_DIRS+=("$dir/applications")
+	fi
+done
 
-		# If file exists, and if the last line is not 'Hidden=true'
-		if [[ -e "$file" && $(tail -1 "$file") != "Hidden=true" ]]; then
-			# Appends to the file, with sudo permissions
-			echo -e "\nHidden=true" | sudo tee -a "$file" >/dev/null
+for item in "${APP_DIRS[@]}"; do
+	echo "$item"
+done
+
+# Target directory for overriding desktop entries
+USER_APP_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/applications"
+mkdir -p "$USER_APP_DIR"
+
+hide_app() {
+	local app_name=$1
+	local found=false
+
+	# Check if the .desktop file exists in any system/user path
+	for path in "${APP_DIRS[@]}"; do
+		if [[ -f "${path}/${app_name}.desktop" ]]; then
+			found=true
+			break
 		fi
-	done <"$apps_to_hide_file"
+	done
+
+	if [[ "$found" == "true" ]]; then
+		local target_file="${USER_APP_DIR}/${app_name}.desktop"
+
+		# If the override file already exists and has Hidden=true, skip
+		if [[ -f "$target_file" ]] && grep -q "^Hidden=true" "$target_file"; then
+			return
+		fi
+
+		# Create/append an override file in the local user directory
+		if [[ -f "$target_file" ]]; then
+			echo "Hidden=true" >>"$target_file"
+		else
+			cat <<EOF >"$target_file"
+[Desktop Entry]
+Type=Application
+Name=${app_name}
+Hidden=true
+NoDisplay=true
+EOF
+		fi
+		echo "Hidden app: ${app_name}"
+	fi
 }
 
-hide_function "/usr/share/applications" "$SCRIPTS/hide_apps/apps_to_hide_root.txt"
-hide_function "${XDG_DATA_HOME:-$HOME/.local/share}/applications" "$SCRIPTS/hide_apps/apps_to_hide_local.txt"
+process_hide_list() {
+	local list_file=$1
+
+	if [[ -f "$list_file" ]]; then
+		while IFS= read -r app || [[ -n "$app" ]]; do
+			# Ignore empty lines and comments
+			[[ -z "$app" || "$app" =~ ^# ]] && continue
+			hide_app "$app"
+		done <"$list_file"
+	fi
+}
+
+process_hide_list "$SCRIPTS/hide_apps/apps_to_hide.txt"

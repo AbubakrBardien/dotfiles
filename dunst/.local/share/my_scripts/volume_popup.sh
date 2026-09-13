@@ -8,7 +8,7 @@ function popup() {
 	volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2 * 100}')
 
 	# "-i" is to set the icon, and "-t" is to se the timeout (in milliseconds)
-	dunstify -a "volume_popup" -u low -h "int:value:$volume" -h string:x-dunst-stack-tag:vol_tag -i "$HOME/.config/dunst/icons/$1" "Volume: $volume%" -t $notification_timeout
+	dunstify -a "volume_popup" -u low -h "int:value:$volume" -h string:x-dunst-stack-tag:vol_tag -i "${XDG_CONFIG_HOME:-$HOME/.config}/dunst/icons/$1" "Volume: $volume%" -t $notification_timeout
 }
 
 case $1 in
@@ -30,9 +30,9 @@ mute)
 
 	if [[ $2 != "waybar" ]]; then        # When clicking on the waybar volume module, don't notify
 		if [[ $isMuted = "[MUTED]" ]]; then # If Muted
-			dunstify -a "volume_popup" -u low -h string:x-dunst-stack-tag:vol_tag -i "$HOME/.config/dunst/icons/mute.png" "Muted" -t $notification_timeout
+			dunstify -a "volume_popup" -u low -h string:x-dunst-stack-tag:vol_tag -i "${XDG_CONFIG_HOME:-$HOME/.config}/dunst/icons/mute.png" "Muted" -t $notification_timeout
 		else
-			dunstify -a "volume_popup" -u low -h string:x-dunst-stack-tag:vol_tag -i "$HOME/.config/dunst/icons/volume.png" "Volume: $volume%" -t $notification_timeout
+			dunstify -a "volume_popup" -u low -h string:x-dunst-stack-tag:vol_tag -i "${XDG_CONFIG_HOME:-$HOME/.config}/dunst/icons/volume.png" "Volume: $volume%" -t $notification_timeout
 		fi
 	fi
 	;;
