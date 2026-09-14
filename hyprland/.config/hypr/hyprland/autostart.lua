@@ -13,6 +13,13 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("start_serve.sh") -- Run "serve" (the web server) to load the custom startpage
 	hl.exec_cmd("gnome-keyring-daemon") --start --components=secrets
 
+	hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Dark'")
+	hl.exec_cmd("gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'")
+	hl.exec_cmd("gsettings set org.gnome.desktop.interface font-name 'Inter 10.5'")
+	hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
+	hl.exec_cmd("gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'")
+	hl.exec_cmd("hyprctl setcursor Adwaita 24")
+
 	------------------
 	-- Startup Apps --
 	------------------
