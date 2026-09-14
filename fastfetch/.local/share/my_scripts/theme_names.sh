@@ -1,35 +1,27 @@
 #!/usr/bin/env bash
 
-# Store the full paths of the gtk folders
-gtkVersionsFolderPaths=("${XDG_CONFIG_HOME:-$HOME/.config}"/gtk*)
+# Helper to fetch active gsettings key cleanly
+get_gsetting() {
+	gsettings get org.gnome.desktop.interface "$1" 2>/dev/null | tr -d "'"
+}
 
-# Create a new array to store just the folder names
-gtkVersionsFolderNames=()
-
-# Loop through the full paths and strip the parent directory
-for path in "${gtkVersionsFolderPaths[@]}"; do
-	gtkVersionsFolderNames+=("${path##*/}")
-done
-
-# Decide on what info to display
 case "$1" in
 0)
-	gtk_theme=$(grep -Po '^gtk-theme-name="?\K(.+?)(?= \d+$|$)' "${XDG_CONFIG_HOME:-$HOME/.config}/${gtkVersionsFolderNames[0]}/settings.ini" 2>/dev/null)
-	qt_theme=$(grep -Po '^theme=\K.+' "${XDG_CONFIG_HOME:-$HOME/.config}/Kvantum/kvantum.kvconfig" 2>/dev/null)
-	if [ -n "$qt_theme" ]; then
-		ouputStr="${gtk_theme} [GTK], ${qt_theme} [Qt]"
-	else
-		ouputStr="${gtk_theme} [GTK]"
-	fi
+	gtk_theme=$(get_gsetting gtk-theme)
+	outputStr="${gtk_theme:-Unknown}"
 	;;
 1)
-	gtk_icon=$(grep -Po '^gtk-icon-theme-name="?\K(.+?)(?= \d+$|$)' "${XDG_CONFIG_HOME:-$HOME/.config}/${gtkVersionsFolderNames[0]}/settings.ini" 2>/dev/null)
-	ouputStr="${gtk_icon} [GTK]"
+	gtk_icon=$(get_gsetting icon-theme)
+	outputStr="${gtk_icon:-Unknown}"
 	;;
 2)
-	gtk_font=$(grep -Po '^gtk-font-name="?\K(.+?)(?= \d+$|$)' "${XDG_CONFIG_HOME:-$HOME/.config}/${gtkVersionsFolderNames[0]}/settings.ini" 2>/dev/null)
-	ouputStr="${gtk_font} [GTK]"
+	gtk_font=$(get_gsetting font-name)
+	outputStr="${gtk_font:-Unknown}"
+	;;
+*)
+	echo "Usage: $0 {0|1|2}"
+	exit 1
 	;;
 esac
 
-echo "$ouputStr"
+echo "$outputStr"
