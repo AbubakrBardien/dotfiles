@@ -1,3 +1,0 @@
-com.github.tchx84.Flatseal
-com.tradingview.tradingview
-com.valvesoftware.Steam
