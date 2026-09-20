@@ -1,15 +1,7 @@
 alias ls="lsd"
-alias la="ls -A"
-alias ll="ls -l"
-alias lla="ls -Al"
 alias tree="ls --tree"
 
 alias grep="grep --color=auto"
-
-alias gl="git log"
-alias glg="git log --graph"
-alias glo="git log --oneline"
-alias glgo="git log --graph --oneline"
 
 alias cp="cp -v"
 alias mv="mv -v"
