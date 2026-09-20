@@ -6,7 +6,7 @@
 	email = abubakrbardien@gmail.com
 
 [credential]
-	helper = store
+    helper = store --file ~/.config/git/credentials
 
 [push]
 	autoSetupRemote = true

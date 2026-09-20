@@ -1,63 +1,58 @@
-# Abubakr's Personal Dotfiles
+# Dotfiles
 
-## Screenshots
+My Dotfiles configuration. This repo covers _package configurations_.
+It is cloned as part of the first-boot steps in the NixOS repo's README. Start there if this is a fresh install.
 
-![Screenshot1](assets/screenshot1.png)
+System-level config files are stored in a separate repo: [AbubakrBardien/nixos-config](https://github.com/AbubakrBardien/nixos-config)
 
-![Screenshot2](assets/screenshot2.png)
+| Repo | Purpose | Lives at |
+|------|---------|----------|
+| NixOS repo | System configuration (`configuration.nix`) | `/etc/nixos` |
+| Dotfiles repo | Config files in `$HOME` | `~/dotfiles` |
 
-![Screenshot3](assets/screenshot3.png)
+---
 
-## Installation
+## Setup
 
-Follow these initial setup instructions: \
-[Initial Setup Instructions](.local/share/my_scripts/setup_scripts/initial_setup.md)
+Each top-level directory in this repo is a [GNU Stow](https://www.gnu.org/software/stow/) package that mirrors the layout of `$HOME`. The setup script symlinks every package into your home directory.
 
-Then run this script, after logging into your Graphical Environment:
-```bash
-curl -o remaining_setup https://raw.githubusercontent.com/AbubakrBardien/dotfiles/main/.local/share/my_scripts/setup_scripts/remaining_setup_automation.sh
-chmod +x remaining_setup
-./remaining_setup
+### Apply The Dotfiles
+
+If `stow` isn't installed yet, open a shell that has it first:
+
+```sh
+nix-shell -p stow
 ```
-(Warning: the script hasn't been fully tested yet, but it should work) \
-After rebooting, remove the script: `rm remaining_setup`
 
-### Passwords
+Then run the setup script from the repo:
 
-This script also downloads your Password Manager, located in this repo: \
-[AbubakrBardien/password-manager](https://github.com/AbubakrBardien/password-manager)
+```sh
+cd ~/dotfiles
+./setup.sh
+```
 
-So remember copy your password files (`My_Passwords.txt` and `Master_Password.txt`) to the correct locations for the Password Manager.
+If any package fails, the script lists it at the end. The usual cause is an existing file at the target location, which Stow refuses to overwrite. Move or delete the file, then run the script again.
 
-### Miscellaneous
-You'll need to download the Helvetica font manually (at https://font.download/font/helvetica-255) and move the files into the `~/.local/share/fonts` directory.
+### Check The Result
 
-## Programs I Use
+```sh
+ls -l ~/.config/git
+```
 
-WM/Compositor: [Hyprland](https://hyprland.org/)\
-Terminal: [Ghostty](https://ghostty.org/)\
-Shell: [Zsh](https://wiki.archlinux.org/title/Zsh)
+You should see a real directory containing a `config` symlink pointing into `~/dotfiles`. If `~/.config/git` itself is a symlink, Stow didn't read `.stowrc`. Make sure you ran the script from the repo, and fix that before pushing any changes.
 
-| Graphical | Terminal-Based | Theming |
-| --------- | -------------- | ------- |
-| Bar: [Waybar](https://github.com/Alexays/Waybar) | Editor: [Neovim](https://neovim.io/) | Wallpaper Setter: [Swww](https://github.com/LGFae/swww) |
-| Luancher/Menu: [Wofi](https://github.com/SimplyCEO/wofi) | System Info Tool: [Fastfetch](https://github.com/fastfetch-cli/fastfetch) | GTK Theme: [Arc Dark](https://github.com/jnsh/arc-theme) |
-| Notification Tool: [Dunst](https://github.com/dunst-project/dunst) | Task Manager for Linux: [HTop](https://github.com/htop-dev/htop) | Icon Theme: [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) |
-| Browser: [Brave](https://brave.com/) |  System Monitoring Dashboard: [GoTop](https://github.com/xxxserxxx/gotop) | Login Theme: [Mountain](https://github.com/c0rydoras/sddm-mountain-theme) for [SDDM](https://github.com/sddm/sddm) |
-| Video Player: [MPV](https://mpv.io/) | Disk Space Display: [Duf](https://github.com/muesli/duf) | Bootloader Theme: [Unnamed](https://www.pling.com/p/1482847/) for [Grub](https://wiki.archlinux.org/title/GRUB) |
-| Image Viewer: [gThumb](https://gitlab.gnome.org/GNOME/gthumb) | Disk Usage Analyzer: [Dust](https://github.com/bootandy/dust) | Lock Screen: [Hyprlock](https://github.com/hyprwm/hyprlock) (not configured yet) |
-| Music Player: [Spotify](https://open.spotify.com/)| | |
-| Note-Taking App: [Obsidian](https://obsidian.md/) | | |
-| PDF Viewer: [Zathura](https://wiki.archlinux.org/title/Zathura) | | |
-| Video Recording: [OBS](https://obsproject.com/) | | |
-| Cloud Service: [pCloud](https://www.pcloud.com/)| | |
+### Save The PAT
 
-### Fun Terminal Programs
+The linked `~/.config/git/config` sets your git identity and tells git to store credentials in `~/.config/git/credentials`. That file holds your GitHub PAT, so it is never version controlled.
 
-[Cava](https://github.com/karlstav/cava) \
-[CBonsai](https://gitlab.com/jallbrit/cbonsai) \
-[CMatrix](https://github.com/abishekvashok/cmatrix) \
-[Cowsay](https://github.com/cowsay-org/cowsay) \
-[Figlet](https://github.com/cmatsuoka/figlet) \
-[Pipes](https://github.com/pipeseroni/pipes.sh) \
-[SL](https://github.com/mtoyoda/sl)
+The repo is public, so cloning didn't prompt for credentials. The first `git push` to a repo will prompt for your GitHub username and PAT, and then save them automatically.
+
+### Next Steps
+
+Go back to the NixOS repo's README to return to Hyprland.
+
+---
+
+## Adding A Package
+
+Create a directory named after the program, then mirror the path from `$HOME` inside it. For example, `git/.config/git/config` links to `~/.config/git/config`. The setup script picks up new directories automatically.
