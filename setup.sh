@@ -31,12 +31,10 @@ input="${input:-n}" # Sets default to 'n' if empty
 run_stow() {
 	local dry_run_flag="$1"
 	local failed_packages=()
+	local pkg
 
 	for dir in */; do
 		pkg="${dir%/}"
-		if [[ "$pkg" == "assets" ]]; then
-			continue
-		fi
 
 		# Run stow and capture errors
 		if [[ "$dry_run_flag" == "-n" ]]; then
