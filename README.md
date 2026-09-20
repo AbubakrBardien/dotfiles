@@ -53,6 +53,6 @@ Go back to the NixOS repo's README to return to Hyprland.
 
 ---
 
-## Adding A Package
+## Adding Packages
 
 Create a directory named after the program, then mirror the path from `$HOME` inside it. For example, `git/.config/git/config` links to `~/.config/git/config`. The setup script picks up new directories automatically.
