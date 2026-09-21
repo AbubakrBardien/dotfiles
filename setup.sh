@@ -121,3 +121,9 @@ fi
 
 echo "==> Enabling Systemd Unit Files..."
 systemctl --user enable --now battery_monitor.timer system_update_reminder.timer
+
+#######################
+## Rebuild Bat Cache ##
+#######################
+
+bat cache --build
