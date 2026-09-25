@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Wrapper script to use handlr-regex as xdg-open
+
+exec handlr open "$@"
