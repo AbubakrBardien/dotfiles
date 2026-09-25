@@ -4,3 +4,9 @@ org.kde.kdeconnect.nonplasma
 org.kde.kdeconnect.sms
 rofi
 rofi-theme-selector
+xterm
+org.pwmt.zathura
+org.pwmt.zathura-cb
+org.pwmt.zathura-djvu
+org.pwmt.zathura-pdf-mupdf
+org.pwmt.zathura-ps
