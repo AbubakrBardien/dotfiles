@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "Current generations before cleanup:"
+sudo nix-env -p /nix/var/nix/profiles/system --list-generations
+
+sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +5
+sudo nix-collect-garbage
+sudo nixos-rebuild boot
+
+echo "Done. Generations after cleanup:"
+sudo nix-env -p /nix/var/nix/profiles/system --list-generations
