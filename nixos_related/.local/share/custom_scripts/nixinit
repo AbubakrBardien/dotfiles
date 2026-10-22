@@ -34,5 +34,4 @@ else
 	echo ".envrc already exists, keeping it (check it before trusting it)"
 fi
 
-add_exclude ".direnv/"
 direnv allow
