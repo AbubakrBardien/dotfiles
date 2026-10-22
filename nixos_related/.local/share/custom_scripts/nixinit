@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+template="${1:?usage: nixinit <template> e.g. nixinit cpp}"
+dir="$HOME/dotfiles/nixos_related/.config/nix_shell_templates"
+src="$dir/$template.nix"
+
+if [[ ! -e $src ]]; then
+	echo "No template: $template" >&2
+	echo "Available: $(basename -a "$dir"/*.nix | sed 's/\.nix$//' | tr '\n' ' ')" >&2
+	exit 1
+fi
+
+# Fail early (before touching anything) if this isn't a git repo
+exclude="$(git rev-parse --git-path info/exclude)"
+mkdir -p "$(dirname "$exclude")"
+
+add_exclude() {
+	grep -qxF -- "$1" "$exclude" 2>/dev/null || echo "$1" >>"$exclude"
+}
+
+if [[ ! -e shell.nix ]]; then
+	cp "$src" shell.nix
+	add_exclude "shell.nix"
+else
+	echo "shell.nix already exists, keeping it"
+fi
+
+if [[ ! -e .envrc ]]; then
+	echo "use nix" >.envrc
+	add_exclude ".envrc"
+else
+	echo ".envrc already exists, keeping it (check it before trusting it)"
+fi
+
+add_exclude ".direnv/"
+direnv allow
