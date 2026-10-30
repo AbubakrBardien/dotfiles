@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+# Show the NixOS stable channel version and the date that build belongs to.
+#
+# Newer NixOS versions look like  26.05.<commit-count>.<short-hash>,
+# so the date is looked up from the nixpkgs commit via the GitHub API.
+
+set -uo pipefail
+
+# Print the committer date (local time) of a nixpkgs commit, given a (short) hash.
+commit_date() {
+	local rev="$1" json iso
+	json="$(curl -sf --max-time 10 \
+		-H 'Accept: application/vnd.github+json' \
+		"https://api.github.com/repos/NixOS/nixpkgs/commits/$rev" 2>/dev/null)" || {
+		echo "unknown (GitHub lookup failed)"
+		return
+	}
+
+	if command -v jq >/dev/null 2>&1; then
+		iso="$(printf '%s' "$json" | jq -r '.commit.committer.date // empty')"
+	else
+		iso="$(printf '%s' "$json" | tr -d '\n ' |
+			sed -n 's/.*"committer":{[^}]*"date":"\([^"]*\)".*/\1/p')"
+	fi
+
+	if [[ -n "$iso" ]]; then
+		date -d "$iso" '+%Y-%m-%d %H:%M %Z'
+	else
+		echo "unknown (could not parse GitHub response)"
+	fi
+}
+
+# --- Installed system -------------------------------------------------------
+full="$(nixos-version | awk '{print $1}')" # e.g. 26.05.10620.f5c082a40f75
+release="$(echo "$full" | cut -d. -f1,2)"  # e.g. 26.05
+rev="${full##*.}"                          # short commit hash
+
+echo "Installed"
+echo "  Version : $full"
+echo "  Release : $release"
+echo "  Date    : $(commit_date "$rev")"
+
+# --- Latest build on the same stable channel -------------------------------
+channel="nixos-$release"
+loc="$(curl -sI --max-time 10 "https://channels.nixos.org/$channel" |
+	tr -d '\r' | awk 'tolower($1)=="location:"{print $2}')"
+
+echo
+if [[ -n "$loc" ]]; then
+	latest="$(basename "$loc")" # e.g. nixos-26.05.13164.6f06d204d8f2
+	latest="${latest#nixos-}"
+	lrev="${latest##*.}"
+
+	echo "Latest on $channel"
+	echo "  Version : $latest"
+	echo "  Date    : $(commit_date "$lrev")"
+	if [[ "$latest" == "$full" ]]; then
+		echo "  Status  : Up To Date"
+	else
+		echo "  Status  : Update Available"
+	fi
+else
+	echo "(Could not reach channels.nixos.org to check the latest build.)"
+fi
