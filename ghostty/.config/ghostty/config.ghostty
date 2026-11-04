@@ -19,6 +19,7 @@ theme = TokyoNight Night
 # Cursor styling
 cursor-style = block
 cursor-style-blink = false
+cursor-color = #878787
 
 #=====================================
 # WINDOW & UI
