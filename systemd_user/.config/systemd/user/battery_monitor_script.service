@@ -2,4 +2,4 @@
 Description=Notify when battery is full or low
 
 [Service]
-ExecStart=/home/abubakr/.local/share/my_scripts/battery_popup.sh
+ExecStart=/home/abubakr/.local/share/custom_scripts/battery_popup.sh
