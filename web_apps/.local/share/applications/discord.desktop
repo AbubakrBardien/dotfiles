@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Discord
+Comment=Discord Web App
+Exec=brave --app=https://discord.com/app --class=WebApp-Discord
+Icon=discord
+Terminal=false
+Type=Application
+Categories=Network;InstantMessaging;
+StartupWMClass=WebApp-Discord

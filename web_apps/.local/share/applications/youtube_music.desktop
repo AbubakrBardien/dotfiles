@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=YouTube Music
+Comment=YouTube Music Web App
+Exec=brave --app=https://music.youtube.com --class=WebApp-YouTubeMusic
+Icon=youtube-music
+Terminal=false
+Type=Application
+Categories=AudioVideo;Music;
+StartupWMClass=WebApp-YouTubeMusic

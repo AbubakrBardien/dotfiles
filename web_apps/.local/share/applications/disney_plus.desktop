@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Disney+
+Comment=Disney+ Web App
+Exec=brave --app=https://www.disneyplus.com --class=WebApp-DisneyPlus
+Icon=video-display
+Terminal=false
+Type=Application
+Categories=AudioVideo;Video;
+StartupWMClass=WebApp-DisneyPlus

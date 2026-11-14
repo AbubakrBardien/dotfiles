@@ -1,0 +1,19 @@
+[Desktop Entry]
+Version=1.0
+Name=YouTube
+Comment=YouTube Web App
+Exec=brave --app=https://www.youtube.com --class=WebApp-YouTube
+Icon=youtube
+Terminal=false
+Type=Application
+Categories=AudioVideo;Video;
+StartupWMClass=WebApp-YouTube
+Actions=Search;Subscriptions;
+
+[Desktop Action Search]
+Name=Search
+Exec=brave --app=https://www.youtube.com/results --class=WebApp-YouTube
+
+[Desktop Action Subscriptions]
+Name=Subscriptions
+Exec=brave --app=https://www.youtube.com/feed/subscriptions --class=WebApp-YouTube

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Gmail
+Comment=Gmail Web App
+Exec=brave --app=https://mail.google.com --class=WebApp-Gmail
+Icon=gmail
+Terminal=false
+Type=Application
+Categories=Network;Email;
+StartupWMClass=WebApp-Gmail
